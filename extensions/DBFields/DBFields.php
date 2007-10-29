@@ -1,0 +1,350 @@
+<?
+  include_once("DBFieldsConf.php");
+  $wgExtensionFunctions[] = 'modENCODE_dbfields_setup';
+  $wgHooks['ParserAfterTidy'][] = 'modENCODE_dbfields_ParserAfterTidy_MarkerReplacement';
+  // Version too old for:
+  //$wgHooks['BeforePageDisplay'][] = 'modENCODE_dbfields_BeforePageDisplay_addCSSandJS';
+  $wgHooks['OutputPageBeforeHTML'][] = 'modENCODE_dbfields_BeforePageDisplay_addCSSandJS';
+
+  $modENCODE_dbfields_data = array(
+    "xml" => "", 
+    "open_element" => 0, 
+    "stack" => array(), 
+    "chrdata" => false, 
+    "values" => array()
+  );
+  $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
+  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "multiple");
+  $modENCODE_markers_to_data = array();
+
+  function modENCODE_DBFields_setup() {
+    global $wgParser;
+    $wgParser->setHook('dbfields', 'modENCODE_dbfields_render');
+  }
+  function modENCODE_dbfields_startElement($parser, $name, $attribs) {
+    global $modENCODE_dbfields_data;
+    global $modENCODE_dbfields_allowed_tags;
+    global $modENCODE_dbfields_allowed_attributes;
+
+    // Keep only allowed tags
+    if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
+    $string_attributes = array();
+    /*
+    <input type="cvterm" cv="cell type" name="cell type" id="cell type"/>
+
+    <div id="myAutoComplete">
+      <input type="text" id="myInput">
+      <div id="myContainer"></div>
+    </div>
+    */
+    array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
+
+    // If there are values in the DB, read them out
+    // (this overwrites any default values)
+    $extra_content_before = '';
+    $extra_content_after = '';
+    if ($name == "input") {
+      $attribs["class"] .= " dbfields_input ";
+      if ($attribs["type"] == "cvterm") {
+	$extra_content_before = '<div id="' . $attribs["id"] . '_complete">';
+	$attribs["class"] .= "cvterm";
+	$attribs["type"] = "text";
+      }
+      if ($attribs["type"] == "text" || $attribs["type"] == "password") {
+	$attribs["value"] = $modENCODE_dbfields_data["values"][$attribs["name"]];
+      }
+      if ($attribs["type"] == "checkbox" || $attribs["type"] == "radio") {
+	if ($attribs["value"] == $modENCODE_dbfields_data["values"][$attribs["name"]]) {
+	  $attribs["checked"] = "checked";
+	} elseif ($modENCODE_dbfields_data["values"][$attribs["name"]]) {
+	  unset($attribs["checked"]);
+	}
+      }
+    }
+    if ($name == "option") {
+      $tempstack = $modENCODE_dbfields_data["stack"];
+      while ($parent = array_pop($tempstack)) {
+	if ($parent["name"] == "select") {
+	  $value = $modENCODE_dbfields_data["values"][$parent["attribs"]["name"]];
+	  if ($attribs["value"] == $value) {
+	    $attribs["selected"] = "selected";
+	  } elseif ($value) {
+	    unset($attribs["selected"]);
+	  }
+	}
+      }
+    }
+
+    // Make sure to only keep allowed attributes
+    foreach ($attribs as $key => $value) {
+      if (!in_array($key, $modENCODE_dbfields_allowed_attributes)) { continue; }
+      if ($key == "name") { $value = "modENCODE_dbfields[$value]"; }
+      array_push($string_attributes, "$key=\"$value\"");
+    }
+    $attrib_string = join(" ", $string_attributes);
+    
+    // Write out the filtered tag
+    $modENCODE_dbfields_data["xml"] .= $extra_content_before;
+    $modENCODE_dbfields_data["xml"] .= $modENCODE_dbfields_data["chrdata"];
+    $modENCODE_dbfields_data["xml"] .= "<$name $attrib_string";
+    $modENCODE_dbfields_data["xml"] .= ">";
+    $modENCODE_dbfields_data["xml"] .= $extra_content_after;
+    $modENCODE_dbfields_data["chrdata"] = false;
+    //$modENCODE_dbfields_data["open_element"]++;
+  }
+  function modENCODE_dbfields_endElement($parser, $name) {
+    global $modENCODE_dbfields_data;
+    global $modENCODE_dbfields_allowed_tags;
+    if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
+
+    $extra_content_before = '';
+    $extra_content_after = '';
+    if ($name == "textarea") {
+      //if ($modENCODE_dbfields_data["values"])
+      $tempstack = $modENCODE_dbfields_data["stack"];
+      while ($parent = array_pop($tempstack)) {
+	if ($parent["name"] == "textarea") {
+	  if (strlen($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) {
+	    $modENCODE_dbfields_data["chrdata"] = ($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]]);
+	  }
+	}
+      }
+    }
+    if ($name == "input") {
+      $input = array_pop($modENCODE_dbfields_data["stack"]);
+      array_push($modENCODE_dbfields_data["stack"], $input);
+      if ($input["attribs"]["type"] == "cvterm") {
+	$extra_content_after = '<div id="' . $input["attribs"]["id"] . '_container"></div></div>';
+      }
+    }
+
+
+    $modENCODE_dbfields_data["xml"] .= $extra_content_before;
+    $modENCODE_dbfields_data["xml"] .= $modENCODE_dbfields_data["chrdata"] . "</$name>\n";
+    $modENCODE_dbfields_data["xml"] .= $extra_content_after;
+    $modENCODE_dbfields_data["chrdata"] = false;
+    array_pop($modENCODE_dbfields_data["stack"]);
+  }
+  function modENCODE_dbfields_characterData($parser, $data) {
+    global $modENCODE_dbfields_data;
+    $inTextarea = false;
+    $tempstack = $modENCODE_dbfields_data["stack"];
+    while ($parent = array_pop($tempstack)) {
+      if ($parent["name"] == "textarea") {
+	$inTextarea = true;
+	break;
+      }
+    }
+    if ($inTextarea) {
+      $modENCODE_dbfields_data["chrdata"] .= $data;
+    } else {
+      $modENCODE_dbfields_data["chrdata"] .= rtrim($data, "\r\n");
+    }
+  }
+  function modENCODE_db_connect($host, $dbname, $user, $password, $dbtype) {
+    if ($dbtype == "postgres") {
+      $db = pg_connect("host=$host dbname=$dbname user=$user password=$password");
+    } elseif ($dbtype == "mysql") {
+      $db = mysql_connect($host, $user, $password);
+      mysql_select_db($dbname, $db);
+    } else {
+      die("Unknown database type $dbtype for modENCODE_DBFields extension! Must be \"postgres\" or \"mysql\"...");
+    }
+    return $db;
+  }
+  function modENCODE_db_escape($string, $db, $dbtype) {
+    if ($dbtype == "postgres") {
+      $string = pg_escape_string($string);
+    } elseif ($dbtype == "mysql") {
+      $string = mysql_real_escape_string($string, $db);
+    } else {
+      die("Unknown database type $dbtype for modENCODE_DBFields extension! Must be \"postgres\" or \"mysql\"...");
+    }
+    return $string;
+  }
+  function modENCODE_db_query($db, $query, $dbtype) {
+    if ($dbtype == "postgres") {
+      return pg_query($db, $query);
+    } elseif ($dbtype == "mysql") {
+      return mysql_query($query, $db);
+    } else {
+      die("Unknown database type $dbtype for modENCODE_DBFields extension! Must be \"postgres\" or \"mysql\"...");
+    }
+  }
+  function modENCODE_db_fetch_assoc($res, $dbtype) {
+    if ($dbtype == "postgres") {
+      return pg_fetch_assoc($res);
+    } elseif ($dbtype == "mysql") {
+      return mysql_fetch_assoc($res);
+    } else {
+      die("Unknown database type $dbtype for modENCODE_DBFields extension! Must be \"postgres\" or \"mysql\"...");
+    }
+  }
+  function modENCODE_db_close($db, $dbtype) {
+    if ($dbtype == "postgres") {
+      return pg_close($db);
+    } elseif ($dbtype == "mysql") {
+      return mysql_close($db);
+    } else {
+      die("Unknown database type $dbtype for modENCODE_DBFields extension! Must be \"postgres\" or \"mysql\"...");
+    }
+  }
+    
+
+  function modENCODE_dbfields_render($input, $args, $parser) {
+    global $modENCODE_dbfields_data;
+    global $modENCODE_markers_to_data;
+    global $modENCODE_DBFields_conf;
+    global $wgOut;
+    $parser->disableCache();
+
+    $revisionId = $parser->mRevisionId;
+    $permalink = $parser->mTitle->getLocalURL("oldid=$revisionId");
+
+    $db = modENCODE_db_connect(
+      $modENCODE_DBFields_conf["form_data"]["host"], 
+      $modENCODE_DBFields_conf["form_data"]["dbname"], 
+      $modENCODE_DBFields_conf["form_data"]["user"], 
+      $modENCODE_DBFields_conf["form_data"]["password"], 
+      $modENCODE_DBFields_conf["form_data"]["type"]
+    );
+    $entry_name = modENCODE_db_escape($args["name"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+
+    if ($_GET["version"]) {
+      $version = modENCODE_db_escape($_GET["version"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+      $res = modENCODE_db_query($db,
+	"SELECT MAX(wiki_revid) AS revisionid FROM data WHERE name = '$entry_name' AND version = $version",
+	$modENCODE_DBFields_conf["form_data"]["type"]
+      );
+      if ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
+	$oldRevision = $row["revisionid"];
+	$versionUrl = $parser->mTitle->getLocalURL("oldid=$oldRevision");
+	print $versionUrl;
+	$wgOut->redirect($versionUrl);
+	$wgOut->output();
+      }
+    }
+
+
+    $res = modENCODE_db_query($db, "
+      SELECT
+	CASE WHEN (SELECT COUNT(*) FROM data WHERE wiki_revid >= $revisionId AND name = '$entry_name') > 1 THEN
+	  (SELECT MIN(version) AS version FROM data WHERE name = '$entry_name' AND wiki_revid >= $revisionId)
+	ELSE
+	  (SELECT MAX(version) AS version FROM data WHERE name = '$entry_name')
+	END AS version",
+      $modENCODE_DBFields_conf["form_data"]["type"]
+    );
+
+    $version = 0;
+    if ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
+      if ($row["version"] > 0) {
+	$version = $row["version"];
+      }
+    }
+    if (count($_POST["modENCODE_dbfields"])) {
+      $version++;
+
+
+      $dbw = wfGetDB(DB_MASTER);
+      $pageId = $parser->mTitle->getArticleId();
+      $newRev = Revision::newNullRevision($dbw, $pageId, "DBFields version update", false);
+      $newRevId = $newRev->inserton($dbw);
+      $newRev = Revision::newFromId($newRevId);
+      $a = new Article($parser->mTitle);
+      $a->updateIfNewerOn($dbw, $newRev);
+
+      foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
+	$key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+	$value = modENCODE_db_escape(strip_tags($value), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+	modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
+      }
+
+      $url = $parser->mTitle->getLocalURL("action=purge");
+      // Reload the page to get the new updated ID
+      $wgOut->redirect($url);
+      $wgOut->output();
+
+    }
+
+    $nochanges = false;
+    $curRev = Revision::newFromId($revisionId);
+    if (!$curRev->isCurrent()) {
+      $nochanges = true;
+    }
+
+    $db_values = array();
+    $res = modENCODE_db_query($db, "SELECT key, value FROM data WHERE name = '$entry_name' AND version = $version", $modENCODE_DBFields_conf["form_data"]["type"]);
+    while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
+      $modENCODE_dbfields_data["values"][$row['key']] = $row['value'];
+    }
+    modENCODE_db_close($db, $modENCODE_DBFields_conf["form_data"]["type"]);
+
+    $input = "<xml>$input</xml>";
+    $xml_parser = xml_parser_create();
+    xml_parser_set_option($xml_parser, XML_OPTION_CASE_FOLDING, false);
+    xml_set_element_handler($xml_parser, "modENCODE_dbfields_startElement", "modENCODE_dbfields_endElement");
+    xml_set_character_data_handler($xml_parser, "modENCODE_dbfields_characterData");
+    xml_parse($xml_parser, trim($input), true);
+    print xml_error_string(xml_get_error_code($xml_parser));
+    xml_parser_free($xml_parser);
+
+    $thispage = $parser->mTitle->getFullURL("action=purge");
+
+    $parsed_xml .= "<form class=\"modENCODE_dbfields yui-skin-sam\" method=\"POST\" action=\"$thispage\">\n";
+    if ($nochanges) {
+      $modENCODE_dbfields_data["xml"] = preg_replace("/<(input|select|textarea)/", "<\$1 disabled=\"disabled\"", $modENCODE_dbfields_data["xml"]);
+    }
+    $parsed_xml .= $modENCODE_dbfields_data["xml"];
+
+    if (!$nochanges) {
+      $parsed_xml .= "<br/>\n<input type=\"submit\" value=\"Update\"/> <input type=\"reset\" value=\"Restore\"/>\n";
+    }
+
+    $parsed_xml .= "</form>";
+
+    $server_url = "http://" . $_SERVER["SERVER_NAME"];
+    $parsed_xml .= "<br/><br/>Please use this page's permanent link when referencing it in data submission:<br/>";
+    $parsed_xml .= "<a href=\"$permalink\">${server_url}$permalink</a>";
+
+    // Permalink marker
+    //$modENCODE_markers_to_data[] = "<pre>" . htmlentities($parsed_xml) . "</pre>";
+    $modENCODE_markers_to_data[] = $parsed_xml;
+
+    $version = ($version == 0) ? "0: no information" : $version;
+    $result = "<h2>Protocol \"" . $args["name"] . "\" (version $version)</h2>\n";
+    $result .= htmlspecialchars("modENCODE-marker#" . (count($modENCODE_markers_to_data)-1) . "#");
+    return $result;
+  }
+  function modENCODE_dbfields_ParserAfterTidy_MarkerReplacement(&$parser, &$text) {
+    global $modENCODE_markers_to_data;
+    for ($i = 0; $i < count($modENCODE_markers_to_data); $i++) {
+      $text = preg_replace("/modENCODE-marker#$i#/", $modENCODE_markers_to_data[$i], $text);
+    }
+    return true;
+  }
+  function modENCODE_dbfields_BeforePageDisplay_addCSSandJS(&$out, &$text) {
+    global $modENCODE_markers_to_data;
+    global $wgScriptPath;
+    if (count($modENCODE_markers_to_data)) {
+      $out->addLink(array(
+	'rel' => 'stylesheet',
+	'href' => "$wgScriptPath/extensions/DBFields/DBFields.css?diff=" . rand()
+      ));
+      $out->addLink(array(
+	'rel' => 'stylesheet',
+	'href' => "$wgScriptPath/extensions/DBFields/yui/build/autocomplete/assets/skins/sam/autocomplete.css"
+      ));
+
+      $out->addScript(
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>' .
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/connection/connection.js"></script>' .
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/logger/logger.js"></script>' .
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/autocomplete/autocomplete.js"></script>' .
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/behaviour.js"></script>' .
+	'<script type="text/javascript" src=' . $wgScriptPath . '/extensions/DBFields/DBFields.js.php?diff=' . rand() . '"></script>'
+      );
+    }
+    return true;
+  }
+?>
