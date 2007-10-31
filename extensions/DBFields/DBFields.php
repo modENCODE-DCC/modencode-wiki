@@ -149,7 +149,7 @@
       $db = pg_connect("host=$host dbname=$dbname user=$user password=$password");
     } elseif ($dbtype == "mysql") {
       if (!function_exists("mysql_connect")) {
-        print "Function pg_connect does not exist, but is needed by modENCODE_db_connect.";
+        print "Function mysql_connect does not exist, but is needed by modENCODE_db_connect.";
       }
       $db = mysql_connect($host, $user, $password);
       mysql_select_db($dbname, $db);
@@ -219,18 +219,19 @@
     if ($_GET["version"]) {
       $version = modENCODE_db_escape($_GET["version"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
       $res = modENCODE_db_query($db,
-	"SELECT MAX(wiki_revid) AS revisionid FROM data WHERE name = '$entry_name' AND version = $version",
-	$modENCODE_DBFields_conf["form_data"]["type"]
+        "SELECT MAX(wiki_revid) AS revisionid FROM data WHERE name = '$entry_name' AND version = $version",
+        $modENCODE_DBFields_conf["form_data"]["type"]
       );
       if ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
-	$oldRevision = $row["revisionid"];
-	$versionUrl = $parser->mTitle->getLocalURL("oldid=$oldRevision");
-	$wgOut->redirect($versionUrl);
-	$wgOut->output();
+        $oldRevision = $row["revisionid"];
+        $versionUrl = $parser->mTitle->getLocalURL("oldid=$oldRevision");
+        $wgOut->redirect($versionUrl);
+        $wgOut->output();
       }
     }
 
     if (!$revisionId) { $revisionId = '(SELECT MAX(wiki_revid) FROM data)'; }
+
 
     $res = modENCODE_db_query($db, "
       SELECT

@@ -53,7 +53,7 @@
       for ($j = 0; $j < count($tags[1]); $j++) {
 	$row[$tags[1][$j]] = $tags[2][$j];
       }
-      array_push($resultTerms, array("cv" => $row["cv"], "name" => $row["name"], "accession" => $row["id"]));
+      array_push($resultTerms, array("cv" => $row["cv"], "name" => $row["name"], "accession" => $row["id"], "definition" => $row["def"], "definition" => $row["def"]));
     }
     return $resultTerms;
   }

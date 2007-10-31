@@ -1,6 +1,24 @@
 <?
   header("Content-type: text/javascript");
 ?>
+/**
+/****************************************************************
+* findPos script from http://www.quirksmode.org/js/findpos.html *
+****************************************************************/
+function findPos(obj) {
+  var curleft = curtop = 0;
+  if (obj.offsetParent) {
+    curleft = obj.offsetLeft
+    curtop = obj.offsetTop
+    while (obj = obj.offsetParent) {
+      curleft += obj.offsetLeft
+      curtop += obj.offsetTop
+    }
+  }
+  return [curleft,curtop];
+}
+
+
 /************************************************************
 * Extensions to the YUI AutoComplete widget                 *
 ************************************************************/
@@ -224,6 +242,41 @@ YAHOO.widget.AutoComplete.prototype._onTextboxKeyDown = function(v,oSelf) {
     oSelf._oldOnTextboxKeyDown(v, oSelf);
 }
 
+var DBFields_hideDefinition = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  if (oCompleter.definitionBox) {
+    oCompleter.definitionBox.style.display = "none";
+  }
+}
+
+var DBFields_showDefinition = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  var oContainer = oCompleter._oContainer; // Yikes, private property
+  var elItem = aArgs[1];
+  var data = oCompleter.getListItemData(elItem);
+
+  var name = data[0];
+  var cv = data[1];
+  var accession = data[2];
+  var definition = data[3];
+
+  if (!oCompleter.definitionBox) { 
+    var form = oContainer.form;
+    var defDiv = document.createElement("div");
+    defDiv.className = "definition";
+    defDiv.innerHTML = "boom baby";
+    defDiv.style.position = "relative";
+    defDiv.style.left = '315px'; //findPos(oContainer)[0] + "px";
+    defDiv.style.top = '-' + oCompleter._oTextbox.offsetHeight + 'px'; //findPos(oContainer)[1] + "px";
+    defDiv.style.width = '300px';
+    oCompleter.definitionBox = oContainer.appendChild(defDiv);
+  } else {
+    oCompleter.definitionBox.style.display = "block";
+  }
+  if (!definition) { definition = "No definition."; }
+  oCompleter.definitionBox.innerHTML = accession + ": <b>" + name + "</b><br/>" + definition;
+}
+
 
 /************************************************************
 * Set up the autocompletion widget for cvterm fields        *
@@ -238,7 +291,7 @@ function DBFields_runOnLoad() {
             var multiple = element.getAttribute('multiple');
             if (!cv) { continue; }
             var url = "<?=dirname($_SERVER["PHP_SELF"]);?>/DBFieldsCVTerm.php"
-                var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'name', 'cv', 'accession' ]);
+	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'name', 'cv', 'accession', 'definition' ]);
             dataSource.responseType = YAHOO.widget.DS_XHR.TYPE_XML;
             dataSource.scriptQueryAppend = "cv=" + cv;
             dataSource.scriptQueryParam = "term";
@@ -273,7 +326,10 @@ function DBFields_runOnLoad() {
                 return formattedResult;
             };
 
-            
+	    autoComp.itemArrowToEvent.subscribe(DBFields_showDefinition);
+	    autoComp.itemMouseOverEvent.subscribe(DBFields_showDefinition);
+	    autoComp.textboxBlurEvent.subscribe(DBFields_hideDefinition);
+	    autoComp.itemSelectEvent.subscribe(DBFields_hideDefinition);
             autoComp.allowBrowserAutocomplete = false;
             autocompleters[autocompleters.length] = autoComp;
         }
