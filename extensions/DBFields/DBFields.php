@@ -131,8 +131,8 @@
     $tempstack = $modENCODE_dbfields_data["stack"];
     while ($parent = array_pop($tempstack)) {
       if ($parent["name"] == "textarea") {
-	$inTextarea = true;
-	break;
+        $inTextarea = true;
+        break;
       }
     }
     if ($inTextarea) {
@@ -143,8 +143,14 @@
   }
   function modENCODE_db_connect($host, $dbname, $user, $password, $dbtype) {
     if ($dbtype == "postgres") {
+      if (!function_exists("pg_connect")) {
+        print "Function pg_connect does not exist, but is needed by modENCODE_db_connect.";
+      }
       $db = pg_connect("host=$host dbname=$dbname user=$user password=$password");
     } elseif ($dbtype == "mysql") {
+      if (!function_exists("mysql_connect")) {
+        print "Function pg_connect does not exist, but is needed by modENCODE_db_connect.";
+      }
       $db = mysql_connect($host, $user, $password);
       mysql_select_db($dbname, $db);
     } else {
@@ -219,12 +225,12 @@
       if ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
 	$oldRevision = $row["revisionid"];
 	$versionUrl = $parser->mTitle->getLocalURL("oldid=$oldRevision");
-	print $versionUrl;
 	$wgOut->redirect($versionUrl);
 	$wgOut->output();
       }
     }
 
+    if (!$revisionId) { $revisionId = '(SELECT MAX(wiki_revid) FROM data)'; }
 
     $res = modENCODE_db_query($db, "
       SELECT
@@ -269,7 +275,7 @@
 
     $nochanges = false;
     $curRev = Revision::newFromId($revisionId);
-    if (!$curRev->isCurrent()) {
+    if (!$curRev || !$curRev->isCurrent()) {
       $nochanges = true;
     }
 
@@ -286,11 +292,11 @@
     xml_set_element_handler($xml_parser, "modENCODE_dbfields_startElement", "modENCODE_dbfields_endElement");
     xml_set_character_data_handler($xml_parser, "modENCODE_dbfields_characterData");
     xml_parse($xml_parser, trim($input), true);
-    print xml_error_string(xml_get_error_code($xml_parser));
     xml_parser_free($xml_parser);
 
     $thispage = $parser->mTitle->getFullURL("action=purge");
 
+    $parsed_xml = "";
     $parsed_xml .= "<form class=\"modENCODE_dbfields yui-skin-sam\" method=\"POST\" action=\"$thispage\">\n";
     if ($nochanges) {
       $modENCODE_dbfields_data["xml"] = preg_replace("/<(input|select|textarea)/", "<\$1 disabled=\"disabled\"", $modENCODE_dbfields_data["xml"]);
@@ -312,7 +318,7 @@
     $modENCODE_markers_to_data[] = $parsed_xml;
 
     $version = ($version == 0) ? "0: no information" : $version;
-    $result = "<h2>Protocol \"" . $args["name"] . "\" (version $version)</h2>\n";
+    $result = "<h2>Form \"" . $args["name"] . "\" (version $version)</h2>\n";
     $result .= htmlspecialchars("modENCODE-marker#" . (count($modENCODE_markers_to_data)-1) . "#");
     return $result;
   }
