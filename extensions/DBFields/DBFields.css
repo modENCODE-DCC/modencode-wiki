@@ -9,3 +9,4 @@ form.modENCODE_dbfields div.formattedResult div.termName { }
 form.modENCODE_dbfields div.formattedResult div.accession { float: right; }
 form.modENCODE_dbfields div.formattedResult span.queryText { font-weight: bold; }
 
+form.modENCODE_dbfields div.definition { position: absolute; float: right; border: thin double black; }
