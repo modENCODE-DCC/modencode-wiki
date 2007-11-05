@@ -126,9 +126,10 @@
 	  $terms = getExactTermsFor($attribs["cv"], $modENCODE_dbfields_data["values"][$attribs["name"]], $delim);
 	  foreach ($terms as $term) {
 	    if (strlen($term["url"]) > 0) {
-	      $link = '[' . $term["url"] . ' ' . $term["name"] . ']';
-	      $link = $renderParser->parse($link, $renderParser->mTitle, $renderParser->mOptions);
-	      $extra_content_after .= $link->getText();
+	      $link = '<a href="' . $term["url"] . '">' . $term["name"] . '</a>';
+	      $extra_content_after .= $link;
+	      //$link = $renderParser->parse($link, $renderParser->mTitle, $renderParser->mOptions);
+	      //$extra_content_after .= $link->getText();
 	    }
 	  }
 	}
