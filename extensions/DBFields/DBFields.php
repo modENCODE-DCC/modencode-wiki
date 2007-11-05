@@ -1,5 +1,6 @@
 <?
   include_once("DBFieldsConf.php");
+  include_once("DBFieldsCVTerm.php");
   $wgExtensionFunctions[] = 'modENCODE_dbfields_setup';
   $wgHooks['ParserAfterTidy'][] = 'modENCODE_dbfields_ParserAfterTidy_MarkerReplacement';
   // Version too old for:
@@ -33,6 +34,7 @@
     <input type="cvterm" cv="cell type" name="cell type" id="cell type"/>
 
     <div id="myAutoComplete">
+      <div id="myUrl"></div>
       <input type="text" id="myInput">
       <div id="myContainer"></div>
     </div>
@@ -95,6 +97,7 @@
   function modENCODE_dbfields_endElement($parser, $name) {
     global $modENCODE_dbfields_data;
     global $modENCODE_dbfields_allowed_tags;
+    global $renderParser;
     if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
 
     $extra_content_before = '';
@@ -113,8 +116,24 @@
     if ($name == "input") {
       $input = array_pop($modENCODE_dbfields_data["stack"]);
       array_push($modENCODE_dbfields_data["stack"], $input);
+
       if ($input["attribs"]["type"] == "cvterm") {
-	$extra_content_after = '<div id="' . $input["attribs"]["id"] . '_container"></div></div>';
+	$attribs = $input["attribs"];
+	$extra_content_after .= '<div class="cvterm_url" id="' . $attribs["id"] . '_url">';
+	if (strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
+	  // Get URLs
+	  $delim = ($attribs["multiple"] ? ',' : null);
+	  $terms = getExactTermsFor($attribs["cv"], $modENCODE_dbfields_data["values"][$attribs["name"]], $delim);
+	  foreach ($terms as $term) {
+	    if (strlen($term["url"]) > 0) {
+	      $link = '[' . $term["url"] . ' ' . $term["name"] . ']';
+	      $link = $renderParser->parse($link, $renderParser->mTitle, $renderParser->mOptions);
+	      $extra_content_after .= $link->getText();
+	    }
+	  }
+	}
+	$extra_content_after .= '</div>';
+	$extra_content_after .= '<div id="' . $input["attribs"]["id"] . '_container"></div></div>';
       }
     }
 
@@ -202,6 +221,8 @@
     global $modENCODE_markers_to_data;
     global $modENCODE_DBFields_conf;
     global $wgOut;
+    global $renderParser;
+    $renderParser = $parser;
     $parser->disableCache();
 
     $revisionId = $parser->mRevisionId;

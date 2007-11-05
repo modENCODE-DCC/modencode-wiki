@@ -163,13 +163,26 @@ YAHOO.widget.AutoComplete.prototype.validateValues = function(sQuery) {
 YAHOO.widget.AutoComplete.prototype._finishValidating = function(sQuery, aResults, oSelf) {
     var textBox = oSelf._oTextbox;
     filteredValue = "";
+    sQuery = decodeURIComponent(sQuery);
+    var filteredResults = new Array();
     for (var i = 0; i < aResults.length; i++) {
-        filteredValue += aResults[i][0];
-        if (i < aResults.length - 1) {
+	var aSentElements = (oSelf.delimChar && oSelf.delimChar != null && oSelf.delimChar.length > 0) ? sQuery.split(oSelf.delimChar) : new Array(sQuery);
+	var exactMatch = false;
+	for (var j = 0; j < aSentElements.length; j++) {
+	    if (aResults[i][0] == aSentElements[j].replace(/^\s+|\s+$/, '')) {
+		filteredResults[filteredResults.length] = aResults[i];
+		break;
+	    }
+	}
+    }
+    for (var i = 0; i < filteredResults.length; i++) {
+        filteredValue += filteredResults[i][0];
+        if (i < filteredResults.length - 1) {
             filteredValue += oSelf.delimChar + " ";
         }
     }
     textBox.value = filteredValue;
+    oSelf.finishedValidatingEvent.fire(oSelf, filteredResults);
 };
 
 /**
@@ -242,12 +255,55 @@ YAHOO.widget.AutoComplete.prototype._onTextboxKeyDown = function(v,oSelf) {
     oSelf._oldOnTextboxKeyDown(v, oSelf);
 }
 
+YAHOO.widget.AutoComplete.prototype.finishedValidatingEvent = null;
+
+YAHOO.widget.AutoComplete.prototype._oldInitContainer = YAHOO.widget.AutoComplete.prototype._initContainer;
+YAHOO.widget.AutoComplete.prototype._initContainer = function() {
+  this.finishedValidatingEvent = new YAHOO.util.CustomEvent("finishedValidating", this);
+  this._oldInitContainer();
+}; 
+
+YAHOO.widget.AutoComplete.prototype.oldDestroy = YAHOO.widget.AutoComplete.prototype.destroy;
+YAHOO.widget.AutoComplete.prototype.destroy = function() {
+  this.finishedValidatingEvent.unsubscribe();
+  this.oldDestroy();
+}
+
+
+/******************************************************
+* DBField specific code here			      *
+*******************************************************/
+
+var DBFields_showURL = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  var aResults = aArgs[1];
+  if (oCompleter.urlField) {
+    var urlField = document.getElementById(oCompleter.urlField);
+    if (urlField) {
+      urlField.innerHTML = "";
+      for (var i = 0; i < aResults.length; i++) {
+	urlField.innerHTML += '<a href="' + aResults[i][4] + '">' + aResults[i][0] + '</a>';
+	if (i < aResults.length - 1) { urlField.innerHTML += " "; }
+      }
+      urlField.style.display = "inline";
+    }
+  }
+};
+var DBFields_hideURL = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  if (oCompleter.urlField) {
+    var urlField = document.getElementById(oCompleter.urlField);
+    if (urlField) {
+      urlField.style.display = "none";
+    }
+  }
+};
 var DBFields_hideDefinition = function(sType, aArgs) {
   var oCompleter = aArgs[0];
   if (oCompleter.definitionBox) {
     oCompleter.definitionBox.style.display = "none";
   }
-}
+};
 
 var DBFields_showDefinition = function(sType, aArgs) {
   var oCompleter = aArgs[0];
@@ -275,7 +331,7 @@ var DBFields_showDefinition = function(sType, aArgs) {
   }
   if (!definition) { definition = "No definition."; }
   oCompleter.definitionBox.innerHTML = accession + ": <b>" + name + "</b><br/>" + definition;
-}
+};
 
 
 /************************************************************
@@ -283,7 +339,7 @@ var DBFields_showDefinition = function(sType, aArgs) {
 ************************************************************/
 var autocompleters = [];
 function DBFields_runOnLoad() {
-    //var myLogReader = new YAHOO.widget.LogReader(); 
+    var myLogReader = new YAHOO.widget.LogReader(); 
     var cvtermInputs = document.getElementsBySelector("input.cvterm");
     if (cvtermInputs) {
         for (i = 0; element = cvtermInputs[i]; i++) {
@@ -291,7 +347,7 @@ function DBFields_runOnLoad() {
             var multiple = element.getAttribute('multiple');
             if (!cv) { continue; }
             var url = "<?=dirname($_SERVER["PHP_SELF"]);?>/DBFieldsCVTerm.php"
-	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'name', 'cv', 'accession', 'definition' ]);
+	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'name', 'cv', 'accession', 'definition', 'url' ]);
             dataSource.responseType = YAHOO.widget.DS_XHR.TYPE_XML;
             dataSource.scriptQueryAppend = "cv=" + cv;
             dataSource.scriptQueryParam = "term";
@@ -331,6 +387,11 @@ function DBFields_runOnLoad() {
 	    autoComp.textboxBlurEvent.subscribe(DBFields_hideDefinition);
 	    autoComp.itemSelectEvent.subscribe(DBFields_hideDefinition);
             autoComp.allowBrowserAutocomplete = false;
+
+	    autoComp.urlField = input_id + "_url";
+	    autoComp.textboxFocusEvent.subscribe(DBFields_hideURL);
+	    autoComp.finishedValidatingEvent.subscribe(DBFields_showURL);
+
             autocompleters[autocompleters.length] = autoComp;
         }
     }
