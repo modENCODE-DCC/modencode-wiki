@@ -339,7 +339,7 @@ var DBFields_showDefinition = function(sType, aArgs) {
 ************************************************************/
 var autocompleters = [];
 function DBFields_runOnLoad() {
-    var myLogReader = new YAHOO.widget.LogReader(); 
+    //var myLogReader = new YAHOO.widget.LogReader(); 
     var cvtermInputs = document.getElementsBySelector("input.cvterm");
     if (cvtermInputs) {
         for (i = 0; element = cvtermInputs[i]; i++) {
