@@ -57,7 +57,7 @@ my @required_headers = (
   'idspace: DGRC_INDIANA https://dgrc.cgb.indiana.edu/product/View?product=# "Indiana U. Dros. Genomics Resource Center Cell Line Catalog"',
 );
 foreach my $required_header (@required_headers) {
-  if (!($header_text =~ m/^\Q$required_header\E/m)) { $header_text .= $required_header . "\n"; }
+  if (!($header_text =~ m/^\Q$required_header\E/m)) { $header_text .= "\n" . $required_header; }
 }
 
 my @terms = ($content =~ m/(\[Term\](?:.(?!\[Term\]))*)/sg);
@@ -98,7 +98,7 @@ foreach my $value (@allvalues) {
   
 }
 
-$content = $header_text . $content;
+$content = $header_text . "\n" . $content;
 
 print $content;
 

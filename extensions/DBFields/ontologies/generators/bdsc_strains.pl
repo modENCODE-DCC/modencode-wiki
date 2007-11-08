@@ -2,10 +2,11 @@
 
 use strict;
 
+use Text::CSV;
 use LWP::UserAgent;
 my $file = $ARGV[0];
 
-my $url = "http://biosci.umn.edu/CGC/strains/gophstrnt.txt";
+my $url = "http://flystocks.bio.indiana.edu/bloomington.csv";
 my $ua = new LWP::UserAgent();
 $ua->timeout(20);
 
@@ -15,31 +16,24 @@ print STDERR "Parsing...\n";
 die "Couldn't get catalog page: $url because " . $response->message unless $response->is_success;
 my $content = $response->content . "\n";
 
+
 open CONT, '<', \$content or die "WFT";
 
-my $current_strain = {};
 my @allvalues;
-my $prevkey;
+
+my $parser = new Text::CSV();
+
+my $line = <CONT>; # Header line
+$parser->parse($line);
+my @header = $parser->fields();
 while (my $line = <CONT>) {
-  $line =~ s/^[\r\n]+|[\r\n]+$//;
-  $line =~ s/^\s+|\s+$//;
-  if ($line =~ m/^[=-]+$/) {
-    if (length($current_strain->{'Strain'})) {
-      push(@allvalues, $current_strain);
-    }
-    $current_strain = {};
-    next;
+  $parser->parse($line);
+  my @fields = $parser->fields();
+  my %strain;
+  for (my $i = 0; $i < scalar(@header); $i++) {
+    $strain{$header[$i]} = $fields[$i];
   }
-  my ($key, $val) = ($line =~ m/^\s*(\S[^:]*):\s*(.*$)/);
-  if (length($key)) { 
-    $prevkey = $key; 
-  } else {
-    $val = $line;
-  }
-  if (length($prevkey)) {
-    $current_strain->{$prevkey} .= (!length($key)) ? ' ' : '';
-    $current_strain->{$prevkey} .= $val;
-  }
+  push(@allvalues, \%strain);
 }
 close CONT;
 
@@ -63,10 +57,10 @@ $content =~ s/\Q$header_text\E//;
 my @required_headers = (
   'format-version: 1.2', 
   'remark: $Revision 1 $ Describes strains used in the modENCODE project',
-  'idspace: CGC_STRAIN http://wormbase.org/db/gene/strain?class=Strain;name=# "Caenorhabditis Genetics Center Strain"',
+  'idspace: BDSC_STRAIN http://flystocks.bio.indiana.edu/Reports/#.html "Bloomington Drosophila Stock Center at Indiana University"',
 );
 foreach my $required_header (@required_headers) {
-  if (!($header_text =~ m/^\Q$required_header\E/m)) { $header_text .= "\n" . $required_header; }
+  if (!($header_text =~ m/^\Q$required_header\E/m)) { $header_text .= "\n" . $required_header ; }
 }
 my @terms = ($content =~ m/(\[Term\](?:.(?!\[Term\]))*)/sg);
 my %parsed_terms;
@@ -83,9 +77,9 @@ foreach my $term (@terms) {
 
 foreach my $value (@allvalues) {
   my %newterm = (
-    'id'   => 'CGC_STRAIN:' . $value->{'Strain'},
-    'name' => $value->{'Strain'},
-    'def'  => $value->{'Description'},
+    'id'   => 'BDSC_STRAIN:' . $value->{'Stk #'},
+    'name' => $value->{'Genotype'},
+    'def'  => $value->{'Comments'},
   );
   if (!defined($parsed_terms{$newterm{'id'}})) {
     $content .= "[Term]\n";
