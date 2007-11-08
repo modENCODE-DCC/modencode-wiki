@@ -12,10 +12,11 @@
     "open_element" => 0, 
     "stack" => array(), 
     "chrdata" => false, 
-    "values" => array()
+    "values" => array(),
+    "invalidversion" => false
   );
   $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
-  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "multiple");
+  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "multiple", "required");
   $modENCODE_markers_to_data = array();
 
   function modENCODE_DBFields_setup() {
@@ -39,8 +40,6 @@
       <div id="myContainer"></div>
     </div>
     */
-    array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
-
     // If there are values in the DB, read them out
     // (this overwrites any default values)
     $extra_content_before = '';
@@ -76,6 +75,7 @@
 	}
       }
     }
+    array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
 
     // Make sure to only keep allowed attributes
     foreach ($attribs as $key => $value) {
@@ -114,8 +114,7 @@
       }
     }
     if ($name == "input") {
-      $input = array_pop($modENCODE_dbfields_data["stack"]);
-      array_push($modENCODE_dbfields_data["stack"], $input);
+      $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
 
       if ($input["attribs"]["type"] == "cvterm") {
 	$attribs = $input["attribs"];
@@ -136,6 +135,16 @@
 	}
 	$extra_content_after .= '</div>';
 	$extra_content_after .= '<div id="' . $input["attribs"]["id"] . '_container"></div></div>';
+      }
+    }
+    if ($name == "input" || $name == "select") {
+      $item = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
+      if ($item && $item["attribs"]["required"] == "true") {
+	$value = $modENCODE_dbfields_data["values"][$item["attribs"]["name"]];
+	if (!strlen($value)) {
+	  $extra_content_after .= "  <div class=\"required missing\">required field missing</div>";
+	  $modENCODE_dbfields_data["invalidversion"] = true;
+	}
       }
     }
 
@@ -339,6 +348,9 @@
 
     // Permalink marker
     //$modENCODE_markers_to_data[] = "<pre>" . htmlentities($parsed_xml) . "</pre>";
+    if ($modENCODE_dbfields_data["invalidversion"]) {
+      $parsed_xml = "<div class=\"invalid\">This form is incomplete...</div>\n" . $parsed_xml;
+    }
     $modENCODE_markers_to_data[] = $parsed_xml;
 
     $version = ($version == 0) ? "0: no information" : $version;
