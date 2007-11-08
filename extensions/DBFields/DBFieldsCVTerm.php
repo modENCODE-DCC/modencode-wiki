@@ -32,7 +32,7 @@
       if (count($resultTerms) < 1) { continue; }
       foreach ($resultTerms as $resultTerm) {
 	if ($resultTerm["name"] != $searchTerm) { continue; }
-	array_push($okayTerms, $resultTerms[0]);
+	array_push($okayTerms, $resultTerm);
       }
     }
     return $okayTerms;
