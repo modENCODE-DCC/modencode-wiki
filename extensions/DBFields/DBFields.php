@@ -123,10 +123,11 @@
 	if (strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
 	  // Get URLs
 	  $delim = ($attribs["multiple"] ? ',' : null);
-	  $terms = getExactTermsFor($attribs["cv"], $modENCODE_dbfields_data["values"][$attribs["name"]], $delim);
+	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
 	  foreach ($terms as $term) {
 	    if (strlen($term["url"]) > 0) {
-	      $link = '<a href="' . $term["url"] . '">' . $term["name"] . '</a>';
+	      $linkname = strlen($term["name"]) > 25 ? substr($term["name"], 0, 25) . "..." : $term["name"];
+	      $link = '<a href="' . $term["url"] . '">' . $linkname . '</a>';
 	      $extra_content_after .= $link;
 	      //$link = $renderParser->parse($link, $renderParser->mTitle, $renderParser->mOptions);
 	      //$extra_content_after .= $link->getText();
@@ -285,7 +286,7 @@
 
       foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
 	$key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-	$value = modENCODE_db_escape(strip_tags($value), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+	$value = modENCODE_db_escape(htmlentities($value), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
 	modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
       }
 

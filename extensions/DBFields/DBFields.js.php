@@ -282,7 +282,8 @@ var DBFields_showURL = function(sType, aArgs) {
     if (urlField) {
       urlField.innerHTML = "";
       for (var i = 0; i < aResults.length; i++) {
-	urlField.innerHTML += '<a href="' + aResults[i][4] + '">' + aResults[i][0] + '</a>';
+	var linkname = (aResults[i][0].length > 25) ? aResults[i][0].substr(0, 25) + "..." : aResults[i][0];
+	urlField.innerHTML += '<a href="' + aResults[i][4] + '">' + linkname + '</a>';
 	if (i < aResults.length - 1) { urlField.innerHTML += " "; }
       }
       urlField.style.display = "inline";
