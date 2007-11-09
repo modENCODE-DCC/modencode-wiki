@@ -355,7 +355,7 @@ function DBFields_runOnLoad() {
             dataSource.queryMatchCase = true;
             dataSource.queryMatchContains = true;
             dataSource.maxCacheEntries = 60;
-            dataSource.queryMatchSubset = true; 
+            dataSource.queryMatchSubset = false; 
 
             var input_id = element.id;
             var container_id = input_id + "_container";
@@ -374,7 +374,9 @@ function DBFields_runOnLoad() {
                 var termName = aResultItem[0];
                 var cvName = aResultItem[1];
                 var accession = aResultItem[2];
+		termName = (termName.length > 40) ? termName.substr(0, 40) + "..." : termName;
                 termName = termName.replace(sQuery, "<span class=\"queryText\">" + sQuery + "</span>");
+		if (termName.length = 0) { termName = "&nbsp;"; }
                 var formattedResult =
                     "<div class=\"formattedResult\">" +
                     "<div class=\"accession\">" + accession + "</div>" +
