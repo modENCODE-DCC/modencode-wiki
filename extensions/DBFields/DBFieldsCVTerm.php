@@ -19,12 +19,16 @@
     $okayTerms = getExactTermsFor($searchCv, $searchTerm, $delimiter);
     print "<terms>\n" . xmlifyTerms($okayTerms) . "</terms>";
   }
-  function getExactTermsFor($searchCv, $searchTerm, $delimiter = null) {
+  function getTermsArray($searchTerm, $delimiter = null) {
     if (is_null($delimiter)) { 
       $searchTerms = array($searchTerm); 
     } else {
       $searchTerms = explode($delimiter, $searchTerm);
     }
+    return array_map(create_function('$term', 'return trim($term);'), $searchTerms);
+  }
+  function getExactTermsFor($searchCv, $searchTerm, $delimiter = null) {
+    $searchTerms = getTermsArray($searchTerm, $delimiter);
     $okayTerms = array();
     foreach ($searchTerms as $searchTerm) {
       $searchTerm = trim($searchTerm);
