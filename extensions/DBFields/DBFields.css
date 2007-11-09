@@ -15,4 +15,4 @@ form.modENCODE_dbfields div.cvterm_url p { display: inline; }
 
 form.modENCODE_dbfields div.required { display: inline;  font-size: 90%; color: #33AA33; }
 form.modENCODE_dbfields div.missing { color: red; }
-div.invalid { color: red; font-weight: bold; font-size: 120%; };
+div.invalid { color: red; font-weight: bold; font-size: 120%; }

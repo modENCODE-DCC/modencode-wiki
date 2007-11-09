@@ -11,6 +11,7 @@
     "xml" => "", 
     "open_element" => 0, 
     "stack" => array(), 
+    "stack_of_parsed_elements" => array(), 
     "chrdata" => false, 
     "values" => array(),
     "invalidversion" => false
@@ -42,6 +43,8 @@
     */
     // If there are values in the DB, read them out
     // (this overwrites any default values)
+    $orig_attribs = $attribs;
+    array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
     $extra_content_before = '';
     $extra_content_after = '';
     if ($name == "input") {
@@ -75,7 +78,7 @@
 	}
       }
     }
-    array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
+    array_push($modENCODE_dbfields_data["stack_of_parsed_elements"], array("name" => $name, "attribs" => $attribs));
 
     // Make sure to only keep allowed attributes
     foreach ($attribs as $key => $value) {
@@ -138,7 +141,7 @@
       }
     }
     if ($name == "input" || $name == "select") {
-      $item = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
+      $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
       if ($item && $item["attribs"]["required"] == "true") {
 	$value = $modENCODE_dbfields_data["values"][$item["attribs"]["name"]];
 	if (!strlen($value)) {
@@ -154,6 +157,7 @@
     $modENCODE_dbfields_data["xml"] .= $extra_content_after;
     $modENCODE_dbfields_data["chrdata"] = false;
     array_pop($modENCODE_dbfields_data["stack"]);
+    array_pop($modENCODE_dbfields_data["stack_of_parsed_elements"]);
   }
   function modENCODE_dbfields_characterData($parser, $data) {
     global $modENCODE_dbfields_data;
@@ -384,7 +388,7 @@
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/logger/logger.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/autocomplete/autocomplete.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/behaviour.js"></script>' .
-	'<script type="text/javascript" src=' . $wgScriptPath . '/extensions/DBFields/DBFields.js.php?diff=' . rand() . '"></script>'
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/DBFields.js.php?diff=' . rand() . '"></script>'
       );
     }
     return true;
