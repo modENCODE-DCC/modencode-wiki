@@ -374,7 +374,7 @@ function DBFields_runOnLoad() {
                 var termName = aResultItem[0];
                 var cvName = aResultItem[1];
                 var accession = aResultItem[2];
-		termName = (termName.length > 40) ? termName.substr(0, 40) + "..." : termName;
+		termName = (termName.length > 30) ? termName.substr(0, 30) + "..." : termName;
                 termName = termName.replace(sQuery, "<span class=\"queryText\">" + sQuery + "</span>");
 		if (termName.length = 0) { termName = "&nbsp;"; }
                 var formattedResult =
@@ -389,6 +389,9 @@ function DBFields_runOnLoad() {
 	    autoComp.itemMouseOverEvent.subscribe(DBFields_showDefinition);
 	    autoComp.textboxBlurEvent.subscribe(DBFields_hideDefinition);
 	    autoComp.itemSelectEvent.subscribe(DBFields_hideDefinition);
+	    //autoComp.dataRequestEvent.subscribe(DBFields_showSpinner);
+	    //autoComp.dataReturnEvent.subscribe(DBFields_hideSpinner);
+
             autoComp.allowBrowserAutocomplete = false;
 
 	    autoComp.urlField = input_id + "_url";
