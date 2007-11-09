@@ -144,10 +144,10 @@ YAHOO.widget.AutoComplete.prototype.validateValues = function(sQuery) {
     }
 
     sQuery = encodeURIComponent(sQuery);
+    this.dataRequestEvent.fire(this, sQuery);
     this.dataSource.getValidResults(this._finishValidating, sQuery, this, this.delimChar);
     this._nDelayID = -1;    // Reset timeout ID because request has been made
     sQuery = this.doBeforeSendQuery(sQuery);
-    this.dataRequestEvent.fire(this, sQuery);
 
 };
 
@@ -417,12 +417,11 @@ function DBFields_runOnLoad() {
 	    autoComp.dataReturnEvent.subscribe(DBFields_hideSpinner);
 	    autoComp.dataErrorEvent.subscribe(DBFields_hideSpinner);
 	    autoComp.finishedValidatingEvent.subscribe(DBFields_hideSpinner);
-
-            autoComp.allowBrowserAutocomplete = false;
-
-	    autoComp.urlField = input_id + "_url";
 	    autoComp.textboxFocusEvent.subscribe(DBFields_hideURL);
 	    autoComp.finishedValidatingEvent.subscribe(DBFields_showURL);
+
+            autoComp.allowBrowserAutocomplete = false;
+	    autoComp.urlField = input_id + "_url";
 
             autocompleters[autocompleters.length] = autoComp;
         }
