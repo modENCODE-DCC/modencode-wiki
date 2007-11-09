@@ -63,7 +63,7 @@
 
     for ($i = 0; $i < count($matches[0]); $i++) {
       $row = array("cv" => $searchCv);
-      preg_match_all('/^(?!\[)([^:]*):\s*(.*)$/m', $matches[0][$i], $tags);
+      preg_match_all('/^(?!\[)([^:]*):[ \t]*(.*?)$/m', $matches[0][$i], $tags);
       for ($j = 0; $j < count($tags[1]); $j++) {
 	$row[$tags[1][$j]] = $tags[2][$j];
       }
@@ -81,7 +81,8 @@
 	"url" => $row["url"]
       ));
     }
-    return $resultTerms;
+    usort($resultTerms, create_function('$a, $b', 'if (strlen($a["name"]) < strlen($b["name"])) { return -1; } elseif (strlen($a["name"]) > strlen($b["name"])) { return 1; } else { return 0; }'));
+    return array_slice($resultTerms, 0, 50);
   }
   function getDBTermsFor($searchCv, $searchTerm, $limit=20) {
     global $modENCODE_DBFields_conf;
