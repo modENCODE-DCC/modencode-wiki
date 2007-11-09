@@ -321,7 +321,7 @@ var DBFields_showDefinition = function(sType, aArgs) {
     var form = oContainer.form;
     var defDiv = document.createElement("div");
     defDiv.className = "definition";
-    defDiv.innerHTML = "boom baby";
+    defDiv.innerHTML = "definition";
     defDiv.style.position = "relative";
     defDiv.style.left = '315px'; //findPos(oContainer)[0] + "px";
     defDiv.style.top = '-' + oCompleter._oTextbox.offsetHeight + 'px'; //findPos(oContainer)[1] + "px";
@@ -333,6 +333,29 @@ var DBFields_showDefinition = function(sType, aArgs) {
   if (!definition) { definition = "No definition."; }
   oCompleter.definitionBox.innerHTML = accession + ": <b>" + name + "</b><br/>" + definition;
 };
+
+var DBFields_showSpinner = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  var oContainer = oCompleter._oContainer; // Yikes, private property
+  if (!oCompleter.spinnerBox) {
+    var form = oContainer.form;
+    var defDiv = document.createElement("div");
+    defDiv.className = "spinner";
+    defDiv.innerHTML = "<img class=\"spinner\" src=\"<?=dirname($_SERVER["PHP_SELF"]);?>/spinner.gif\" alt=\"loading...\"/>";
+    defDiv.style.position = "relative";
+    defDiv.style.left = '384px'; //findPos(oContainer)[0] + "px";
+    defDiv.style.top = '-' + (2+oCompleter._oTextbox.offsetHeight) + 'px'; //findPos(oContainer)[1] + "px";
+    oCompleter.spinnerBox = oContainer.appendChild(defDiv);
+  }
+  oCompleter.spinnerBox.style.display = "block";
+}
+var DBFields_hideSpinner = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  var oContainer = oCompleter._oContainer; // Yikes, private property
+  if (oCompleter.spinnerBox) {
+    oCompleter.spinnerBox.style.display = "none";
+  }
+}
 
 
 /************************************************************
@@ -389,8 +412,11 @@ function DBFields_runOnLoad() {
 	    autoComp.itemMouseOverEvent.subscribe(DBFields_showDefinition);
 	    autoComp.textboxBlurEvent.subscribe(DBFields_hideDefinition);
 	    autoComp.itemSelectEvent.subscribe(DBFields_hideDefinition);
-	    //autoComp.dataRequestEvent.subscribe(DBFields_showSpinner);
-	    //autoComp.dataReturnEvent.subscribe(DBFields_hideSpinner);
+	    autoComp.dataRequestEvent.subscribe(DBFields_hideDefinition);
+	    autoComp.dataRequestEvent.subscribe(DBFields_showSpinner);
+	    autoComp.dataReturnEvent.subscribe(DBFields_hideSpinner);
+	    autoComp.dataErrorEvent.subscribe(DBFields_hideSpinner);
+	    autoComp.finishedValidatingEvent.subscribe(DBFields_hideSpinner);
 
             autoComp.allowBrowserAutocomplete = false;
 
