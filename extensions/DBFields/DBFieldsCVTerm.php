@@ -4,11 +4,11 @@
   include_once("DBFieldsConf.php");
   include_once('DBFields.php');
 
-  $searchTerm = $_GET["term"];
-  $searchCv = $_GET["cv"];
+  $searchTerm = isset($_GET["term"]) ? $_GET["term"] : null;
+  $searchCv = isset($_GET["cv"]) ? $_GET["cv"] : null;
 
-  $validating = $_GET["validating"] == "validating" ? true : false;
-  $delimiter = strlen($_GET["delimiter"]) > 0 ? $_GET["delimiter"] : null;
+  $validating = isset($_GET["validating"]) && $_GET["validating"] == "validating" ? true : false;
+  $delimiter = isset($_GET["delimiter"]) && strlen($_GET["delimiter"]) > 0 ? $_GET["delimiter"] : null;
   
   if (!$searchCv || !$searchTerm) { return; }
 

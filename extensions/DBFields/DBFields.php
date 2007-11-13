@@ -48,6 +48,7 @@
     $extra_content_before = '';
     $extra_content_after = '';
     if ($name == "input") {
+      if (!isset($attribs["class"])) { $attribs["class"] = ""; }
       $attribs["class"] .= " dbfields_input ";
       if ($attribs["type"] == "cvterm") {
 	$extra_content_before = '<div id="' . $attribs["id"] . '_complete">';
@@ -143,14 +144,20 @@
     if ($name == "input" || $name == "select") {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
-      if ($item && $item["attribs"]["required"] == "true") {
+      if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
 	$value = $modENCODE_dbfields_data["values"][$item["attribs"]["name"]];
 	if (!strlen($value)) {
 	  $extra_content_after .= "  <div class=\"required missing\">required field missing</div>";
 	  $modENCODE_dbfields_data["invalidversion"] = true;
 	}
       }
-      if ($item && $input && $input["attribs"]["type"] == "cvterm" && strlen($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) > 0) {
+      if (
+	isset($item) && $item && 
+	isset($input) && $input && 
+	isset($input["attribs"]) && isset($input["attribs"]["type"]) && $input["attribs"]["type"] == "cvterm" && 
+	isset($item["attribs"]["name"]) && isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) &&
+	strlen($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) > 0
+      ) {
 	$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
 	$terms = array_map(create_function('$term', 'return $term["name"];'), $terms);
 	$existingTerms = getTermsArray($modENCODE_dbfields_data["values"][$item["attribs"]["name"]], $delim);
@@ -264,7 +271,7 @@
     );
     $entry_name = modENCODE_db_escape($args["name"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
 
-    if ($_GET["version"]) {
+    if (isset($_GET["version"]) && $_GET["version"]) {
       $version = modENCODE_db_escape($_GET["version"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
       $res = modENCODE_db_query($db,
         "SELECT MAX(wiki_revid) AS revisionid FROM data WHERE name = '$entry_name' AND version = $version",
@@ -297,7 +304,7 @@
 	$version = $row["version"];
       }
     }
-    if (count($_POST["modENCODE_dbfields"])) {
+    if (isset($_POST["modENCODE_dbfields"]) && count($_POST["modENCODE_dbfields"])) {
       $version++;
 
 
