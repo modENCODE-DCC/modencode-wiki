@@ -43,12 +43,21 @@
   }
   function getTermsFor($searchCv, $searchTerm) {
     $path = dirname(__FILE__) . '/ontologies';
-    if (file_exists("$path/$searchCv.obo")) {
-      $resultTerms = getFileTermsFor($searchCv, $searchTerm);
+    if (strpos($searchCv, ',') !== false) {
+      $searchCvs = explode(",", $searchCv);
     } else {
-      $resultTerms = getDBTermsFor($searchCv, $searchTerm);
+      $searchCvs = array($searchCv);
     }
-    return $resultTerms;
+    $allResultTerms = array();
+    foreach ($searchCvs as $searchCv) {
+      if (file_exists("$path/$searchCv.obo")) {
+	$resultTerms = getFileTermsFor($searchCv, $searchTerm);
+      } else {
+	$resultTerms = getDBTermsFor($searchCv, $searchTerm);
+      }
+      $allResultTerms = array_merge($allResultTerms, $resultTerms);
+    }
+    return $allResultTerms;
   }
   function getFileTermsFor($searchCv, $searchTerm, $limit=20) {
     $resultTerms = array();
@@ -101,27 +110,29 @@
     $resultTerms = array();
 
     $db = modENCODE_db_connect(
-      $modENCODE_DBFields_conf["cvterms"]["host"], 
-      $modENCODE_DBFields_conf["cvterms"]["dbname"], 
-      $modENCODE_DBFields_conf["cvterms"]["user"], 
-      $modENCODE_DBFields_conf["cvterms"]["password"], 
-      $modENCODE_DBFields_conf["cvterms"]["type"]
+      $modENCODE_DBFields_conf["cvterms"][$searchCv]["host"], 
+      $modENCODE_DBFields_conf["cvterms"][$searchCv]["dbname"], 
+      $modENCODE_DBFields_conf["cvterms"][$searchCv]["user"], 
+      $modENCODE_DBFields_conf["cvterms"][$searchCv]["password"], 
+      $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]
     );
 
-    $searchCv = modENCODE_db_escape($searchCv, $db, $modENCODE_DBFields_conf["cvterms"]["type"]);
-    $searchTerm = modENCODE_db_escape($searchTerm, $db, $modENCODE_DBFields_conf["cvterms"]["type"]);
+    $searchCv = modENCODE_db_escape($searchCv, $db, $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]);
+    $searchTerm = modENCODE_db_escape($searchTerm, $db, $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]);
     $limit = (int) $limit;
 
-    $query = $modENCODE_DBFields_conf["cvterms"]["query"];
-    $query = preg_replace('/\?/', $searchCv, $query, 1);
-    $query = preg_replace('/\?/', $searchTerm, $query, 1);
-    $query = preg_replace('/\?/', $limit, $query, 1);
+    $query = $modENCODE_DBFields_conf["cvterms"][$searchCv]["query"];
+    $query = preg_replace('/(?<!\\\\)\?/', $searchCv, $query, 1);
+    $query = preg_replace('/(?<!\\\\)\?/', $searchTerm, $query, 1);
+    $query = preg_replace('/(?<!\\\\)\?/', $limit, $query, 1);
+    $query = preg_replace('/\\\\\?/', '?', $query, 1);
 
     $res = modENCODE_db_query($db, $query, $modENCODE_DBFields_conf["form_data"]["type"]);
 
     while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
       if ($row["urlprefix"]) {
 	$row["url"] = $row["urlprefix"] . $row["id"];
+	$row["url"] = str_replace('#', $row["id"], $row["urlprefix"]);
       }
       array_push($resultTerms, array(
 	"cv" => $row["cv"], 
@@ -134,7 +145,7 @@
 
     modENCODE_db_close(
       $db,
-      $modENCODE_DBFields_conf["cvterms"]["type"]
+      $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]
     );
     return $resultTerms;
   }
