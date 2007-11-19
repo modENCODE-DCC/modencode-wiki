@@ -199,7 +199,12 @@
       if (!function_exists("pg_connect")) {
         print "Function pg_connect does not exist, but is needed by modENCODE_db_connect.";
       }
-      $db = pg_connect("host=$host dbname=$dbname user=$user password=$password");
+      $connstring = "";
+      if (strlen($host) > 0)     { $connstring .= "host=$host "; }
+      if (strlen($dbname) > 0)   { $connstring .= "dbname=$dbname "; }
+      if (strlen($user) > 0)     { $connstring .= "user=$user "; }
+      if (strlen($password) > 0) { $connstring .= "password=$password "; }
+      $db = pg_connect($connstring);
     } elseif ($dbtype == "mysql") {
       if (!function_exists("mysql_connect")) {
         print "Function mysql_connect does not exist, but is needed by modENCODE_db_connect.";
