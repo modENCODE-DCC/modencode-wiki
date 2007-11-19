@@ -71,22 +71,35 @@
       $idspaces[$matches[1][$i]]["description"] = $matches[3][$i];
     }
 
-    $offset = 0;
-    $pattern = '/^\[Term\](?:.(?!\[Term\]))*name:([^\r\n]*' . preg_quote($searchTerm) . '[^\r\n]*)(?:.(?!\[Term\]))*/ism';
+    $sections = preg_split('/\[([^\]]*)\]/', $obo, -1, PREG_SPLIT_DELIM_CAPTURE);
 
     $matches = array();
     $MAX_MATCHES = 500;
-    while (preg_match($pattern, $obo, $match, PREG_OFFSET_CAPTURE, $offset) > 0) {
-      $offset = $match[0][1] + strlen($match[0][0]);
-      array_push($matches, $match[0][0]);
-      if ($MAX_MATCHES-- <= 0) { break; }
+    for ($i = 0; $i < count($sections); $i++) {
+      $section = $sections[$i];
+      if ($section != "Term") { continue; }
+      $section = $sections[++$i];
+      $pattern = '/^name:\s*(.*' . preg_quote($searchTerm) . '.*)$/im';
+      if (preg_match($pattern, $section, $match) > 0) {
+	array_push($matches, $section);
+	if ($MAX_MATCHES-- <= 0) { break; }
+      }
     }
 
     for ($i = 0; $i < count($matches); $i++) {
-      $row = array("cv" => $searchCv);
+      $row = array(
+	"id" => "",
+	"cv" => "",
+	"name" => "",
+	"accession" => "",
+	"definition" => "",
+	"def" => "",
+	"url" => ""
+      );
+      $row["cv"] = $searchCv;
       preg_match_all('/^(?!\[)([^:]*):[ \t]*(.*?)$/m', $matches[$i], $tags);
       for ($j = 0; $j < count($tags[1]); $j++) {
-	$row[$tags[1][$j]] = $tags[2][$j];
+	$row[trim($tags[1][$j])] = $tags[2][$j];
       }
 
       if ($row["id"] && strpos($row["id"], ':') > 0) {
