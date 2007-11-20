@@ -77,7 +77,9 @@ YAHOO.widget.AutoComplete.prototype._onTextboxKeyDown = function(v,oSelf) {
 
 /**
  * Retrieves validated terms given a term or delimited set of terms. Currently only 
- * implemented for XHR data sources; just runs the standard getResults by default.
+ * implemented for XHR data sources, although there is some rudimentary javascript 
+ * checking of returned terms to make sure they match, so it should be easy to
+ * extend for other data sources.
  *
  * @method getValidResults
  * @param oCallbackFn {HTMLFunction} Callback function defined by oParent object to which to return results.
@@ -112,9 +114,10 @@ YAHOO.widget.DS_XHR.prototype.getValidResults = function(oCallbackFn, sQuery, oP
 /**
  * Whether or not to force the user's selection to match one of the query
  * results. This version runs the current value of the text box through a 
- * backend XHR DataSource which will hopefully return only valid results.
+ * backend DataSource which will hopefully return only valid results.
  * Results are also run through a formatter before being returned to the 
- * text box.
+ * text box. Unlike the standard forceSelection, forceSelectionDelayed will 
+ * properly handle delimited items by filtering out bad ones.
  *
  * @property forceSelectionDelayed
  * @type Boolean
