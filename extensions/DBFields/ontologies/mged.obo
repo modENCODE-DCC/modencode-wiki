@@ -2323,22 +2323,6 @@ property_value: rdfs:comment "This property is used to identify the type of clas
 property_value: mged:unique_identifier "MO_338" xsd:string
 
 [Typedef]
-id: mged:class_role
-name: class_role
-def: This property is used to identify the type of class of the term. The value \"abstract\" indicates that the class is used for organizational purposes.  The value \"instantiated\" indicates that the class contains Individuals that can be used as annotation terms. The value \"abstract\" indicates that the class is used to provide organization within the MGED Ontology. The value \"place_holder\" indicates that this class represents the location in the ontology where terms of this class would be located.
-range: __file:///data/cluster/cjm/obo/website/utils/obo-all/mged/mged.owl#__Description199
-property_value: rdfs:comment "This property is used to identify the type of class of the term. The value \"abstract\" indicates that the class is used for organizational purposes.  The value \"instantiated\" indicates that the class contains Individuals that can be used as annotation terms. The value \"abstract\" indicates that the class is used to provide organization within the MGED Ontology. The value \"place_holder\" indicates that this class represents the location in the ontology where terms of this class would be located." xsd:string
-property_value: mged:unique_identifier "MO_338" xsd:string
-
-[Typedef]
-id: mged:class_source
-name: class_source
-def: The property indicates the derivation of the class. A value of \"mage\" means that the class is derived from the MAGE-OM and the value \"ontology\" indicates that the class is derived from the ontology. This property is being added since the MGED Ontology was developed in such a way to include classes that exist in the MAGE-OM as well as classes that exist only in the MGED Ontology.
-range: __file:///data/cluster/cjm/obo/website/utils/obo-all/mged/mged.owl#__Description203
-property_value: mged:unique_identifier "MO_343" xsd:string
-property_value: rdfs:comment "The property indicates the derivation of the class. A value of \"mage\" means that the class is derived from the MAGE-OM and the value \"ontology\" indicates that the class is derived from the ontology. This property is being added since the MGED Ontology was developed in such a way to include classes that exist in the MAGE-OM as well as classes that exist only in the MGED Ontology." xsd:string
-
-[Typedef]
 id: mged:class_source
 name: class_source
 def: The property indicates the derivation of the class. A value of \"mage\" means that the class is derived from the MAGE-OM and the value \"ontology\" indicates that the class is derived from the ontology. This property is being added since the MGED Ontology was developed in such a way to include classes that exist in the MAGE-OM as well as classes that exist only in the MGED Ontology.
@@ -2362,33 +2346,11 @@ property_value: rdfs:comment "The value of the property indicates what version o
 property_value: mged:unique_identifier "MO_1014" xsd:string
 
 [Typedef]
-id: mged:deprecation_in_version
-name: deprecation_in_version
-def: The value of the property indicates what version of the ontology the term was deprecated from.
-range: __file:///data/cluster/cjm/obo/website/utils/obo-all/mged/mged.owl#__Description192
-property_value: rdfs:comment "The value of the property indicates what version of the ontology the term was deprecated from." xsd:string
-property_value: mged:unique_identifier "MO_1014" xsd:string
-
-[Typedef]
 id: mged:deprecation_old_parent
 name: deprecation_old_parent
 def: The value indicates the parent of the term before the term was deprecated.
 property_value: mged:unique_identifier "MO_1016" xsd:string
 property_value: rdfs:comment "The value indicates the parent of the term before the term was deprecated." xsd:string
-
-[Typedef]
-id: mged:deprecation_old_parent
-name: deprecation_old_parent
-def: The value indicates the parent of the term before the term was deprecated.
-property_value: mged:unique_identifier "MO_1016" xsd:string
-property_value: rdfs:comment "The value indicates the parent of the term before the term was deprecated." xsd:string
-
-[Typedef]
-id: mged:deprecation_old_restriction
-name: deprecation_old_restriction
-def: The value of the property indicates the restriction that was applied to the class at the time it was deprecated. The value is in the form of: some|property|filler, e.g. some|has_species|Organism.
-property_value: rdfs:comment "The value of the property indicates the restriction that was applied to the class at the time it was deprecated. The value is in the form of: some|property|filler, e.g. some|has_species|Organism." xsd:string
-property_value: mged:unique_identifier "MO_1015" xsd:string
 
 [Typedef]
 id: mged:deprecation_old_restriction
@@ -2404,21 +2366,6 @@ def: Indicates the why the term was deprecated. The possible values are: deleted
 range: __file:///data/cluster/cjm/obo/website/utils/obo-all/mged/mged.owl#__Description206
 property_value: mged:unique_identifier "MO_1013" xsd:string
 property_value: rdfs:comment "Indicates the why the term was deprecated. The possible values are: deleted_term, split_term, merged_term, replaced_term." xsd:string
-
-[Typedef]
-id: mged:deprecation_reason
-name: deprecation_reason
-def: Indicates the why the term was deprecated. The possible values are: deleted_term, split_term, merged_term, replaced_term.
-range: __file:///data/cluster/cjm/obo/website/utils/obo-all/mged/mged.owl#__Description206
-property_value: mged:unique_identifier "MO_1013" xsd:string
-property_value: rdfs:comment "Indicates the why the term was deprecated. The possible values are: deleted_term, split_term, merged_term, replaced_term." xsd:string
-
-[Typedef]
-id: mged:deprecation_replacement_term
-name: deprecation_replacement_term
-def: The value of the property indicates the replacement term for the deprecated term. If the term is deprecated without replacement, the value of the property will be the same as the deprecated term itself.
-property_value: rdfs:comment "The value of the property indicates the replacement term for the deprecated term. If the term is deprecated without replacement, the value of the property will be the same as the deprecated term itself." xsd:string
-property_value: mged:unique_identifier "MO_1012" xsd:string
 
 [Typedef]
 id: mged:deprecation_replacement_term
@@ -3193,48 +3140,12 @@ property_value: rdfs:comment "The value of the property indicates the replacemen
 property_value: mged:unique_identifier "MO_1018" xsd:string
 
 [Typedef]
-id: mged:replaced_with_term
-name: replaced_with_term
-def: The value of the property indicates the replacement term.
-property_value: rdfs:comment "The value of the property indicates the replacement term." xsd:string
-property_value: mged:unique_identifier "MO_1018" xsd:string
-
-[Typedef]
-id: mged:split_to_term
-name: split_to_term
-def: The value of the property indicates a replacement term since the term was split.
-property_value: rdfs:comment "The value of the property indicates a replacement term since the term was split." xsd:string
-property_value: mged:unique_identifier "MO_1017" xsd:string
-
-[Typedef]
-id: mged:split_to_term
-name: split_to_term
-def: The value of the property indicates a replacement term since the term was split.
-property_value: rdfs:comment "The value of the property indicates a replacement term since the term was split." xsd:string
-property_value: mged:unique_identifier "MO_1017" xsd:string
-
-[Typedef]
 id: mged:synonym
 name: synonym
 def: This property is used to indicate additional terms that have the same meaning as the term that the property is applied to. The terms that have the same meaning as the term that this property is applied to will be the value of the property.
 range: xsd:string
 property_value: mged:unique_identifier "MO_333" xsd:string
 property_value: rdfs:comment "This property is used to indicate additional terms that have the same meaning as the term that the property is applied to. The terms that have the same meaning as the term that this property is applied to will be the value of the property." xsd:string
-
-[Typedef]
-id: mged:synonym
-name: synonym
-def: This property is used to indicate additional terms that have the same meaning as the term that the property is applied to. The terms that have the same meaning as the term that this property is applied to will be the value of the property.
-range: xsd:string
-property_value: mged:unique_identifier "MO_333" xsd:string
-property_value: rdfs:comment "This property is used to indicate additional terms that have the same meaning as the term that the property is applied to. The terms that have the same meaning as the term that this property is applied to will be the value of the property." xsd:string
-
-[Typedef]
-id: mged:unique_identifier
-name: unique_identifier
-def: A unique alphanumeric identifier for the term. This will exist in the form of MO_someNumber, e.g. MO_123.
-property_value: mged:unique_identifier "MO_331" xsd:string
-property_value: rdfs:comment "A unique alphanumeric identifier for the term. This will exist in the form of MO_someNumber, e.g. MO_123." xsd:string
 
 [Typedef]
 id: mged:unique_identifier
@@ -3263,14 +3174,6 @@ name: A
 instance_of: mged:DistanceUnit
 property_value: mged:unique_identifier "MO_515" xsd:string
 property_value: rdfs:comment "Angstrom, unit of distance, 1 angstrom is one tenth of a nanometer" xsd:string
-
-[Term]
-id: mged:ATCC_Cultures
-name: ATCC_Cultures
-instance_of: mged:StrainOrLineDatabase
-property_value: rdfs:comment "database resource for bacteria, bacteriophages, cell lines, fungi and yeast, plant tissue cultures, plant seeds, protozoa and algae and plant and animal viruses" xsd:string
-property_value: mged:has_human_readable_URI "http://www.atcc.org/Cultures/Products.cfm" xsd:string
-property_value: mged:unique_identifier "MO_979" xsd:string
 
 [Term]
 id: mged:ATCC_Cultures
@@ -3440,13 +3343,6 @@ name: Cy5
 instance_of: mged:LabelCompound
 property_value: rdfs:comment "fluorophore used for labeling/detection purposes" xsd:string
 property_value: mged:unique_identifier "MO_646" xsd:string
-
-[Term]
-id: mged:DNA
-name: DNA
-instance_of: mged:MaterialType
-property_value: mged:unique_identifier "MO_945" xsd:string
-property_value: rdfs:comment "Deoxyribonucleic acid." xsd:string
 
 [Term]
 id: mged:DNA
@@ -3734,14 +3630,6 @@ property_value: mged:unique_identifier "MO_773" xsd:string
 property_value: rdfs:comment "identifier for  a taxon provided by the NCBI taxonomy database" xsd:string
 
 [Term]
-id: mged:NCBI_taxonomy
-name: NCBI_taxonomy
-instance_of: mged:OrganismDatabase
-property_value: mged:has_human_readable_URI "http://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/" xsd:string
-property_value: mged:unique_identifier "MO_773" xsd:string
-property_value: rdfs:comment "identifier for  a taxon provided by the NCBI taxonomy database" xsd:string
-
-[Term]
 id: mged:NCI_Thesaurus
 name: NCI_Thesaurus
 instance_of: mged:DeprecatedTerms
@@ -3904,13 +3792,6 @@ property_value: rdfs:comment "Amplification of nucleic acid sequence by use of t
 property_value: mged:unique_identifier "MO_358" xsd:string
 
 [Term]
-id: mged:PCR_amplification
-name: PCR_amplification
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "Amplification of nucleic acid sequence by use of the polymerase chain reaction whereby the number of templates grows geometrically with each cycle. " xsd:string
-property_value: mged:unique_identifier "MO_358" xsd:string
-
-[Term]
 id: mged:PCR_fail
 name: PCR_fail
 instance_of: mged:FailType
@@ -4051,14 +3932,6 @@ property_value: mged:unique_identifier "MO_660" xsd:string
 property_value: rdfs:comment "The Arabidopsis Information Resource." xsd:string
 
 [Term]
-id: mged:TAIR
-name: TAIR
-instance_of: mged:CellTypeDatabase
-property_value: mged:has_human_readable_URI "http://www.arabidopsis.org/servlets/Search?action=new_search&amp;type=ecotype" xsd:string
-property_value: mged:unique_identifier "MO_660" xsd:string
-property_value: rdfs:comment "The Arabidopsis Information Resource." xsd:string
-
-[Term]
 id: mged:TAIR_arabidopsis_anatomy_ontology
 name: TAIR_arabidopsis_anatomy_ontology
 instance_of: mged:OrganismPartDatabase
@@ -4176,13 +4049,6 @@ name: absolute
 instance_of: mged:MeasurementType
 property_value: rdfs:comment "a measurement where the value is independent of other measurements" xsd:string
 property_value: mged:unique_identifier "MO_741" xsd:string
-
-[Term]
-id: mged:acclimatization
-name: acclimatization
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "The action of stabilizing an organism prior to treatment" xsd:string
-property_value: mged:unique_identifier "MO_776" xsd:string
 
 [Term]
 id: mged:acclimatization
@@ -4508,29 +4374,11 @@ property_value: mged:unique_identifier "MO_674" xsd:string
 property_value: rdfs:comment "The organism is forced to respond to a stimulus with some behavior (e.g., avoidance, obtaining a reward, etc.) " xsd:string
 
 [Term]
-id: mged:behavioral_stimulus
-name: behavioral_stimulus
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_674" xsd:string
-property_value: rdfs:comment "The organism is forced to respond to a stimulus with some behavior (e.g., avoidance, obtaining a reward, etc.) " xsd:string
-
-[Term]
 id: mged:bibliographic_record
 name: bibliographic_record
 instance_of: mged:DatabaseEntryType
 property_value: rdfs:comment "A record which describes and identifies a paper publication  e.g. a medline record" xsd:string
 property_value: mged:unique_identifier "MO_923" xsd:string
-
-[Term]
-id: mged:binding_site_identification_design
-name: binding_site_identification_design
-instance_of: mged:TechnologicalDesign
-property_value: rdfs:comment "A binding site identification design type investigates protein binding sites on nucleic acids\nnon-exact synonym: ChIP, chromatin immunoprecipitation, chromatin IP" xsd:string
-property_value: mged:unique_identifier "MO_933" xsd:string
-property_value: mged:synonym "chromatin immunoprecipitation" xsd:string
-property_value: mged:synonym "chromatin IP" xsd:string
-property_value: mged:synonym "chromatin_immunoprecipitation" xsd:string
-property_value: mged:synonym "ChIP-chip" xsd:string
 
 [Term]
 id: mged:binding_site_identification_design
@@ -4566,20 +4414,6 @@ property_value: mged:unique_identifier "MO_685" xsd:string
 property_value: rdfs:comment "The action of collecting biological fluids including bodily secretions, exudates, transudates etc. and sampling of cytoplasm. The purpose of sampling may range from collecting other organisms (i.e. pathogens) to studying fluid composition." xsd:string
 
 [Term]
-id: mged:biological_fluid_collection
-name: biological_fluid_collection
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_685" xsd:string
-property_value: rdfs:comment "The action of collecting biological fluids including bodily secretions, exudates, transudates etc. and sampling of cytoplasm. The purpose of sampling may range from collecting other organisms (i.e. pathogens) to studying fluid composition." xsd:string
-
-[Term]
-id: mged:biological_replicate
-name: biological_replicate
-instance_of: mged:QualityControlDescriptionType
-property_value: mged:unique_identifier "MO_952" xsd:string
-property_value: rdfs:comment "A replicate that consists of independent biological replicates made from different individual BioSources." xsd:string
-
-[Term]
 id: mged:biological_replicate
 name: biological_replicate
 instance_of: mged:QualityControlDescriptionType
@@ -4592,13 +4426,6 @@ name: biological_resource_record
 instance_of: mged:DatabaseEntryType
 property_value: rdfs:comment "A record which describes and identifies a biological resource such as a cone or strain e.g. an ATCC record Jax strain list" xsd:string
 property_value: mged:unique_identifier "MO_989" xsd:string
-
-[Term]
-id: mged:biomaterial_provider
-name: biomaterial_provider
-instance_of: mged:Roles
-property_value: mged:unique_identifier "MO_591" xsd:string
-property_value: rdfs:comment "Term used to describe a role or factor value for the person or organization that provides a BioMaterial. " xsd:string
 
 [Term]
 id: mged:biomaterial_provider
@@ -4750,14 +4577,6 @@ property_value: mged:has_machine_readable_URI "http://cvs.sourceforge.net/views.
 property_value: rdfs:comment "database of cell ontology terms" xsd:string
 
 [Term]
-id: mged:cell_ontology
-name: cell_ontology
-instance_of: mged:CellTypeDatabase
-property_value: mged:unique_identifier "MO_404" xsd:string
-property_value: mged:has_machine_readable_URI "http://cvs.sourceforge.net/views.py/obo/obo/ontology/anatomy/cell_type/cell.ontology?rev=HEAD&amp;content-type=text/vnd.viewcvs-markup" xsd:string
-property_value: rdfs:comment "database of cell ontology terms" xsd:string
-
-[Term]
 id: mged:cell_type
 name: cell_type
 instance_of: mged:BioMaterialCharacteristicCategory
@@ -4787,14 +4606,6 @@ property_value: rdfs:comment "A cellular modification design type is where a mod
 property_value: mged:synonym "RNAi" xsd:string
 
 [Term]
-id: mged:cellular_modification_design
-name: cellular_modification_design
-instance_of: mged:TechnologicalDesign
-property_value: mged:unique_identifier "MO_392" xsd:string
-property_value: rdfs:comment "A cellular modification design type is where a modification of the transcriptome, proteome (not genome) is made, for example RNAi, antibody targeting. " xsd:string
-property_value: mged:synonym "RNAi" xsd:string
-
-[Term]
 id: mged:cellular_process_design
 name: cellular_process_design
 instance_of: mged:BiologicalProperty
@@ -4814,15 +4625,6 @@ name: cfu_per_ml
 instance_of: mged:ConcentrationUnitOther
 property_value: mged:unique_identifier "MO_788" xsd:string
 property_value: rdfs:comment "the number of colony forming units per ml" xsd:string
-
-[Term]
-id: mged:change_biomaterial_characteristics
-name: change_biomaterial_characteristics
-instance_of: mged:ComplexAction
-property_value: mged:synonym "change environment" xsd:string
-property_value: mged:synonym "change growth condition" xsd:string
-property_value: rdfs:comment "Indicates that one or more BioMaterialCharacteristics have changed during the treatment of a BioMaterial. \nNon exact synonym: change growth condition, change environment" xsd:string
-property_value: mged:unique_identifier "MO_383" xsd:string
 
 [Term]
 id: mged:change_biomaterial_characteristics
@@ -5021,23 +4823,6 @@ property_value: rdfs:comment "Experiment design type in which genomic content is
 property_value: mged:synonym "array_CGH" xsd:string
 property_value: mged:synonym "array CGH" xsd:string
 property_value: mged:synonym "CGH" xsd:string
-
-[Term]
-id: mged:comparative_genome_hybridization_design
-name: comparative_genome_hybridization_design
-instance_of: mged:TechnologicalDesign
-property_value: mged:unique_identifier "MO_856" xsd:string
-property_value: rdfs:comment "Experiment design type in which genomic content is studied using an array based assay." xsd:string
-property_value: mged:synonym "array_CGH" xsd:string
-property_value: mged:synonym "array CGH" xsd:string
-property_value: mged:synonym "CGH" xsd:string
-
-[Term]
-id: mged:compound_based_treatment
-name: compound_based_treatment
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "The treatment is effected by a defined chemical or biological compound.   The compound may be a drug, solvent, chemical, etc., with a property that can be measured such as concentration." xsd:string
-property_value: mged:unique_identifier "MO_798" xsd:string
 
 [Term]
 id: mged:compound_based_treatment
@@ -5340,13 +5125,6 @@ property_value: rdfs:comment "Treatment to remove organisms present that were no
 property_value: mged:unique_identifier "MO_389" xsd:string
 
 [Term]
-id: mged:decontaminate
-name: decontaminate
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "Treatment to remove organisms present that were not planned as part of the study (e.g., mycoplasma). " xsd:string
-property_value: mged:unique_identifier "MO_389" xsd:string
-
-[Term]
 id: mged:degrees_C
 name: degrees_C
 instance_of: mged:TemperatureUnit
@@ -5438,25 +5216,11 @@ property_value: rdfs:comment "An experiment design type in which the pathologica
 property_value: mged:unique_identifier "MO_902" xsd:string
 
 [Term]
-id: mged:disease_state_design
-name: disease_state_design
-instance_of: mged:PerturbationalDesign
-property_value: rdfs:comment "An experiment design type in which the pathological condition of a part, organ, or system of an organism is studied. The etiology  may be from infection, genetic defect, or environmental stress." xsd:string
-property_value: mged:unique_identifier "MO_902" xsd:string
-
-[Term]
 id: mged:displaced_feature_or_zone
 name: displaced_feature_or_zone
 instance_of: mged:DefectType
 property_value: mged:unique_identifier "MO_959" xsd:string
 property_value: rdfs:comment " The Feature or Zone is displaced from its expected position, due to e.g. a bent spotting pin(s)." xsd:string
-
-[Term]
-id: mged:dissect
-name: dissect
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "The action of removing one or more organism parts." xsd:string
-property_value: mged:unique_identifier "MO_374" xsd:string
 
 [Term]
 id: mged:dissect
@@ -5810,13 +5574,6 @@ property_value: mged:unique_identifier "MO_872" xsd:string
 property_value: rdfs:comment "The action of separating a BioMaterial into one or more fractions e.g. differential centrifugation or FACS when used for cell sorting (see purify)." xsd:string
 
 [Term]
-id: mged:fractionate
-name: fractionate
-instance_of: mged:ComplexAction
-property_value: mged:unique_identifier "MO_872" xsd:string
-property_value: rdfs:comment "The action of separating a BioMaterial into one or more fractions e.g. differential centrifugation or FACS when used for cell sorting (see purify)." xsd:string
-
-[Term]
 id: mged:freeze_dried_sample
 name: freeze_dried_sample
 instance_of: mged:BioSourceType
@@ -5925,13 +5682,6 @@ property_value: rdfs:comment "An action whereby an organism(s) has had genetic m
 property_value: mged:unique_identifier "MO_927" xsd:string
 
 [Term]
-id: mged:genetic_modification
-name: genetic_modification
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "An action whereby an organism(s) has had genetic material removed, added, or rearranged." xsd:string
-property_value: mged:unique_identifier "MO_927" xsd:string
-
-[Term]
 id: mged:genetic_modification_design
 name: genetic_modification_design
 instance_of: mged:PerturbationalDesign
@@ -6029,13 +5779,6 @@ property_value: rdfs:comment "A ComplexAction or ProtocolType describing growth 
 property_value: mged:unique_identifier "MO_758" xsd:string
 
 [Term]
-id: mged:grow
-name: grow
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "A ComplexAction or ProtocolType describing growth of an organism or cell culture." xsd:string
-property_value: mged:unique_identifier "MO_758" xsd:string
-
-[Term]
 id: mged:growth_condition_design
 name: growth_condition_design
 instance_of: mged:PerturbationalDesign
@@ -6069,13 +5812,6 @@ name: hardware_variation_design
 instance_of: mged:MethodologicalDesign
 property_value: mged:unique_identifier "MO_734" xsd:string
 property_value: rdfs:comment "A hardware variation experiment design type compares different types of hardware for performance, reproducibility, accuracy and precision." xsd:string
-
-[Term]
-id: mged:harvest
-name: harvest
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_982" xsd:string
-property_value: rdfs:comment "The process of harvesting cells from culture." xsd:string
 
 [Term]
 id: mged:harvest
@@ -6121,13 +5857,6 @@ property_value: rdfs:comment "The action of preparing a slide for the microscopi
 property_value: mged:unique_identifier "MO_611" xsd:string
 
 [Term]
-id: mged:histological_slide_preparation
-name: histological_slide_preparation
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "The action of preparing a slide for the microscopical examination of organism parts or cell types." xsd:string
-property_value: mged:unique_identifier "MO_611" xsd:string
-
-[Term]
 id: mged:homogenizer
 name: homogenizer
 instance_of: mged:HardwareType
@@ -6141,13 +5870,6 @@ instance_of: mged:TimeUnit
 property_value: mged:synonym "h" xsd:string
 property_value: mged:unique_identifier "MO_486" xsd:string
 property_value: rdfs:comment "60 minutes, time unit" xsd:string
-
-[Term]
-id: mged:hybridization
-name: hybridization
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "The process of incubating one or more labeled extracts with an array." xsd:string
-property_value: mged:unique_identifier "MO_884" xsd:string
 
 [Term]
 id: mged:hybridization
@@ -6242,13 +5964,6 @@ property_value: mged:unique_identifier "MO_965" xsd:string
 property_value: rdfs:comment "The procedure of placing a physical object under specified conditions e.g. time, temperature, humidity for the purposes of obtaining a different product." xsd:string
 
 [Term]
-id: mged:incubate
-name: incubate
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_965" xsd:string
-property_value: rdfs:comment "The procedure of placing a physical object under specified conditions e.g. time, temperature, humidity for the purposes of obtaining a different product." xsd:string
-
-[Term]
 id: mged:individual
 name: individual
 instance_of: mged:BioMaterialCharacteristicCategory
@@ -6304,14 +6019,6 @@ name: innate_behavior_design
 instance_of: mged:BiologicalProperty
 property_value: rdfs:comment "A design in which the innate behavior of the organism is examined, e.g. \n    path finding in bees." xsd:string
 property_value: mged:unique_identifier "MO_355" xsd:string
-
-[Term]
-id: mged:inoculate
-name: inoculate
-instance_of: mged:ComplexAction
-property_value: mged:unique_identifier "MO_559" xsd:string
-property_value: rdfs:comment "The process of introducing a foreign agent such as serum, vaccine, antigenic substance or organism." xsd:string
-property_value: mged:synonym "infect" xsd:string
 
 [Term]
 id: mged:inoculate
@@ -6397,13 +6104,6 @@ property_value: rdfs:comment "treatment of a biomaterial with radiation e.g. ele
 property_value: mged:unique_identifier "MO_770" xsd:string
 
 [Term]
-id: mged:irradiate
-name: irradiate
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "treatment of a biomaterial with radiation e.g. electromagnetic radiation" xsd:string
-property_value: mged:unique_identifier "MO_770" xsd:string
-
-[Term]
 id: mged:irregular_shape
 name: irregular_shape
 instance_of: mged:DefectType
@@ -6475,13 +6175,6 @@ property_value: rdfs:comment "The procedure of labeling a biosample." xsd:string
 property_value: mged:unique_identifier "MO_471" xsd:string
 
 [Term]
-id: mged:labeling
-name: labeling
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "The procedure of labeling a biosample." xsd:string
-property_value: mged:unique_identifier "MO_471" xsd:string
-
-[Term]
 id: mged:laser_ablation_mark
 name: laser_ablation_mark
 instance_of: mged:FiducialType
@@ -6502,14 +6195,6 @@ name: light_intensity
 instance_of: mged:EnvironmentalFactorCategory
 property_value: rdfs:comment "The amount of light actually striking the surface of samples which are being assayed.  It has a unit association as well, usually uEinstein /m2 /min or uEinstein /m2/s." xsd:string
 property_value: mged:unique_identifier "MO_517" xsd:string
-
-[Term]
-id: mged:linear_amplification
-name: linear_amplification
-instance_of: mged:ComplexAction
-property_value: mged:synonym "Eberwine procedure" xsd:string
-property_value: rdfs:comment "Amplification of nucleic acid sequence by making many copies off the same template.  An example is the use of the T7 promoter for amplification by transcribing many RNA copies.\nnon exact synonym: Eberwine procedure" xsd:string
-property_value: mged:unique_identifier "MO_997" xsd:string
 
 [Term]
 id: mged:linear_amplification
@@ -7321,13 +7006,6 @@ property_value: mged:unique_identifier "MO_607" xsd:string
 property_value: rdfs:comment "The procedure of extracting nucleic acid from the biomaterial." xsd:string
 
 [Term]
-id: mged:nucleic_acid_extraction
-name: nucleic_acid_extraction
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_607" xsd:string
-property_value: rdfs:comment "The procedure of extracting nucleic acid from the biomaterial." xsd:string
-
-[Term]
 id: mged:nucleic_acid_primary_sequence_record
 name: nucleic_acid_primary_sequence_record
 instance_of: mged:DatabaseEntryType
@@ -7459,13 +7137,6 @@ name: organism
 instance_of: mged:BioMaterialCharacteristicCategory
 property_value: rdfs:comment "one or more of any unicellular or multicellular pro or eukaryote, including archaebacteria" xsd:string
 property_value: mged:unique_identifier "MO_508" xsd:string
-
-[Term]
-id: mged:organism_part
-name: organism_part
-instance_of: mged:MaterialType
-property_value: mged:unique_identifier "MO_954" xsd:string
-property_value: rdfs:comment "The part of organism's anatomy or substance arising from an organism from which the biomaterial was derived, excludes cells. E.g. tissue, organ, system, sperm, blood or body location (arm)." xsd:string
 
 [Term]
 id: mged:organism_part
@@ -7716,14 +7387,6 @@ property_value: rdfs:comment "The process of combining two or more BioMaterials.
 property_value: mged:synonym "combine" xsd:string
 
 [Term]
-id: mged:pool
-name: pool
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_779" xsd:string
-property_value: rdfs:comment "The process of combining two or more BioMaterials.  \nExact synonym: combine" xsd:string
-property_value: mged:synonym "combine" xsd:string
-
-[Term]
 id: mged:population_density
 name: population_density
 instance_of: mged:EnvironmentalFactorCategory
@@ -7784,13 +7447,6 @@ property_value: rdfs:comment "The type of protocol used to preserve (including s
 property_value: mged:unique_identifier "MO_415" xsd:string
 
 [Term]
-id: mged:preservation
-name: preservation
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "The type of protocol used to preserve (including storage or keep in stasis) the biomaterial." xsd:string
-property_value: mged:unique_identifier "MO_415" xsd:string
-
-[Term]
 id: mged:primary_protein_structure_record
 name: primary_protein_structure_record
 instance_of: mged:DatabaseEntryType
@@ -7823,20 +7479,6 @@ name: protein
 instance_of: mged:PolymerType
 property_value: mged:unique_identifier "MO_683" xsd:string
 property_value: rdfs:comment "Polymer of amino acids." xsd:string
-
-[Term]
-id: mged:protein
-name: protein
-instance_of: mged:PolymerType
-property_value: mged:unique_identifier "MO_683" xsd:string
-property_value: rdfs:comment "Polymer of amino acids." xsd:string
-
-[Term]
-id: mged:purify
-name: purify
-instance_of: mged:ComplexAction
-property_value: mged:unique_identifier "MO_406" xsd:string
-property_value: rdfs:comment "The action of enriching a BioMaterial  (organism, cell, nucleic acid etc) or Compound e.g. for FACS for positive selection  or RNA  cleanup the Action or ProtocolType is purify (see fractionate). " xsd:string
 
 [Term]
 id: mged:purify
@@ -7980,25 +7622,11 @@ property_value: mged:unique_identifier "MO_480" xsd:string
 property_value: rdfs:comment "Generation of a DNA strand from an RNA strand using reverse transcriptase." xsd:string
 
 [Term]
-id: mged:reverse_transcription
-name: reverse_transcription
-instance_of: mged:ExperimentalProtocolType
-property_value: mged:unique_identifier "MO_480" xsd:string
-property_value: rdfs:comment "Generation of a DNA strand from an RNA strand using reverse transcriptase." xsd:string
-
-[Term]
 id: mged:reverse_transcription_PCR_quality_control
 name: reverse_transcription_PCR_quality_control
 instance_of: mged:QualityControlDescriptionType
 property_value: mged:unique_identifier "MO_986" xsd:string
 property_value: rdfs:comment "A PCR based semi quantitative validation of a subset of the array based data used for experimental QC purposes." xsd:string
-
-[Term]
-id: mged:sacrifice
-name: sacrifice
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "The procedure of euthanizing an organism." xsd:string
-property_value: mged:unique_identifier "MO_602" xsd:string
 
 [Term]
 id: mged:sacrifice
@@ -8338,13 +7966,6 @@ property_value: rdfs:comment "Depriving an organism of food or nutrients" xsd:st
 property_value: mged:unique_identifier "MO_370" xsd:string
 
 [Term]
-id: mged:starvation
-name: starvation
-instance_of: mged:ComplexAction
-property_value: rdfs:comment "Depriving an organism of food or nutrients" xsd:string
-property_value: mged:unique_identifier "MO_370" xsd:string
-
-[Term]
 id: mged:stimulated_design_type
 name: stimulated_design_type
 instance_of: mged:PerturbationalDesign
@@ -8357,13 +7978,6 @@ name: stimulus_or_stress_design
 instance_of: mged:PerturbationalDesign
 property_value: mged:unique_identifier "MO_568" xsd:string
 property_value: rdfs:comment "A stimulus or stress experiment design type is where the response of an organism(s) to the stress or stimulus is studied, e.g. osmotic stress, heat shock, radiation exposure, behavioral treatment etc." xsd:string
-
-[Term]
-id: mged:store
-name: store
-instance_of: mged:ComplexAction
-property_value: mged:unique_identifier "MO_442" xsd:string
-property_value: rdfs:comment "The procedure of placing a physical object under specified conditions e.g. time, temperature, humidity, for the purposes of keeping it in the same state." xsd:string
 
 [Term]
 id: mged:store
@@ -8452,13 +8066,6 @@ property_value: mged:deprecation_in_version "1.1.7" xsd:string
 property_value: mged:deprecation_reason "deleted_term" xsd:string
 property_value: mged:unique_identifier "MO_673" xsd:string
 property_value: rdfs:comment "a nonparametric measure of the agreement between two rankings" xsd:string
-
-[Term]
-id: mged:technical_replicate
-name: technical_replicate
-instance_of: mged:QualityControlDescriptionType
-property_value: mged:unique_identifier "MO_641" xsd:string
-property_value: rdfs:comment "A replicate where the same BioSample is use e.g. the same pool of RNA used to assess technical (as opposed to biological) variation within an experiment." xsd:string
 
 [Term]
 id: mged:technical_replicate
@@ -8559,26 +8166,6 @@ property_value: mged:synonym "gene_expression" xsd:string
 property_value: mged:synonym "transcription profiling" xsd:string
 property_value: rdfs:comment "A transcript identification design type characterizes the length and \n    position of transcripts and allows identification of all forms of \n    transcripts in the genome." xsd:string
 property_value: mged:synonym "expression profiling" xsd:string
-
-[Term]
-id: mged:transcript_identification_design
-name: transcript_identification_design
-instance_of: mged:TechnologicalDesign
-property_value: mged:unique_identifier "MO_533" xsd:string
-property_value: mged:synonym "transcription_profiling" xsd:string
-property_value: mged:synonym "gene expression" xsd:string
-property_value: mged:synonym "expression_profiling" xsd:string
-property_value: mged:synonym "gene_expression" xsd:string
-property_value: mged:synonym "transcription profiling" xsd:string
-property_value: rdfs:comment "A transcript identification design type characterizes the length and \n    position of transcripts and allows identification of all forms of \n    transcripts in the genome." xsd:string
-property_value: mged:synonym "expression profiling" xsd:string
-
-[Term]
-id: mged:transfect
-name: transfect
-instance_of: mged:ComplexAction
-property_value: mged:unique_identifier "MO_849" xsd:string
-property_value: rdfs:comment "The process of bringing about genetic alteration of any cell or organism by a variety of means including recombinant DNA technology, viruses, chemical mutagens, and X-rays." xsd:string
 
 [Term]
 id: mged:transfect
@@ -8728,13 +8315,6 @@ property_value: mged:unique_identifier "MO_535" xsd:string
 property_value: rdfs:comment "BioSequence of unknown type" xsd:string
 
 [Term]
-id: mged:unknown_sequence
-name: unknown_sequence
-instance_of: mged:TheoreticalBioSequenceType
-property_value: mged:unique_identifier "MO_535" xsd:string
-property_value: rdfs:comment "BioSequence of unknown type" xsd:string
-
-[Term]
 id: mged:unknown_sex
 name: unknown_sex
 instance_of: mged:Sex
@@ -8867,13 +8447,6 @@ property_value: rdfs:comment "The process of applying a solvent (e.g. water) or 
 property_value: mged:unique_identifier "MO_596" xsd:string
 
 [Term]
-id: mged:wash
-name: wash
-instance_of: mged:ExperimentalProtocolType
-property_value: rdfs:comment "The process of applying a solvent (e.g. water) or a solution (e.g. SSC/SDS) to a BioMaterial or an array to remove impurities or unwanted compounds." xsd:string
-property_value: mged:unique_identifier "MO_596" xsd:string
-
-[Term]
 id: mged:wash_station
 name: wash_station
 instance_of: mged:HardwareType
@@ -8907,13 +8480,6 @@ name: whole_organism
 instance_of: mged:MaterialType
 property_value: rdfs:comment "one or more of any unicellular or multicellular pro or eukaryote, including archaebacteria" xsd:string
 property_value: mged:unique_identifier "MO_566" xsd:string
-
-[Term]
-id: mged:wild_type
-name: wild_type
-instance_of: mged:Genotype
-property_value: mged:unique_identifier "MO_605" xsd:string
-property_value: rdfs:comment "The genotype or phenotype that is found in nature or in standard laboratory stocks for a given organism.  For a single locus, the allele found most frequently in natural populations, or in standard laboratory stocks for a given organism." xsd:string
 
 [Term]
 id: mged:wild_type
