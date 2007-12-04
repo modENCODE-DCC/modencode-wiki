@@ -31,39 +31,47 @@
   function getExactTermsFor($searchCv, $searchTerm, $delimiter = null) {
     $searchTerms = getTermsArray($searchTerm, $delimiter);
     $okayTerms = array();
+    $multipleCvs = (!is_null($delimiter) && strpos($searchCv, $delimiter) !== false) ? true : false;
     foreach ($searchTerms as $searchTerm) {
-      $CVandTerm = explode(":", trim($searchTerm));
-      if (!isset($CVandTerm[1])) { continue; }
-      $searchCv = $CVandTerm[0];
-      $searchTerm = $CVandTerm[1];
-      $resultTerms = getTermsFor($searchCv, $searchTerm);
+      if ($multipleCvs) {
+        $CVandTerm = explode(":", trim($searchTerm));
+        if (!isset($CVandTerm[1])) { continue; }
+        $searchCv = $CVandTerm[0];
+        $shortSearchTerm = $CVandTerm[1];
+      } else {
+        $shortSearchTerm = $searchTerm;
+      }
+      $resultTerms = getTermsFor($searchCv, $shortSearchTerm, $multipleCvs);
       if (count($resultTerms) < 1) { continue; }
       foreach ($resultTerms as $resultTerm) {
-	if ($resultTerm["name"] != $searchTerm) { continue; }
+	if ($resultTerm["fullname"] != $searchTerm) { continue; }
 	array_push($okayTerms, $resultTerm);
       }
     }
     return $okayTerms;
   }
-  function getTermsFor($searchCv, $searchTerm) {
+  function getTermsFor($searchCv, $searchTerm, $multipleCvs=false) {
     $path = dirname(__FILE__) . '/ontologies';
     if (strpos($searchCv, ',') !== false) {
       $searchCvs = explode(",", $searchCv);
     } else {
       $searchCvs = array($searchCv);
     }
+    if (count($searchCvs) > 1) {
+      $multipleCvs = true;
+    }
     $allResultTerms = array();
     foreach ($searchCvs as $searchCv) {
       if (file_exists("$path/$searchCv.obo")) {
-	$resultTerms = getFileTermsFor($searchCv, $searchTerm);
+	$resultTerms = getFileTermsFor($searchCv, $searchTerm, $multipleCvs);
       } else {
-	$resultTerms = getDBTermsFor($searchCv, $searchTerm);
+	$resultTerms = getDBTermsFor($searchCv, $searchTerm, $multipleCvs);
       }
       $allResultTerms = array_merge($allResultTerms, $resultTerms);
     }
     return $allResultTerms;
   }
-  function getFileTermsFor($searchCv, $searchTerm, $limit=20) {
+  function getFileTermsFor($searchCv, $searchTerm, $multipleCvs=false, $limit=20) {
     $resultTerms = array();
     $path = dirname(__FILE__) . '/ontologies';
     $obo = file_get_contents("$path/$searchCv.obo");
@@ -115,7 +123,7 @@
       }
 
       array_push($resultTerms, array(
-        "fullname" => $row["cv"] . ":" . $row["name"],
+        "fullname" => $multipleCvs ? $row["cv"] . ":" . $row["name"] : $row["name"],
 	"cv" => $row["cv"], 
 	"name" => $row["name"], 
 	"accession" => $row["id"], 
@@ -125,7 +133,7 @@
     }
     return array_slice($resultTerms, 0, 50);
   }
-  function getDBTermsFor($searchCv, $searchTerm, $limit=20) {
+  function getDBTermsFor($searchCv, $searchTerm, $multipleCvs=false, $limit=20) {
     global $modENCODE_DBFields_conf;
     $resultTerms = array();
 
@@ -158,7 +166,7 @@
       }
         
       array_push($resultTerms, array(
-        "fullname" => $row["cv"] . ":" . $row["name"],
+        "fullname" => $multipleCvs ? $row["cv"] . ":" . $row["name"] : $row["name"],
 	"cv" => $row["cv"], 
 	"name" => $row["name"], 
 	"accession" => $row["id"], 

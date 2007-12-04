@@ -56,7 +56,11 @@
 	$attribs["type"] = "text";
       }
       if ($attribs["type"] == "text" || $attribs["type"] == "password") {
-	$attribs["value"] = $modENCODE_dbfields_data["values"][$attribs["name"]];
+        if (isset($modENCODE_dbfields_data["values"][$attribs["name"]])) {
+          $attribs["value"] = $modENCODE_dbfields_data["values"][$attribs["name"]];
+        } else {
+          $attribs["value"] = "";
+        }
       }
       if ($attribs["type"] == "checkbox" || $attribs["type"] == "radio") {
 	if ($attribs["value"] == $modENCODE_dbfields_data["values"][$attribs["name"]]) {
@@ -123,7 +127,7 @@
       if ($input["attribs"]["type"] == "cvterm") {
 	$attribs = $input["attribs"];
 	$extra_content_after .= '<div class="cvterm_url" id="' . $attribs["id"] . '_url">';
-	if (strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
+	if (isset($modENCODE_dbfields_data["values"][$attribs["name"]]) && strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
 	  // Get URLs
 	  $delim = ($attribs["multiple"] ? ',' : null);
 	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
@@ -145,7 +149,7 @@
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
       if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
-	$value = $modENCODE_dbfields_data["values"][$item["attribs"]["name"]];
+	$value = isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) ? $modENCODE_dbfields_data["values"][$item["attribs"]["name"]] : "";
 	if (!strlen($value)) {
 	  $extra_content_after .= "  <div class=\"required missing\">required field missing</div>";
 	  $modENCODE_dbfields_data["invalidversion"] = true;
@@ -159,7 +163,7 @@
 	strlen($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) > 0
       ) {
 	$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
-	$terms = array_map(create_function('$term', 'return $term["name"];'), $terms);
+	$terms = array_map(create_function('$term', 'return $term["fullname"];'), $terms);
 	$existingTerms = getTermsArray($modENCODE_dbfields_data["values"][$item["attribs"]["name"]], $delim);
 	$diffterms = array_diff($existingTerms, $terms);
 	if (count($diffterms) > 0) {
