@@ -14,6 +14,7 @@
 
   if (!$validating) {
     $resultTerms = getTermsFor($searchCv, $searchTerm);
+    usort($resultTerms, create_function('$a, $b', 'if (strlen($a["name"]) < strlen($b["name"])) { return -1; } elseif (strlen($a["name"]) > strlen($b["name"])) { return 1; } else { return 0; }'));
     print "<terms>\n" . xmlifyTerms($resultTerms) . "</terms>";
   } else {
     $okayTerms = getExactTermsFor($searchCv, $searchTerm, $delimiter);
@@ -31,7 +32,10 @@
     $searchTerms = getTermsArray($searchTerm, $delimiter);
     $okayTerms = array();
     foreach ($searchTerms as $searchTerm) {
-      $searchTerm = trim($searchTerm);
+      $CVandTerm = explode(":", trim($searchTerm));
+      if (!isset($CVandTerm[1])) { continue; }
+      $searchCv = $CVandTerm[0];
+      $searchTerm = $CVandTerm[1];
       $resultTerms = getTermsFor($searchCv, $searchTerm);
       if (count($resultTerms) < 1) { continue; }
       foreach ($resultTerms as $resultTerm) {
@@ -102,12 +106,16 @@
 	$row[trim($tags[1][$j])] = $tags[2][$j];
       }
 
+      $row["url"] = "";
       if ($row["id"] && strpos($row["id"], ':') > 0) {
 	$id = explode(':', $row["id"], 2);
-	$row["url"] = str_replace('#', $id[1], $idspaces[$id[0]]["url"]);
+        if (isset($idspaces[$id[0]])) {
+          $row["url"] = str_replace('#', $id[1], $idspaces[$id[0]]["url"]);
+        }
       }
 
       array_push($resultTerms, array(
+        "fullname" => $row["cv"] . ":" . $row["name"],
 	"cv" => $row["cv"], 
 	"name" => $row["name"], 
 	"accession" => $row["id"], 
@@ -115,7 +123,6 @@
 	"url" => $row["url"]
       ));
     }
-    usort($resultTerms, create_function('$a, $b', 'if (strlen($a["name"]) < strlen($b["name"])) { return -1; } elseif (strlen($a["name"]) > strlen($b["name"])) { return 1; } else { return 0; }'));
     return array_slice($resultTerms, 0, 50);
   }
   function getDBTermsFor($searchCv, $searchTerm, $limit=20) {
@@ -146,8 +153,12 @@
       if ($row["urlprefix"]) {
 	$row["url"] = $row["urlprefix"] . $row["id"];
 	$row["url"] = str_replace('#', $row["id"], $row["urlprefix"]);
+      } elseif (!isset($row["url"])) {
+        $row["url"] = "";
       }
+        
       array_push($resultTerms, array(
+        "fullname" => $row["cv"] . ":" . $row["name"],
 	"cv" => $row["cv"], 
 	"name" => $row["name"], 
 	"accession" => $row["id"], 

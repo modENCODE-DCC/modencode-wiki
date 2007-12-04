@@ -170,7 +170,6 @@ YAHOO.widget.AutoComplete.prototype._finishValidating = function(sQuery, aResult
     var filteredResults = new Array();
     for (var i = 0; i < aResults.length; i++) {
 	var aSentElements = (oSelf.delimChar && oSelf.delimChar != null && oSelf.delimChar.length > 0) ? sQuery.split(oSelf.delimChar) : new Array(sQuery);
-	var exactMatch = false;
 	for (var j = 0; j < aSentElements.length; j++) {
 	    if (aResults[i][0] == aSentElements[j].replace(/^\s+|\s+$/, '')) {
 		filteredResults[filteredResults.length] = aResults[i];
@@ -374,7 +373,7 @@ function DBFields_runOnLoad() {
             var multiple = element.getAttribute('multiple');
             if (!cv) { continue; }
             var url = "<?=dirname($_SERVER["PHP_SELF"]);?>/DBFieldsCVTerm.php"
-	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'name', 'cv', 'accession', 'definition', 'url' ]);
+	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'fullname', 'name', 'cv', 'accession', 'definition', 'url' ]);
             dataSource.responseType = YAHOO.widget.DS_XHR.TYPE_XML;
             dataSource.scriptQueryAppend = "cv=" + cv;
             dataSource.scriptQueryParam = "term";
@@ -398,8 +397,8 @@ function DBFields_runOnLoad() {
             }
             autoComp.formatResult = function(aResultItem, sQuery) {
                 var termName = aResultItem[0];
-                var cvName = aResultItem[1];
-                var accession = aResultItem[2];
+                var cvName = aResultItem[2];
+                var accession = aResultItem[3];
 		termName = (termName.length > 30) ? termName.substr(0, 30) + "..." : termName;
                 termName = termName.replace(sQuery, "<span class=\"queryText\">" + sQuery + "</span>");
 		if (termName.length = 0) { termName = "&nbsp;"; }
