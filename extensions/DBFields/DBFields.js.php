@@ -1,21 +1,6 @@
 <?
   header("Content-type: text/javascript");
 ?>
-
-var protocolName = protocolName();
-
-/**
-/****************************************************************
-* get protocol/pagename at load time for protocol autocreation
-****************************************************************/
-function protocolName() {
-  var url = window.location.href;
-  var pageName = url.split('/');
-  var len = pageName.length;
-  alert(pageName[len - 1]);
-}
-
-
 /**
 /****************************************************************
 * findPos script from http://www.quirksmode.org/js/findpos.html *
@@ -91,6 +76,76 @@ YAHOO.widget.AutoComplete.prototype._onTextboxKeyDown = function(v,oSelf) {
 };
 
 /**
+ * Extends the getResults function prototype to ignore bracketed terms. This is 
+ * used so we can have "named" terms, as in:
+ * Controlled Term [inputa], Controlled Term [inputb]
+ */
+YAHOO.widget.DataSource.prototype.oldGetResults = YAHOO.widget.DataSource.prototype.getResults;
+YAHOO.widget.DataSource.prototype.getResults = function(oCallbackFn, sQuery, oParent) {
+  var terms = Array();
+  if (oParent.delimChar && oParent.delimChar.length) {
+    var encodedDelimRegexStr = "(?:";
+    var decodedDelimRegexStr = "(?:" + oParent.delimChar.join("|") + ")";
+    for (var i = 0; i < oParent.delimChar.length; i++) {
+      encodedDelimRegexStr += encodeURIComponent(oParent.delimChar[i]);
+    }
+    encodedDelimRegexStr += ")";
+    if (sQuery.match(new RegExp(encodedDelimRegexStr))) {
+      terms = sQuery.split(new RegExp(encodedDelimRegexStr + '(?:%20| )*'));
+    } else if (sQuery.match(new RegExp(decodedDelimRegexStr))) {
+      terms = sQuery.split(new RegExp(decodedDelimRegexStr + '(?:%20| )*'));
+    } else {
+      terms.push(sQuery);
+    }
+  } else {
+    terms.push(sQuery);
+  }
+  var term;
+  var termPiecesArray = Array();
+  for (var i = 0; i < terms.length; i++) {
+    var term = terms[i];
+    if (term.replace(/\s*/, '').length <= 0) { continue; }
+    // Remove anything after an open-bracket; furthermore, don't
+    // even remember anything after a closing bracket.
+    // "This [thing] here" isn't validanyway
+    var termPieces = decodeURIComponent(term).split(/\s*[\[\]]/);
+    // TODO: Need a wrapper around oCallbackFn to fix the terms back up 
+    // with the bracketed term. 
+    // TODO: Need to remember whether there was an ending bracket, etc.
+    termPiecesArray.push(termPieces);
+  }
+
+  sQueryTerms = Array();
+  for (var i = 0; i < termPiecesArray.length; i++) {
+    sQueryTerms.push(termPiecesArray[i][0]);
+  }
+  sQuery = encodeURIComponent(sQueryTerms.join(", "));
+
+  // Create a function closure around the callback function to tack the
+  // names of the terms onto each result
+  var callbackWrapper = function(sOrigQuery, aResults, oParent) {
+    var termPiecesClosure = termPiecesArray;
+    for (var i = 0; i < aResults.length; i++) {
+      if (aResults[i][aResults[i].length-1] != "_named") {
+        // Append the original result name as a backup here
+        // We can't just keep adding on to the term name because it might be
+        // getting pulled from cached results, in which case we'd get repetition
+        // a la "term [f][fo][foo]"
+        aResults[i][aResults[i].length] = aResults[i][0];
+        aResults[i][aResults[i].length] = "_named";
+      }
+      // Only add the name if one's been set
+      if (termPiecesArray[0] && termPiecesArray[0][1] && termPiecesArray[0][1].length > 0) {
+        aResults[i][0] = aResults[i][aResults[i].length-2] + " [" + termPiecesArray[0][1] + "]";
+      }
+    }
+    oCallbackFn(sOrigQuery, aResults, oParent);
+  }
+
+  this.oldGetResults(callbackWrapper, sQuery, oParent);
+};
+
+/**
  * Retrieves validated terms given a term or delimited set of terms. Currently only 
  * implemented for XHR data sources, although there is some rudimentary javascript 
  * checking of returned terms to make sure they match, so it should be easy to
@@ -121,7 +176,7 @@ YAHOO.widget.DS_XHR.prototype.getValidResults = function(oCallbackFn, sQuery, oP
       "validating=validating&delimiter="  + encodeURIComponent(sDelimiter) + "&" +
       this.scriptQueryAppend;
 
-    this.getResults(oCallbackFn, sQuery, oParent);
+    this.oldGetResults(oCallbackFn, sQuery, oParent);
 
     this.scriptQueryAppend = oldAppend;
 };
@@ -299,9 +354,11 @@ var DBFields_showURL = function(sType, aArgs) {
     if (urlField) {
       urlField.innerHTML = "";
       for (var i = 0; i < aResults.length; i++) {
-	var linkname = (aResults[i][0].length > 25) ? aResults[i][0].substr(0, 25) + "..." : aResults[i][0];
-	urlField.innerHTML += '<a href="' + aResults[i][4] + '">' + linkname + '</a>';
-	if (i < aResults.length - 1) { urlField.innerHTML += " "; }
+        if (aResults[i][4].length > 0) {
+          var linkname = (aResults[i][0].length > 25) ? aResults[i][0].substr(0, 25) + "..." : aResults[i][0];
+          urlField.innerHTML += '<a href="' + aResults[i][4] + '">' + linkname + '</a>';
+          if (i < aResults.length - 1) { urlField.innerHTML += " "; }
+        }
       }
       urlField.style.display = "inline";
     }
@@ -329,10 +386,10 @@ var DBFields_showDefinition = function(sType, aArgs) {
   var elItem = aArgs[1];
   var data = oCompleter.getListItemData(elItem);
 
-  var name = data[1];
-  var cv = data[2];
-  var accession = data[3];
-  var definition = data[4];
+  var name = data[0];
+  var cv = data[1];
+  var accession = data[2];
+  var definition = data[3];
 
   if (!oCompleter.definitionBox) { 
     var form = oContainer.form;

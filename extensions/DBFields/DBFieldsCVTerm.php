@@ -33,6 +33,13 @@
     $okayTerms = array();
     $multipleCvs = (!is_null($delimiter) && strpos($searchCv, $delimiter) !== false) ? true : false;
     foreach ($searchTerms as $searchTerm) {
+      preg_match('/([^\[]*)(?:\[([^\]]*)\])?/', $searchTerm, $searchTermAndName);
+      $searchTerm = trim($searchTermAndName[1]);
+      if (isset($searchTermAndName[2])) {
+        $name = trim($searchTermAndName[2]);
+      } else {
+        unset($name);
+      }
       if ($multipleCvs) {
         $CVandTerm = explode(":", trim($searchTerm));
         if (!isset($CVandTerm[1])) { continue; }
@@ -45,6 +52,9 @@
       if (count($resultTerms) < 1) { continue; }
       foreach ($resultTerms as $resultTerm) {
 	if ($resultTerm["fullname"] != $searchTerm) { continue; }
+        if (isset($name)) {
+          $resultTerm["fullname"] .= " [$name]";
+        }
 	array_push($okayTerms, $resultTerm);
       }
     }
@@ -156,6 +166,7 @@
     $query = preg_replace('/\\\\\?/', '?', $query, 1);
 
     $res = modENCODE_db_query($db, $query, $modENCODE_DBFields_conf["form_data"]["type"]);
+
     while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
       if ($row["urlprefix"]) {
 	$row["url"] = $row["urlprefix"] . $row["id"];
