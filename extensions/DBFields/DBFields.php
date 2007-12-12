@@ -146,14 +146,15 @@
       }
     }
     if ($name == "input" || $name == "select") {
+      $attribs = $input["attribs"];
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
       if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
 	$value = isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) ? $modENCODE_dbfields_data["values"][$item["attribs"]["name"]] : "";
-	if (!strlen($value)) {
-	  $extra_content_after .= "  <div class=\"required missing\">required field missing</div>";
-	  $modENCODE_dbfields_data["invalidversion"] = true;
-	}
+        $missingClass = "required";
+	if (!strlen($value)) { $missingClass .= " missing"; }
+        $extra_content_after .= "  <div class=\"$missingClass\" id=\"" . $attribs["id"] . "_missing\">required field missing</div>";
+        $modENCODE_dbfields_data["invalidversion"] = true;
       }
       if (
 	isset($item) && $item && 
@@ -168,7 +169,7 @@
 	$diffterms = array_diff($existingTerms, $terms);
 	if (count($diffterms) > 0) {
 	  $diffterms = implode(", ", $diffterms);
-	  $extra_content_after .= "  <div class=\"required missing\">invalid controlled vocabulary term(s): $diffterms</div>";
+	  $extra_content_after .= "  <div class=\"required missing\" id=\"" . $attribs["id"] . "_missing\">invalid controlled vocabulary term(s): $diffterms</div>";
 	  $modENCODE_dbfields_data["invalidversion"] = true;
 	}
       }
@@ -324,16 +325,29 @@
 
       $dbw = wfGetDB(DB_MASTER);
       $pageId = $parser->mTitle->getArticleId();
-      $newRev = Revision::newNullRevision($dbw, $pageId, "DBFields version update", false);
-      $newRevId = $newRev->inserton($dbw);
-      $newRev = Revision::newFromId($newRevId);
-      $a = new Article($parser->mTitle);
-      $a->updateIfNewerOn($dbw, $newRev);
 
-      foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
-	$key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-	$value = modENCODE_db_escape(htmlentities($value), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-	modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
+      $old_values = array();
+      $res = modENCODE_db_query($db, "SELECT key, value FROM data WHERE name = '$entry_name' AND version = " . ($version-1), $modENCODE_DBFields_conf["form_data"]["type"]);
+      while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
+        $old_values[$row['key']] = $row['value'];
+      }
+
+      $left_diff = array_diff_assoc($old_values, $_POST["modENCODE_dbfields"]);
+      $right_diff = array_diff_assoc($_POST["modENCODE_dbfields"], $old_values);
+      $anyChange = (count($left_diff) > 0 || count($right_diff) > 0) ? true : false;
+
+      if ($anyChange) {
+        $newRev = Revision::newNullRevision($dbw, $pageId, "DBFields version update", false);
+        $newRevId = $newRev->inserton($dbw);
+        $newRev = Revision::newFromId($newRevId);
+        $a = new Article($parser->mTitle);
+        $a->updateIfNewerOn($dbw, $newRev);
+
+        foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
+          $key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+          $value = modENCODE_db_escape(htmlentities($value), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+          modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
+        }
       }
 
       $url = $parser->mTitle->getLocalURL("action=purge");

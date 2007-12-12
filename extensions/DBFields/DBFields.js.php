@@ -345,6 +345,37 @@ YAHOO.widget.AutoComplete.prototype.destroy = function() {
 /******************************************************
 * DBField specific code here			      *
 *******************************************************/
+var DBFields_checkRequired = function(sType, aArgs) {
+  var oCompleter = aArgs[0];
+  var aResults = aArgs[1];
+  if (oCompleter.missingField) {
+    var missingField = document.getElementById(oCompleter.missingField);
+    var isMissing = true;
+    for (var i = 0; i < aResults.length; i++) {
+      if (aResults[i][0] && aResults[i][0].length > 0) {
+        isMissing = false;
+        break;
+      }
+    }
+    if (isMissing) {
+      missingField.style.display = "inline";
+    } else {
+      missingField.style.display = "none";
+    }
+  }
+}
+
+var DBFields_freetextRequired = function(field_id) {
+  var field = document.getElementById(field_id);
+  var missingField = document.getElementById(field_id + "_missing");
+  if (field && missingField) {
+    if (field.value.replace(/s\*/, '').length <= 0) {
+      missingField.style.display = "inline";
+    } else {
+      missingField.style.display = "none";
+    }
+  }
+}
 
 var DBFields_showURL = function(sType, aArgs) {
   var oCompleter = aArgs[0];
@@ -499,12 +530,31 @@ function DBFields_runOnLoad() {
 	    autoComp.finishedValidatingEvent.subscribe(DBFields_hideSpinner);
 	    autoComp.textboxFocusEvent.subscribe(DBFields_hideURL);
 	    autoComp.finishedValidatingEvent.subscribe(DBFields_showURL);
+	    autoComp.finishedValidatingEvent.subscribe(DBFields_checkRequired);
 
             autoComp.allowBrowserAutocomplete = false;
 	    autoComp.urlField = input_id + "_url";
+	    autoComp.missingField = input_id + "_missing";
 
             autocompleters[autocompleters.length] = autoComp;
         }
+    }
+
+    // Note the fancy regex here; this is only possible because
+    // behaviour.js's getElementsBySelector function uses a regex to 
+    // match the classname. (We also can't use the '.' character, since the 
+    // function splits on '.' boundaries, hence the \\s\\S construction.
+    var requiredFreetextFields = document.getElementsBySelector('div.required');
+    if (requiredFreetextFields) {
+      for (i = 0; element = requiredFreetextFields[i]; i++) {
+        var input_id = element.id.replace(/_missing$/, '');
+        var input_elem = document.getElementById(input_id);
+        if (input_elem) {
+          // Pass the ID here rather than the object so we can avoid DOM-tied 
+          // function closures which lead to memory leaks in IE.
+          input_elem.onblur = new Function("DBFields_freetextRequired('" + input_id + "');");
+        }
+      }
     }
 }
 
