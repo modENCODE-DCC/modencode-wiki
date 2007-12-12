@@ -11,7 +11,7 @@ form.modENCODE_dbfields div.formattedResult div.accession { float: right; }
 form.modENCODE_dbfields div.formattedResult span.queryText { font-weight: bold; }
 
 form.modENCODE_dbfields .spinner { width: 12px; height: 12px; }
-form.modENCODE_dbfields div.definition { position: absolute; float: right; border: thin double black; }
+form.modENCODE_dbfields div.definition { background-color: white; position: absolute; float: right; border: thin double black; }
 form.modENCODE_dbfields div.cvterm_url { display: inline; }
 form.modENCODE_dbfields div.cvterm_url p { display: inline; }
 

@@ -156,7 +156,6 @@
     $query = preg_replace('/\\\\\?/', '?', $query, 1);
 
     $res = modENCODE_db_query($db, $query, $modENCODE_DBFields_conf["form_data"]["type"]);
-
     while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
       if ($row["urlprefix"]) {
 	$row["url"] = $row["urlprefix"] . $row["id"];

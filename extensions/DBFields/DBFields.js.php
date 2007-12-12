@@ -1,6 +1,21 @@
 <?
   header("Content-type: text/javascript");
 ?>
+
+var protocolName = protocolName();
+
+/**
+/****************************************************************
+* get protocol/pagename at load time for protocol autocreation
+****************************************************************/
+function protocolName() {
+  var url = window.location.href;
+  var pageName = url.split('/');
+  var len = pageName.length;
+  alert(pageName[len - 1]);
+}
+
+
 /**
 /****************************************************************
 * findPos script from http://www.quirksmode.org/js/findpos.html *
@@ -314,10 +329,10 @@ var DBFields_showDefinition = function(sType, aArgs) {
   var elItem = aArgs[1];
   var data = oCompleter.getListItemData(elItem);
 
-  var name = data[0];
-  var cv = data[1];
-  var accession = data[2];
-  var definition = data[3];
+  var name = data[1];
+  var cv = data[2];
+  var accession = data[3];
+  var definition = data[4];
 
   if (!oCompleter.definitionBox) { 
     var form = oContainer.form;

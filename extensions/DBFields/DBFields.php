@@ -386,7 +386,7 @@
     $modENCODE_markers_to_data[] = $parsed_xml;
 
     $version = ($version == 0) ? "0: no information" : $version;
-    $result = "<h2>Form \"" . $args["name"] . "\" (version $version)</h2>\n";
+    $result = "<h2>Protocol \"" . $args["name"] . "\" (Version $version)</h2>\n";
     $result .= htmlspecialchars("modENCODE-marker#" . (count($modENCODE_markers_to_data)-1) . "#");
     return $result;
   }
