@@ -74,7 +74,7 @@
       $tempstack = $modENCODE_dbfields_data["stack"];
       while ($parent = array_pop($tempstack)) {
 	if ($parent["name"] == "select") {
-	  $value = $modENCODE_dbfields_data["values"][$parent["attribs"]["name"]];
+	  $value = (isset($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) ? $modENCODE_dbfields_data["values"][$parent["attribs"]["name"]] : "";
 	  if ($attribs["value"] == $value) {
 	    $attribs["selected"] = "selected";
 	  } elseif ($value) {
@@ -146,8 +146,8 @@
       }
     }
     if ($name == "input" || $name == "select") {
-      $attribs = $input["attribs"];
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
+      $attribs = $input["attribs"];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
       if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
 	$value = isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) ? $modENCODE_dbfields_data["values"][$item["attribs"]["name"]] : "";

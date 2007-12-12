@@ -552,7 +552,7 @@ function DBFields_runOnLoad() {
         if (input_elem) {
           // Pass the ID here rather than the object so we can avoid DOM-tied 
           // function closures which lead to memory leaks in IE.
-          input_elem.onblur = new Function("DBFields_freetextRequired('" + input_id + "');");
+          input_elem.onchange = new Function("DBFields_freetextRequired('" + input_id + "');");
         }
       }
     }
