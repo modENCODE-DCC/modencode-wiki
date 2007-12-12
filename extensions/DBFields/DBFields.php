@@ -1,7 +1,7 @@
 <?
   include_once("DBFieldsConf.php");
   include_once("DBFieldsCVTerm.php");
-  $wgExtensionFunctions[] = 'modENCODE_dbfields_setup';
+  $wgExtensionFunctions[] = 'modENCODE_DBFields_setup';
   $wgHooks['ParserAfterTidy'][] = 'modENCODE_dbfields_ParserAfterTidy_MarkerReplacement';
   // Version too old for:
   //$wgHooks['BeforePageDisplay'][] = 'modENCODE_dbfields_BeforePageDisplay_addCSSandJS';
@@ -133,8 +133,8 @@
 	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
 	  foreach ($terms as $term) {
 	    if (strlen($term["url"]) > 0) {
-	      $linkname = strlen($term["name"]) > 25 ? substr($term["name"], 0, 25) . "..." : $term["name"];
-	      $link = '<a href="' . $term["url"] . '">' . $linkname . '</a>';
+	      $linkname = strlen($term["fullname"]) > 25 ? substr($term["fullname"], 0, 25) . "..." : $term["fullname"];
+	      $link = '<a href="' . $term["url"] . '">' . $linkname . '</a> ';
 	      $extra_content_after .= $link;
 	      //$link = $renderParser->parse($link, $renderParser->mTitle, $renderParser->mOptions);
 	      //$extra_content_after .= $link->getText();
@@ -278,6 +278,11 @@
       $modENCODE_DBFields_conf["form_data"]["password"], 
       $modENCODE_DBFields_conf["form_data"]["type"]
     );
+
+    if (!$args["name"]) {
+      $args["name"] = $parser->mTitle;
+    }
+
     $entry_name = modENCODE_db_escape($args["name"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
 
     if (isset($_GET["version"]) && $_GET["version"]) {

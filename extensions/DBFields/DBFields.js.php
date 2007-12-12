@@ -351,16 +351,22 @@ var DBFields_showURL = function(sType, aArgs) {
   var aResults = aArgs[1];
   if (oCompleter.urlField) {
     var urlField = document.getElementById(oCompleter.urlField);
+    var hasURL = false;
     if (urlField) {
       urlField.innerHTML = "";
       for (var i = 0; i < aResults.length; i++) {
-        if (aResults[i][4].length > 0) {
+        if (aResults[i][5].length > 0) {
+	  hasURL = true;
           var linkname = (aResults[i][0].length > 25) ? aResults[i][0].substr(0, 25) + "..." : aResults[i][0];
-          urlField.innerHTML += '<a href="' + aResults[i][4] + '">' + linkname + '</a>';
+          urlField.innerHTML += '<a href="' + aResults[i][5] + '">' + linkname + '</a>';
           if (i < aResults.length - 1) { urlField.innerHTML += " "; }
-        }
+	}
       }
-      urlField.style.display = "inline";
+      if (hasURL) {
+	urlField.style.display = "inline";
+      } else {
+	urlField.style.display = "none";
+      }
     }
   }
 };
