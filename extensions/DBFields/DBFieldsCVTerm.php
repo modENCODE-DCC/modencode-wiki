@@ -84,29 +84,41 @@
   function getFileTermsFor($searchCv, $searchTerm, $multipleCvs=false, $limit=20) {
     $resultTerms = array();
     $path = dirname(__FILE__) . '/ontologies';
-    $obo = file_get_contents("$path/$searchCv.obo");
+
+    $obo = fopen("$path/$searchCv.obo", "r");
+    $header = "";
+    while (($line = fgets($obo)) !== false) {
+      if (preg_match('/\[([^\]]*)\]/', $line)) {
+	break;
+      } else {
+	$header .= $line;
+      }
+    }
+
     $pattern = '/idspace: (\S+)\s+(\S+)\s+(?:"([^"]*)")?/';
-    preg_match_all($pattern, $obo, $matches);
+    preg_match_all($pattern, $header, $matches);
     $idspaces = array();
     for ($i = 0; $i < count($matches[0]); $i++) {
       $idspaces[$matches[1][$i]]["url"] = $matches[2][$i];
       $idspaces[$matches[1][$i]]["description"] = $matches[3][$i];
     }
 
-    $sections = preg_split('/\[([^\]]*)\]/', $obo, -1, PREG_SPLIT_DELIM_CAPTURE);
-
+    $pattern = '/^name:\s*(.*' . preg_quote($searchTerm) . '.*)$/im';
     $matches = array();
     $MAX_MATCHES = 500;
-    for ($i = 0; $i < count($sections); $i++) {
-      $section = $sections[$i];
-      if ($section != "Term") { continue; }
-      $section = $sections[++$i];
-      $pattern = '/^name:\s*(.*' . preg_quote($searchTerm) . '.*)$/im';
-      if (preg_match($pattern, $section, $match) > 0) {
-	array_push($matches, $section);
-	if ($MAX_MATCHES-- <= 0) { break; }
+    $section = "[Term]\n";
+    while ($line = fgets($obo)) {
+      if (preg_match('/\[([^\]]*)\]/', $line)) {
+	if (preg_match($pattern, $section, $match) > 0) {
+	  array_push($matches, $section);
+	  if ($MAX_MATCHES-- <= 0) { break; }
+	}
+	$section = "[Term]\n";
+      } else {
+	$section .= $line;
       }
     }
+    fclose($obo);
 
     for ($i = 0; $i < count($matches); $i++) {
       $row = array(
