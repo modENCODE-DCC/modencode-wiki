@@ -423,10 +423,10 @@ var DBFields_showDefinition = function(sType, aArgs) {
   var elItem = aArgs[1];
   var data = oCompleter.getListItemData(elItem);
 
-  var name = data[0];
-  var cv = data[1];
-  var accession = data[2];
-  var definition = data[3];
+  var name = data[1];
+  var cv = data[2];
+  var accession = data[3];
+  var definition = data[4];
 
   if (!oCompleter.definitionBox) { 
     var form = oContainer.form;

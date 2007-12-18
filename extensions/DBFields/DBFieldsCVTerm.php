@@ -108,7 +108,7 @@
     $MAX_MATCHES = 500;
     $section = "[Term]\n";
     while ($line = fgets($obo)) {
-      if (preg_match('/\[([^\]]*)\]/', $line)) {
+      if (preg_match('/^\s*\[([^\]]*)\]/', $line)) {
 	if (preg_match($pattern, $section, $match) > 0) {
 	  array_push($matches, $section);
 	  if ($MAX_MATCHES-- <= 0) { break; }
