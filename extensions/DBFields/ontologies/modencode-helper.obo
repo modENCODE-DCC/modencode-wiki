@@ -1,0 +1,414 @@
+format-version: 1.0
+date: 17:12:2007 16:43
+saved-by: Nicole
+auto-generated-by: OBO-Edit 1.101
+!synonymtypedef: ABBREVIATION "Abbreviation" EXACT ! synonymtypedef not supported by OBO 1.0
+default-namespace: modENCODE
+
+[Term]
+id: ME:0000001
+name: parameter
+def: "An input into a protocol.  This can be either a biosample or data file, or a single value for a data processing step." [BBOP:nlw]
+exact_synonym: "input" []
+part_of: ME:0000009
+
+[Term]
+id: ME:0000002
+name: maxGap
+def: "The value of the maximum gap of nucleotides between positive probe pairs to be used in a normalization protocol when generating transfrags." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+
+[Term]
+id: ME:0000003
+name: minRun
+def: "The value of the mininum run of bases to be considered part of a single transcript fragment used in a normalization protocol." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+
+[Term]
+id: ME:0000004
+name: transcriptional_fragment
+def: "A stretch of DNA that has been characterized to be transcribed during an instance in time." [BBOP:nlw]
+exact_synonym: "transfrag" []
+is_a: ME:0000045 ! sequence_file
+dbxref: SO:0000833
+part_of: ME:00000007
+
+[Term]
+id: ME:0000005
+name: threshold
+def: "The value of a minimum value for which all data points will be divided." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+
+[Term]
+id: ME:0000006
+name: cutoff
+def: "The value of a minimum value below which all data points will be discarded and above which all data points will be retained." [BBOP:nlw]
+exact_synonym: "cutoff" []
+is_a: ME:0000001 ! parameter
+
+[Term]
+id: ME:0000007
+name: transcriptional_fragment_map
+def: "The collection of predicted contiguous fragments of transcribed units identified at a particular point in time/space for a genome.  These are often determined using microarray technology and are specific for a particular genome version." [BBOP:nlw]
+exact_synonym: "trans frag" []
+exact_synonym: "transfrag" []
+is_a: ME:0000022 ! file
+
+[Term]
+id: ME:0000009
+name: applied_protocol
+def: "A protocol and the details leading to its execution, including inputs, outputs, and their types." [BBOP:nlw]
+exact_synonym: "protocol" []
+is_a: ME:0000010 ! protocol
+has_input: ME:0000014
+has_input: ME:0000010
+has_output: ME:0000015
+
+[Term]
+id: ME:0000010
+name: protocol
+def: "A description of the steps executed during an experiment." [BBOP:nlw]
+
+[Term]
+id: ME:0000011
+name: genome_annotation
+def: "." [BBOP:nlw]
+is_a: ME:0000012 ! annotation
+
+[Term]
+id: ME:0000012
+name: annotation
+def: "." [BBOP:nlw]
+is_a: ME:0000010 ! protocol
+
+[Term]
+id: ME:0000013
+name: phenotype_annotation
+def: "." [BBOP:nlw]
+is_a: ME:0000012 ! annotation
+
+[Term]
+id: ME:0000014
+name: protocol_input
+def: "." [BBOP:nlw]
+is_a: ME:0000017 ! input
+part_of: ME:0000009
+
+[Term]
+id: ME:0000015
+name: protocol_output
+def: "." [BBOP:nlw]
+is_a: ME:0000016 ! output
+part_of: ME:0000009
+
+[Term]
+id: ME:0000016
+name: output
+def: "." [BBOP:nlw]
+
+[Term]
+id: ME:0000017
+name: input
+def: "." [BBOP:nlw]
+
+[Term]
+id: ME:0000018
+name: cDNA_pool
+def: "." [BBOP:nlw]
+is_a: ME:0000019 ! biosample
+
+[Term]
+id: ME:0000019
+name: biosample
+def: "." [BBOP:nlw]
+
+[Term]
+id: ME:0000020
+name: sequencing_protocol
+def: "." [BBOP:nlw]
+is_a: ME:0000010 ! protocol
+has_output: ME:0000049
+
+[Term]
+id: ME:0000021
+name: data_file
+def: "A data object that contains data." [BBOP:nlw]
+is_a: ME:0000022 ! file
+
+[Term]
+id: ME:0000022
+name: file
+def: "A data object that contains data." [BBOP:nlw]
+
+[Term]
+id: ME:0000023
+name: metadata_file
+def: "A data object that contains data." [BBOP:nlw]
+is_a: ME:0000022 ! file
+
+[Term]
+id: ME:0000024
+name: CEL
+def: "A data file type that contains results from an affymetrix microarray experiment.  This data is partially processed." [BBOP:nlw]
+is_a: ME:0000027 ! processed_microarray_data_file
+
+[Term]
+id: ME:0000025
+name: CHP
+def: "A data file type that contains results from an affymetrix microarray experiment.  This data is partially processed." [BBOP:nlw]
+is_a: ME:0000027 ! processed_microarray_data_file
+
+[Term]
+id: ME:0000026
+name: EXP
+def: "A data file type that contains results from an affymetrix microarray experiment.  This data is partially processed." [BBOP:nlw]
+is_a: ME:0000040 ! microarray_metadata_file
+
+[Term]
+id: ME:0000027
+name: processed_microarray_data_file
+def: "A general data file type that contains results from a microarray experiment." [BBOP:nlw]
+is_a: ME:0000046 ! processed_data_file
+
+[Term]
+id: ME:0000028
+name: bpmap
+def: "A data file type that contains mappings from a specific genome version to spots on a specific microarray." [BBOP:nlw]
+is_a: ME:0000040 ! microarray_metadata_file
+
+[Term]
+id: ME:0000029
+name: Browser_Extensible_Data_Format
+def: "The BED format was defined for the efficient storage and retrieval of genomic annotations. It provides a flexible way to define the data lines that are displayed in an annotation track.   See http://genome.ucsc.edu/goldenPath/help/customTrack.html#BED" [BBOP:nlw]
+exact_synonym: "BED" [] ! belonged to category ABBREVIATION
+is_a: ME:0000021 ! data_file
+part_of: ME:0000032
+
+[Term]
+id: ME:0000030
+name: general_feature_format
+def: "GFF is used for data where there are a set of linked features, such as gene models that have introns, exons, promoters, and transcription start/end sites. GFF lines have nine required fields that must be tab-separated. If the fields are separated by spaces instead of tabs, the track will not display correctly." [BBOP:nlw]
+comment: "See: http://genome.ucsc.edu/goldenPath/help/customTrack.html#GFF and http://www.sanger.ac.uk/Software/formats/GFF/"
+exact_synonym: "gene-finding format" []
+exact_synonym: "Generic feature format" []
+exact_synonym: "GFF" [] ! belonged to category ABBREVIATION
+is_a: ME:0000021 ! data_file
+
+[Term]
+id: ME:0000031
+name: GFF3
+def: "A GFF format that has been revised to 1) adds a mechanism for representing more than one level of hierarchical grouping of features and subfeatures  2) separates the ideas of group membership and feature name/id 3) constrains the feature type field to be taken from a controlled vocabulary 4) allows a single feature, such as an exon, to belong to more than one group at a time 5) provides an explicit convention for pairwise alignments and 6) provides an explicit convention for features that occupy disjunct regions.  See http://www.sequenceontology.org/gff3.shtml." [BBOP:nlw, CHSL:ls]
+comment: " A validator can be found at http://dev.wormbase.org/db/validate_gff3/validate_gff3_online."
+is_a: ME:0000030 ! general_feature_format
+
+[Term]
+id: ME:0000032
+name: WIG
+def: "The wiggle (WIG) format allows display of continuous-valued data in track format. This is useful for GC percent, probability scores, and transcriptome data.   This may contain data in a variableStep, fixedStep, or BED format." [BBOP:nlw]
+comment: "See http://genome.ucsc.edu/goldenPath/help/wiggle.html"
+is_a: ME:0000021 ! data_file
+
+[Term]
+id: ME:0000033
+name: GFF2
+def: "GFF is used for data where there are a set of linked features, such as gene models that have introns, exons, promoters, and transcription start/end sites. GFF lines have nine required fields that must be tab-separated. If the fields are separated by spaces instead of tabs, the track will not display correctly." [BBOP:nlw]
+comment: "See: http://genome.ucsc.edu/goldenPath/help/customTrack.html#GFF and http://www.sanger.ac.uk/Software/formats/GFF/.  You can find the current spec here http://www.sanger.ac.uk/Software/formats/GFF/GFF_Spec.shtml."
+is_a: ME:0000030 ! general_feature_format
+
+[Term]
+id: ME:0000034
+name: Gene_Transfer_Format
+def: "GTF is a refinement of GFF that tightens the specification and allows arbitrary supplemental information for each gene." [BBOP:nlw]
+comment: "See: http://genome.ucsc.edu/goldenPath/help/customTrack.html#GTF"
+exact_synonym: "GTF" [] ! belonged to category ABBREVIATION
+is_a: ME:0000030 ! general_feature_format
+
+[Term]
+id: ME:0000035
+name: multiple_alignment_format
+def: "The multiple alignment format stores a series of multiple alignments in a format that is easy to parse and relatively easy to read. This format stores multiple alignments at the DNA level between entire genomes." [BBOP:nlw]
+comment: "See: http://genome.ucsc.edu/FAQ/FAQformat.html#format5"
+exact_synonym: "MAF" [] ! belonged to category ABBREVIATION
+is_a: ME:0000046 ! processed_data_file
+
+[Term]
+id: ME:0000036
+name: FASTA
+def: "FASTA format is a text-based format for representing either nucleic acid sequences or peptide sequences, in which base pairs or amino acids are represented using single-letter codes. The format also allows for sequence names and comments to precede the sequences.  The description line is distinguished from the sequence data by a greater-than (" [BBOP:nlw]
+comment: "See: http://en.wikipedia.org/wiki/Fasta_format"
+is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000037
+name: IDF
+def: "IDF is a metadata file that describes the general details about an experiment.  This was origninally developed by the ArrayExpress group at EBI and is being utilized by the modENCODE consortium for data submission." [BBOP:nlw]
+comment: "See: http://en.wikipedia.org/wiki/Fasta_format"
+exact_synonym: "investigation design file" []
+exact_synonym: "investigation design format" []
+is_a: ME:0000023 ! metadata_file
+
+[Term]
+id: ME:0000038
+name: SDRF
+def: " " [BBOP:nlw]
+comment: "See: http://en.wikipedia.org/wiki/Fasta_format"
+exact_synonym: "sample data relationship format" []
+exact_synonym: "sample_data_relationship_file" []
+is_a: ME:0000023 ! metadata_file
+
+[Term]
+id: ME:0000039
+name: ADF
+def: "A file that describes the content of a microarray slide, with the relationship between the genome (base) content and the spot coordinates. " [BBOP:nlw]
+exact_synonym: "array design file" []
+exact_synonym: "array design format" []
+is_a: ME:0000040 ! microarray_metadata_file
+
+[Term]
+id: ME:0000040
+name: microarray_metadata_file
+def: "Metadata file type that specifically pertains to microarray-type of experiments" [BBOP:nlw]
+is_a: ME:0000023 ! metadata_file
+
+[Term]
+id: ME:0000041
+name: ASN.1
+def: "ASN.1 is an International Standards Organization (ISO) data representation format used to achieve interoperability between platforms. NCBI uses ASN.1 for the storage and retrieval of data such as nucleotide and protein sequences, structures, genomes, and MEDLINE records. It permits computers and software systems of all types to reliably exchange both the data structure and content." [BBOP:nlw]
+comment: "See http://www.ncbi.nlm.nih.gov/Sitemap/Summary/asn1.html"
+exact_synonym: "Abstract Syntax Notation One" []
+is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000042
+name: Distributed_Annotation_System_File_Format
+def: "The distributed annotation system (DAS) is a client-server system in which a single client integrates information from multiple servers. It allows a single machine to gather up genome annotation information from multiple distant web sites, collate the information, and display it to the user in a single view. Little coordination is needed among the various information providers." [BBOP:nlw]
+comment: "http://biodas.org/documents/spec.html"
+exact_synonym: "DAS" [] ! belonged to category ABBREVIATION
+exact_synonym: "Distributed Sequence Annotation System" []
+is_a: ME:0000021 ! data_file
+
+[Term]
+id: ME:0000043
+name: DAS/1
+def: "The distributed annotation system (DAS) is a client-server system in which a single client integrates information from multiple servers. It allows a single machine to gather up genome annotation information from multiple distant web sites, collate the information, and display it to the user in a single view. Little coordination is needed among the various information providers." [BBOP:nlw]
+comment: "http://biodas.org/documents/spec.html"
+exact_synonym: "DAS 1.0" []
+exact_synonym: "Distributed Annotation System" []
+exact_synonym: "Distributed Sequence Annotation System" []
+is_a: ME:0000042 ! Distributed_Annotation_System_File_Format
+
+[Term]
+id: ME:0000044
+name: DAS/2
+def: "DAS 2.0 addresses some shortcomings of the DAS 1.x protocol, including 1) Better support for hierachical structures (e.g. transcript + exons) 2) Ontology-based feature annotations 3) Allow multiple formats, including formats only appropriate for some feature types 4) A lock-based editing protocol for curational clients and 5) An extensible namespacing system that allows annotations in non-genomic coordinates (e.g. uniprot protein coordinates or PDB structure coordinates).  DAS 2.0 is implemented using a ReST architecture." [BBOP:nlw]
+comment: "http://www.biodas.org/documents/das2/das2_protocol.html"
+exact_synonym: "DAS 2.0" []
+exact_synonym: "Distributed Annotation System" []
+exact_synonym: "Distributed Sequence Annotation System" []
+is_a: ME:0000042 ! Distributed_Annotation_System_File_Format
+
+[Term]
+id: ME:0000045
+name: sequence_file
+def: "A file containing one or more sequences of proteins or nucleic acids." [BBOP:nlw]
+is_a: ME:0000022 ! file
+
+[Term]
+id: ME:0000046
+name: processed_data_file
+def: "A file containing data that has been computationally processed in some way by the application of a data_processing_protocol to either a raw_data_file or another processed_data_file." [BBOP:nlw]
+is_a: ME:0000021 ! data_file
+
+[Term]
+id: ME:0000047
+name: raw_data_file
+def: "A file containing data that has not been computationally processed in any way.  The data generated is the result of machine output from a biological experiment." [BBOP:nlw]
+is_a: ME:0000021 ! data_file
+
+[Term]
+id: ME:0000048
+name: raw_microarray_data_file
+def: "An unprocessed data file type that contains results from a microarray experiment." [BBOP:nlw]
+is_a: ME:0000047 ! raw_data_file
+result_of: ME:0000049
+
+[Term]
+id: ME:0000049
+name: microarray_scanning_protocol
+def: "A protocol applied to a biosample in which an RNA or cDNA sample has been hybridized to a microarray slide containing DNA and intensity signals are read by a scanner." [BBOP:nlw]
+is_a: ME:0000009 ! applied_protocol
+has_output: ME:0000048
+
+[Term]
+id: ME:0000050
+name: sequence_trace_file
+def: "A datafile type that shows the relative abundance of nucleotides in order in a DNA molecule.  The file is a result of fluorescent chain-termination sequencing following capilary electrophoresis. Analysis of this data results in a sequence." [BBOP:nlw]
+related_synonym: "chromatogram" []
+related_synonym: "chromatograph" []
+related_synonym: "DNA sequence trace" []
+is_a: ME:0000047 ! raw_data_file
+result_of: ME:0000020
+
+[Term]
+id: ID:0000051
+name: GFF1
+def: "GFF is used for data where there are a set of linked features, such as gene models that have introns, exons, promoters, and transcription start/end sites. GFF lines have nine required fields that must be tab-separated. If the fields are separated by spaces instead of tabs, the track will not display correctly.  GFF1 is the original format, and is now outdated by GFF2 and GFF3." [BBOP:nlw]
+comment: "See: http://genome.ucsc.edu/goldenPath/help/customTrack.html#GFF and http://www.sanger.ac.uk/Software/formats/GFF/.  You can find the current spec here http://www.sanger.ac.uk/Software/formats/GFF/GFF_Spec.shtml."
+is_a: ME:0000030 ! general_feature_format
+
+[Term]
+id: ME:0000052
+name: NimbleGen_Design_File
+def: "A file that describes the content of a microarray slide, with the relationship between the genome (base) content and the spot coordinates. This is a Nimblegen propriatary format. " [BBOP:nlw]
+exact_synonym: "NDF" []
+is_a: ME:0000040 ! microarray_metadata_file
+
+[Term]
+id: ME:0000053
+name: MSK
+def: ". " [BBOP:nlw]
+exact_synonym: "MSK" []
+is_a: ME:0000040 ! microarray_metadata_file
+
+[Term]
+id: ME:0000054
+name: NimbleGen_Gene_Description_File
+def: ". " [BBOP:nlw]
+exact_synonym: "NGD" []
+is_a: ME:0000040 ! microarray_metadata_file
+
+[Term]
+id: ME:0000055
+name: GenePix_Result_file
+def: "Results file contains general information about image acquisition and analysis, as well as the data extracted from each individual feature. This is a Molecular Devices specific format. " [BBOP:nlw]
+exact_synonym: "GPR" []
+comment: "See http://www.moleculardevices.com/pages/software/gn_genepix_file_formats.html#gpr"
+is_a: ME:0000056 ! axon_text_file_format
+is_a: ME:0000027 ! processed_microarray_data_file
+
+[Term]
+id: ME:0000056
+name: Axon_text_file_format
+def: "ATF is a tab-delimited text file format that can be read by typical spreadsheet programs such as Microsoft Excel.   An ATF text file consists of records. Each line in the text file is a record. Each record may consist of several fields, separated by a field separator (column delimiter). The tab and comma characters are field separators. Space characters around a tab or comma are ignored and considered part of the field separator. Text strings are enclosed in quotation marks to ensure that any embedded spaces, commas and tabs are not mistaken for field separators.  The group of records at the beginning of the file is called the file header. The file header describes the file structure and includes column titles, units, and comments." [BBOP:nlw]
+exact_synonym: "ATF" []
+comment: "See http://www.moleculardevices.com/pages/software/gn_genepix_file_formats.html#atf"
+is_a: ME:0000021 ! data_file
+
+
+[Typedef]
+id: has_input
+name: has_input
+
+[Typedef]
+id: has_output
+name: has_output
+
+[Typedef]
+id: part_of
+name: part_of
+is_transitive: true
+
+[Typedef]
+id: result_of
+name: result_of
+
