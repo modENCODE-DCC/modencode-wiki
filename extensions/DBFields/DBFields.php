@@ -152,9 +152,11 @@
       if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
 	$value = isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) ? $modENCODE_dbfields_data["values"][$item["attribs"]["name"]] : "";
         $missingClass = "required";
-	if (!strlen($value)) { $missingClass .= " missing"; }
-        $extra_content_after .= "  <div class=\"$missingClass\" id=\"" . $attribs["id"] . "_missing\">required field missing</div>";
-        $modENCODE_dbfields_data["invalidversion"] = true;
+	if (!strlen($value)) { 
+	  $missingClass .= " missing";
+	  $extra_content_after .= "  <div class=\"$missingClass\" id=\"" . $attribs["id"] . "_missing\">required field missing</div>";
+	  $modENCODE_dbfields_data["invalidversion"] = true;
+	}
       }
       if (
 	isset($item) && $item && 
