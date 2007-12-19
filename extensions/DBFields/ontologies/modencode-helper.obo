@@ -184,8 +184,8 @@ id: ME:0000029
 name: Browser_Extensible_Data_Format (BED)
 def: "The BED format was defined for the efficient storage and retrieval of genomic annotations. It provides a flexible way to define the data lines that are displayed in an annotation track.   See http://genome.ucsc.edu/goldenPath/help/customTrack.html#BED" [BBOP:nlw]
 exact_synonym: "BED" [] ! belonged to category ABBREVIATION
-is_a: ME:0000021 ! data_file
-part_of: ME:0000032
+is_a: ME:0000062 ! annotation_data_file
+part_of: ME:0000032 ! WIG file
 
 [Term]
 id: ME:0000030
@@ -195,7 +195,7 @@ comment: "See: http://genome.ucsc.edu/goldenPath/help/customTrack.html#GFF and h
 exact_synonym: "gene-finding format" []
 exact_synonym: "Generic feature format" []
 exact_synonym: "GFF" [] ! belonged to category ABBREVIATION
-is_a: ME:0000021 ! data_file
+is_a: ME:0000062 ! annotation_data_file
 
 [Term]
 id: ME:0000031
@@ -220,7 +220,7 @@ is_a: ME:0000030 ! general_feature_format
 
 [Term]
 id: ME:0000034
-name: Gene_Transfer_Format
+name: Gene_Transfer_Format (GTF)
 def: "GTF is a refinement of GFF that tightens the specification and allows arbitrary supplemental information for each gene." [BBOP:nlw]
 comment: "See: http://genome.ucsc.edu/goldenPath/help/customTrack.html#GTF"
 exact_synonym: "GTF" [] ! belonged to category ABBREVIATION
@@ -288,7 +288,7 @@ def: "The distributed annotation system (DAS) is a client-server system in which
 comment: "http://biodas.org/documents/spec.html"
 exact_synonym: "DAS" [] ! belonged to category ABBREVIATION
 exact_synonym: "Distributed Sequence Annotation System" []
-is_a: ME:0000021 ! data_file
+is_a: ME:0000062 ! annotation_data_file
 
 [Term]
 id: ME:0000043
@@ -410,6 +410,7 @@ name: Signal_Graph_File
 def: "A signal graph file is a listing of fold changes in expression level of transcripts in a microarray experiment.  The intensities of probes in CEL files are mapped to a given genome using a bpmap file."
 [BBOP:nlw]
 exact_synonym: "siggr" [] 
+exact_synonym: "sig gr" []
 is_a: ME:0000029 ! BED file
 dbxref: MGED:signal ! signal MO_534
 
@@ -432,6 +433,13 @@ id: ME:0000061
 name: median_array_intensity
 def: "The average of intensity values from two or more microarray scans.  This is used as a scaling value for normalization." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
+ 
+[Term]
+id: ME:0000062
+name: annotation_data_file
+def: "The average of intensity values from two or more microarray scans.  This is used as a scaling value for normalization." [BBOP:nlw]
+is_a: ME:0000046 ! processed_data_file
+has_part: ME:0000012 ! annotation 
 
 
 [Typedef]
