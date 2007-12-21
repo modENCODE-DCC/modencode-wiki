@@ -282,7 +282,7 @@
       $modENCODE_DBFields_conf["form_data"]["type"]
     );
 
-    if (!$args["name"]) {
+    if (!strlen($args["name"])) {
       $args["name"] = $parser->mTitle;
     }
 
