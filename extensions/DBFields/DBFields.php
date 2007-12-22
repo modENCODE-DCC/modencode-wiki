@@ -24,6 +24,12 @@
     global $wgParser;
     $wgParser->setHook('dbfields', 'modENCODE_dbfields_render');
   }
+  function after() {
+    print "After";
+  }
+  function before() {
+    print "Before";
+  }
   function modENCODE_dbfields_startElement($parser, $name, $attribs) {
     global $modENCODE_dbfields_data;
     global $modENCODE_dbfields_allowed_tags;
@@ -263,6 +269,22 @@
     
 
   function modENCODE_dbfields_render($input, $args, $parser) {
+    $art = new Article($parser->mTitle);
+    $art->loadContent();
+    $content = $art->mContent;
+    $templates = array_keys($parser->mTemplatePath);
+    $current_template = $templates[count($templates)-1];
+    preg_match('/{{' . $currentTemplate . '[^}]*}}/', $content, $match);
+    preg_match_all('/\|([^=]*)=([^|}]*)/', $match[0], $arg_matches);
+    $realargs = array();
+    for ($i = 0; $i < count($arg_matches[1]); $i++) {
+      $key = $arg_matches[1][$i];
+      $value = $arg_matches[2][$i];
+      $input = str_replace('{{{' . $key . '}}}', $value, $input);
+      foreach ($args as $argkey => $argval) {
+	$args[$argkey] = str_replace('{{{' . $key . '}}}', $value, $argval);
+      }
+    }
     global $modENCODE_dbfields_data;
     global $modENCODE_markers_to_data;
     global $modENCODE_DBFields_conf;
