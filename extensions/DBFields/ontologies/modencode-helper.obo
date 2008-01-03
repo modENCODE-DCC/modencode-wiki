@@ -441,6 +441,28 @@ def: "The average of intensity values from two or more microarray scans.  This i
 is_a: ME:0000046 ! processed_data_file
 has_part: ME:0000012 ! annotation 
 
+[Term]
+id: ME:0000062
+name: chromatin_immunoprecipitation
+def: ""[BBOP:nlw]
+is_a: ME:0000010 ! protocol
+exact_synonym: ChIP
+dbxref: MESH:E05.393.170 ! Chromatin immunoprecipitation
+
+[Term]
+id: ME:0000063
+name: DNA_staining_protocol
+def: "A protocol where a stain is applied to cellular material to specifically visualize the DNA content."[BBOP:nlw]
+is_a: ME:0000010 ! protocol
+
+[Term]
+id: ME:0000064
+name: DAPI_staining_protocol
+def: "The technique of applying the stain DAPI to cellular material to visualize the DNA."[BBOP:nlw]
+is_a: ME:0000010 ! DNA_staining
+dbxref: FBbi:0000056 ! DAPI staining (biological imaging methods)
+
+
 
 [Typedef]
 id: has_input
