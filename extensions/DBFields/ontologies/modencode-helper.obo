@@ -448,6 +448,7 @@ def: ""[BBOP:nlw]
 is_a: ME:0000010 ! protocol
 exact_synonym: ChIP
 dbxref: MESH:E05.393.170 ! Chromatin immunoprecipitation
+dbxref: MGED:binding_site_identification_design
 
 [Term]
 id: ME:0000063
@@ -462,6 +463,44 @@ def: "The technique of applying the stain DAPI to cellular material to visualize
 is_a: ME:0000010 ! DNA_staining
 dbxref: FBbi:0000056 ! DAPI staining (biological imaging methods)
 
+[Term]
+id: ME:0000065
+name: dideoxynucleotide DNA sequencing
+def: "NA Chain termination sequencing method (Sanger)" [BBOP:eos]
+synonym: "Sanger sequencing" []
+synonym: "DNA sequencing" []
+dbxref: FIX:0000877 ! dideoxynucleotide DNA sequencing
+
+[Term]
+id: ME:0000066
+name: bridge PCR
+def: "A PCR method where fragments are amplified upon primers attached to a solid surface (Solexa/Illumina)" [BBOP:eos]
+
+[Term]
+id: ME:0000067
+name: emulsion PCR
+def: "A PCR method where individual DNA molecules are cloned onto the surfaces of primer-coated beads (Margulis et al., 454 Life Sciences, ABI SOLID)" [BBOP:eos]
+
+[Term]
+id: ME:0000068
+name: pairwise_sequence_alignment
+exact_synonym: "psa" []
+def: "A sequence alignment between two sequences" [BBOP:eos]
+
+[Term]
+id: ME:0000069
+name: psa_construction_method
+def: "The method used to construct a pairwise sequence alignment" [BBOP:eos]
+
+[Term]
+id: ME:0000070
+name: psa_software
+def: "The software used to construct a pairwise sequence alignment" [BBOP:eos]
+
+[Term]
+id: ME:0000071
+name: psa_file
+def: "A source file used to construct a pairwise sequence alignment" [BBOP:eos]
 
 
 [Typedef]
