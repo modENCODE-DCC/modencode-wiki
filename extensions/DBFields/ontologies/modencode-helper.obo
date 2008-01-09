@@ -475,17 +475,20 @@ dbxref: FIX:0000877 ! dideoxynucleotide DNA sequencing
 id: ME:0000066
 name: bridge PCR
 def: "A PCR method where fragments are amplified upon primers attached to a solid surface (Solexa/Illumina)" [BBOP:eos]
+is_a: ME:0000075 ! PCR
 
 [Term]
 id: ME:0000067
 name: emulsion PCR
 def: "A PCR method where individual DNA molecules are cloned onto the surfaces of primer-coated beads (Margulis et al., 454 Life Sciences, ABI SOLID)" [BBOP:eos]
+is_a: ME:0000075 ! PCR
 
 [Term]
 id: ME:0000068
 name: pairwise_sequence_alignment
 exact_synonym: "psa" []
-def: "A sequence alignment between two sequences" [BBOP:eos]
+def: "A protocol type for aligning two sequences" [BBOP:eos]
+is_a:  ME:0000076 ! data analysis protocol
 
 [Term]
 id: ME:0000069
@@ -500,8 +503,43 @@ def: "The software used to construct a pairwise sequence alignment" [BBOP:eos]
 [Term]
 id: ME:0000071
 name: psa_file
-def: "A source file used to construct a pairwise sequence alignment" [BBOP:eos]
+def: "A source file used to construct a pairwise sequence alignment"
+is_a: ME:0000045 ! sequence_file
+[BBOP:eos]
 
+[Term]
+id: ME:0000072
+name: replication_origin_identification_design
+def: "A source file used to construct a pairwise sequence alignment"
+is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
+[BBOP:nlw]
+
+[Term]
+id: ME:0000073
+name: replication_origin_timing_design
+def: "A source file used to construct a pairwise sequence alignment"
+is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
+[BBOP:nlw]
+
+[Term]
+id: ME:0000074
+name: biomolecular_annotation_experimental_design_type
+def: "A description of the design, purpose, and methodology of a general type of biological experiment." [BBOP:nlw]
+dbxref: MGED:BioMolecularAnnotation ! MO_213
+
+[Term]
+id: ME:0000075
+name: polymerase_chain_reaction_protocol (PCR)
+definition: " " [BBOP:nlw]
+exact_synonym: "PCR" []
+dbxref: MGED:PCR_amplification !MO_358
+
+[Term]
+id: ME:0000076
+name: data_analysis_protocol
+def: "A protocol where data is analyzed with a computational algorithm(s), and output transformed data." [BBOP:nlw]
+is_a: ME:0000010 ! protocol
+dbxref: MGED:DataTransformationProtocolType ! MO_165
 
 [Typedef]
 id: has_input
