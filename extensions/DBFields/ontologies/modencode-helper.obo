@@ -509,7 +509,7 @@ is_a: ME:0000045 ! sequence_file
 
 [Term]
 id: ME:0000072
-name: replication_origin_identification_design
+name: early_replication_origin_identification_design
 def: "A source file used to construct a pairwise sequence alignment"
 is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
 [BBOP:nlw]
@@ -540,6 +540,19 @@ name: data_analysis_protocol
 def: "A protocol where data is analyzed with a computational algorithm(s), and output transformed data." [BBOP:nlw]
 is_a: ME:0000010 ! protocol
 dbxref: MGED:DataTransformationProtocolType ! MO_165
+
+[Term]
+id: ME:0000077
+name: nucleic_acid_shearing_protocol
+def: "The application of force toward a solution of nucleic acids such that the result are smaller linear fragments.  Common types include sonication, UV, and nucleases." [BBOP:nlw]
+synonym: "nucleic_acid_cutting_protocol" []
+is_a: ME:0000010 ! protocol
+
+[Term]
+id: ME:0000078
+name: sonication_to_shear_nucleic_acids_protocol
+def: "The application of sonic force toward a solution of nucleic acids such that the result is smaller linear fragments." [BBOP:nlw]
+is_a: ME:0000077 ! nucleic_acid_shearing_protocol
 
 [Typedef]
 id: has_input
