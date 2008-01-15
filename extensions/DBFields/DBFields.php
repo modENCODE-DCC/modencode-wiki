@@ -387,7 +387,6 @@
       $nochanges = true;
     }
 
-    $db_values = array();
     $res = modENCODE_db_query($db, "SELECT key, value FROM data WHERE name = '$entry_name' AND version = $version", $modENCODE_DBFields_conf["form_data"]["type"]);
     while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
       $modENCODE_dbfields_data["values"][$row['key']] = $row['value'];

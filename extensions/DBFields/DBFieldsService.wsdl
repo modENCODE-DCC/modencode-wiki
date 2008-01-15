@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="DBFieldsService"
+    targetNamespace="http://wiki.modencode.org/project/extensions/DBFields/DBFieldsService.wsdl"
+    xmlns:tns="http://wiki.modencode.org/project/extensions/DBFields/DBFieldsService.wsdl"
+    xmlns:tnstypes="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsdi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Element definitions -->
+    <types>
+      <schema targetNamespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"
+	xmlns="http://www.w3.org/2001/XMLSchema">
+        <complexType name="ArrayOfStrings">
+          <complexContent>
+            <restriction base="soapenc:Array">
+              <attribute ref="soapenc:arrayType" xmlns:arrayType="xsd:string[]"/>
+            </restriction>
+          </complexContent>
+        </complexType>
+        <complexType name="FormValues">
+          <all>
+            <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="type" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfStrings"/>
+          </all>
+        </complexType>
+        <complexType name="ArrayOfFormValues">
+          <complexContent>
+            <restriction base="soapenc:Array">
+              <attribute ref="soapenc:arrayType" xmlns:arrayType="tnstypes:FormValues[]"/>
+            </restriction>
+          </complexContent>
+        </complexType>
+        <complexType name="FormData">
+          <all>
+            <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="version" minOccurs="1" maxOccurs="1" type="xsd:int"/>
+            <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
+          </all>
+        </complexType>
+        <complexType name="LoginResult">
+          <all>
+            <element name="result" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="lguserid" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="lgusername" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="lgtoken" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="cookieprefix" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="sessionid" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="wait" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="details" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+          </all>
+        </complexType>
+        <complexType name="FormDataQuery">
+          <all>
+            <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="version" minOccurs="0" maxOccurs="1" type="xsd:int"/>
+            <element name="auth" minOccurs="0" maxOccurs="1" type="tnstypes:LoginResult"/>
+          </all>
+        </complexType>
+      </schema>
+    </types>
+    <!-- Message/method definitions -->
+    <message name="getFormDataInput">
+      <part name="query" type="tnstypes:FormDataQuery"/>
+    </message>
+    <message name="getFormDataOutput">
+      <part name="formdata" type="tnstypes:FormData"/>
+    </message>
+    <message name="getLoginCookieInput">
+      <part name="username" type="xsd:string"/>
+      <part name="password" type="xsd:string"/>
+      <part name="domain" type="xsd:string"/>
+    </message>
+    <message name="getLoginCookieOutput">
+      <part name="result" type="tnstypes:LoginResult"/>
+    </message>
+    <!-- Binding ports -->
+    <portType name="DBFieldsPortDefinition">
+      <operation name="getFormData">
+	<input name="getFormData" message="tns:getFormDataInput"/>
+	<output name="getFormData" message="tns:getFormDataOutput"/>
+      </operation>
+      <operation name="getLoginCookie">
+        <input name="getLoginCookie" message="tns:getLoginCookieInput"/>
+        <output name="getLoginCookie" message="tns:getLoginCookieOutput"/>
+      </operation>
+    </portType>
+    <!-- Bindings -->
+    <binding name="DBFieldsBinding" type="tns:DBFieldsPortDefinition">
+      <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <operation name="getFormData">
+	<soap:operation soapAction="http://wiki.modencode.org/project/extensions/DBFields/DBFieldsGetData.php" style="rpc"/>
+	<input name="getFormData">
+	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
+	</input>
+	<output name="getFormData">
+	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
+	</output>
+      </operation>
+      <operation name="getLoginCookie">
+	<soap:operation soapAction="http://wiki.modencode.org/project/extensions/DBFields/DBFieldsGetData.php" style="rpc"/>
+	<input name="getLoginCookie">
+	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
+	</input>
+	<output name="getLoginCookie">
+	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
+	</output>
+      </operation>
+    </binding>
+    <!-- Services -->
+    <service name="DBFields">
+      <port name="DBFieldsForm" binding="tns:DBFieldsBinding">
+	<soap:address location="http://wiki.modencode.org/project/extensions/DBFields/DBFieldsGetData.php"/>
+      </port>
+    </service>
+</definitions>

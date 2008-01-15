@@ -1,8 +1,11 @@
 <?
-  header("Content-type: text/xml");
   //header("Content-type: text/plain");
   include_once("DBFieldsConf.php");
   include_once('DBFields.php');
+
+  if ($_SERVER["PHP_SELF"] == __FILE__) {
+    header("Content-type: text/xml");
+  }
 
   $searchTerm = isset($_GET["term"]) ? $_GET["term"] : null;
   $searchCv = isset($_GET["cv"]) ? $_GET["cv"] : null;
