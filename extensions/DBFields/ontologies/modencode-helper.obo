@@ -554,6 +554,25 @@ name: sonication_to_shear_nucleic_acids_protocol
 def: "The application of sonic force toward a solution of nucleic acids such that the result is smaller linear fragments." [BBOP:nlw]
 is_a: ME:0000077 ! nucleic_acid_shearing_protocol
 
+[Term]
+id: ME:0000079
+name: nimblegen_microarray_data_file (pair)
+def: "Similar to a CEL file, this is a nimblegen platform data file after processing the cell intensities." [BBOP:nlw]
+is_a: ME:0000027 ! processed_microarray_data_file
+
+[Term]
+id: ME:0000080
+name: agilent_raw_microarray_data_file (TXT)
+def: "The rawest data file derived from an agilent microarray scanning protocol." [BBOP:nlw]
+is_a: ME:0000048 ! raw_microarray_data_file
+
+[Term]
+id: ME:0000081
+name: smoothing_factor
+def: "The parameter utilized by a data smoothing protocol." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+comment: "this needs a WAY better definition and placement in the ontology."
+
 [Typedef]
 id: has_input
 name: has_input
