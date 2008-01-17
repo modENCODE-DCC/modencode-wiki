@@ -437,7 +437,7 @@ id: ME:0000062
 name: annotation_data_file
 def: "The average of intensity values from two or more microarray scans.  This is used as a scaling value for normalization." [BBOP:nlw]
 is_a: ME:0000046 ! processed_data_file
-has_part: ME:0000012 ! annotation 
+relationship: has_part ME:0000012 ! annotation 
 
 [Term]
 id: ME:0000062
@@ -527,7 +527,7 @@ xref: MGED:BioMolecularAnnotation ! MO_213
 [Term]
 id: ME:0000075
 name: polymerase_chain_reaction_protocol (PCR)
-definition: " " [BBOP:nlw]
+def: " " [BBOP:nlw]
 exact_synonym: "PCR" []
 xref: MGED:PCR_amplification !MO_358
 
@@ -581,6 +581,11 @@ name: has_output
 [Typedef]
 id: part_of
 name: part_of
+is_transitive: true
+
+[Typedef]
+id: has_part
+name: has_part
 is_transitive: true
 
 [Typedef]
