@@ -1,5 +1,5 @@
-format-version: 1.0
-date: 17:12:2007 16:43
+format-version: 1.2
+date: 17:01:2008 12:43
 saved-by: Nicole
 auto-generated-by: OBO-Edit 1.101
 !synonymtypedef: ABBREVIATION "Abbreviation" EXACT ! synonymtypedef not supported by OBO 1.0
@@ -10,7 +10,7 @@ id: ME:0000001
 name: parameter
 def: "An input into a protocol.  This can be either a biosample or data file, or a single value for a data processing step." [BBOP:nlw]
 exact_synonym: "input" []
-part_of: ME:0000009
+relationship: part_of ME:0000009
 
 [Term]
 id: ME:0000002
@@ -30,8 +30,8 @@ name: transcriptional_fragment
 def: "A stretch of DNA that has been characterized to be transcribed during an instance in time." [BBOP:nlw]
 exact_synonym: "transfrag" []
 is_a: ME:0000045 ! sequence_file
-dbxref: SO:0000833
-part_of: ME:00000007
+xref: SO:0000833
+relationship: part_of ME:0000007
 
 [Term]
 id: ME:0000005
@@ -60,9 +60,9 @@ name: applied_protocol
 def: "A protocol and the details leading to its execution, including inputs, outputs, and their types." [BBOP:nlw]
 exact_synonym: "protocol" []
 is_a: ME:0000010 ! protocol
-has_input: ME:0000014
-has_input: ME:0000010
-has_output: ME:0000015
+relationship: has_input ME:0000014
+relationship: has_input ME:0000010
+relationship: has_output ME:0000015
 
 [Term]
 id: ME:0000010
@@ -92,14 +92,14 @@ id: ME:0000014
 name: protocol_input
 def: "." [BBOP:nlw]
 is_a: ME:0000017 ! input
-part_of: ME:0000009
+relationship: part_of ME:0000009
 
 [Term]
 id: ME:0000015
 name: protocol_output
 def: "." [BBOP:nlw]
 is_a: ME:0000016 ! output
-part_of: ME:0000009
+relationship: part_of ME:0000009
 
 [Term]
 id: ME:0000016
@@ -116,7 +116,7 @@ id: ME:0000018
 name: cDNA_pool
 def: "A set of complementary DNAs amplified from a pool of RNAs, typically by PCR." [BBOP:nlw]
 is_a: ME:0000019 ! biosample
-dbxref: MGED:DNA
+xref: MGED:DNA
 
 [Term]
 id: ME:0000019
@@ -128,7 +128,7 @@ id: ME:0000020
 name: sequencing_protocol
 def: "." [BBOP:nlw]
 is_a: ME:0000010 ! protocol
-has_output: ME:0000049
+relationship: has_output ME:0000049
 
 [Term]
 id: ME:0000021
@@ -185,7 +185,7 @@ name: Browser_Extensible_Data_Format (BED)
 def: "The BED format was defined for the efficient storage and retrieval of genomic annotations. It provides a flexible way to define the data lines that are displayed in an annotation track.   See http://genome.ucsc.edu/goldenPath/help/customTrack.html#BED" [BBOP:nlw]
 exact_synonym: "BED" [] ! belonged to category ABBREVIATION
 is_a: ME:0000062 ! annotation_data_file
-part_of: ME:0000032 ! WIG file
+relationship: part_of ME:0000032 ! WIG file
 
 [Term]
 id: ME:0000030
@@ -333,14 +333,14 @@ id: ME:0000048
 name: raw_microarray_data_file
 def: "An unprocessed data file type that contains results from a microarray experiment." [BBOP:nlw]
 is_a: ME:0000047 ! raw_data_file
-result_of: ME:0000049
+relationship: result_of ME:0000049
 
 [Term]
 id: ME:0000049
 name: microarray_scanning_protocol
 def: "A protocol applied to a biosample in which an RNA or cDNA sample has been hybridized to a microarray slide containing DNA and intensity signals are read by a scanner." [BBOP:nlw]
 is_a: ME:0000009 ! applied_protocol
-has_output: ME:0000048
+relationship: has_output ME:0000048
 
 [Term]
 id: ME:0000050
@@ -350,7 +350,7 @@ related_synonym: "chromatogram" []
 related_synonym: "chromatograph" []
 related_synonym: "DNA sequence trace" []
 is_a: ME:0000047 ! raw_data_file
-result_of: ME:0000020
+relationship: result_of ME:0000020
 
 [Term]
 id: ID:0000051
@@ -407,12 +407,10 @@ is_a: ME:0000001 ! parameter
 [Term]
 id: ME:0000058
 name: Signal_Graph_File
-def: "A signal graph file is a listing of fold changes in expression level of transcripts in a microarray experiment.  The intensities of probes in CEL files are mapped to a given genome using a bpmap file."
-[BBOP:nlw]
-exact_synonym: "siggr" [] 
+def: "A signal graph file is a listing of fold changes in expression level of transcripts in a microarray experiment.  The intensities of probes in CEL files are mapped to a given genome using a bpmap file." [BBOP:nlw]
 exact_synonym: "sig gr" []
 is_a: ME:0000029 ! BED file
-dbxref: MGED:signal ! signal MO_534
+xref: MGED:signal ! signal MO_534
 
 [Term]
 id: ME:0000059
@@ -426,14 +424,14 @@ name: genome_version
 def: "A particular release of an entire genomic sequence.  These versions are maintained by a single genome consortia, and are indexed such that computational programs can access them." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 comment: "This definition needs a lot of work.  Should this be a data file?  This certainly is probably a quality of a genome data file."
-dbxref: SO:0001026 ! genome
+xref: SO:0001026 ! genome
 
 [Term]
 id: ME:0000061
 name: median_array_intensity
 def: "The average of intensity values from two or more microarray scans.  This is used as a scaling value for normalization." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
- 
+
 [Term]
 id: ME:0000062
 name: annotation_data_file
@@ -446,22 +444,22 @@ id: ME:0000062
 name: chromatin_immunoprecipitation
 def: ""[BBOP:nlw]
 is_a: ME:0000010 ! protocol
-exact_synonym: ChIP
-dbxref: MESH:E05.393.170 ! Chromatin immunoprecipitation
-dbxref: MGED:binding_site_identification_design
+exact_synonym: "ChIP" []
+xref: MESH:E05.393.170 ! Chromatin immunoprecipitation
+xref: MGED:binding_site_identification_design
 
 [Term]
 id: ME:0000063
 name: DNA_staining_protocol
-def: "A protocol where a stain is applied to cellular material to specifically visualize the DNA content."[BBOP:nlw]
+def: "A protocol where a stain is applied to cellular material to specifically visualize the DNA content." [BBOP:nlw]
 is_a: ME:0000010 ! protocol
 
 [Term]
 id: ME:0000064
 name: DAPI_staining_protocol
-def: "The technique of applying the stain DAPI to cellular material to visualize the DNA."[BBOP:nlw]
+def: "The technique of applying the stain DAPI to cellular material to visualize the DNA." [BBOP:nlw]
 is_a: ME:0000010 ! DNA_staining
-dbxref: FBbi:0000056 ! DAPI staining (biological imaging methods)
+xref: FBbi:0000056 ! DAPI staining (biological imaging methods)
 
 [Term]
 id: ME:0000065
@@ -469,7 +467,7 @@ name: dideoxynucleotide DNA sequencing
 def: "NA Chain termination sequencing method (Sanger)" [BBOP:eos]
 synonym: "Sanger sequencing" []
 synonym: "DNA sequencing" []
-dbxref: FIX:0000877 ! dideoxynucleotide DNA sequencing
+xref: FIX:0000877 ! dideoxynucleotide DNA sequencing
 
 [Term]
 id: ME:0000066
@@ -503,43 +501,42 @@ def: "The software used to construct a pairwise sequence alignment" [BBOP:eos]
 [Term]
 id: ME:0000071
 name: psa_file
-def: "A source file used to construct a pairwise sequence alignment"
+def: "A source file used to construct a pairwise sequence alignment" [BBOP:eos]
 is_a: ME:0000045 ! sequence_file
-[BBOP:eos]
 
 [Term]
 id: ME:0000072
 name: early_replication_origin_identification_design
-def: "A source file used to construct a pairwise sequence alignment"
+def: "A source file used to construct a pairwise sequence alignment" [BBOP:nlw]
 is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
-[BBOP:nlw]
+
 
 [Term]
 id: ME:0000073
 name: replication_origin_timing_design
-def: "A source file used to construct a pairwise sequence alignment"
+def: "A source file used to construct a pairwise sequence alignment" [BBOP:nlw]
 is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
-[BBOP:nlw]
+
 
 [Term]
 id: ME:0000074
 name: biomolecular_annotation_experimental_design_type
 def: "A description of the design, purpose, and methodology of a general type of biological experiment." [BBOP:nlw]
-dbxref: MGED:BioMolecularAnnotation ! MO_213
+xref: MGED:BioMolecularAnnotation ! MO_213
 
 [Term]
 id: ME:0000075
 name: polymerase_chain_reaction_protocol (PCR)
 definition: " " [BBOP:nlw]
 exact_synonym: "PCR" []
-dbxref: MGED:PCR_amplification !MO_358
+xref: MGED:PCR_amplification !MO_358
 
 [Term]
 id: ME:0000076
 name: data_analysis_protocol
 def: "A protocol where data is analyzed with a computational algorithm(s), and output transformed data." [BBOP:nlw]
 is_a: ME:0000010 ! protocol
-dbxref: MGED:DataTransformationProtocolType ! MO_165
+xref: MGED:DataTransformationProtocolType ! MO_165
 
 [Term]
 id: ME:0000077
