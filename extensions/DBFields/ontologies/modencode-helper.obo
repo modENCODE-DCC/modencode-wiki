@@ -44,7 +44,7 @@ id: ME:0000006
 name: cutoff
 def: "The value of a minimum value below which all data points will be discarded and above which all data points will be retained." [BBOP:nlw]
 exact_synonym: "cutoff" []
-is_a: ME:0000001 ! parameter
+is_a: ME:0000005 ! threshold
 
 [Term]
 id: ME:0000007
@@ -53,6 +53,7 @@ def: "The collection of predicted contiguous fragments of transcribed units iden
 exact_synonym: "trans frag" []
 exact_synonym: "transfrag" []
 is_a: ME:0000022 ! file
+relationship: valid_file_format ME:0000032 ! WIG
 
 [Term]
 id: ME:0000009
@@ -71,21 +72,22 @@ def: "A description of the steps executed during an experiment." [BBOP:nlw]
 
 [Term]
 id: ME:0000011
-name: genome_annotation
+name: genome_annotation_protocol
 def: "." [BBOP:nlw]
 is_a: ME:0000012 ! annotation
 
 [Term]
 id: ME:0000012
-name: annotation
+name: annotation_protocol
 def: "." [BBOP:nlw]
 is_a: ME:0000010 ! protocol
+xref: MGED:BioMolecularAnnotation ! MO_213
 
 [Term]
 id: ME:0000013
-name: phenotype_annotation
+name: phenotype_annotation_protocol
 def: "." [BBOP:nlw]
-is_a: ME:0000012 ! annotation
+is_a: ME:0000012 ! annotation_protocol
 
 [Term]
 id: ME:0000014
@@ -122,6 +124,7 @@ xref: MGED:DNA
 id: ME:0000019
 name: biosample
 def: "." [BBOP:nlw]
+xref: mged:BioSample ! MO_93
 
 [Term]
 id: ME:0000020
@@ -437,13 +440,13 @@ id: ME:0000062
 name: annotation_data_file
 def: "The average of intensity values from two or more microarray scans.  This is used as a scaling value for normalization." [BBOP:nlw]
 is_a: ME:0000046 ! processed_data_file
-relationship: has_part ME:0000012 ! annotation 
+relationship: result_of ME:0000012 ! annotation_protocol 
 
 [Term]
 id: ME:0000062
 name: chromatin_immunoprecipitation
-def: ""[BBOP:nlw]
-is_a: ME:0000010 ! protocol
+def: "The chromatin immunoprecipitation (ChIP) assay, is a method used for experiments in molecular biology to determine whether proteins including (but not limited to) transcription factors bind to a particular region on the endogenous chromatin of living cells or tissues. "[BBOP:nlw; HTTP:en.wikipedia.org]
+is_a: ME:0000092 ! co-immunoprecipitation
 exact_synonym: "ChIP" []
 xref: MESH:E05.393.170 ! Chromatin immunoprecipitation
 xref: MGED:binding_site_identification_design
@@ -527,9 +530,10 @@ xref: MGED:BioMolecularAnnotation ! MO_213
 [Term]
 id: ME:0000075
 name: polymerase_chain_reaction_protocol (PCR)
-def: " " [BBOP:nlw]
+def: "A method for amplifying a DNA base sequence using a heatstable polymerase and two primers, one complementary to the (+) strand at one end of the sequence to be amplified and the other complementary to the (-) strand at the other end. Because the newly synthesized DNA strands can subsequently serve as additional templates for the same primer sequences, successive rounds of primer annealing, strand elongation, and dissociation produce rapid and highly specific amplification of the desired sequence. PCR also can be used to detect the existence of the defined sequence in a DNA sample.  " [BBOP:nlw, HTTP:genomics.energy.gov]
 exact_synonym: "PCR" []
-xref: MGED:PCR_amplification !MO_358
+is_a: ME:0000010 ! protocol
+xref: MGED:PCR_amplification ! MO_358
 
 [Term]
 id: ME:0000076
@@ -570,6 +574,88 @@ def: "The parameter utilized by a data smoothing protocol." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 comment: "this needs a WAY better definition and placement in the ontology."
 
+[Term]
+id: ME:0000082
+name: false_discovery_rate
+def: "The parameter utilized by data processing protocols to determinethe threshold of intervals/peaks that are considered to be statistically significant." [BBOP:nlw]
+is_a: ME:0000006 ! cutoff
+
+[Term]
+id: ME:0000083
+name: p_value
+def: "The parameter utilized by data processing protocols to determine the threshold for datapoints to be considered to statistically significant." [BBOP:nlw]
+is_a: ME:0000005 ! threshold
+
+[Term]
+id: ME:0000084
+name: protein_binding_site_map
+def: "The collection of statistically important protein binding peaks and/or intervals on a genome.  These proteins could be transcription factors (including transcription machine components), chromatin proteins and their variant modified forms.  These files can usually be derived from raw data of ChIP-chip/deep sequencing using so-called peak-finding program/packages that are author/lab specific. " [BBOP:nlw, CSHL:zz]
+is_a: ME:0000062 ! annotation_file
+relationship: valid_file_format ME:0000032 ! WIG
+
+
+[Term]
+id: ME:0000085
+name: peak_finding_data_analysis_protocol
+def: "The algorithm and software applied to raw or semi-processed ChIP-chip data to identify protein binding peaks and/or intervals on a genome.  These will produce a protein_binding_site_map (ME:0000084), and the results may vary given different p_value (ME:0000083) and/or false_discoverty_rate (ME:0000082) values." [BBOP:nlw]
+is_a: ME:0000076 ! data_analysis_protocol
+is_a: ME:0000011 ! genome_annotation_protocol
+
+[Term]
+id: ME:0000086
+name: accession_number_list_data_file
+def: "A flat file format that contains a listing of accession numbers from other repositories.  This will typically be some type of delimited file, perhaps separated with newlines." [BBOP:nlw]
+is_a: ME:0000021 ! data_file
+
+[Term]
+id: ME:0000087
+name: rapid_amplification_of_cdna_ends (RACE)
+def: "A technique to amplify the ends of messenger RNA (mRNA) transcripts using a specialized reverse transcription-polymerase chain reaction (RT-PCR). It allows the amplification of an unknown end portion of a transcript using known information from the center of the transcript. It can be used to obtain the 5' end (5' RACE-PCR) or 3' end (3' RACE-PCR) of mRNA."  [BBOP:nlw, HTTP:en.wikipedia.org]
+exact_synonym: "one-sided PCR" []
+exact_synonym: "anchored PCR" []
+is_a:  ME:0000088 ! RT-PCR
+
+[Term]
+id: ME:0000088
+name: reverse_transcription-polymerase_chain_reaction (RTPCR)
+def: "amplifying a defined piece of a ribonucleic acid (RNA) molecule. The RNA strand is first reverse transcribed into its DNA complement or complementary DNA, followed by amplification of the resulting DNA using polymerase chain reaction. This can either be a 1 or 2 step process." [BBOP:nlw, HTTP:en.wikipedia.org]
+exact_synonym: "RT-PCR" []
+exact_synonym: "RTPCR" []
+is_a:  ME:0000075 ! PCR
+
+
+[Term]
+id: ME:0000089
+name: 5'-rapid_amplification_of_cdna_ends (5' RACE)
+def: "5' RACE-PCR begins using mRNA as a template for a first round of cDNA synthesis (or reverse transcription) reaction using an anti-sense (reverse) oligonucleotide primer specific that recognizes known sequence in the gene of interest; the primer is called a gene specific primer (GSP) and copies the mRNA template in the 3' to the 5' direction to generate a specific single stranded cDNA product. Following first strand cDNA synthesis, the enzyme terminal deoxynucleotidyl transferase (TdT) is used to add a homopolymeric tail (i.e. a string of identical nucleotides) to the 3' end of the cDNA. A PCR reaction is then carried out, which uses a second anti-sense gene specific primer (GSP2) that binds to the known sequence, and a sense (forward) general universal primer (UP) that binds the homopolymeric tail added to the 3' ends of the cDNAs, to amplify a cDNA product from the 5' end."  [BBOP:nlw, HTTP:en.wikipedia.org]
+exact_synonym: "one-sided PCR" []
+exact_synonym: "anchored PCR" []
+is_a:  ME:0000088 ! RT-PCR
+
+[Term]
+id: ME:0000090
+name: 3'-rapid_amplification_of_cdna_ends (3' RACE)
+def: "3' RACE-PCR uses the natural polyA tail that exists at the 3' end of all mRNAs for priming during reverse transcription, so this method does not require the addition of nucleotides by TdT. First strand cDNAs are generated using an Oligo-dT-adaptor primer that complements the polyA stretch and adds a special adaptor sequence to the 3' end of each cDNA. PCR is then used to amplify 3' cDNA from a known region in the specific cDNA using a sense GSP, and an anti-sense primer complementary to the added adaptor sequence."  [BBOP:nlw, HTTP:en.wikipedia.org]
+exact_synonym: "one-sided PCR" []
+exact_synonym: "anchored PCR" []
+is_a:  ME:0000088 ! RT-PCR
+
+[Term]
+id: ME:0000091
+name: immunoprecipitation
+def: "A technique of precipitating an antigen out of solution using an antibody specific to that antigen. This process can be used to enrich a given protein to some degree of purity."  [BBOP:nlw, HTTP:en.wikipedia.org]
+exact_synonym: "IP" []
+is_a:  ME:0000010 ! protocol
+
+[Term]
+id: ME:0000092
+name: co-immunoprecipitation
+def: "Co-immunoprecipitation can identify interacting proteins or protein complexes present in cell extracts: by precipitating one protein believed to be in a complex, additional members of the complex are captured as well and can be identified. The protein complexes, once bound to the specific antibody, are removed from the bulk solution by capture with an antibody-binding protein attached to a solid support such as an agarose bead."  [BBOP:nlw, HTTP:en.wikipedia.org]
+exact_synonym: "co-IP" []
+exact_synonym: "pull-down" []
+exact_synonym: "coimmunoprecipitation" []
+is_a:  ME:0000091 ! immunoprecipitation
+
 [Typedef]
 id: has_input
 name: has_input
@@ -591,4 +677,8 @@ is_transitive: true
 [Typedef]
 id: result_of
 name: result_of
+
+[Typedef]
+id: valid_file_format
+name: valid_file_format
 
