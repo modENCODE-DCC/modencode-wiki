@@ -20,7 +20,7 @@
 	'FormValues' => 'FormValues',
 	'LoginResult' => 'LoginResult',
 	'FormDataQuery' => 'FormDataQuery'
-      ),
+      )
     )
   );
   if ($_GET["debug"]) {
@@ -32,7 +32,14 @@
     global $wgUser;
     $wgUser = new StubUser();
     unset($_SESSION);
-    print_r($dbfs->getFormData($form, $version, $auth));
+    print "Form data:";
+    $url = "http://wiki.modencode.org/project/index.php?title=Sequencing&oldid=5358";
+    $submission = new FormDataQuery();
+    #$submission->name = $form;
+    $submission->version = $version;
+    $submission->auth = $auth;
+    $submission->url = $url;
+    print_r($dbfs->getFormData($submission));
   } else {
     $server->setClass("DBFieldsService");
     $server->handle();
@@ -42,6 +49,7 @@
     public $name;
     public $version;
     public $auth;
+    public $url;
   }
   class FormData {
     public $name;
@@ -51,19 +59,22 @@
       $this->name = $name;
       $this->version = $version;
     }
-    public function addValue($key, $value, $type=null) {
+    public function addValue($key, $value, $types=array()) {
       $found = false;
       foreach ($this->values as $existing_value) {
 	if ($existing_value->name == $key) {
 	  $existing_value->addValue($value);
+	  foreach ($types as $type) {
+	    $existing_value->addType($type);
+	  }
 	  $found = true; break;
 	}
       }
       if (!$found) {
 	$newvalues = new FormValues($key);
 	$newvalues->addValue($value);
-	if (!is_null($type)) {
-	  $newvalues->setType($type);
+	foreach ($types as $type) {
+	  $newvalues->addType($type);
 	}
 	array_push($this->values, $newvalues);
       }
@@ -71,13 +82,13 @@
   }
   class FormValues {
     public $name;
-    public $type;
+    public $types = array();
     public $values = array();
     public function __construct($name) {
       $this->name = $name;
     }
-    public function setType($type) {
-      $this->type = $type;
+    public function addType($type) {
+      array_push($this->types, $type);
     }
     public function addValue($value) {
       array_push($this->values, $value);
@@ -123,6 +134,18 @@
       $form = $submission->name;
       $version = $submission->version;
       $auth = $submission->auth;
+      $wiki_url = $submission->url;
+
+
+      # Get a form and revision ID from a URL, if provided
+      if (strlen($form) && strlen($wiki_url)) {
+	throw new SoapFault("Bad Request", "Both a form name and wiki URL were provided; please only provide one of the two.");
+      }
+      if (!strlen($form) && strlen($wiki_url)) {
+	preg_match('/^\s*http:\/\/wiki.modencode.org\/project\/.*title=([^&]+)&.*oldid=(\d+)/', $wiki_url, $matches);
+	$form = str_replace("_", " ", $matches[1]);
+	$revisionId = $matches[2];
+      }
 
 
       global $wgUser;
@@ -140,6 +163,9 @@
 	throw new SoapFault("Bad Authentication", "User " . $auth->lguserid . " not authorized to view this page!");
       }
       
+      if (!strlen($form)) {
+	throw new SoapFault("Bad Form", "No form was provided, and the URL '$url' did not successfully map to a form page.");
+      }
       $db = modENCODE_db_connect(
 	$modENCODE_DBFields_conf["form_data"]["host"], 
 	$modENCODE_DBFields_conf["form_data"]["dbname"], 
@@ -183,7 +209,10 @@
 	if (is_null($formdata)) {
 	  $formdata = new FormData($row["name"], $row["version"]);
 	}
-	$formdata->addValue($row["key"], $row["value"]);
+	$values = preg_split('/,\s*/', $row["value"], -1, PREG_SPLIT_NO_EMPTY);
+	foreach ($values as $value) {
+	  $formdata->addValue($row["key"], trim($value));
+	}
       }
 
       modENCODE_db_close($db, $modENCODE_DBFields_conf["form_data"]["type"]);
@@ -204,7 +233,10 @@
 	    if (preg_match('/name="' . $key . '"/ism', $cvtermInput)) {
 	      preg_match('/cv="([^"]*)"/ism', $cvtermInput, $matches);
 	      if (strlen($matches[1])) {
-		$formvalues->type = $matches[1];
+		$types = preg_split('/,\s*/', $matches[1], -1, PREG_SPLIT_NO_EMPTY);
+		foreach ($types as $type) {
+		  $formvalues->addType($type);
+		}
 	      }
 	    }
 	  }

@@ -3,15 +3,28 @@
   include_once("DBFieldsConf.php");
   include_once('DBFields.php');
 
-  if ($_SERVER["PHP_SELF"] == __FILE__) {
+  if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     header("Content-type: text/xml");
   }
 
   $searchTerm = isset($_GET["term"]) ? $_GET["term"] : null;
   $searchCv = isset($_GET["cv"]) ? $_GET["cv"] : null;
 
+  $get_canonical_url = isset($_GET["get_canonical_url"]) && strlen($_GET["get_canonical_url"]) > 0 ? $_GET["get_canonical_url"] : null;
   $validating = isset($_GET["validating"]) && $_GET["validating"] == "validating" ? true : false;
   $delimiter = isset($_GET["delimiter"]) && strlen($_GET["delimiter"]) > 0 ? $_GET["delimiter"] : null;
+
+  if ($get_canonical_url) {
+    print "<result>\n";
+    if (isset($modENCODE_DBFields_conf["cvterms"][$get_canonical_url]) && isset($modENCODE_DBFields_conf["cvterms"][$get_canonical_url]["canonical_url"])) {
+      print "<canonical_url>" . $modENCODE_DBFields_conf["cvterms"][$get_canonical_url]["canonical_url"] . "</canonical_url>\n";
+    }
+    if (isset($modENCODE_DBFields_conf["cvterms"][$get_canonical_url]) && isset($modENCODE_DBFields_conf["cvterms"][$get_canonical_url]["canonical_url_type"])) {
+      print "<canonical_url_type>" . $modENCODE_DBFields_conf["cvterms"][$get_canonical_url]["canonical_url_type"] . "</canonical_url_type>";
+    }
+    print "</result>\n";
+    return;
+  }
   
   if (!$searchCv || !$searchTerm) { return; }
 

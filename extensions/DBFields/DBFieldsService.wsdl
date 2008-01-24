@@ -24,7 +24,7 @@
         <complexType name="FormValues">
           <all>
             <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
-            <element name="type" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="types" minOccurs="0" maxOccurs="1" type="tnstypes:ArrayOfStrings"/>
             <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfStrings"/>
           </all>
         </complexType>
@@ -56,9 +56,10 @@
         </complexType>
         <complexType name="FormDataQuery">
           <all>
-            <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="name" minOccurs="0" maxOccurs="1" type="xsd:string"/>
             <element name="version" minOccurs="0" maxOccurs="1" type="xsd:int"/>
             <element name="auth" minOccurs="0" maxOccurs="1" type="tnstypes:LoginResult"/>
+            <element name="url" minOccurs="0" maxOccurs="1" type="xsd:string"/>
           </all>
         </complexType>
       </schema>

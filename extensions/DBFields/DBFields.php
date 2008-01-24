@@ -282,7 +282,7 @@
       $value = $arg_matches[2][$i];
       $input = str_replace('{{{' . $key . '}}}', $value, $input);
       foreach ($args as $argkey => $argval) {
-	$args[$argkey] = str_replace('{{{' . $key . '}}}', $value, $argval);
+        $args[$argkey] = str_replace('{{{' . $key . '}}}', $value, $argval);
       }
     }
     global $modENCODE_dbfields_data;
@@ -376,6 +376,7 @@
 
       $url = $parser->mTitle->getLocalURL("action=purge");
       // Reload the page to get the new updated ID
+      $_POST = array();
       $wgOut->redirect($url);
       $wgOut->output();
 
