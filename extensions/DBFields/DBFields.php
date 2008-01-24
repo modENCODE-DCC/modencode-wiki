@@ -464,4 +464,15 @@
     }
     return true;
   }
+
+  /* SQL defintions for DBFields data table:
+   *   CREATE TABLE data (
+   *     name character varying(255) NOT NULL,
+   *     "key" character varying(255) NOT NULL,
+   *     value text,
+   *     version integer DEFAULT 0 NOT NULL,
+   *     wiki_revid integer
+   *   );
+   */
+
 ?>
