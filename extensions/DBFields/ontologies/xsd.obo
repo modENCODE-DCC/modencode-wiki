@@ -1,0 +1,18 @@
+format-version: 1.2
+date: 17:01:2008 12:43
+saved-by: E.O.
+!synonymtypedef: ABBREVIATION "Abbreviation" EXACT ! synonymtypedef not supported by OBO 1.0
+default-namespace: modENCODE
+
+[Term]
+id: xsd:string
+name: string
+
+[Term]
+id: xsd:int
+name: int
+
+[Term]
+id: xsd:date
+name: date
+
