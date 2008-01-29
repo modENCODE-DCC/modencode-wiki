@@ -656,6 +656,13 @@ def: "The average of intensity values from two or more microarray scans.  This i
 is_a: ME:0000046 ! processed_data_file
 relationship: result_of ME:0000012 ! annotation_protocol 
 
+[Term]
+id: ME:0000094
+name: base_calling_protocol
+def: "The translation of a processed trace data set(s) into a sequence of A’s, G’s, C’s and T’s."  [BBOP:nlw]
+is_a:  ME:0000076 ! data analysis protocol
+relationship: part_of: ME:0000020 ! sequencing_protocol
+
 [Typedef]
 id: has_input
 name: has_input
