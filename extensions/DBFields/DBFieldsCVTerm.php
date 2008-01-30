@@ -119,7 +119,7 @@
       $idspaces[$matches[1][$i]]["description"] = $matches[3][$i];
     }
 
-    $pattern = '/^name:\s*(.*' . preg_quote($searchTerm) . '.*)$/im';
+    $pattern = '/^name:\s*(.*' . preg_quote($searchTerm, '/') . '.*)$/im';
     $matches = array();
     $MAX_MATCHES = 500;
     $section = "[Term]\n";
