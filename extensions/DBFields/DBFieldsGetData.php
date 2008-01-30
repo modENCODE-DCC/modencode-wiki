@@ -134,7 +134,7 @@
       $form = $submission->name;
       $version = $submission->version;
       $auth = $submission->auth;
-      $wiki_url = $submission->url;
+      $wiki_url = urldecode(html_entity_decode($submission->url));
 
 
       # Get a form and revision ID from a URL, if provided
