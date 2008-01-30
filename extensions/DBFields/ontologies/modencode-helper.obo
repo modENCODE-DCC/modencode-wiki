@@ -659,7 +659,7 @@ relationship: result_of ME:0000012 ! annotation_protocol
 [Term]
 id: ME:0000094
 name: base_calling_protocol
-def: "The translation of a processed trace data set(s) into a sequence of A’s, G’s, C’s and T’s."  [BBOP:nlw]
+def: "The translation of a processed trace data set(s) into a sequence of A's, T's, G's, and C's."  [BBOP:nlw]
 is_a:  ME:0000076 ! data analysis protocol
 relationship: part_of: ME:0000020 ! sequencing_protocol
 
