@@ -53,9 +53,11 @@
     array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
     $extra_content_before = '';
     $extra_content_after = '';
+    if ($name == "input" || $name == "textarea" || $name == "select") {
+      $attribs["class"] .= " dbfields_input ";
+    }
     if ($name == "input") {
       if (!isset($attribs["class"])) { $attribs["class"] = ""; }
-      $attribs["class"] .= " dbfields_input ";
       if ($attribs["type"] == "cvterm") {
 	$extra_content_before = '<div id="' . $attribs["id"] . '_complete">';
 	$attribs["class"] .= "cvterm";
@@ -405,9 +407,13 @@
     $thispage = $parser->mTitle->getFullURL("action=purge");
 
     $parsed_xml = "";
-    $parsed_xml .= "<form class=\"modENCODE_dbfields yui-skin-sam\" method=\"POST\" action=\"$thispage\">\n";
     if ($nochanges) {
-      $modENCODE_dbfields_data["xml"] = preg_replace("/<(input|select|textarea)/", "<\$1 disabled=\"disabled\"", $modENCODE_dbfields_data["xml"]);
+      $parsed_xml .= "<form class=\"modENCODE_dbfields yui-skin-sam\">\n";
+      $modENCODE_dbfields_data["xml"] = preg_replace("/<(input|select|textarea)/", "<\$1 readonly=\"readonly\"", $modENCODE_dbfields_data["xml"]);
+      $modENCODE_dbfields_data["xml"] = preg_replace("/<(input|select|textarea)(.*)(class=\")/", "<\$1\$2\$3 dbfields_readonly", $modENCODE_dbfields_data["xml"]);
+      $modENCODE_dbfields_data["xml"] = preg_replace("/<input([^>]*)(class=\"[^\"]*)cvterm/", "<input\$1\$2", $modENCODE_dbfields_data["xml"]);
+    } else {
+      $parsed_xml .= "<form class=\"modENCODE_dbfields yui-skin-sam\" method=\"POST\" action=\"$thispage\">\n";
     }
     $parsed_xml .= $modENCODE_dbfields_data["xml"];
 
