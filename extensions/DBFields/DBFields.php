@@ -309,6 +309,7 @@
     if (!strlen($args["name"])) {
       $args["name"] = $parser->mTitle;
     }
+    $prefix = $args["prefix"];
 
     $entry_name = modENCODE_db_escape($args["name"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
 
@@ -435,7 +436,8 @@
     $modENCODE_markers_to_data[] = $parsed_xml;
 
     $version = ($version == 0) ? "0: no information" : $version;
-    $result = "<h2>Protocol \"" . $args["name"] . "\" (Version $version)</h2>\n";
+    if (!strlen($prefix)) { $prefix = "Protocol"; }
+    $result = "<h2>$prefix \"" . $args["name"] . "\" (Version $version)</h2>\n";
     $result .= htmlspecialchars("modENCODE-marker#" . (count($modENCODE_markers_to_data)-1) . "#");
     return $result;
   }
