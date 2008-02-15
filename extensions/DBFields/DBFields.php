@@ -220,7 +220,6 @@
       if (strlen($user) > 0)     { $connstring .= "user=$user "; }
       if (strlen($password) > 0) { $connstring .= "password=$password "; }
       $db = pg_connect($connstring);
-      print $password;
     } elseif ($dbtype == "mysql") {
       if (!function_exists("mysql_connect")) {
         print "Function mysql_connect does not exist, but is needed by modENCODE_db_connect.";
