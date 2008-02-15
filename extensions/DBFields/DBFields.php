@@ -307,7 +307,7 @@
     );
 
     if (!strlen($args["name"])) {
-      $args["name"] = $parser->mTitle;
+      $args["name"] = $parser->mTitle->getText();
     }
     $prefix = $args["prefix"];
 
