@@ -7,7 +7,7 @@
   chdir('../..');
   require("./includes/WebStart.php");
   chdir(dirname(__FILE__));
-  require("DBFields.php");
+  require_once("DBFields.php");
   ob_end_clean();
 
   $server = new SoapServer(
