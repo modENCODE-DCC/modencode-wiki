@@ -28,7 +28,7 @@
     $dbfs = new DBFieldsService();
     if (isset($_GET["version"])) { $version = $_GET["version"]; } else { $version = null; }
     if (isset($_GET["form"])) { $form = $_GET["form"]; } else { $form = null; }
-    $auth = ($dbfs->getLoginCookie('Yostinso', 'Hella99'));
+    $auth = ($dbfs->getLoginCookie('Validator_Robot', 'vdate_358'));
     global $wgUser;
     $wgUser = new StubUser();
     unset($_SESSION);
