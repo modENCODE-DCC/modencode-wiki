@@ -663,6 +663,12 @@ def: "The translation of a processed trace data set(s) into a sequence of A's, T
 is_a:  ME:0000076 ! data analysis protocol
 relationship: part_of: ME:0000020 ! sequencing_protocol
 
+[Term]
+id: ME:0000095
+name: dbEST_record
+def: "A data record of a sequence located at dbEST/genbank, accessible by ID.  See http://www.ncbi.nlm.nih.gov/sites/entrez?db=nucest for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
 [Typedef]
 id: has_input
 name: has_input
