@@ -669,6 +669,14 @@ name: dbEST_record
 def: "A data record of a sequence located at dbEST/genbank, accessible by ID.  See http://www.ncbi.nlm.nih.gov/sites/entrez?db=nucest for more information."  [BBOP:nlw]
 is_a: ME:0000045 ! sequence_file
 
+[Term]
+id: ME:0000096
+name: download_date
+def: "The date that a particular piece of information was acquired from an online resource.  This date should be specified in the format[-]CCYY-MM-DD[Z|(+|-)hh:mm]" [BBOP:nlw]
+comment: "Valid values include: 2001-10-26, 2001-10-26+02:00, 2001-10-26Z, 2001-10-26+00:00, -2001-10-26, or -20000-04-01" 
+is_a: ME:0000001 ! parameter
+xref: xsd:date
+
 [Typedef]
 id: has_input
 name: has_input
