@@ -17,7 +17,7 @@
     "invalidversion" => false
   );
   $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
-  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "multiple", "required");
+  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required");
   $modENCODE_markers_to_data = array();
 
   function modENCODE_DBFields_setup() {
@@ -138,7 +138,7 @@
 	if (isset($modENCODE_dbfields_data["values"][$attribs["name"]]) && strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
 	  // Get URLs
 	  $delim = ($attribs["multiple"] ? ',' : null);
-	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
+	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
 	  foreach ($terms as $term) {
 	    if (strlen($term["url"]) > 0) {
 	      $linkname = strlen($term["fullname"]) > 25 ? substr($term["fullname"], 0, 25) . "..." : $term["fullname"];
@@ -173,7 +173,7 @@
 	isset($item["attribs"]["name"]) && isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) &&
 	strlen($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) > 0
       ) {
-	$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim);
+	$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
 	$terms = array_map(create_function('$term', 'return $term["fullname"];'), $terms);
 	$existingTerms = getTermsArray($modENCODE_dbfields_data["values"][$item["attribs"]["name"]], $delim);
 	$diffterms = array_diff($existingTerms, $terms);

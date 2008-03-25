@@ -13,6 +13,7 @@
   $get_canonical_url = isset($_GET["get_canonical_url"]) && strlen($_GET["get_canonical_url"]) > 0 ? $_GET["get_canonical_url"] : null;
   $validating = isset($_GET["validating"]) && $_GET["validating"] == "validating" ? true : false;
   $delimiter = isset($_GET["delimiter"]) && strlen($_GET["delimiter"]) > 0 ? $_GET["delimiter"] : null;
+  $brackets = isset($_GET["brackets"]) && $_GET["brackets"] == "off" ? "off" : "on";
 
   if ($get_canonical_url) {
     print "<result>\n";
@@ -33,7 +34,7 @@
     usort($resultTerms, create_function('$a, $b', 'if (strlen($a["name"]) < strlen($b["name"])) { return -1; } elseif (strlen($a["name"]) > strlen($b["name"])) { return 1; } else { return 0; }'));
     print "<terms>\n" . xmlifyTerms($resultTerms) . "</terms>";
   } else {
-    $okayTerms = getExactTermsFor($searchCv, $searchTerm, $delimiter);
+    $okayTerms = getExactTermsFor($searchCv, $searchTerm, $delimiter, $brackets);
     print "<terms>\n" . xmlifyTerms($okayTerms) . "</terms>";
   }
   function getTermsArray($searchTerm, $delimiter = null) {
@@ -44,13 +45,15 @@
     }
     return array_map(create_function('$term', 'return trim($term);'), $searchTerms);
   }
-  function getExactTermsFor($searchCv, $searchTerm, $delimiter = null) {
+  function getExactTermsFor($searchCv, $searchTerm, $delimiter = null, $brackets = "on") {
     $searchTerms = getTermsArray($searchTerm, $delimiter);
     $okayTerms = array();
     $multipleCvs = (!is_null($delimiter) && strpos($searchCv, $delimiter) !== false) ? true : false;
     foreach ($searchTerms as $searchTerm) {
-      preg_match('/([^\[]*)(?:\[([^\]]*)\])?/', $searchTerm, $searchTermAndName);
-      $searchTerm = trim($searchTermAndName[1]);
+      if ($brackets != "off") {
+	preg_match('/([^\[]*)(?:\[([^\]]*)\])?/', $searchTerm, $searchTermAndName);
+	$searchTerm = trim($searchTermAndName[1]);
+      }
       if (isset($searchTermAndName[2])) {
         $name = trim($searchTermAndName[2]);
       } else {

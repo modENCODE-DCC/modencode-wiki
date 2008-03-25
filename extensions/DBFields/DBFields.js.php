@@ -105,14 +105,15 @@ YAHOO.widget.DataSource.prototype.getResults = function(oCallbackFn, sQuery, oPa
   for (var i = 0; i < terms.length; i++) {
     var term = terms[i];
     if (term.replace(/\s*/, '').length <= 0) { continue; }
-    // Remove anything after an open-bracket; furthermore, don't
-    // even remember anything after a closing bracket.
-    // "This [thing] here" isn't validanyway
-    var termPieces = decodeURIComponent(term).split(/\s*[\[\]]/);
-    // TODO: Need a wrapper around oCallbackFn to fix the terms back up 
-    // with the bracketed term. 
-    // TODO: Need to remember whether there was an ending bracket, etc.
-    termPiecesArray.push(termPieces);
+    if (oParent.brackets) {
+      // Remove anything after an open-bracket; furthermore, don't
+      // even remember anything after a closing bracket.
+      // "This [thing] here" isn't valid anyway
+      var termPieces = decodeURIComponent(term).split(/\s*[\[\]]/);
+      termPiecesArray.push(termPieces);
+    } else {
+      termPiecesArray.push([decodeURIComponent(term)]);
+    }
   }
 
   sQueryTerms = Array();
@@ -172,9 +173,12 @@ YAHOO.widget.DataSource.prototype.getValidResults = function(oCallbackFn, sQuery
  */
 YAHOO.widget.DS_XHR.prototype.getValidResults = function(oCallbackFn, sQuery, oParent, sDelimiter) {
     var oldAppend = this.scriptQueryAppend;
+    var brackets = oParent.brackets ? "on" : "off";
     this.scriptQueryAppend = 
       "validating=validating&delimiter="  + encodeURIComponent(sDelimiter) + "&" +
+      "brackets="  + encodeURIComponent(brackets) + "&" +
       this.scriptQueryAppend;
+
 
     this.oldGetResults(oCallbackFn, sQuery, oParent);
 
@@ -288,6 +292,14 @@ YAHOO.widget.AutoComplete.prototype._onTextboxBlur = function (v,oSelf) {
  * @type int | int[]
  */
 YAHOO.widget.AutoComplete.prototype.extraSelectionKeycodes = null;
+
+/**
+ * Whether or not to ignore text following an opening bracket
+ *
+ * @property brackets
+ * @type int | int[]
+ */
+YAHOO.widget.AutoComplete.prototype.brackets = true;
 
 /**
  * Extends _onTextboxKeyDown to allow use of other keycodes (such as the delimiter) for
@@ -480,6 +492,7 @@ function DBFields_runOnLoad() {
         for (i = 0; element = cvtermInputs[i]; i++) {
             var cv = element.getAttribute('cv');
             var multiple = element.getAttribute('multiple');
+            var brackets = element.getAttribute('brackets');
             if (!cv) { continue; }
             var url = "<?=dirname($_SERVER["PHP_SELF"]);?>/DBFieldsCVTerm.php"
 	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'fullname', 'name', 'cv', 'accession', 'definition', 'url' ]);
@@ -504,6 +517,11 @@ function DBFields_runOnLoad() {
                 autoComp.delimChar = ''; 
                 autoComp.forceSelectionDelayed = true; 
             }
+	    if (brackets == "off") {
+	      autoComp.brackets = false;
+	    } else {
+	      autoComp.brackets = true;
+	    }
             autoComp.formatResult = function(aResultItem, sQuery) {
                 var termName = aResultItem[0];
                 var cvName = aResultItem[2];
