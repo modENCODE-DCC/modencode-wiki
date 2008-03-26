@@ -692,9 +692,35 @@ xref: mged:grow ! a growth protocol
 
 [Term]
 id: ME:0000099
-name: SOFT_file
+name: SOFT_sample_file
 def: "A microarray data file who's format conforms to the NCBI data submission standard for their GEO repository."
 is_a: ME:0000027 ! processed_microarray_data_file
+relationship: part_of: ME:0000101 ! SOFT_submission_package
+
+[Term]
+id: ME:0000100
+name: SOFT_platform_file
+def: "A file that describes the content of a microarray slide, with the relationship between the genome (base) content and the spot coordinates. " [BBOP:nlw]
+synonym: "array design file" []
+is_a: ME:0000040 ! microarray_metadata_file
+relationship: part_of: ME:0000101 ! SOFT_submission_package
+
+[Term]
+id: ME:0000101
+name: SOFT_submission_package
+def: "A collection of files or sections within a single file that describe a microarray experiment, including the array platform, the resulting intensities and locations, and the relationship between the samples. " [BBOP:nlw]
+is_a: ME:0000021 ! data_file
+relationship: has_part: ME:0000099 ! SOFT_sample_file
+relationship: has_part: ME:0000100 ! SOFT_platform_file
+
+[Term]
+id: ME:0000102
+name: SOFT_series_file
+def: "A file that describes how the samples in an experiment relate to
+one another, as given in the SOFT_sample_file." [BBOP:nlw]
+is_a: ME:0000040 ! microarray_metadata_file
+relationship: part_of: ME:0000101 ! SOFT_submission_package
+
 
 [Typedef]
 id: has_input
