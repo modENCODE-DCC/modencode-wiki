@@ -701,7 +701,6 @@ relationship: part_of: ME:0000101 ! SOFT_submission_package
 id: ME:0000100
 name: SOFT_platform_file
 def: "A file that describes the content of a microarray slide, with the relationship between the genome (base) content and the spot coordinates. " [BBOP:nlw]
-synonym: "array design file" []
 is_a: ME:0000040 ! microarray_metadata_file
 relationship: part_of: ME:0000101 ! SOFT_submission_package
 
@@ -716,8 +715,7 @@ relationship: has_part: ME:0000100 ! SOFT_platform_file
 [Term]
 id: ME:0000102
 name: SOFT_series_file
-def: "A file that describes how the samples in an experiment relate to
-one another, as given in the SOFT_sample_file." [BBOP:nlw]
+def: "A file that describes how the samples in an experiment relate to one another, as given in the SOFT_sample_file." [BBOP:nlw]
 is_a: ME:0000040 ! microarray_metadata_file
 relationship: part_of: ME:0000101 ! SOFT_submission_package
 
