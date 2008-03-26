@@ -690,6 +690,12 @@ def: "The general protocol for growing/preparing/isolating an organism sample ba
 is_a: ME:0000097 ! biosample_preparation_protocol
 xref: mged:grow ! a growth protocol
 
+[Term]
+id: ME:0000099
+name: SOFT_file
+def: "A microarray data file who's format conforms to the NCBI data submission standard for their GEO repository."
+is_a: ME:0000027 ! processed_microarray_data_file
+
 [Typedef]
 id: has_input
 name: has_input
