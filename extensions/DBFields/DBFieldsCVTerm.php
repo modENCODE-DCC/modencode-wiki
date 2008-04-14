@@ -172,7 +172,11 @@
 	"url" => $row["url"]
       ));
     }
+    usort($resultTerms, 'lengthSort');
     return array_slice($resultTerms, 0, 50);
+  }
+  function lengthSort($a, $b) {
+    return strlen($a["name"]) - strlen($b["name"]);
   }
   function getDBTermsFor($searchCv, $searchTerm, $multipleCvs=false, $limit=20) {
     global $modENCODE_DBFields_conf;
