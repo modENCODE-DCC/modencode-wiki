@@ -16,3 +16,7 @@ name: int
 id: xsd:date
 name: date
 
+[Term]
+id: xsd:anyURI
+name: anyURI
+
