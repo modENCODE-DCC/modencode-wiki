@@ -510,7 +510,7 @@
       ));
 
       $out->addScript(
-	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>' .
+        '<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/connection/connection.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/logger/logger.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/autocomplete/autocomplete.js"></script>' .
