@@ -1,0 +1,904 @@
+format-version: 1.2
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: obd http://www.bioontology.org/obd/obd-ontology# ""
+idspace: oboInOwl http://www.bioontology.org/oboInOwl# ""
+idspace: ncithesaurus http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl# ""
+idspace: biopax1 http://www.biopax.org/release/biopax-level1.owl# ""
+idspace: bfo http://www.ifomis.org/bfo/1.0# ""
+idspace: snap http://www.ifomis.org/bfo/1.0/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.0/span# ""
+idspace: oban http://www.berkeleybop.org/ontologies/oban/alpha# ""
+idspace: obi http://obi.sourceforge.net/ontology/OBI.owl# ""
+idspace: galen http://www.co-ode.org/ontologies/galen# ""
+idspace: propreo http://lsdis.cs.uga.edu/projects/glycomics/propreo# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: p2 http://www.owl-ontologies.com/assert.owl# ""
+idspace: daml http://www.daml.org/2001/03/daml+oil# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+
+[Term]
+id: mged:mean_log_normalization
+name: mean_log_normalization
+instance_of: mged:DataTransformationProtocolType
+def: "Application of a normalization of type mean_log_centering." xsd:string
+property_value: mged:unique_identifier "MO_657" xsd:string
+
+[Term]
+id: mged:median_log_normalization
+name: median_log_normalization
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_931" xsd:string
+def: "Application of a normalization of type median_log_centering." xsd:string
+
+[Term]
+id: mged:quantile_normalization
+name: quantile_normalization
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_951" xsd:string
+def: "A method of normalizing a set of MeasuredBioAssayData aimed at rendering the distribution of intensities for each assay in the set the same, by forcing the values of quantiles to be equal across assays." xsd:string
+
+[Term]
+id: mged:ratio_statistics_normalization
+name: ratio_statistics_normalization
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_349" xsd:string
+def: "A method to re-scale paired-assay data from one data set relative to the other, based on an iterative regression method of calculating single parameter linear normalization factors. This method allows calculation of the mean, standard deviation and confidence interval limits for the distribution of measured ratio values." xsd:string
+
+
+[Term]
+id: mged:quantile_normalization_protocol_type
+name: quantile_normalization_protocol_type
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_457" xsd:string
+def: "Application of a normalization of type quantile_normalization." xsd:string
+
+[Term]
+id: mged:replicate_analysis
+name: replicate_analysis
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_433" xsd:string
+def: "A transformation method in which replicate intensity or ratio data sets are combined.  Analysis of the mean and standard deviation values for replicate data points can be used to identify and potentially exclude low quality data." xsd:string
+
+[Term]
+id: mged:reverse_transcription
+name: reverse_transcription
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_480" xsd:string
+def: "Generation of a DNA strand from an RNA strand using reverse transcriptase." xsd:string
+
+[Term]
+id: mged:sacrifice
+name: sacrifice
+instance_of: mged:ExperimentalProtocolType
+def: "The procedure of euthanizing an organism." xsd:string
+property_value: mged:unique_identifier "MO_602" xsd:string
+
+[Term]
+id: mged:specified_biomaterial_action
+name: specified_biomaterial_action
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_968" xsd:string
+def: "Conceptual action for specified protocol applied in treatment." xsd:string
+
+[Term]
+id: mged:specified_biomaterial_action
+name: specified_biomaterial_action
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_968" xsd:string
+def: "Conceptual action for specified protocol applied in treatment." xsd:string
+
+[Term]
+id: mged:specified_biomaterial_action
+name: specified_biomaterial_action
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_968" xsd:string
+def: "Conceptual action for specified protocol applied in treatment." xsd:string
+
+[Term]
+id: mged:split
+name: split
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_835" xsd:string
+def: "The procedure of separating a BioMaterial into two or more BioMaterials of similar composition e.g. aliquoting a sample. The BioMaterial may be a BioSource (e.g., a tissue) or a BioSample (e.g. RNA extracted from a BioSource).\nNon exact Synonym: sample" xsd:string
+property_value: mged:synonym "sample" xsd:string
+
+[Term]
+id: mged:split
+name: split
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_835" xsd:string
+def: "The procedure of separating a BioMaterial into two or more BioMaterials of similar composition e.g. aliquoting a sample. The BioMaterial may be a BioSource (e.g., a tissue) or a BioSample (e.g. RNA extracted from a BioSource).\nNon exact Synonym: sample" xsd:string
+property_value: mged:synonym "sample" xsd:string
+
+[Term]
+id: mged:total_intensity_normalization_paired
+name: total_intensity_normalization_paired
+instance_of: mged:DataTransformationProtocolType
+def: "A method to normalize paired-assay data that uses as a normalization coefficient the sum of intensity values from one assay divided by the sum of intensities from the other, where those sums are taken over all data points, or an appropriate subset of these (e.g. special control Features on a microarray, or 2DE spots containing constitutively expressed proteins). This normalization coefficient is used to rescale the intensity data in one data set relative to the other. Note that a normalization method that employs the average intensity rather than the sum (of all data points, or an appropriate subset) falls into this category as well." xsd:string
+property_value: mged:unique_identifier "MO_686" xsd:string
+
+[Term]
+id: mged:total_intensity_normalization_single
+name: total_intensity_normalization_single
+instance_of: mged:DataTransformationProtocolType
+def: "A normalization method that uses as a coefficient the sum of all intensities in the data set, or an appropriate subset of these (e.g. special control Features on a microarray, or 2DE spots containing constitutively expressed proteins). The intensities are normalized through division by such a coefficient (and possible subsequent multiplication by a target constant). Note that a normalization method that\nemploys the average intensity rather than the sum (of all data points, or an appropriate subset) falls into this category as well." xsd:string
+property_value: mged:unique_identifier "MO_472" xsd:string
+
+[Term]
+id: mged:unknown_protocol_type
+name: unknown_protocol_type
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_460" xsd:string
+def: "ProtocolType of unknown type." xsd:string
+
+[Term]
+id: mged:wash
+name: wash
+instance_of: mged:ExperimentalProtocolType
+def: "The process of applying a solvent (e.g. water) or a solution (e.g. SSC/SDS) to a BioMaterial or an array to remove impurities or unwanted compounds." xsd:string
+property_value: mged:unique_identifier "MO_596" xsd:string
+
+[Term]
+id: mged:within_bioassay_data_set_function
+name: within_bioassay_data_set_function
+instance_of: mged:DataTransformationProtocolType
+def: "A function applied to subsets of values from the same Measured/Derived bioassay data set." xsd:string
+property_value: mged:unique_identifier "MO_668" xsd:string
+
+[Term]
+id: mged:DataTransformationProtocolType
+name: DataTransformationProtocolType
+def: The process by which derived BioAssays are created from measured BioAssays and/or derived BioAssays.
+is_a: mged:ProtocolType
+property_value: mged:unique_identifier "MO_165" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:ExperimentalProtocolType
+name: ExperimentalProtocolType
+def: All protocols which involve treatment of a biomaterial or an array during the course of a microarray experiment.
+is_a: mged:ProtocolType
+property_value: mged:unique_identifier "MO_75" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:HigherLevelAnalysisProtocolType
+name: HigherLevelAnalysisProtocolType
+def: A protocol which yields a dataset(s) from which biological conclusions can be derived. E.g. clustering (not normalization or averaging).
+is_a: mged:ProtocolType
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_47" xsd:string
+
+[Term]
+id: mged:Protocol
+name: Protocol
+def: Documentation of the set of steps taken in a procedure.
+is_a: mged:ProtocolPackage
+relationship: mged:has_citation mged:BibliographicReference
+relationship: mged:has_software mged:Software
+relationship: mged:has_title xsd:string
+relationship: mged:has_description xsd:string
+relationship: mged:has_text xsd:string
+relationship: mged:has_hardware mged:Hardware
+relationship: mged:has_type mged:ProtocolType
+relationship: mged:has_URI mged:URI
+property_value: mged:unique_identifier "MO_214" xsd:string
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:ProtocolType
+name: ProtocolType
+def: A controlled set of terms to provide a descriptor for the type of protocol.
+is_a: mged:ProtocolPackage
+is_a: mged:MethodologicalFactorCategory
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_150" xsd:string
+
+[Term]
+id: mged:acclimatization
+name: acclimatization
+instance_of: mged:ExperimentalProtocolType
+def: "The action of stabilizing an organism prior to treatment" xsd:string
+property_value: mged:unique_identifier "MO_776" xsd:string
+
+[Term]
+id: mged:across_bioassay_data_set_function
+name: across_bioassay_data_set_function
+instance_of: mged:DataTransformationProtocolType
+def: "A function applied to corresponding values coming from a set of compatible Measured/Derived bioassay data sets. Two Measured/Derived bioassay data sets are compatible if there is a natural one-to-one correspondence between them." xsd:string
+property_value: mged:unique_identifier "MO_606" xsd:string
+
+[Term]
+id: mged:array_manufacturing
+name: array_manufacturing
+instance_of: mged:ExperimentalProtocolType
+def: "The process of physically creating the array." xsd:string
+property_value: mged:unique_identifier "MO_818" xsd:string
+
+[Term]
+id: mged:behavioral_stimulus
+name: behavioral_stimulus
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_674" xsd:string
+def: "The organism is forced to respond to a stimulus with some behavior (e.g., avoidance, obtaining a reward, etc.) " xsd:string
+
+[Term]
+id: mged:biological_fluid_collection
+name: biological_fluid_collection
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_685" xsd:string
+def: "The action of collecting biological fluids including bodily secretions, exudates, transudates etc. and sampling of cytoplasm. The purpose of sampling may range from collecting other organisms (i.e. pathogens) to studying fluid composition." xsd:string
+
+[Term]
+id: mged:condition_specificity
+name: condition_specificity
+instance_of: mged:HigherLevelAnalysisProtocolType
+def: "An analysis aimed at ranking genes or transcripts according to the uniformity of expression across a set of conditions. For example, the analysis can be used to rank genes according to the degree of tissue or developmental stage specificity." xsd:string
+property_value: mged:unique_identifier "MO_417" xsd:string
+
+[Term]
+id: mged:differential_expression
+name: differential_expression
+instance_of: mged:HigherLevelAnalysisProtocolType
+property_value: mged:unique_identifier "MO_874" xsd:string
+def: "An analysis aimed at identifying differentially expressed genes in two or more conditions." xsd:string
+
+[Term]
+id: mged:dye_swap_merge
+name: dye_swap_merge
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_448" xsd:string
+def: "A method of merging expression results from 2 dye-swap hybridizations on a Feature by Feature basis, with possible flagging if the results do not pass consistency checking criteria." xsd:string
+
+[Term]
+id: mged:element_design
+name: element_design
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_523" xsd:string
+def: "protocol that describes how the features, reporters and composites were designed and or selected for inclusion in an array design " xsd:string
+
+[Term]
+id: mged:feature_extraction
+name: feature_extraction
+instance_of: mged:ExperimentalProtocolType
+def: "The process of obtaining quantifiable values from the scanned image of the \n    array. Exact synonyms: image analysis, image quantification" xsd:string
+property_value: mged:synonym "image analysis" xsd:string
+property_value: mged:synonym "image quantification" xsd:string
+property_value: mged:unique_identifier "MO_928" xsd:string
+
+[Term]
+id: mged:flag_filter
+name: flag_filter
+instance_of: mged:DataTransformationProtocolType
+def: "transformation method that involves removal of values in a data set based \n    on visual or computed flags (e.g. the GenePix feature_extraction software \n    standard flags). This includes low-intensity filtering methods, where the \n    flag indicates low intensity values in the data set (for microarrays and \n    gels the threshold for exclusion is usually based on some estimation of \n    local or global background intensity; for mass spectrometry and NMR, it is \n    usually based on the signal-to-noise ratio in the spectrum)." xsd:string
+property_value: mged:unique_identifier "MO_1024" xsd:string
+
+[Term]
+id: mged:genetic_modification
+name: genetic_modification
+instance_of: mged:ExperimentalProtocolType
+def: "An action whereby an organism(s) has had genetic material removed, added, or rearranged." xsd:string
+property_value: mged:unique_identifier "MO_927" xsd:string
+
+[Term]
+id: mged:grow
+name: grow
+instance_of: mged:ComplexAction
+def: "A ComplexAction or ProtocolType describing growth of an organism or cell culture." xsd:string
+property_value: mged:unique_identifier "MO_758" xsd:string
+
+[Term]
+id: mged:harvest
+name: harvest
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_982" xsd:string
+def: "The process of harvesting cells from culture." xsd:string
+
+[Term]
+id: mged:histological_slide_preparation
+name: histological_slide_preparation
+instance_of: mged:ExperimentalProtocolType
+def: "The action of preparing a slide for the microscopical examination of organism parts or cell types." xsd:string
+property_value: mged:unique_identifier "MO_611" xsd:string
+
+[Term]
+id: mged:hybridization
+name: hybridization
+instance_of: mged:ExperimentalProtocolType
+def: "The process of incubating one or more labeled extracts with an array." xsd:string
+property_value: mged:unique_identifier "MO_884" xsd:string
+
+[Term]
+id: mged:image_acquisition
+name: image_acquisition
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_929" xsd:string
+def: "The process of generating an image from the array." xsd:string
+
+[Term]
+id: mged:incubate
+name: incubate
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_965" xsd:string
+def: "The procedure of placing a physical object under specified conditions e.g. time, temperature, humidity for the purposes of obtaining a different product." xsd:string
+
+[Term]
+id: mged:irradiate
+name: irradiate
+instance_of: mged:ExperimentalProtocolType
+def: "treatment of a biomaterial with radiation e.g. electromagnetic radiation" xsd:string
+property_value: mged:unique_identifier "MO_770" xsd:string
+
+
+[Term]
+id: mged:linlog_transformation
+name: linlog_transformation
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_845" xsd:string
+def: "A transformation method in which low intensities are linearly scaled while high intensities are logarithmically scaled. The transition point is determined by minimizing the absolute deviation of the variance of log ratios." xsd:string
+
+[Term]
+id: mged:loess_global_normalization
+name: loess_global_normalization
+instance_of: mged:DataTransformationProtocolType
+def: "Application of a normalization of type loess_normalization where the same normalization curve is used for all points in the data set; e.g. Features on an array, picked spots on a gel, or measured metabolites in a sample." xsd:string
+property_value: mged:unique_identifier "MO_443" xsd:string
+
+[Term]
+id: mged:loess_group_normalization
+name: loess_group_normalization
+instance_of: mged:DataTransformationProtocolType
+def: "Application of a normalization of type loess_normalization where a potentially different normalization curve is generated and used for two or more groups (delineated by some criteria); criteria could include blocks (e.g. print-tip groups) on an array, or the day on which mass spectrometry was performed." xsd:string
+property_value: mged:unique_identifier "MO_377" xsd:string
+
+[Term]
+id: mged:loess_normalization
+name: loess_normalization
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_428" xsd:string
+def: "A method of normalizing ratio data by using a locally weighted polynomial regression (typically after a log transformation). The regression can be performed on log ratios resulting from the relation of two data sets versus the average log intensity data from the same two data sets or it can be performed on raw or log transformed values from one data set versus values from another. The goal could be to remove intensity-dependent dye-specific effects from the set of pair wise ratios. This method can \nbe applied globally, or limited by one or more specified criteria." xsd:string
+
+[Term]
+id: mged:loess_scaled_group_normalization
+name: loess_scaled_group_normalization
+instance_of: mged:DataTransformationProtocolType
+def: "Application of a scale adjustment following loess_group_normalization, to render the group variances similar." xsd:string
+property_value: mged:unique_identifier "MO_521" xsd:string
+
+
+[Term]
+id: mged:lowess_global_normalization
+name: lowess_global_normalization
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_692" xsd:string
+def: "Application of a normalization of type lowess_normalization where the same normalization curve is used for all members of the data set; e.g. Features on an array, picked spots on a gel, or measured metabolites in a sample." xsd:string
+
+[Term]
+id: mged:lowess_group_normalization
+name: lowess_group_normalization
+instance_of: mged:DataTransformationProtocolType
+def: "Application of a normalization of type lowess_normalization where a potentially different normalization curve is generated and used for two or more groups (delineated by some criteria); criteria could include blocks (e.g. print-tip groups) on an array, or the day on which mass spectrometry was performed." xsd:string
+property_value: mged:unique_identifier "MO_861" xsd:string
+
+
+[Term]
+id: mged:lowess_normalization
+name: lowess_normalization
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_720" xsd:string
+def: "A method of normalizing ratio data by using a locally weighted polynomial \n    regression (typically after a log transformation). The regression can be \n    performed on log ratios resulting from the relation of two data sets \n    versus the average log intensity data from the same two data sets or it \n    can be performed on raw or log transformed values from one data set versus \n    values from another. The goal could be to remove intensity-dependent \n    dye-specific effects from the set of pair wise ratios. This method can be \n    applied globally, or limited by one or more specified criteria." xsd:string
+
+[Term]
+id: mged:lowess_scaled_group_normalization
+name: lowess_scaled_group_normalization
+instance_of: mged:DataTransformationProtocolType
+def: "Application of a scale adjustment following lowess_group_normalization, to render the group variances similar." xsd:string
+property_value: mged:unique_identifier "MO_410" xsd:string
+
+[Term]
+id: mged:moving_average
+name: moving_average
+instance_of: mged:DataTransformationProtocolType
+property_value: mged:unique_identifier "MO_681" xsd:string
+def: "A type of data transformation in which an average, usually the mean, is calculated across values within a sliding window. e.g. The moving average of signal intensity, or array CGH, data may be used in normalization." xsd:string
+
+[Term]
+id: mged:multiple_testing_correction
+name: multiple_testing_correction
+instance_of: mged:HigherLevelAnalysisProtocolType
+property_value: mged:unique_identifier "MO_561" xsd:string
+def: "Multiple testing correction uses individual p-values derived from multiple statistical tests to control either the family-wise error rate or the false discovery rate." xsd:string
+
+[Term]
+id: mged:nucleic_acid_extraction
+name: nucleic_acid_extraction
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_607" xsd:string
+def: "The procedure of extracting nucleic acid from the biomaterial." xsd:string
+
+[Term]
+id: mged:pool
+name: pool
+instance_of: mged:ExperimentalProtocolType
+property_value: mged:unique_identifier "MO_779" xsd:string
+def: "The process of combining two or more BioMaterials.  \nExact synonym: combine" xsd:string
+property_value: mged:synonym "combine" xsd:string
+
+[Term]
+id: mged:preservation
+name: preservation
+instance_of: mged:ExperimentalProtocolType
+def: "The type of protocol used to preserve (including storage or keep in stasis) the biomaterial." xsd:string
+property_value: mged:unique_identifier "MO_415" xsd:string
+
+[Term]
+id: mged:purify
+name: purify
+instance_of: mged:ComplexAction
+property_value: mged:unique_identifier "MO_406" xsd:string
+def: "The action of enriching a BioMaterial  (organism, cell, nucleic acid etc) or Compound e.g. for FACS for positive selection  or RNA  cleanup the Action or ProtocolType is purify (see fractionate). " xsd:string
+
+
+[Term]
+id: mged:fractionate
+name: fractionate
+instance_of: mged:ComplexAction
+property_value: mged:unique_identifier "MO_872" xsd:string
+def: "The action of separating a BioMaterial into one or more fractions e.g. differential centrifugation or FACS when used for cell sorting (see purify)." xsd:string
+
+[Term]
+id: mged:inoculate
+name: inoculate
+instance_of: mged:ComplexAction
+property_value: mged:unique_identifier "MO_559" xsd:string
+def: "The process of introducing a foreign agent such as serum, vaccine, antigenic substance or organism." xsd:string
+property_value: mged:synonym "infect" xsd:string
+
+[Term]
+id: mged:labeling
+name: labeling
+instance_of: mged:ComplexAction
+def: "The procedure of labeling a biosample." xsd:string
+property_value: mged:unique_identifier "MO_471" xsd:string
+
+[Term]
+id: mged:linear_amplification
+name: linear_amplification
+instance_of: mged:ComplexAction
+property_value: mged:synonym "Eberwine procedure" xsd:string
+def: "Amplification of nucleic acid sequence by making many copies off the same template.  An example is the use of the T7 promoter for amplification by transcribing many RNA copies.\nnon exact synonym: Eberwine procedure" xsd:string
+property_value: mged:unique_identifier "MO_997" xsd:string
+
+[Term]
+id: mged:linear_regression_normalization
+name: linear_regression_normalization
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_823" xsd:string
+def: "A method to re-scale paired-assay data from one data set relative to the other, based on regression of the values in the one set to those in the other, where the latter utilizes either all values in the data set, or an appropriate subset of these (e.g. special control Features on a microarray, or 2DE spots containing constitutively expressed proteins). The slope of the regression line is used to re-scale all the values in the data set being normalized. This single parameter method assumes that there is a linear relationship between the data sets. A similar approach could be employed to re-scale data from a standalone assay to another standalone (baseline) assay." xsd:string
+
+[Term]
+id: mged:starvation
+name: starvation
+instance_of: mged:ComplexAction
+def: "Depriving an organism of food or nutrients" xsd:string
+property_value: mged:unique_identifier "MO_370" xsd:string
+
+[Term]
+id: mged:store
+name: store
+instance_of: mged:ComplexAction
+property_value: mged:unique_identifier "MO_442" xsd:string
+def: "The procedure of placing a physical object under specified conditions e.g. time, temperature, humidity, for the purposes of keeping it in the same state." xsd:string
+
+[Term]
+id: mged:timepoint
+name: timepoint
+instance_of: mged:ComplexAction
+def: "Time point at which a sample or observation is made or taken from a biomaterial as measured from some reference point." xsd:string
+property_value: mged:unique_identifier "MO_738" xsd:string
+
+[Term]
+id: mged:transfect
+name: transfect
+instance_of: mged:ComplexAction
+property_value: mged:unique_identifier "MO_849" xsd:string
+def: "The process of bringing about genetic alteration of any cell or organism by a variety of means including recombinant DNA technology, viruses, chemical mutagens, and X-rays." xsd:string
+
+[Term]
+id: mged:ComplexAction
+name: ComplexAction
+def: Complex actions are composed of multiple steps (as opposed to AtomicAction) e.g. mRNA labeling, protein purification.
+is_a: mged:Action
+property_value: mged:unique_identifier "MO_90" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:PCR_amplification
+name: PCR_amplification
+instance_of: mged:ComplexAction
+def: "Amplification of nucleic acid sequence by use of the polymerase chain reaction whereby the number of templates grows geometrically with each cycle. " xsd:string
+property_value: mged:unique_identifier "MO_358" xsd:string
+
+[Term]
+id: mged:biopsy
+name: biopsy
+instance_of: mged:ComplexAction
+property_value: mged:unique_identifier "MO_711" xsd:string
+def: "The process of removing tissue from a living organism." xsd:string
+
+[Term]
+id: mged:change_biomaterial_characteristics
+name: change_biomaterial_characteristics
+instance_of: mged:ComplexAction
+property_value: mged:synonym "change environment" xsd:string
+property_value: mged:synonym "change growth condition" xsd:string
+def: "Indicates that one or more BioMaterialCharacteristics have changed during the treatment of a BioMaterial. \nNon exact synonym: change growth condition, change environment" xsd:string
+property_value: mged:unique_identifier "MO_383" xsd:string
+
+[Term]
+id: mged:change_humidity
+name: change_humidity
+instance_of: mged:AtomicAction
+def: "The action of changing the relative humidity, e.g. from 1% to 10%." xsd:string
+property_value: mged:unique_identifier "MO_917" xsd:string
+
+[Term]
+id: mged:change_light
+name: change_light
+instance_of: mged:AtomicAction
+def: "Change in light intensity or wavelength. " xsd:string
+property_value: mged:unique_identifier "MO_549" xsd:string
+
+[Term]
+id: mged:change_temperature
+name: change_temperature
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_677" xsd:string
+def: "Change in temperature.  " xsd:string
+
+[Term]
+id: mged:compound_based_treatment
+name: compound_based_treatment
+instance_of: mged:ComplexAction
+def: "The treatment is effected by a defined chemical or biological compound.   The compound may be a drug, solvent, chemical, etc., with a property that can be measured such as concentration." xsd:string
+property_value: mged:unique_identifier "MO_798" xsd:string
+
+[Term]
+id: mged:decontaminate
+name: decontaminate
+instance_of: mged:ComplexAction
+def: "Treatment to remove organisms present that were not planned as part of the study (e.g., mycoplasma). " xsd:string
+property_value: mged:unique_identifier "MO_389" xsd:string
+
+[Term]
+id: mged:dissect
+name: dissect
+instance_of: mged:ComplexAction
+def: "The action of removing one or more organism parts." xsd:string
+property_value: mged:unique_identifier "MO_374" xsd:string
+
+[Term]
+id: mged:remove
+name: remove
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_713" xsd:string
+def: "The procedure of extracting/taking out a part of a reaction/contents of a container." xsd:string
+
+[Term]
+id: mged:resuspend
+name: resuspend
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_466" xsd:string
+def: "The procedure in which solid material is dispensed or dissolved in a liquid." xsd:string
+
+[Term]
+id: mged:set_temperature
+name: set_temperature
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_393" xsd:string
+def: "An action where the temperature is specified.  " xsd:string
+
+[Term]
+id: mged:spin
+name: spin
+instance_of: mged:AtomicAction
+property_value: mged:synonym "centrifuge" xsd:string
+def: "The procedure of applying a centrifugal force to a physical object.\nExact synonym: centrifuge" xsd:string
+property_value: mged:unique_identifier "MO_879" xsd:string
+
+[Term]
+id: mged:wait
+name: wait
+instance_of: mged:AtomicAction
+def: "Allow time to pass. It's measurement should be a unit of time.  " xsd:string
+property_value: mged:unique_identifier "MO_988" xsd:string
+
+[Term]
+id: mged:AtomicAction
+name: AtomicAction
+def: An atomic action  is a single step process on the biomaterial, e.g. mix by inversion, wait, add
+is_a: mged:Action
+property_value: mged:unique_identifier "MO_68" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:add
+name: add
+instance_of: mged:AtomicAction
+def: "The procedure of placing one physical object in the same container/physical space as another." xsd:string
+property_value: mged:unique_identifier "MO_815" xsd:string
+
+[Term]
+id: mged:concentrate
+name: concentrate
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_883" xsd:string
+def: "Increasing the concentration of solutes in a solution or suspension.  " xsd:string
+
+[Term]
+id: mged:dilute
+name: dilute
+instance_of: mged:AtomicAction
+def: "Decreasing the concentration of solutes in a solution or suspension.  " xsd:string
+property_value: mged:unique_identifier "MO_962" xsd:string
+
+[Term]
+id: mged:mix_by_inversion
+name: mix_by_inversion
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_700" xsd:string
+def: "Mix through the process of inverting." xsd:string
+
+[Term]
+id: mged:mix_by_pipette
+name: mix_by_pipette
+instance_of: mged:AtomicAction
+def: "Mix by drawing up and down with a pipette." xsd:string
+property_value: mged:unique_identifier "MO_479" xsd:string
+
+[Term]
+id: mged:mix_by_vortex
+name: mix_by_vortex
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_880" xsd:string
+def: "Mix through the use of a vortexer." xsd:string
+
+[Term]
+id: mged:mix_general
+name: mix_general
+instance_of: mged:AtomicAction
+property_value: mged:unique_identifier "MO_944" xsd:string
+def: "The procedure of agitating 2 or more materials in order to combine them. The materials may be of any state solid/liquid/gas." xsd:string
+
+[Term]
+id: mged:place
+name: place
+instance_of: mged:AtomicAction
+def: "The procedure of putting a physical object in a container/physical space." xsd:string
+property_value: mged:unique_identifier "MO_470" xsd:string
+
+[Term]
+id: mged:mean_log_centering
+name: mean_log_centering
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_398" xsd:string
+def: "A method of normalizing log ratio data by subtraction of the mean log ratios computed across all data points, or an appropriate subset of these (e.g. special control Features on a microarray, or 2DE spots containing constitutively expressed proteins)." xsd:string
+
+
+
+[Term]
+id: mged:median_log_centering
+name: median_log_centering
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_811" xsd:string
+def: "A method of normalizing log ratio data by subtraction of the median log ratios computed across all data points, or an appropriate subset of these (e.g. special control Features on a microarray, or 2DE spots containing constitutively expressed proteins)." xsd:string
+
+
+[Term]
+id: mged:DeliveryMethod
+name: DeliveryMethod
+def: Method used to deliver a compound for treatment.
+is_a: mged:MGEDExtendedOntology
+property_value: mged:unique_identifier "MO_223" xsd:string
+
+
+[Term]
+id: mged:DerivedBioAssay
+name: DerivedBioAssay
+def: A BioAssay that is created by the transformation of measured or derived BioAssays.
+is_a: mged:BioAssay
+relationship: mged:has_type mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_209" xsd:string
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:DerivedBioAssayType
+name: DerivedBioAssayType
+def: Controlled set of descriptors for the type of derivation of the BioAssay such as averaging features, taking ratios of signal QuantitationTypes, and normalizing BioAssay data. 
+is_a: mged:BioAssayPackage
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_111" xsd:string
+
+[Term]
+id: mged:Experiment
+name: Experiment
+def: The complete set of bioassays (hybridizations) and their descriptions performed as an experiment for a common purpose. Here we take experiment to mean an observational or perturbing study. An experiment will be often equivalent to a publication.
+is_a: mged:ExperimentPackage
+relationship: mged:has_experiment_design mged:ExperimentDesign
+relationship: mged:has_citation mged:BibliographicReference
+relationship: mged:has_bioassays mged:BioAssay
+relationship: mged:has_providers mged:Contact
+relationship: mged:has_bioassay_data mged:BioAssayData
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_112" xsd:string
+
+[Term]
+id: mged:PhysicalBioAssay
+name: PhysicalBioAssay
+def: A physical bioassay is the combination of arrays and biomaterials as in a hybridization.
+is_a: mged:BioAssay
+relationship: mged:has_image_format mged:ImageFormat
+property_value: mged:unique_identifier "MO_99" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:Preservation
+name: Preservation
+def: Method and type of preserving the organism or biosource (i.e. keeping it in stasis).
+is_a: mged:MGEDExtendedOntology
+relationship: mged:has_protocol mged:Protocol
+relationship: mged:has_type mged:PreservationType
+property_value: mged:unique_identifier "MO_176" xsd:string
+
+[Term]
+id: mged:SeqFeatureBasis
+name: SeqFeatureBasis
+def: Controlled terms for how the sequence features were determined (e.g., experimental, computational, etc.)
+is_a: mged:BioSequencePackage
+property_value: mged:unique_identifier "MO_207" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Transformation
+name: Transformation
+def: The process by which BioAssays (data, elements, quantitation types) are averaged normalized, selected, filtered, or otherwise changed into a new set of BioAssay data.
+is_a: mged:BioAssayDataPackage
+relationship: mged:has_protocol mged:Protocol
+property_value: mged:unique_identifier "MO_216" xsd:string
+
+[Term]
+id: mged:Treatment
+name: Treatment
+def: A treatment is the process or action by which a biomaterial is created from an input biomaterial.
+is_a: mged:BioMaterialPackage
+relationship: mged:has_action mged:Action
+relationship: mged:has_order xsd:int
+relationship: mged:has_protocol mged:Protocol
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:unique_identifier "MO_23" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Affymetrix_average_difference
+name: Affymetrix_average_difference
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_649" xsd:string
+def: "the method used by Affymetrix to obtain mean signal intensity from a group  of related Features.  This involves calculation of the overall sum of perfect match minus  mismatch pairs divided by the number of pairs." xsd:string
+
+[Term]
+id: mged:PCR
+name: PCR
+instance_of: mged:DesignElement
+def: "Polymerase chain reaction.  An element generated using this procedure." xsd:string
+property_value: mged:unique_identifier "MO_915" xsd:string
+
+[Term]
+id: mged:RMA
+name: RMA
+instance_of: mged:DerivedBioAssayType
+def: "Robust Multiarray Average. A quantitative measure of the relative \n    abundance of a transcript. RMA is a summary measure of related perfect \n    match Features on an Affymetrix array. The values are background-adjusted, \n    normalized and log-transformed values." xsd:string
+property_value: mged:unique_identifier "MO_987" xsd:string
+
+[Term]
+id: mged:feeding
+name: feeding
+instance_of: mged:DeliveryMethod
+def: "Delivery method where a compound/drug is administered in food or water." xsd:string
+property_value: mged:unique_identifier "MO_993" xsd:string
+
+
+[Term]
+id: mged:gene_knock_in
+name: gene_knock_in
+instance_of: mged:GeneticModification
+def: "A modification whereby a functional gene, or a functional part of a gene, is inserted into an organism', e.g. by recombination, P-element insertion." xsd:string
+property_value: mged:unique_identifier "MO_437" xsd:string
+
+[Term]
+id: mged:gene_knock_out
+name: gene_knock_out
+instance_of: mged:GeneticModification
+def: "The modification of an organism that renders a gene non-functional e.g. due to a point mutation, or the removal of all, or part of, the gene using recombinant methods." xsd:string
+property_value: mged:unique_identifier "MO_771" xsd:string
+
+[Term]
+id: mged:genomic_region_amplification
+name: genomic_region_amplification
+instance_of: mged:ChromosomalAberrationClassification
+property_value: mged:unique_identifier "MO_609" xsd:string
+def: "increment in copy number of a genomic region, includes gene amplification, genomic amplification, and DNA amplification" xsd:string
+
+[Term]
+id: mged:intramuscular_injection
+name: intramuscular_injection
+instance_of: mged:DeliveryMethod
+def: "Delivery method for a compound or drug where the substance is administered via an injection into the muscle." xsd:string
+property_value: mged:unique_identifier "MO_617" xsd:string
+
+[Term]
+id: mged:intraperitoneal_injection
+name: intraperitoneal_injection
+instance_of: mged:DeliveryMethod
+def: "A delivery method for compound or drug whereby the substance is administered via the peritoneum." xsd:string
+property_value: mged:unique_identifier "MO_473" xsd:string
+
+[Term]
+id: mged:intravenous
+name: intravenous
+instance_of: mged:DeliveryMethod
+property_value: mged:unique_identifier "MO_432" xsd:string
+def: "delivery method whereby a compound or drug is administered via a vein" xsd:string
+
+[Term]
+id: mged:iterative_mean_log_centering
+name: iterative_mean_log_centering
+instance_of: mged:NormalizationDescriptionType
+property_value: mged:unique_identifier "MO_957" xsd:string
+def: "A method of re-scaling ratio data by iteratively subtracting the mean log base 2 ratio from each log2(ratio). This adjusts the mean log2(ratio) to zero. In each subsequent iteration, outliers are removed based on user-specified criteria, the mean log(2) ratio is recalculated based on the remaining data, and the entire data set is rescaled again. This continues until the mean log(2) ratio converges." xsd:string
+
+
+[Term]
+id: mged:transfection
+name: transfection
+instance_of: mged:GeneticModification
+def: "Introduction of genetic material into an organism often in the form of a plasmid." xsd:string
+property_value: mged:unique_identifier "MO_366" xsd:string
+
+[Term]
+id: mged:BioAssay
+name: BioAssay
+def: A bioassay is an abstract class representing physical and computational groupings of biomaterials and arrays.
+is_a: mged:BioAssayPackage
+property_value: mged:unique_identifier "MO_56" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:Test
+name: Test
+def: An assay performed on a biomaterial for the purposes of determining one or more biomaterial characteristics e.g. clinical chemistry.
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_performer mged:Contact
+relationship: mged:has_test_type mged:TestType
+relationship: mged:has_test_result mged:TestResult
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_197" xsd:string
+property_value: mged:class_role "abstract" xsd:string

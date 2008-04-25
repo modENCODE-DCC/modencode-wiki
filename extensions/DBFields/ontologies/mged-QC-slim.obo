@@ -1,0 +1,87 @@
+format-version: 1.2
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: obd http://www.bioontology.org/obd/obd-ontology# ""
+idspace: oboInOwl http://www.bioontology.org/oboInOwl# ""
+idspace: ncithesaurus http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl# ""
+idspace: biopax1 http://www.biopax.org/release/biopax-level1.owl# ""
+idspace: bfo http://www.ifomis.org/bfo/1.0# ""
+idspace: snap http://www.ifomis.org/bfo/1.0/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.0/span# ""
+idspace: oban http://www.berkeleybop.org/ontologies/oban/alpha# ""
+idspace: obi http://obi.sourceforge.net/ontology/OBI.owl# ""
+idspace: galen http://www.co-ode.org/ontologies/galen# ""
+idspace: propreo http://lsdis.cs.uga.edu/projects/glycomics/propreo# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: p2 http://www.owl-ontologies.com/assert.owl# ""
+idspace: daml http://www.daml.org/2001/03/daml+oil# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+
+
+[Term]
+id: mged:biological_replicate
+name: biological_replicate
+instance_of: mged:QualityControlDescriptionType
+property_value: mged:unique_identifier "MO_952" xsd:string
+def: "A replicate that consists of independent biological replicates made from different individual BioSources." xsd:string
+
+[Term]
+id: mged:dye_swap_quality_control
+name: dye_swap_quality_control
+instance_of: mged:QualityControlDescriptionType
+property_value: mged:unique_identifier "MO_524" xsd:string
+def: "Indicates that a dye swap was performed for some or all hybridizations within an experiment " xsd:string
+
+[Term]
+id: mged:peer_review_quality_control
+name: peer_review_quality_control
+instance_of: mged:QualityControlDescriptionType
+property_value: mged:unique_identifier "MO_365" xsd:string
+def: "An experiment which has a peer reviewed publication attached." xsd:string
+
+[Term]
+id: mged:real_time_PCR_quality_control
+name: real_time_PCR_quality_control
+instance_of: mged:QualityControlDescriptionType
+def: "A PCR based quantitative validation of a subset of the array based data used for experimental QC purposes." xsd:string
+property_value: mged:unique_identifier "MO_434" xsd:string
+
+[Term]
+id: mged:reverse_transcription_PCR_quality_control
+name: reverse_transcription_PCR_quality_control
+instance_of: mged:QualityControlDescriptionType
+property_value: mged:unique_identifier "MO_986" xsd:string
+def: "A PCR based semi quantitative validation of a subset of the array based data used for experimental QC purposes." xsd:string
+
+[Term]
+id: mged:spike_quality_control
+name: spike_quality_control
+instance_of: mged:QualityControlDescriptionType
+def: "An experiment in which spikes were introduced into some or all of the hybridizations for quality control or data transformation purposes." xsd:string
+property_value: mged:unique_identifier "MO_937" xsd:string
+
+[Term]
+id: mged:technical_replicate
+name: technical_replicate
+instance_of: mged:QualityControlDescriptionType
+property_value: mged:unique_identifier "MO_641" xsd:string
+def: "A replicate where the same BioSample is use e.g. the same pool of RNA used to assess technical (as opposed to biological) variation within an experiment." xsd:string
+
+[Term]
+id: mged:collapsed_spot_replicate
+name: collapsed_spot_replicate
+instance_of: mged:DerivedBioAssayType
+def: "Results of data reduction involving computation of a representative value, e.g. by averaging, for a group of replicated Features, Reporters or CompositeSequences from a single hybridization." xsd:string
+property_value: mged:unique_identifier "MO_789" xsd:string
+
+[Term]
+id: mged:dye_swap_replicate
+name: dye_swap_replicate
+instance_of: mged:ReplicateDescriptionType
+def: "One of a pair of replicate assays in which LabeledExtracts derived from the same BioMaterial used for both assays (e.g., a hybridization or a 2-D gel run) differ only in that the dyes used for labeling have been reversed, e.g., assay 1: A-Cy3 vs. B-Cy5, and assay 2: A-Cy5 vs. B-Cy3.  The purpose of using dye-swap replicate pairs is to assess or remove dye-specific biases from the combined experimental results." xsd:string
+property_value: mged:unique_identifier "MO_901" xsd:string

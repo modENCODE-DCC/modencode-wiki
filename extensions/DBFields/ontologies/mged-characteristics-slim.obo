@@ -1,0 +1,1637 @@
+format-version: 1.2
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: obd http://www.bioontology.org/obd/obd-ontology# ""
+idspace: oboInOwl http://www.bioontology.org/oboInOwl# ""
+idspace: ncithesaurus http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl# ""
+idspace: biopax1 http://www.biopax.org/release/biopax-level1.owl# ""
+idspace: bfo http://www.ifomis.org/bfo/1.0# ""
+idspace: snap http://www.ifomis.org/bfo/1.0/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.0/span# ""
+idspace: oban http://www.berkeleybop.org/ontologies/oban/alpha# ""
+idspace: obi http://obi.sourceforge.net/ontology/OBI.owl# ""
+idspace: galen http://www.co-ode.org/ontologies/galen# ""
+idspace: propreo http://lsdis.cs.uga.edu/projects/glycomics/propreo# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: p2 http://www.owl-ontologies.com/assert.owl# ""
+idspace: daml http://www.daml.org/2001/03/daml+oil# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+
+[Term]
+id: mged:BioMaterialCharacteristicCategory
+name: BioMaterialCharacteristicCategory
+def: General descriptor of a BioMaterialCharacteristic category.  Such as strain or line where the name of the strain or line is encoded in the FactorValue.  
+is_a: mged:BiologicalFactorCategory
+property_value: mged:unique_identifier "MO_100" xsd:string
+
+[Term]
+id: mged:BioMaterialCharacteristics
+name: BioMaterialCharacteristics
+def: Properties of the biomaterial before treated in any manner for the purposes of the experiment.
+is_a: mged:BioMaterialPackage
+is_a: mged:BiologicalFactorCategory
+property_value: mged:unique_identifier "MO_5" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:BioMaterialPurity
+name: BioMaterialPurity
+def: A measure of homogeneity of a biomaterial. For example, an expression of the  percentage of a tumor biopsy that is tumor cells.
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_20" xsd:string
+
+[Term]
+id: mged:BioSourceProvider
+name: BioSourceProvider
+def: The resource (e.g. company, hospital, geographical location) used to obtain or purchase the biomaterial. 
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_owner mged:Person
+relationship: mged:has_donor mged:Organization
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_230" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:BioSourceType
+name: BioSourceType
+def: The form in which the BioMaterial was obtained/maintained e.g. frozen, fresh etc. Note can be used to describe BioSamples as well as BioSources.
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_95" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Biometrics
+name: Biometrics
+def: Physical properties of the BioMaterial e. g. mass or height
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_cubic_volume mged:Measurement
+relationship: mged:has_mass mged:Measurement
+relationship: mged:has_diameter mged:Measurement
+relationship: mged:has_length mged:Measurement
+relationship: mged:has_height mged:Measurement
+relationship: mged:has_individual mged:Individual
+relationship: mged:has_organism_part mged:OrganismPart
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_129" xsd:string
+
+[Term]
+id: mged:CellLine
+name: CellLine
+def: The identifier for the established culture of a metazoan cell if one was used as a biomaterial.\n
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_database mged:CellLineDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_49" xsd:string
+
+[Term]
+id: mged:CellType
+name: CellType
+def: CellType, the type of cell used in the experiment if non mixed, if mixed the TargetedCellType should be used, example of instances, epithelial, glial etc.
+is_a: mged:BioMaterialCharacteristics
+is_a: mged:OntologyEntry
+relationship: mged:has_database mged:CellTypeDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_135" xsd:string
+
+[Term]
+id: mged:CellularComponent
+name: CellularComponent
+def: A structure within a cell, such as an anatomical structure (e.g. rough endoplasmic reticulum or nucleus) or a gene product group (e.g. ribosome, proteasome or a protein dimer).
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_database mged:CellularComponentDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_1020" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:ChromosomalAberrationClassification
+name: ChromosomalAberrationClassification
+def: An irregularity in the number or structure of chromosomes, usually in the form of a gain (duplication), loss (deletion), exchange (translocation), or alteration in sequence (inversion) of genetic material. Excludes simple changes in sequence such as mutations, and is usually detectable by cytogenetic and microscopic techniques such as FISH.
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_6" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:ClinicalTreatment
+name: ClinicalTreatment
+def: The current clinical treatment(s) of the patient from which the biosource is derived.
+is_a: mged:BioMaterialCharacteristics
+is_a: mged:OntologyEntry
+relationship: mged:has_database mged:ClinicalTreatmentDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_69" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:DevelopmentalStage
+name: DevelopmentalStage
+def: The developmental stage of the organism's life cycle during which the biomaterial was extracted. 
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_database mged:DevelopmentalStageDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_120" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:DiseaseStaging
+name: DiseaseStaging
+def: The stage or progression of a disease in an organism. Includes pathological staging of cancers and other disease progression. 
+is_a: mged:BioMaterialCharacteristics
+is_a: mged:OntologyEntry
+relationship: mged:has_database mged:DiseaseStagingDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_133" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:DiseaseState
+name: DiseaseState
+def: The name of the pathology diagnosed in the organism from which the biomaterial was derived. The disease state is normal if no disease has been diagnosed. 
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_disease_location mged:DiseaseLocation
+relationship: mged:has_disease_staging mged:DiseaseStaging
+relationship: mged:has_database mged:DiseaseStateDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_126" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:EnvironmentalHistory
+name: EnvironmentalHistory
+def: A description of the conditions the organism has been exposed to that are not one of the variables under study. 
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:unique_identifier "MO_55" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:GeneticModification
+name: GeneticModification
+def: The genetic modification introduced into the organism from which the biomaterial was derived. Examples of genetic modification include specification of a transgene or the gene knocked-out or details of transient transfection.
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:unique_identifier "MO_122" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Genotype
+name: Genotype
+def: The total sum of the genetic information of an organism that is known and relevant to the experiment being performed, including chromosomal, plasmid, viral or other genetic material which has been introduced into the organism\neither prior to or during the experiment.
+is_a: mged:IndividualGeneticCharacteristics
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_51" xsd:string
+
+[Term]
+id: mged:Haplotype
+name: Haplotype
+def: The genotype of a single chromosome (i.e., the haploid genotype) that is known and relevant to the experiment being performed. 
+is_a: mged:IndividualGeneticCharacteristics
+property_value: mged:class_role "place_holder" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_146" xsd:string
+
+[Term]
+id: mged:Histology
+name: Histology
+def: Microscopic morphology of tissues.
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_performer mged:Contact
+relationship: mged:has_organism_part mged:OrganismPart
+relationship: mged:has_database mged:HistologyDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_194" xsd:string
+
+
+[Term]
+id: mged:Individual
+name: Individual
+def: Identifier or name of the individual organism from which the biomaterial was derived. 
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:class_role "place_holder" xsd:string
+property_value: mged:unique_identifier "MO_169" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+
+[Term]
+id: mged:IndividualGeneticCharacteristics
+name: IndividualGeneticCharacteristics
+def: The genotype of the individual organism from which the biomaterial was derived. Individual genetic characteristics include polymorphisms, disease alleles, and haplotypes.
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_value xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_66" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Observation
+name: Observation
+def: Observation will record the macroscopic examination of the biomaterial.
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_performer mged:Contact
+relationship: mged:has_database mged:ObservationDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_53" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Organism
+name: Organism
+def: The genus and species (and subspecies) of the organism from which the biomaterial is derived from. 
+is_a: mged:BioMaterialCharacteristics
+is_a: mged:OntologyEntry
+relationship: mged:has_database mged:OrganismDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_229" xsd:string
+
+[Term]
+id: mged:OrganismPart
+name: OrganismPart
+def: The part of organism's anatomy or substance arising from an organism from which the biomaterial was derived, excludes cells. E.g. tissue, organ, system, sperm, blood or body location (arm).
+is_a: mged:BioMaterialCharacteristics
+is_a: mged:OntologyEntry
+relationship: mged:has_database mged:OrganismPartDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_1" xsd:string
+
+[Term]
+id: mged:OrganismStatus
+name: OrganismStatus
+def: The stage premortem or postmortem at which the sample was processed for extraction of biomaterials. 
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:unique_identifier "MO_84" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Phenotype
+name: Phenotype
+def: The observable form taken by some character (or group of characters) in an individual or an organism, excluding pathology and disease.  The detectable outward manifestations of a specific genotype.
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_database mged:PhenotypeDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_192" xsd:string
+
+
+[Term]
+id: mged:Serotype
+name: Serotype
+def: An antigenic property of a cell (e.g. bacteria, RBC) or virus identified by serological methods
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:unique_identifier "MO_159" xsd:string
+property_value: mged:class_role "place_holder" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Sex
+name: Sex
+def: Term applied to any organism able to undergo sexual reproduction in order to differentiate the individuals or types involved. Sexual reproduction is defined as the ability to exchange genetic material with the potential of recombinant progeny.
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:unique_identifier "MO_168" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:StrainOrLine
+name: StrainOrLine
+def: A strain or line is an animal or plant offspring that has a single ancestral breeding pair or parent as a result of brother x sister or parent x offspring matings. This class is extended to include F1 offspring and established breeding lines. For microbes, these are isolates derived from nature or in the laboratory.
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_database mged:StrainOrLineDatabase
+relationship: mged:has_species mged:Organism
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_9" xsd:string
+
+[Term]
+id: mged:TargetedCellType
+name: TargetedCellType
+def: The target cell type is the cell of primary interest. The biomaterial may be derived from a mixed population of cells although only one cell type is of interest. 
+is_a: mged:OntologyEntry
+is_a: mged:BioMaterialCharacteristics
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_123" xsd:string
+
+[Term]
+id: mged:Temperature
+name: Temperature
+def: The temperature that a biosource is exposed to.
+is_a: mged:GrowthCondition
+property_value: mged:unique_identifier "MO_171" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+
+[Term]
+id: mged:TestResult
+name: TestResult
+def: TestResult is the recorded value of the test outcome.
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_measurement mged:Measurement
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_96" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:TestType
+name: TestType
+def: Descriptor of the Test performed e.g. Leukocyte count
+is_a: mged:BioMaterialCharacteristics
+is_a: mged:OntologyEntry
+relationship: mged:has_database mged:TestTypeDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_218" xsd:string
+
+[Term]
+id: mged:age
+name: age
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_467" xsd:string
+def: "A descriptor for FactorValue where age is compared." xsd:string
+
+
+[Term]
+id: mged:cell_line
+name: cell_line
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_562" xsd:string
+def: "A descriptor for FactorValue where CellLine is compared.  " xsd:string
+
+[Term]
+id: mged:cell_type
+name: cell_type
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_548" xsd:string
+def: "A descriptor for FactorValue where CellType is compared.  " xsd:string
+
+[Term]
+id: mged:clinical_information
+name: clinical_information
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_816" xsd:string
+def: "A descriptor for FactorValue where ClinicalInformation is compared.  " xsd:string
+
+[Term]
+id: mged:clinical_treatment
+name: clinical_treatment
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_384" xsd:string
+def: "A descriptor for a clinical treatment for a patient." xsd:string
+
+[Term]
+id: mged:developmental_stage
+name: developmental_stage
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_878" xsd:string
+def: "A descriptor for FactorValue where DevelopmentalStage is compared.  " xsd:string
+
+[Term]
+id: mged:disease_staging
+name: disease_staging
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_792" xsd:string
+def: "The stage or progression of a disease in an organism. Includes pathological staging of cancers and other disease progression. " xsd:string
+
+[Term]
+id: mged:disease_state
+name: disease_state
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "A descriptor for FactorValue where DiseaseState is compared.  " xsd:string
+property_value: mged:unique_identifier "MO_787" xsd:string
+
+
+[Term]
+id: mged:individual
+name: individual
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_639" xsd:string
+def: "A descriptor for FactorValue where BioSources are compared. " xsd:string
+
+[Term]
+id: mged:individual_genetic_characteristic
+name: individual_genetic_characteristic
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "A descriptor for FactorValue where IndividualGeneticCharacteristic is compared.  " xsd:string
+property_value: mged:unique_identifier "MO_722" xsd:string
+
+[Term]
+id: mged:organism
+name: organism
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "one or more of any unicellular or multicellular pro or eukaryote, including archaebacteria" xsd:string
+property_value: mged:unique_identifier "MO_508" xsd:string
+
+
+
+[Term]
+id: mged:organism_status
+name: organism_status
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "The stage premortem or postmortem at which the sample was processed for extraction of biomaterials. " xsd:string
+property_value: mged:unique_identifier "MO_871" xsd:string
+
+[Term]
+id: mged:physical_characteristics
+name: physical_characteristics
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_863" xsd:string
+def: "A descriptor for FactorValue where PhysicalCharacteristics are compared.  " xsd:string
+
+[Term]
+id: mged:sampling_time_point
+name: sampling_time_point
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "&lt;pre&gt;The time point that a sample was taken. Not to be used where the sample is part of a time\ncourse. SamplingTimePoint is not related to age. An instance could be summer, a date, a time, or a range value&lt;/pre&gt;" xsd:string
+property_value: mged:unique_identifier "MO_866" xsd:string
+
+[Term]
+id: mged:sex
+name: sex
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "A descriptor for FactorValue where Sex is compared.  " xsd:string
+property_value: mged:unique_identifier "MO_680" xsd:string
+
+[Term]
+id: mged:strain_or_line
+name: strain_or_line
+instance_of: mged:BioMaterialCharacteristicCategory
+property_value: mged:unique_identifier "MO_859" xsd:string
+def: "A descriptor of FactorValue where comparisons of strains or lines are made. " xsd:string
+
+[Term]
+id: mged:tumor_grading
+name: tumor_grading
+instance_of: mged:BioMaterialCharacteristicCategory
+def: "A descriptor used in cancer biology to describe abnormalities of tumor cells." xsd:string
+property_value: mged:unique_identifier "MO_843" xsd:string
+
+[Term]
+id: mged:Age
+name: Age
+def: The time period elapsed since an identifiable point in the life cycle of an organism. If a developmental stage is specified, the identifiable point would be the beginning of that stage. Otherwise the identifiable point must be specified such as planting (e.g. 3 days post planting).
+is_a: mged:BioMaterialCharacteristics
+relationship: mged:has_measurement mged:Measurement
+relationship: mged:has_maximum_measurement mged:Measurement
+relationship: mged:has_initial_time_point mged:InitialTimePoint
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_178" xsd:string
+
+[Term]
+id: mged:Allele
+name: Allele
+def: One of two or more alternative forms of a gene or marker sequence and differing from other alleles at one or more mutational sites based on phenotype or sequence. Polymorphisms are included in this definition.
+is_a: mged:IndividualGeneticCharacteristics
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_58" xsd:string
+
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:GrowthCondition
+name: GrowthCondition
+def: A description of the conditions used to grow organisms or parts of the organism. This includes isolated environments such as cultures and open environments such as field studies.
+is_a: mged:EnvironmentalHistory
+relationship: mged:has_maximum_measurement mged:Measurement
+relationship: mged:has_value xsd:string
+relationship: mged:has_measurement mged:Measurement
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_183" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:Host
+name: Host
+def: Organisms or organism parts used as a designed part of the culture (e.g., red blood cells, stromal cells). 
+is_a: mged:EnvironmentalHistory
+relationship: mged:has_host_part mged:OrganismPart
+relationship: mged:has_host mged:Organism
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_101" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Humidity
+name: Humidity
+def: The humidity that the biosource is exposed to.
+is_a: mged:GrowthCondition
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_29" xsd:string
+
+[Term]
+id: mged:PathogenTest
+name: PathogenTest
+def: Tests and results for pathogens infecting organism from which the biosource is derived
+is_a: mged:EnvironmentalHistory
+relationship: mged:was_tested_for mged:Organism
+relationship: mged:has_result mged:Result
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_184" xsd:string
+
+[Term]
+id: mged:SamplingTimePoint
+name: SamplingTimePoint
+def: A descriptor of the time point that a sample was taken. Not to be used \n    where the sample is part of a time course. SamplingTimePoint is not \n    related to age. An instance could be summer, a date, a time, or a range \n    value.
+is_a: mged:EnvironmentalHistory
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_139" xsd:string
+
+[Term]
+id: mged:atmosphere
+name: atmosphere
+instance_of: mged:EnvironmentalFactorCategory
+property_value: mged:unique_identifier "MO_498" xsd:string
+def: "The atmospheric conditions used to culture or grow an organism." xsd:string
+
+[Term]
+id: mged:barrier_facility
+name: barrier_facility
+instance_of: mged:EnvironmentalFactorCategory
+def: "The rating of containment system used to protect organisms from infectious agents." xsd:string
+property_value: mged:unique_identifier "MO_511" xsd:string
+
+
+[Term]
+id: mged:beginning_of_stage
+name: beginning_of_stage
+instance_of: mged:InitialTimePoint
+def: "time point that indicates the start of some developmental stage" xsd:string
+property_value: mged:unique_identifier "MO_608" xsd:string
+
+[Term]
+id: mged:light_duration
+name: light_duration
+instance_of: mged:EnvironmentalFactorCategory
+property_value: mged:unique_identifier "MO_604" xsd:string
+property_value: mged:synonym "photoperiod" xsd:string
+def: "The length of the light period that a sample is subjected to.\nExact synonym:photoperiod" xsd:string
+
+[Term]
+id: mged:light_intensity
+name: light_intensity
+instance_of: mged:EnvironmentalFactorCategory
+def: "The amount of light actually striking the surface of samples which are being assayed.  It has a unit association as well, usually uEinstein /m2 /min or uEinstein /m2/s." xsd:string
+property_value: mged:unique_identifier "MO_517" xsd:string
+
+[Term]
+id: mged:media
+name: media
+instance_of: mged:EnvironmentalFactorCategory
+def: "The physical state or matrix used to provide nutrients to the organism (e.g., liquid, agar, soil) " xsd:string
+property_value: mged:unique_identifier "MO_545" xsd:string
+
+[Term]
+id: mged:nutrients
+name: nutrients
+instance_of: mged:EnvironmentalFactorCategory
+property_value: mged:unique_identifier "MO_867" xsd:string
+def: "The food provided to the organism (e.g., chow, fertilizer, DEMM 10%FBS, etc.)." xsd:string
+
+[Term]
+id: mged:population_density
+name: population_density
+instance_of: mged:EnvironmentalFactorCategory
+property_value: mged:unique_identifier "MO_650" xsd:string
+def: "The concentration range of the organism." xsd:string
+
+[Term]
+id: mged:relative_humidity
+name: relative_humidity
+instance_of: mged:EnvironmentalFactorCategory
+def: "The amount of moisture in the air expressed as a percentage of the maximum amount the air is capable of holding." xsd:string
+property_value: mged:unique_identifier "MO_453" xsd:string
+
+[Term]
+id: mged:temperature
+name: temperature
+instance_of: mged:EnvironmentalFactorCategory
+def: "Temperature associated with a particular environment." xsd:string
+property_value: mged:unique_identifier "MO_791" xsd:string
+
+[Term]
+id: mged:water
+name: water
+instance_of: mged:EnvironmentalFactorCategory
+def: "Water consumed by or enveloping the organism that the biosource is derived from. " xsd:string
+property_value: mged:unique_identifier "MO_380" xsd:string
+
+[Term]
+id: mged:Bedding
+name: Bedding
+def: Refers to the bedding material present in an animals housing.
+is_a: mged:EnvironmentalHistory
+property_value: mged:class_role "place_holder" xsd:string
+property_value: mged:unique_identifier "MO_154" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:ClinicalHistory
+name: ClinicalHistory
+def: The BioMaterial's (i.e., the patient's) medical record as background information relevant to the experiment.
+is_a: mged:EnvironmentalHistory
+relationship: mged:has_clinical_treatment mged:ClinicalTreatment
+relationship: mged:has_clinical_record mged:OntologyEntry
+relationship: mged:has_clinical_finding mged:TestResult
+relationship: mged:has_prior_disease_state mged:DiseaseState
+relationship: mged:has_test_type mged:TestType
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_189" xsd:string
+
+[Term]
+id: mged:EnvironmentalFactorCategory
+name: EnvironmentalFactorCategory
+def: Factors that relate to properties of the environmental history of the biomaterial, its treatment, or its growth.
+is_a: mged:ExperimentalFactorCategory
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_117" xsd:string
+
+[Term]
+id: mged:Generation
+name: Generation
+def: The number of cell passages if the organism or organism part that is cultured is unicellular or a cell culture otherwise the number of generations.
+is_a: mged:EnvironmentalHistory
+property_value: mged:class_role "place_holder" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_43" xsd:string
+
+[Term]
+id: mged:GeographicLocation
+name: GeographicLocation
+def: A descriptor of the location from which a BioMaterial was obtained, e.g. country, region, grid reference.
+is_a: mged:OntologyEntry
+is_a: mged:EnvironmentalHistory
+relationship: mged:has_database mged:GeographicLocationDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_132" xsd:string
+
+[Term]
+id: mged:EnvironmentalStress
+name: EnvironmentalStress
+def: Environmental stress is a treatment where some aspect of the environment is perturbed in order to stress the organism or culture, e.g. temperature shock, osmotic shock
+is_a: mged:MGEDExtendedOntology
+relationship: mged:has_measurement mged:Measurement
+property_value: mged:unique_identifier "MO_227" xsd:string
+
+[Term]
+id: mged:FamilyHistory
+name: FamilyHistory
+def: Relevant aspects of genetic preconditions or family member's clinical history.
+is_a: mged:EnvironmentalHistory
+relationship: mged:has_family_member mged:FamilyMember
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_59" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Water
+name: Water
+def: Water consumed by or enveloping the organism that the biosource is derived from. 
+is_a: mged:GrowthCondition
+relationship: mged:has_treatment mged:Protocol
+relationship: mged:has_additive mged:Compound
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:Atmosphere
+name: Atmosphere
+def: The atmospheric conditions used to culture or grow an organism.
+is_a: mged:GrowthCondition
+relationship: mged:has_atmospheric_component mged:Compound
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_219" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:BarrierFacility
+name: BarrierFacility
+def: Rating of containment system for the protection of organisms from infectious agents.
+is_a: mged:GrowthCondition
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_97" xsd:string
+
+[Term]
+id: mged:Light
+name: Light
+def: The photoperiod and type (e.g., natural, restricted wavelength) of light exposure. 
+is_a: mged:GrowthCondition
+property_value: mged:unique_identifier "MO_60" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Media
+name: Media
+def: The physical state or matrix used to provide nutrients to the organism (e.g., liquid, agar, soil) .
+is_a: mged:GrowthCondition
+property_value: mged:unique_identifier "MO_19" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Nutrients
+name: Nutrients
+def: The food provided to the organism (e.g., chow, fertilizer, DEMM 10%FBS, etc.).
+is_a: mged:GrowthCondition
+relationship: mged:has_nutrient_component mged:Compound
+property_value: mged:unique_identifier "MO_127" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:PopulationDensity
+name: PopulationDensity
+def: The concentration range of the organism.
+is_a: mged:GrowthCondition
+property_value: mged:unique_identifier "MO_46" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_153" xsd:string
+
+[Term]
+id: mged:Compound
+name: Compound
+def: A drug, solvent, chemical, etc., with a property that can be measured such as concentration.
+is_a: mged:OntologyEntry
+is_a: mged:BiologicalFactorCategory
+relationship: mged:has_measurement mged:Compound
+relationship: mged:is_solvent xsd:boolean
+relationship: mged:has_database mged:CompoundDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_70" xsd:string
+
+[Term]
+id: mged:ControlType
+name: ControlType
+def: Controlled terms for descriptors for the type of control design element.
+is_a: mged:DesignElementPackage
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_50" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:Cultivar
+name: Cultivar
+def:  a plant variety obtained in agriculture in horticulture
+is_a: mged:StrainOrLine
+relationship: mged:has_database mged:StrainOrLineDatabase
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_124" xsd:string
+
+[Term]
+id: mged:DataType
+name: DataType
+def: Primitive data types found in computing languages such as float, boolean, etc. 
+is_a: mged:MGEDCoreOntology
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_125" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Database
+name: Database
+def: Identifiable resource containing data or external ontologies or controlled vocabularies which has uniquely identifiable records.
+is_a: mged:DescriptionPackage
+relationship: mged:has_version xsd:string
+relationship: mged:has_URI mged:URI
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_118" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:DatabaseEntryType
+name: DatabaseEntryType
+def: Controlled set of descriptors for the type of database record such as a protein record (in SWISS-PROT) or a gene object (in SGD).
+is_a: mged:DescriptionPackage
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_157" xsd:string
+
+[Term]
+id: mged:DiseaseLocation
+name: DiseaseLocation
+def: Anatomical location(s) of disease.
+is_a: mged:OrganismPart
+relationship: mged:has_cancer_site mged:CancerSite
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_37" xsd:string
+
+[Term]
+id: mged:Ecotype
+name: Ecotype
+def: a biotype resulting from selection in a particular habitat, e.g. the A. thaliana Ecotype Ler
+is_a: mged:StrainOrLine
+relationship: mged:has_database mged:StrainOrLineDatabase
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_71" xsd:string
+
+[Term]
+id: mged:FamilyMember
+name: FamilyMember
+def: Member of the biosource's family.
+is_a: mged:BioMaterialPackage
+relationship: mged:has_disease_state mged:DiseaseState
+relationship: mged:has_individual_genetic_characteristics mged:IndividualGeneticCharacteristics
+relationship: mged:has_clinical_record mged:OntologyEntry
+relationship: mged:has_family_relationship mged:FamilyRelationship
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_188" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:FamilyRelationship
+name: FamilyRelationship
+def: A type of relationship applicable to mammals to describe the genetic relatedness of the individual under study.  E.g. brother or mother.
+is_a: mged:BioMaterialPackage
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_36" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:GeneticMaterial
+name: GeneticMaterial
+def: Genetic material may be DNA or RNA and identifiable as an entry in a public external database such as EMBL/DDBJ/GenBank or one of the model organism databases.
+is_a: mged:MGEDExtendedOntology
+property_value: mged:unique_identifier "MO_137" xsd:string
+
+[Term]
+id: mged:Image
+name: Image
+is_a: mged:DescriptionPackage
+relationship: mged:has_URI mged:URI
+relationship: mged:has_image_format mged:ImageFormat
+relationship: mged:has_database mged:Database
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_22" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:ImageFormat
+name: ImageFormat
+def: Controlled terms for descriptors of the image file format (TIFF, JPEG, GIF, etc.)
+is_a: mged:BioAssayPackage
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_211" xsd:string
+
+
+[Term]
+id: mged:InitialTimePoint
+name: InitialTimePoint
+def: The point from which measurements of age were taken.
+is_a: mged:BioMaterialPackage
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_80" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:LabelCompound
+name: LabelCompound
+def: Compounds that are used for labeling extracts.
+is_a: mged:Compound
+property_value: mged:unique_identifier "MO_13" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:LabeledExtract
+name: LabeledExtract
+def: The BioSample after labeling for detection of the nucleic acids. 
+is_a: mged:BioMaterial
+relationship: mged:has_compound mged:LabelCompound
+relationship: mged:has_been_treated mged:Treatment
+property_value: mged:unique_identifier "MO_221" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:Measurement
+name: Measurement
+def: Measured values and units.
+is_a: mged:MeasurementPackage
+relationship: mged:has_value xsd:string
+relationship: mged:has_measurement_type mged:MeasurementType
+relationship: mged:has_units mged:Unit
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_144" xsd:string
+
+
+[Term]
+id: mged:ProtocolVariation
+name: ProtocolVariation
+def: The effects of different protocols or changes in protocols on experimental results are studied.
+is_a: mged:MGEDExtendedOntology
+property_value: mged:unique_identifier "MO_140" xsd:string
+
+
+[Term]
+id: mged:Reporter
+name: Reporter
+def: Description of the material placed on a feature (spot).
+is_a: mged:DesignElement
+relationship: mged:has_type mged:WarningType
+relationship: mged:has_type mged:FailType
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:unique_identifier "MO_74" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Result
+name: Result
+def: class to hold instances used as the filler for the property has_result
+is_a: mged:MGEDCoreOntology
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_65" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Scale
+name: Scale
+def: The scale (linear, log10, ln, etc) used to represent the value.
+is_a: mged:MGEDCoreOntology
+property_value: mged:unique_identifier "MO_108" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:Software
+name: Software
+def: The software application used.
+is_a: mged:ProtocolPackage
+relationship: mged:has_hardware mged:Hardware
+relationship: mged:has_type mged:SoftwareType
+relationship: mged:has_manufacturer mged:Contact
+relationship: mged:has_software mged:Software
+property_value: mged:unique_identifier "MO_109" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:SomaticModification
+name: SomaticModification
+def: The organism has had non-genetic parts removed, added, or rearranged.
+is_a: mged:MGEDExtendedOntology
+relationship: mged:has_part_modified mged:OrganismPart
+property_value: mged:unique_identifier "MO_44" xsd:string
+
+[Term]
+id: mged:Affymetrix_DAT
+name: Affymetrix_DAT
+instance_of: mged:ImageFormat
+def: "A proprietary image data format that is lossless and containing one channel of data." xsd:string
+property_value: mged:unique_identifier "MO_786" xsd:string
+
+[Term]
+id: mged:Euclidean_distance
+name: Euclidean_distance
+instance_of: mged:NodeValueType
+property_value: mged:unique_identifier "MO_932" xsd:string
+def: "The straight line distance between two points. In n dimensions, the Euclidean distance between two points p and q is square root of (sum (pi-qi)2) where pi (or qi) is the i-th coordinate of p (or q)." xsd:string
+
+[Term]
+id: mged:GIF
+name: GIF
+instance_of: mged:ImageFormat
+def: "Graphics Interchange Format , a common image data format containing RGB data compressed with fairly high data loss." xsd:string
+property_value: mged:unique_identifier "MO_963" xsd:string
+
+[Term]
+id: mged:JPEG
+name: JPEG
+instance_of: mged:ImageFormat
+property_value: mged:unique_identifier "MO_746" xsd:string
+def: "Joint Photographic Experts Group format, a common image data format containing grayscale or RGB data compressed with little to high data loss." xsd:string
+
+[Term]
+id: mged:MAS4_average_difference
+name: MAS4_average_difference
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_782" xsd:string
+def: "A quantitative measure of the relative abundance of a transcript.  Used in the MAS4.0 Affymetrix software to obtain an averaged signal intensity from a group of related Features. This involves calculation of the overall sum of perfect match minus mismatch pairs divided by the number of pairs." xsd:string
+
+[Term]
+id: mged:MAS5_signal
+name: MAS5_signal
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_653" xsd:string
+def: "A quantitative measure of the relative abundance of a transcript. Used in the MAS5.0 Affymetrix software to obtain a smoothed signal intensity from a group of related Features." xsd:string
+
+[Term]
+id: mged:MAS5_signal_log_ratio
+name: MAS5_signal_log_ratio
+instance_of: mged:DerivedBioAssayType
+def: "The difference in expression level for a transcript between data from two arrays, expressed as the log2ratio. A signal log ratio of 1 is the same as a Fold Change of 2." xsd:string
+property_value: mged:unique_identifier "MO_938" xsd:string
+
+[Term]
+id: mged:MBEI
+name: MBEI
+instance_of: mged:DerivedBioAssayType
+def: "Multiarray-Based Expression Index (MBEI).  A quantitative measure of the relative abundance of a transcript.  MBEI is used in the dChip software to obtain a signal intensity from a group of related Features on an Affymetrix array." xsd:string
+property_value: mged:unique_identifier "MO_756" xsd:string
+
+
+[Term]
+id: mged:PCR_primer
+name: PCR_primer
+instance_of: mged:DeprecatedTerms
+property_value: mged:has_reason_for_deprecation mged:deleted_term
+property_value: mged:deprecation_old_parent mged:PhysicalBioSequenceType
+property_value: mged:deprecation_replacement_term mged:PhysicalBioSequenceType
+property_value: mged:deprecated_from_version mged:version_1.2.0
+property_value: mged:deprecation_reason "deleted_term" xsd:string
+property_value: mged:unique_identifier "MO_651" xsd:string
+def: "single oligo used for polymerase chain reaction direction unspecified" xsd:string
+property_value: mged:deprecation_in_version "1.2.0" xsd:string
+
+[Term]
+id: mged:PCR_primer_forward
+name: PCR_primer_forward
+instance_of: mged:DeprecatedTerms
+property_value: mged:deprecated_from_version mged:version_1.2.0
+property_value: mged:deprecation_replacement_term mged:PhysicalBioSequenceType
+property_value: mged:has_reason_for_deprecation mged:deleted_term
+property_value: mged:deprecation_old_parent mged:PhysicalBioSequenceType
+property_value: mged:deprecation_reason "deleted_term" xsd:string
+property_value: mged:unique_identifier "MO_381" xsd:string
+property_value: mged:deprecation_in_version "1.2.0" xsd:string
+def: "single stranded oligo used for polymerase chain reaction" xsd:string
+
+[Term]
+id: mged:PCR_primer_reverse
+name: PCR_primer_reverse
+instance_of: mged:DeprecatedTerms
+property_value: mged:deprecated_from_version mged:version_1.2.0
+property_value: mged:deprecation_old_parent mged:PhysicalBioSequenceType
+property_value: mged:has_reason_for_deprecation mged:deleted_term
+property_value: mged:deprecation_replacement_term mged:PhysicalBioSequenceType
+property_value: mged:unique_identifier "MO_640" xsd:string
+def: "single stranded oligo used for polymerase chain reaction" xsd:string
+property_value: mged:deprecation_in_version "1.2.0" xsd:string
+property_value: mged:deprecation_reason "deleted_term" xsd:string
+
+[Term]
+id: mged:PNG
+name: PNG
+instance_of: mged:ImageFormat
+property_value: mged:unique_identifier "MO_1001" xsd:string
+def: "Portable Network Graphic, a lossless image data format." xsd:string
+
+[Term]
+id: mged:Pearson_correlation
+name: Pearson_correlation
+instance_of: mged:NodeValueType
+def: "The Pearson correlation is defined as the covariance of two data series divided by the product of their standard deviations." xsd:string
+property_value: mged:unique_identifier "MO_632" xsd:string
+
+
+[Term]
+id: mged:Spearmans_rank_correlation
+name: Spearmans_rank_correlation
+instance_of: mged:NodeValueType
+def: "Computed as the ordinary Pearson correlation coefficient between two groups of rankings." xsd:string
+property_value: mged:unique_identifier "MO_552" xsd:string
+
+[Term]
+id: mged:TIFF
+name: TIFF
+instance_of: mged:ImageFormat
+def: "Tag Image File Format (TIFF) is a common format to describe and store raster image data  from scanners and other imaging devices. TIFFs may contain one or more channels and the data may be compressed using a lossless compression algorithm." xsd:string
+property_value: mged:unique_identifier "MO_638" xsd:string
+
+
+[Term]
+id: mged:acrossBioAssay_mean_and_coefficient_of_variation
+name: acrossBioAssay_mean_and_coefficient_of_variation
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_840" xsd:string
+def: "The mean and coefficient of variation values resulting from computationally combining 2 or more sets of bioassay data." xsd:string
+
+[Term]
+id: mged:acrossBioAssay_mean_and_p_values
+name: acrossBioAssay_mean_and_p_values
+instance_of: mged:DerivedBioAssayType
+def: "The mean and associated p-values resulting from computationally combining 2 or more sets of bioassay data." xsd:string
+property_value: mged:unique_identifier "MO_671" xsd:string
+
+[Term]
+id: mged:acrossBioAssay_mean_and_standard_deviation
+name: acrossBioAssay_mean_and_standard_deviation
+instance_of: mged:DerivedBioAssayType
+def: "The mean and standard deviation values resulting from computationally combining 2 or more sets of bioassay data." xsd:string
+property_value: mged:unique_identifier "MO_946" xsd:string
+
+[Term]
+id: mged:acrossBioAssay_mean_and_variance
+name: acrossBioAssay_mean_and_variance
+instance_of: mged:DerivedBioAssayType
+def: "The mean and variance values resulting from computationally combining 2 or more sets of bioassay data." xsd:string
+property_value: mged:unique_identifier "MO_400" xsd:string
+
+[Term]
+id: mged:agar
+name: agar
+instance_of: mged:Media
+def: "A type of solid media commonly used for growing organisms" xsd:string
+property_value: mged:unique_identifier "MO_935" xsd:string
+
+[Term]
+id: mged:agar_stab
+name: agar_stab
+instance_of: mged:BioSourceType
+property_value: mged:unique_identifier "MO_971" xsd:string
+def: "agar stab, a cell culture inoculated into agar for long term storage" xsd:string
+
+[Term]
+id: mged:amino_acid_primary_sequence_record
+name: amino_acid_primary_sequence_record
+instance_of: mged:DatabaseEntryType
+property_value: mged:unique_identifier "MO_829" xsd:string
+def: "A record which describes and identifies an amino acid sequence which is encoded by a CDS from a primary_nucleic_acid_sequence_record" xsd:string
+
+
+[Term]
+id: mged:antibody
+name: antibody
+instance_of: mged:PhysicalBioSequenceType
+def: "glycoprotein of the immunoglobulin family that can combine specifically non-covalently, reversibly with a corresponding antigen " xsd:string
+property_value: mged:unique_identifier "MO_833" xsd:string
+
+[Term]
+id: mged:array_manufacture_software
+name: array_manufacture_software
+instance_of: mged:SoftwareType
+property_value: mged:unique_identifier "MO_502" xsd:string
+def: "Software to control an arrayer." xsd:string
+
+[Term]
+id: mged:averaged_intensity
+name: averaged_intensity
+instance_of: mged:DerivedBioAssayType
+def: "Results of data reduction involving computation of the average of multiple \n    intensities of identical type. These could include identical Features, \n    Reporters or CompositeSequences in different microarray hybridizations, \n    matched replicate spots on 2D gels run from the same sample, or repeat \n    measurements of the same metabolite in replicate cell cultures." xsd:string
+property_value: mged:unique_identifier "MO_362" xsd:string
+
+[Term]
+id: mged:bioassay_data_transformation_software
+name: bioassay_data_transformation_software
+instance_of: mged:SoftwareType
+property_value: mged:unique_identifier "MO_672" xsd:string
+property_value: mged:synonym "normalization software" xsd:string
+def: "Software used to transform the Measured or DerivedBioAssay data e.g. normalization.\nNon-exact synonym: normalization software" xsd:string
+
+[Term]
+id: mged:bioassay_replicate_reduction
+name: bioassay_replicate_reduction
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_976" xsd:string
+def: "Results of data reduction involving computation of a representative value, e.g. averaging across a group of identical Features, Reporters or CompositeSequences from 2 or more hybridizations, matched replicate spots on 2D gels run from the same or an equivalent sample, or repeat measurements of the same metabolite in replicate cell cultures." xsd:string
+
+[Term]
+id: mged:birth
+name: birth
+instance_of: mged:InitialTimePoint
+def: "the action of emergence and separation of offspring from the mother." xsd:string
+property_value: mged:unique_identifier "MO_710" xsd:string
+
+
+
+[Term]
+id: mged:clustered_data
+name: clustered_data
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_418" xsd:string
+def: "Results of an analysis method that groups data based on a measure of similarity, e.g. Pearson correlation coefficient, Euclidean distance. " xsd:string
+
+[Term]
+id: mged:clustering_software
+name: clustering_software
+instance_of: mged:SoftwareType
+def: "Software used to cluster the data." xsd:string
+property_value: mged:unique_identifier "MO_464" xsd:string
+
+
+
+[Term]
+id: mged:control_biosequence
+name: control_biosequence
+instance_of: mged:ControlType
+property_value: mged:unique_identifier "MO_940" xsd:string
+def: "A Reporter associated with a BioSequence that has a context dependent predicted signal. e.g. a yeast reporter on a human array is a control_biosequence expected to be of low signal if no spikes are used. If spikes are used, the signal is expected to be high." xsd:string
+
+[Term]
+id: mged:control_buffer
+name: control_buffer
+instance_of: mged:ControlType
+def: "A Reporter where only buffer was deposited on the array" xsd:string
+property_value: mged:unique_identifier "MO_505" xsd:string
+
+[Term]
+id: mged:control_design_element_group_type
+name: control_design_element_group_type
+instance_of: mged:DesignElementGroupType
+def: "A grouping of DesignElements features/Reporters/Composites which are not designed to detect a signal in the biomaterial and which are on the array for control purposes e.g. a grouping of controls used for spiking." xsd:string
+property_value: mged:unique_identifier "MO_414" xsd:string
+
+[Term]
+id: mged:control_empty
+name: control_empty
+instance_of: mged:ControlType
+def: "A Reporter where no material or  buffer was deposited on the array" xsd:string
+property_value: mged:unique_identifier "MO_830" xsd:string
+
+[Term]
+id: mged:control_genomic_DNA
+name: control_genomic_DNA
+instance_of: mged:ControlType
+property_value: mged:unique_identifier "MO_449" xsd:string
+def: "A Reporter where genomic DNA has been deposited, the genomic DNA may be fragmented, e.g. salmon sperm DNA, Cot1DNA. " xsd:string
+
+[Term]
+id: mged:control_hybridization_quality
+name: control_hybridization_quality
+instance_of: mged:ControlType
+property_value: mged:unique_identifier "MO_385" xsd:string
+def: "A Reporter that could be used to determine the quality and general performance of the labeled extract.  An example is a pool of BioSequences representing widely-expressed genes (i.e., housekeeping genes)." xsd:string
+
+[Term]
+id: mged:cosine_distance
+name: cosine_distance
+instance_of: mged:NodeValueType
+property_value: mged:unique_identifier "MO_550" xsd:string
+def: "The cosine distance of two vectors is the cosine of the angle between them. This measures the difference in direction between two vectors, irrespective of their lengths." xsd:string
+
+
+
+[Term]
+id: mged:count
+name: count
+instance_of: mged:QuantityUnitOther
+property_value: mged:unique_identifier "MO_500" xsd:string
+def: "Unit for a simple count of things" xsd:string
+
+[Term]
+id: mged:curated_amino_acid_sequence_record
+name: curated_amino_acid_sequence_record
+instance_of: mged:DatabaseEntryType
+property_value: mged:unique_identifier "MO_451" xsd:string
+def: "A record which describes and identifies an amino acid sequence which has been curated" xsd:string
+
+[Term]
+id: mged:curated_gene_record
+name: curated_gene_record
+instance_of: mged:DatabaseEntryType
+property_value: mged:unique_identifier "MO_913" xsd:string
+def: "A record which describes and identifies nucleic acid sequence which has been identified as a gene by a curator. e.g. Flybase gene record" xsd:string
+
+[Term]
+id: mged:curated_nucleic_acid_sequence_feature_record
+name: curated_nucleic_acid_sequence_feature_record
+instance_of: mged:DatabaseEntryType
+def: "A record which identifies a nucleic acid sequence feature(s) and which has been curated." xsd:string
+property_value: mged:unique_identifier "MO_644" xsd:string
+
+[Term]
+id: mged:differential_expression_software
+name: differential_expression_software
+instance_of: mged:SoftwareType
+def: "A software implementing a Higher Level Analysis protocol of type differential_expresssion." xsd:string
+property_value: mged:unique_identifier "MO_350" xsd:string
+
+
+
+[Term]
+id: mged:dye_swap_replicate_reduction
+name: dye_swap_replicate_reduction
+instance_of: mged:DerivedBioAssayType
+def: "Results of data reduction involving computation of a representative value from identical reporters or features obtained from two, or more, hybridizations in which each LabelExtract is labeled with each of the labels or dyes.  Computation of a representative value for reporter X using data from Hybridizations 1 and 2, where LabeledExtract A is labeled with Cy3 (and LabeledExtract B is labeled with Cy5) in Hybridization 1 and LabeledExtract A is labeled with Cy5 (and LabeledExtract B is labeled with Cy3) in Hybridization 2. " xsd:string
+property_value: mged:unique_identifier "MO_750" xsd:string
+
+[Term]
+id: mged:eclosion
+name: eclosion
+instance_of: mged:InitialTimePoint
+def: "Emergence of an adult insect from its pupa or cocoon." xsd:string
+property_value: mged:unique_identifier "MO_876" xsd:string
+
+[Term]
+id: mged:egg_laying
+name: egg_laying
+instance_of: mged:InitialTimePoint
+property_value: mged:unique_identifier "MO_767" xsd:string
+def: "The point at which the egg(s) is laid by an organism." xsd:string
+
+
+
+[Term]
+id: mged:experimental_and_computational_feature
+name: experimental_and_computational_feature
+instance_of: mged:SeqFeatureBasis
+property_value: mged:unique_identifier "MO_516" xsd:string
+def: "Sequence features derived by both computational and experimental methods." xsd:string
+
+[Term]
+id: mged:experimental_design_element_group_type
+name: experimental_design_element_group_type
+instance_of: mged:DesignElementGroupType
+property_value: mged:unique_identifier "MO_755" xsd:string
+def: "A grouping of DesignElements, Features/Reporters/Composite Sequences which are expected to detect a signal in the biomaterial." xsd:string
+
+[Term]
+id: mged:experimental_feature
+name: experimental_feature
+instance_of: mged:SeqFeatureBasis
+def: "An experimentally defined sequence feature." xsd:string
+property_value: mged:unique_identifier "MO_452" xsd:string
+
+[Term]
+id: mged:extract
+name: extract
+instance_of: mged:BioSampleType
+def: "The BioSample immediately before labeling." xsd:string
+property_value: mged:unique_identifier "MO_895" xsd:string
+
+[Term]
+id: mged:feature_extraction_software
+name: feature_extraction_software
+instance_of: mged:SoftwareType
+property_value: mged:synonym "image quantification software" xsd:string
+property_value: mged:synonym "image analysis software" xsd:string
+property_value: mged:unique_identifier "MO_633" xsd:string
+def: "Software to create MeasuredBioAssayData from images.\nExact Synonym: image analysis software, image quantification software." xsd:string
+
+[Term]
+id: mged:fertilization
+name: fertilization
+instance_of: mged:InitialTimePoint
+property_value: mged:unique_identifier "MO_701" xsd:string
+def: "The union of gametes of opposite sexes during the process of sexual reproduction to form a zygote. (from the GO)" xsd:string
+
+[Term]
+id: mged:filtered_data
+name: filtered_data
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_625" xsd:string
+def: "Data from which a subset has been removed based on some criteria, e.g. data below an intensity threshhold." xsd:string
+
+[Term]
+id: mged:forward
+name: forward
+instance_of: mged:StrandType
+property_value: mged:synonym "+" xsd:string
+property_value: mged:unique_identifier "MO_820" xsd:string
+def: "the forward strand\nexact synonym: +" xsd:string
+
+[Term]
+id: mged:freeze_dried_sample
+name: freeze_dried_sample
+instance_of: mged:BioSourceType
+property_value: mged:unique_identifier "MO_589" xsd:string
+def: "A biomaterial that has been lyophilized or dried by freezing under a vacuum." xsd:string
+
+[Term]
+id: mged:fresh_sample
+name: fresh_sample
+instance_of: mged:BioSourceType
+def: "A sample freshly obtained from the organism(s). E.g. a liver freshly removed from a rat." xsd:string
+property_value: mged:unique_identifier "MO_730" xsd:string
+
+[Term]
+id: mged:frozen_sample
+name: frozen_sample
+instance_of: mged:BioSourceType
+def: "A biomaterial obtained frozen" xsd:string
+property_value: mged:unique_identifier "MO_610" xsd:string
+
+[Term]
+id: mged:frozen_storage
+name: frozen_storage
+instance_of: mged:PreservationType
+def: "Storage where the thing stored is stored below 0 degrees celsius." xsd:string
+property_value: mged:unique_identifier "MO_481" xsd:string
+
+[Term]
+id: mged:germination
+name: germination
+instance_of: mged:InitialTimePoint
+def: "The physiological and developmental changes by a seed, spore, pollen grain (microspore), or zygote that occur after release from dormancy, and encompassing events prior to and including the first visible indications of growth (from the GO)." xsd:string
+property_value: mged:unique_identifier "MO_590" xsd:string
+
+
+[Term]
+id: mged:hatching
+name: hatching
+instance_of: mged:InitialTimePoint
+property_value: mged:unique_identifier "MO_745" xsd:string
+def: "The point at which an organism emerges from an egg." xsd:string
+
+[Term]
+id: mged:image_acquisition_software
+name: image_acquisition_software
+instance_of: mged:SoftwareType
+property_value: mged:synonym "scanning software" xsd:string
+property_value: mged:unique_identifier "MO_1003" xsd:string
+def: "Software to control a scanner and manipulate and save images.\nExact synonym: scanning software" xsd:string
+
+[Term]
+id: mged:irregular_shape
+name: irregular_shape
+instance_of: mged:DefectType
+property_value: mged:unique_identifier "MO_669" xsd:string
+def: "The perimeter of the spotted DNA on the slide is irregular." xsd:string
+
+[Term]
+id: mged:jackknife_Pearson_correlation
+name: jackknife_Pearson_correlation
+instance_of: mged:NodeValueType
+property_value: mged:unique_identifier "MO_784" xsd:string
+def: "The jackknife Pearson correlation is the lowest Pearson correlation between two data series where one pair of values in the data series are omitted." xsd:string
+
+[Term]
+id: mged:liquid_handler_software
+name: liquid_handler_software
+instance_of: mged:SoftwareType
+property_value: mged:unique_identifier "MO_761" xsd:string
+def: "Software used to control automated liquid handler." xsd:string
+
+[Term]
+id: mged:log_ratio
+name: log_ratio
+instance_of: mged:DerivedBioAssayType
+def: "Logarithmic transformation of ratio data." xsd:string
+property_value: mged:unique_identifier "MO_896" xsd:string
+
+[Term]
+id: mged:log_base_10
+name: log_base_10
+instance_of: mged:Scale
+def: "The values presented are logarithm, base 10." xsd:string
+property_value: mged:unique_identifier "MO_735" xsd:string
+
+[Term]
+id: mged:log_base_2
+name: log_base_2
+instance_of: mged:Scale
+def: "The values presented are logarithm, base 2." xsd:string
+property_value: mged:unique_identifier "MO_647" xsd:string
+
+[Term]
+id: mged:log_base_e
+name: log_base_e
+instance_of: mged:Scale
+def: "The values presented are logarithm, base e." xsd:string
+property_value: mged:unique_identifier "MO_554" xsd:string
+
+[Term]
+id: mged:mean_and_coefficient_of_variation
+name: mean_and_coefficient_of_variation
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_425" xsd:string
+def: "the mean and coefficient of variation values resulting from computationally combining 2 or more sets of BioAssayData" xsd:string
+
+
+[Term]
+id: mged:mean_and_p_values
+name: mean_and_p_values
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_943" xsd:string
+def: "the mean and associated p-values resulting from computationally combining 2 or more sets of BioAssayData" xsd:string
+
+[Term]
+id: mged:mean_and_standard_deviation
+name: mean_and_standard_deviation
+instance_of: mged:DerivedBioAssayType
+def: "the mean and standard deviation values resulting from computationally combining 2 or more sets of BioAssayData" xsd:string
+property_value: mged:unique_identifier "MO_445" xsd:string
+
+[Term]
+id: mged:mean_and_variance
+name: mean_and_variance
+instance_of: mged:DerivedBioAssayType
+def: "the mean and variance values resulting from computationally combining 2  or more sets of BioAssayData" xsd:string
+property_value: mged:unique_identifier "MO_458" xsd:string
+
+[Term]
+id: mged:normalized_intensities
+name: normalized_intensities
+instance_of: mged:DerivedBioAssayType
+def: "Results of normalization, by some method, of a bioassay data set such as; intensities from one or both channels of a microarray-based assay; orthologous spot sets on 2D gels; or repeat measurements of the same metabolite in replicate cell cultures." xsd:string
+property_value: mged:unique_identifier "MO_994" xsd:string
+
+[Term]
+id: mged:normalized_ratios
+name: normalized_ratios
+instance_of: mged:DerivedBioAssayType
+def: "Results obtained by either taking the pair wise ratios of two bioassay data sets and then normalizing, or normalizing each bioassay data set and then taking ratios." xsd:string
+property_value: mged:unique_identifier "MO_664" xsd:string
+
+[Term]
+id: mged:pearson_correlation_coefficient
+name: pearson_correlation_coefficient
+instance_of: mged:NodeValueType
+property_value: mged:unique_identifier "MO_558" xsd:string
+def: "The Pearson's correlation coefficient between two variables. Its values can range between -1.00 to +1.00. The closer the absolute value of the Pearson correlation coefficient is to 0, the smaller the linear relationship between the two variables. A Pearson correlation coefficient with absolute value 1 indicates perfect linear relationship." xsd:string
+
+[Term]
+id: mged:ratio
+name: ratio
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_597" xsd:string
+def: "Result of data reduction involving computation of the quotient of a pair of numerical values, such as signal intensities obtained from the hybridization of two or more labeled extracts to one or more microarrays; volumes of matched spots from comparative 2D gel electrophoresis of two or more labeled extracts; or comparative profiling of a particular metabolite in health and disease by NMR." xsd:string
+
+[Term]
+id: mged:signal
+name: signal
+instance_of: mged:DerivedBioAssayType
+property_value: mged:unique_identifier "MO_534" xsd:string
+def: "A quantitative measure of the relative abundance of a transcript (MAS 4.0 version of the Affymetrix analysis software)." xsd:string
+
+
+[Term]
+id: mged:uncentered_Pearson_correlation
+name: uncentered_Pearson_correlation
+instance_of: mged:NodeValueType
+def: "The uncentered Pearson correlation is defined as the Pearson correlation for two data series where the mean of each data series is assumed to be zero." xsd:string
+property_value: mged:unique_identifier "MO_974" xsd:string
+
+[Term]
+id: mged:wild_type
+name: wild_type
+instance_of: mged:Genotype
+property_value: mged:unique_identifier "MO_605" xsd:string
+def: "The genotype or phenotype that is found in nature or in standard laboratory stocks for a given organism.  For a single locus, the allele found most frequently in natural populations, or in standard laboratory stocks for a given organism." xsd:string
+
+[Term]
+id: mged:BioSource
+name: BioSource
+def: The BioSource is the original source material before any treatment events. 
+is_a: mged:BioMaterial
+property_value: mged:unique_identifier "MO_77" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:BioSequence
+name: BioSequence
+def: A representation of a DNA, RNA, or protein sequence. 
+is_a: mged:BioSequencePackage
+relationship: mged:has_species mged:Organism
+relationship: mged:has_type mged:PolymerType
+relationship: mged:has_type mged:BioSequenceType
+property_value: mged:unique_identifier "MO_163" xsd:string
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:BioSample
+name: BioSample
+def: The BioSource after any treatment.
+is_a: mged:BioMaterial
+relationship: mged:has_type mged:BioSampleType
+relationship: mged:has_been_treated mged:Treatment
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:unique_identifier "MO_93" xsd:string
+
+[Term]
+id: mged:BioAssayData
+name: BioAssayData
+def: BioAssayData refers to the data files including images generated from one or more BioAssays.
+is_a: mged:BioAssayDataPackage
+property_value: mged:unique_identifier "MO_40" xsd:string

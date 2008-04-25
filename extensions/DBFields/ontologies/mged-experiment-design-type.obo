@@ -1,0 +1,564 @@
+format-version: 1.2
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: obd http://www.bioontology.org/obd/obd-ontology# ""
+idspace: oboInOwl http://www.bioontology.org/oboInOwl# ""
+idspace: ncithesaurus http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl# ""
+idspace: biopax1 http://www.biopax.org/release/biopax-level1.owl# ""
+idspace: bfo http://www.ifomis.org/bfo/1.0# ""
+idspace: snap http://www.ifomis.org/bfo/1.0/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.0/span# ""
+idspace: oban http://www.berkeleybop.org/ontologies/oban/alpha# ""
+idspace: obi http://obi.sourceforge.net/ontology/OBI.owl# ""
+idspace: galen http://www.co-ode.org/ontologies/galen# ""
+idspace: propreo http://lsdis.cs.uga.edu/projects/glycomics/propreo# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: p2 http://www.owl-ontologies.com/assert.owl# ""
+idspace: daml http://www.daml.org/2001/03/daml+oil# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+
+[Term]
+id: mged:BioMolecularAnnotation
+name: BioMolecularAnnotation
+def: BioMolecularAnnotation experiment design types are those which are designed to investigate functions, processes, locations and identity at the molecular level e.g. binding site identification, genotyping.
+is_a: mged:ExperimentDesignType
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_213" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:BiologicalProperty
+name: BiologicalProperty
+def: A biological property experiment design type is where an intrinsic characteristic of an organism(s) or biological system is examined.
+is_a: mged:ExperimentDesignType
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_224" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:EpidemiologicalDesign
+name: EpidemiologicalDesign
+def: An epidemiological experiment design type is where the biosource history is studied e.g. environmental, clinical and family history.
+is_a: mged:ExperimentDesignType
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_142" xsd:string
+
+
+[Term]
+id: mged:ExperimentDesign
+name: ExperimentDesign
+def: ExperimentDesign refers to both observational and experimental (perturbational) studies. The organizing principles of the study including the relationships between assays and the steps taken to interpret the data. 
+is_a: mged:ExperimentPackage
+relationship: mged:has_MAGE_description mged:ReplicateDescription
+relationship: mged:has_MAGE_description mged:QualityControlDescription
+relationship: mged:has_bioassays mged:BioAssay
+relationship: mged:has_experiment_factors mged:ExperimentalFactor
+relationship: mged:has_MAGE_description mged:NormalizationDescription
+relationship: mged:has_experiment_design_type mged:ExperimentDesignType
+relationship: mged:has_description xsd:string
+property_value: mged:unique_identifier "MO_170" xsd:string
+property_value: mged:class_source "mage" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:ExperimentDesignType
+name: ExperimentDesignType
+def: The ExperimentDesignType is the high level description for studies such as \"time series\", \"dose response\", etc.  
+is_a: mged:ExperimentPackage
+property_value: mged:unique_identifier "MO_158" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "abstract" xsd:string
+
+[Term]
+id: mged:MethodologicalDesign
+name: MethodologicalDesign
+def: A methodological experiment design type investigates differences caused by application of protocols, hardware, software and bioassay relationships, e.g. quality control, replicates, loop.
+is_a: mged:ExperimentDesignType
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:unique_identifier "MO_2" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+
+[Term]
+id: mged:PerturbationalDesign
+name: PerturbationalDesign
+def: A perturbational design type is where the organism(s) are treated or manipulated or modified, for example a genetic modification, somatic modification 
+is_a: mged:ExperimentDesignType
+property_value: mged:class_source "ontology" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_106" xsd:string
+
+[Term]
+id: mged:TechnologicalDesign
+name: TechnologicalDesign
+def: The purpose(s) for which the array is used within an experiment, e.g. to \n    assess the transcriptome, the genomic content, or to identify \n    transcription factor binding sites.
+is_a: mged:ExperimentDesignType
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_21" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:unknown_experiment_design_type
+name: unknown_experiment_design_type
+instance_of: mged:PerturbationalDesign
+property_value: mged:unique_identifier "MO_634" xsd:string
+def: "ExperimentDesignType of unknown type." xsd:string
+
+[Term]
+id: mged:cell_component_comparison_design
+name: cell_component_comparison_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_1019" xsd:string
+def: "A design in which RNA from different cell components is examined." xsd:string
+
+[Term]
+id: mged:cell_cycle_design
+name: cell_cycle_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_822" xsd:string
+def: "A cell cycle design experiment design type is one that assays events that occurs in relation to the cell cycle, which is the period between the formation of a cell, by division of its mother cell and the time when the cell itself divides to form two daughter cells." xsd:string
+
+[Term]
+id: mged:cell_type_comparison_design
+name: cell_type_comparison_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_764" xsd:string
+def: "A cell type comparison design experiment design type compares cells of different type for example different cell lines." xsd:string
+
+[Term]
+id: mged:cellular_modification_design
+name: cellular_modification_design
+instance_of: mged:TechnologicalDesign
+property_value: mged:unique_identifier "MO_392" xsd:string
+def: "A cellular modification design type is where a modification of the transcriptome, proteome (not genome) is made, for example RNAi, antibody targeting. " xsd:string
+property_value: mged:synonym "RNAi" xsd:string
+
+[Term]
+id: mged:cellular_process_design
+name: cellular_process_design
+instance_of: mged:BiologicalProperty
+def: "Processes that are carried out at the cellular level, but are not necessarily restricted to a single cell. For example, cell communication occurs among more than one cell, but occurs at the cellular level." xsd:string
+property_value: mged:unique_identifier "MO_810" xsd:string
+
+[Term]
+id: mged:circadian_rhythm_design
+name: circadian_rhythm_design
+instance_of: mged:DeprecatedTerms
+property_value: mged:replaced_with_term mged:physiological_process_design
+property_value: mged:was_replaced_by mged:physiological_process_design
+property_value: mged:deprecation_old_parent mged:BiologicalProperty
+property_value: mged:has_reason_for_deprecation mged:replaced_term
+property_value: mged:deprecated_from_version mged:version_1.1.7
+property_value: mged:deprecation_reason "replaced_term" xsd:string
+property_value: mged:deprecation_in_version "1.1.7" xsd:string
+def: "A circadian rhythm experiment design type assays the events associated with the circadian rhythm which is a biological activity that exhibits an endogenous periodicity independently of any daily variation in the environment." xsd:string
+property_value: mged:unique_identifier "MO_539" xsd:string
+
+[Term]
+id: mged:clinical_history_design
+name: clinical_history_design
+instance_of: mged:EpidemiologicalDesign
+def: "A clinical history design type is where the organisms clinical history of diagnosis,  treatments, e.g. vaccinations, surgery etc. is studied." xsd:string
+property_value: mged:unique_identifier "MO_832" xsd:string
+
+[Term]
+id: mged:co-expression_design
+name: co-expression_design
+instance_of: mged:BioMolecularAnnotation
+property_value: mged:unique_identifier "MO_904" xsd:string
+def: "A co-expression experiment design type identifies genes which are coordinately expressed and are potentially used to infer a role in a biological process(es)\nnon-exact synonym: guilt by association" xsd:string
+property_value: mged:synonym "guilt by association" xsd:string
+
+[Term]
+id: mged:comparative_genome_hybridization_design
+name: comparative_genome_hybridization_design
+instance_of: mged:TechnologicalDesign
+property_value: mged:unique_identifier "MO_856" xsd:string
+def: "Experiment design type in which genomic content is studied using an array based assay." xsd:string
+property_value: mged:synonym "array_CGH" xsd:string
+property_value: mged:synonym "array CGH" xsd:string
+property_value: mged:synonym "CGH" xsd:string
+
+[Term]
+id: mged:compound_treatment_design
+name: compound_treatment_design
+instance_of: mged:PerturbationalDesign
+def: "A compound treatment design type is where the response to administration of a compound or chemical (including biological compounds such as hormones)  is assayed." xsd:string
+property_value: mged:unique_identifier "MO_555" xsd:string
+
+[Term]
+id: mged:development_or_differentiation_design
+name: development_or_differentiation_design
+instance_of: mged:BiologicalProperty
+def: "A development or differentiation experiment design type assays events associated with development or differentiation or moving through a life cycle. Development applies to organism(s) acquiring a mature state, and differentiation applies to cells acquiring specialized functions." xsd:string
+property_value: mged:unique_identifier "MO_892" xsd:string
+
+[Term]
+id: mged:disease_state_design
+name: disease_state_design
+instance_of: mged:PerturbationalDesign
+def: "An experiment design type in which the pathological condition of a part, organ, or system of an organism is studied. The etiology  may be from infection, genetic defect, or environmental stress." xsd:string
+property_value: mged:unique_identifier "MO_902" xsd:string
+
+[Term]
+id: mged:dose_response_design
+name: dose_response_design
+instance_of: mged:PerturbationalDesign
+property_value: mged:unique_identifier "MO_485" xsd:string
+def: "A dose response design type examines the relationship between the size of the administered dose and the extent of the response of the organism(s). " xsd:string
+
+[Term]
+id: mged:dye_swap_design
+name: dye_swap_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_858" xsd:string
+property_value: mged:synonym "dye flip" xsd:string
+property_value: mged:synonym "flip dye" xsd:string
+def: "An experiment design type where the label orientations are reversed.\nexact synonym: flip dye, dye flip" xsd:string
+
+[Term]
+id: mged:environmental_history_design
+name: environmental_history_design
+instance_of: mged:EnvironmentalHistory
+def: "An environmental history design type is where some aspect of the organism's environmental history is studied, such as exposure to teratogen, radiation, climate etc." xsd:string
+property_value: mged:unique_identifier "MO_698" xsd:string
+
+[Term]
+id: mged:ex_vivo_design
+name: ex_vivo_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_808" xsd:string
+def: "An experiment design where all or part of an organism is removed and studied in vitro, e.g. part of a mouse is removed and cultured in vitro. A\ncell culture with an established cell line is an in vitro experiment." xsd:string
+
+[Term]
+id: mged:family_history_design
+name: family_history_design
+instance_of: mged:EpidemiologicalDesign
+property_value: mged:unique_identifier "MO_544" xsd:string
+def: "A family history design type is where the family history such as traits, characteristics, susceptibility to disease is studied" xsd:string
+
+[Term]
+id: mged:genetic_modification_design
+name: genetic_modification_design
+instance_of: mged:PerturbationalDesign
+def: "A genetic modification design type is where an organism(s) has had genetic material removed, rearranged, mutagenized or added, such as knock out" xsd:string
+property_value: mged:unique_identifier "MO_447" xsd:string
+
+[Term]
+id: mged:genotyping_design
+name: genotyping_design
+instance_of: mged:BioMolecularAnnotation
+property_value: mged:unique_identifier "MO_560" xsd:string
+def: "A genotyping experiment design type classifies an individual or group of individuals on the basis of alleles, haplotypes, SNP's. " xsd:string
+
+[Term]
+id: mged:growth_condition_design
+name: growth_condition_design
+instance_of: mged:PerturbationalDesign
+def: "A growth condition experiment design type is where some part of the growth condition is changed for the purposes of the experiment, examples of growth conditions changed are media, temperature, humidity, light, nutrients. " xsd:string
+property_value: mged:unique_identifier "MO_588" xsd:string
+
+[Term]
+id: mged:hardware_variation_design
+name: hardware_variation_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_734" xsd:string
+def: "A hardware variation experiment design type compares different types of hardware for performance, reproducibility, accuracy and precision." xsd:string
+
+[Term]
+id: mged:imprinting_design
+name: imprinting_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_914" xsd:string
+def: "An experiment design type where differences in genetic imprinting of maternally- and paternally-inherited chromosomes (e.g., due to in vivo differences in chemical modification and/or chromatin structure) are compared." xsd:string
+
+[Term]
+id: mged:in_vitro_design
+name: in_vitro_design
+instance_of: mged:MethodologicalDesign
+def: "An experiment done in a test tube or a culture dish, e.g. \nA bacterial invasion assay in an established cell culture." xsd:string
+property_value: mged:unique_identifier "MO_347" xsd:string
+
+[Term]
+id: mged:in_vivo_design
+name: in_vivo_design
+instance_of: mged:MethodologicalDesign
+def: "An experiment design that is conducted entirely in a living organism, e.g. a compound treatment in a mouse model." xsd:string
+property_value: mged:unique_identifier "MO_454" xsd:string
+
+[Term]
+id: mged:individual_genetic_characteristics_design
+name: individual_genetic_characteristics_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_527" xsd:string
+def: "An experiment design type where genotype, haplotype, or other individual genetic characteristics are compared." xsd:string
+
+[Term]
+id: mged:injury_design
+name: injury_design
+instance_of: mged:PerturbationalDesign
+property_value: mged:unique_identifier "MO_726" xsd:string
+def: "An injury experiment design type is where the response of an organism(s) to injury or damage is studied." xsd:string
+
+[Term]
+id: mged:innate_behavior_design
+name: innate_behavior_design
+instance_of: mged:BiologicalProperty
+def: "A design in which the innate behavior of the organism is examined, e.g. \n    path finding in bees." xsd:string
+property_value: mged:unique_identifier "MO_355" xsd:string
+
+[Term]
+id: mged:is_expressed_design
+name: is_expressed_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_487" xsd:string
+def: "A design aimed at identifying genes expressed in biomaterials of interest. " xsd:string
+
+[Term]
+id: mged:loop_design
+name: loop_design
+instance_of: mged:MethodologicalDesign
+def: "A loop experiment design is where labeled extracts are compared in  consecutive pairs.\nsynonym: circular design" xsd:string
+property_value: mged:synonym "circular design" xsd:string
+property_value: mged:unique_identifier "MO_912" xsd:string
+
+[Term]
+id: mged:non-targeted_transgenic_variation_design
+name: non-targeted_transgenic_variation_design
+instance_of: mged:PerturbationalDesign
+property_value: mged:unique_identifier "MO_775" xsd:string
+def: "The modification of an organism due to the presence of DNA from another individual, e.g. of a different strain, species or breed. These do not include targeted transgenics such as knock-ins and knock-outs." xsd:string
+
+[Term]
+id: mged:normalization_testing_design
+name: normalization_testing_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_729" xsd:string
+def: "A normalization testing experiment design tests different normalization procedures." xsd:string
+
+[Term]
+id: mged:operator_variation_design
+name: operator_variation_design
+instance_of: mged:MethodologicalDesign
+def: "An operator variation experiment design type assesses the operator performance and relation to data consistency and quality." xsd:string
+property_value: mged:unique_identifier "MO_519" xsd:string
+
+[Term]
+id: mged:operon_identification_design
+name: operon_identification_design
+instance_of: mged:BioMolecularAnnotation
+def: "An operon identification experiment type is designed to identify locations and members of operons in a genome." xsd:string
+property_value: mged:unique_identifier "MO_772" xsd:string
+
+[Term]
+id: mged:optimization_design
+name: optimization_design
+instance_of: mged:MethodologicalDesign
+def: "An optimization experiment design type is where different protocols or  protocol parameters are compared." xsd:string
+property_value: mged:unique_identifier "MO_934" xsd:string
+
+[Term]
+id: mged:organism_part_comparison_design
+name: organism_part_comparison_design
+instance_of: mged:BiologicalProperty
+def: "An organism part comparison experiment design type compares tissues, regions, organs within or between organisms " xsd:string
+property_value: mged:unique_identifier "MO_953" xsd:string
+
+[Term]
+id: mged:organism_status_design
+name: organism_status_design
+instance_of: mged:BiologicalProperty
+def: "A design that compares samples from live and dead organisms." xsd:string
+property_value: mged:unique_identifier "MO_841" xsd:string
+
+[Term]
+id: mged:pathogenicity_design
+name: pathogenicity_design
+instance_of: mged:PerturbationalDesign
+property_value: mged:unique_identifier "MO_807" xsd:string
+def: "A pathogenicity experiment design type is where an infective agent such as a bacterium, virus, protozoan, fungus etc. infects a host organism(s) and the infective agent is assayed." xsd:string
+
+[Term]
+id: mged:physiological_process_design
+name: physiological_process_design
+instance_of: mged:BiologicalProperty
+def: "Those processes specifically pertinent to the functioning of integrated \n    living units: cells, tissues, organs, and organisms. This includes those \n    processes that exhibit an endogenous periodicity independently of any \n    daily variation in the environment such as circadian rhythm or aging." xsd:string
+property_value: mged:unique_identifier "MO_1029" xsd:string
+
+[Term]
+id: mged:quality_control_testing_design
+name: quality_control_testing_design
+instance_of: mged:MethodologicalDesign
+def: "A  quality control testing experiment design type is where some aspect of the experiment is quality controlled for the purposes of quality assurance " xsd:string
+property_value: mged:unique_identifier "MO_981" xsd:string
+
+[Term]
+id: mged:reference_design
+name: reference_design
+instance_of: mged:MethodologicalDesign
+def: "A reference experiment design type is where all samples are compared to a common reference. " xsd:string
+property_value: mged:unique_identifier "MO_699" xsd:string
+
+[Term]
+id: mged:replicate_design
+name: replicate_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_885" xsd:string
+def: "A replicate experimental design type is where a series of replicates are performed to evaluate reproducibility or as a pilot study to determine the appropriate number of replicates for a subsequent experiments." xsd:string
+
+[Term]
+id: mged:secreted_protein_identification_design
+name: secreted_protein_identification_design
+instance_of: mged:BioMolecularAnnotation
+property_value: mged:unique_identifier "MO_694" xsd:string
+def: "A secreted protein identification design type identifies transcripts associated with a secretory pathway during translation and is used to infer which proteins are secreted or membrane bound. " xsd:string
+
+[Term]
+id: mged:self_vs_self_design
+name: self_vs_self_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_490" xsd:string
+def: "A self vs. self experiment design investigates variance and error estimates in the experimental system, and is where the same extract is compared. " xsd:string
+
+[Term]
+id: mged:sex_design
+name: sex_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_575" xsd:string
+def: "A sex experiment design type assays differences associated with an organism's sex, gender or mating type." xsd:string
+
+
+[Term]
+id: mged:software_variation_design
+name: software_variation_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_643" xsd:string
+def: "A software variation design type compares different types of software for performance, accuracy, precision and reproducibility." xsd:string
+
+[Term]
+id: mged:species_design
+name: species_design
+instance_of: mged:BiologicalProperty
+property_value: mged:unique_identifier "MO_675" xsd:string
+def: "A species experiment design type assays differences between distinct species." xsd:string
+
+[Term]
+id: mged:stimulus_or_stress_design
+name: stimulus_or_stress_design
+instance_of: mged:PerturbationalDesign
+property_value: mged:unique_identifier "MO_568" xsd:string
+def: "A stimulus or stress experiment design type is where the response of an organism(s) to the stress or stimulus is studied, e.g. osmotic stress, heat shock, radiation exposure, behavioral treatment etc." xsd:string
+
+[Term]
+id: mged:strain_or_line_design
+name: strain_or_line_design
+instance_of: mged:BiologicalProperty
+def: "A strain or line experiment design type assays differences between multiple strains, cultivars, serovars, isolates, lines from organisms of a single species." xsd:string
+property_value: mged:unique_identifier "MO_462" xsd:string
+
+[Term]
+id: mged:tiling_path_design
+name: tiling_path_design
+instance_of: mged:BioMolecularAnnotation
+property_value: mged:unique_identifier "MO_507" xsd:string
+def: "An experiment in which gene expression on a genome-wide basis is evaluated, without bias toward coding or noncoding regions, using arrays containing oligonucleotides that are either overlapping or spaced at regular intervals." xsd:string
+
+[Term]
+id: mged:time_series_design
+name: time_series_design
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_887" xsd:string
+def: "Groups of assays that are related as part of a time series." xsd:string
+
+[Term]
+id: mged:transcript_identification_design
+name: transcript_identification_design
+instance_of: mged:TechnologicalDesign
+property_value: mged:unique_identifier "MO_533" xsd:string
+property_value: mged:synonym "transcription_profiling" xsd:string
+property_value: mged:synonym "gene expression" xsd:string
+property_value: mged:synonym "expression_profiling" xsd:string
+property_value: mged:synonym "gene_expression" xsd:string
+property_value: mged:synonym "transcription profiling" xsd:string
+def: "A transcript identification design type characterizes the length and \n    position of transcripts and allows identification of all forms of \n    transcripts in the genome." xsd:string
+property_value: mged:synonym "expression profiling" xsd:string
+
+[Term]
+id: mged:translational_bias_design
+name: translational_bias_design
+instance_of: mged:BioMolecularAnnotation
+def: "A translational bias is an experiment design which characterizes the association of transcripts and translation machinery." xsd:string
+property_value: mged:unique_identifier "MO_939" xsd:string
+
+[Term]
+id: mged:RNA_stability_design
+name: RNA_stability_design
+instance_of: mged:BioMolecularAnnotation
+def: "A RNA stability experiment design type examines the stability and/or decay of RNA transcripts." xsd:string
+property_value: mged:unique_identifier "MO_553" xsd:string
+
+[Term]
+id: mged:all_pairs
+name: all_pairs
+instance_of: mged:MethodologicalDesign
+property_value: mged:unique_identifier "MO_565" xsd:string
+def: "An all pairs experiment design type is where all labeled extracts are compared to every other labeled extract.  " xsd:string
+
+[Term]
+id: mged:array_platform_variation_design
+name: array_platform_variation_design
+instance_of: mged:MethodologicalDesign
+def: "An experiment in which the array platform is compared, e.g. Agilent versus \n    Affy." xsd:string
+property_value: mged:unique_identifier "MO_899" xsd:string
+
+[Term]
+id: mged:behavior_design
+name: behavior_design
+instance_of: mged:DeprecatedTerms
+property_value: mged:split_to_term mged:stimulated_design_type
+property_value: mged:split_to_term mged:innate_behavior_design
+property_value: mged:deprecation_old_parent mged:BiologicalProperty
+property_value: mged:has_reason_for_deprecation mged:split_term
+property_value: mged:deprecated_from_version mged:version_1.1.9
+property_value: mged:deprecation_reason "split_term" xsd:string
+property_value: mged:deprecation_in_version "1.1.9" xsd:string
+property_value: mged:unique_identifier "MO_532" xsd:string
+def: "The specific actions or reactions of an organism in response to external or internal stimuli. Patterned activity of a whole organism in a manner dependent upon some combination of that organism's internal state and external conditions." xsd:string
+
+[Term]
+id: mged:behavioral_design_type
+name: behavioral_design_type
+instance_of: mged:DeprecatedTerms
+property_value: mged:replaced_with_term mged:innate_behavior_design
+property_value: mged:has_reason_for_deprecation mged:replaced_term
+property_value: mged:deprecated_from_version mged:version_1.1.9
+property_value: mged:deprecation_old_parent mged:PerturbationalDesign
+property_value: mged:was_replaced_by mged:innate_behavior_design
+property_value: mged:deprecation_reason "replaced_term" xsd:string
+property_value: mged:unique_identifier "MO_766" xsd:string
+def: "A design type in which some behavior(s) of an organism is studied. The behavior can be innate, such as path finding in bees, or in response to an\nexperimental behavioral stimulus such as sleep deprivation." xsd:string
+property_value: mged:deprecation_in_version "1.1.9" xsd:string
+is_obsolete: true
+
+[Term]
+id: mged:binding_site_identification_design
+name: binding_site_identification_design
+instance_of: mged:TechnologicalDesign
+def: "A binding site identification design type investigates protein binding sites on nucleic acids\nnon-exact synonym: ChIP, chromatin immunoprecipitation, chromatin IP" xsd:string
+property_value: mged:unique_identifier "MO_933" xsd:string
+property_value: mged:synonym "chromatin immunoprecipitation" xsd:string
+property_value: mged:synonym "chromatin IP" xsd:string
+property_value: mged:synonym "chromatin_immunoprecipitation" xsd:string
+property_value: mged:synonym "ChIP-chip" xsd:string
+
+[Term]
+id: mged:stimulated_design_type
+name: stimulated_design_type
+instance_of: mged:PerturbationalDesign
+def: "A design in which a behavior is invoked by a variable controlled by the experimenter - e.g. administration of a drug that effects aggressivity." xsd:string
+property_value: mged:unique_identifier "MO_958" xsd:string

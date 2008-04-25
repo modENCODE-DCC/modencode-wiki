@@ -1,0 +1,181 @@
+format-version: 1.2
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: obd http://www.bioontology.org/obd/obd-ontology# ""
+idspace: oboInOwl http://www.bioontology.org/oboInOwl# ""
+idspace: ncithesaurus http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl# ""
+idspace: biopax1 http://www.biopax.org/release/biopax-level1.owl# ""
+idspace: bfo http://www.ifomis.org/bfo/1.0# ""
+idspace: snap http://www.ifomis.org/bfo/1.0/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.0/span# ""
+idspace: oban http://www.berkeleybop.org/ontologies/oban/alpha# ""
+idspace: obi http://obi.sourceforge.net/ontology/OBI.owl# ""
+idspace: galen http://www.co-ode.org/ontologies/galen# ""
+idspace: propreo http://lsdis.cs.uga.edu/projects/glycomics/propreo# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: p2 http://www.owl-ontologies.com/assert.owl# ""
+idspace: daml http://www.daml.org/2001/03/daml+oil# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+
+[Term]
+id: mged:Person
+name: Person
+def: The individual to contact regarding something provided such as a biomaterial.
+is_a: mged:Contact
+relationship: mged:has_first_name xsd:string
+relationship: mged:has_last_name xsd:string
+relationship: mged:has_affiliation mged:Organization
+relationship: mged:has_mid_initials xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_24" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:User
+name: User
+def: User is a way to id a person in a database
+is_a: mged:MGEDExtendedOntology
+relationship: mged:has_ID xsd:string
+property_value: mged:unique_identifier "MO_62" xsd:string
+
+[Term]
+id: mged:biomaterial_provider
+name: biomaterial_provider
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_591" xsd:string
+def: "Term used to describe a role or factor value for the person or organization that provides a BioMaterial. " xsd:string
+
+[Term]
+id: mged:biosequence_provider
+name: biosequence_provider
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_881" xsd:string
+def: "Provider of biosequences (clones, oligos etc) for deposition on the array." xsd:string
+
+[Term]
+id: mged:consortium_member
+name: consortium_member
+instance_of: mged:Roles
+def: "A member of a consortium of institutions." xsd:string
+property_value: mged:unique_identifier "MO_778" xsd:string
+
+[Term]
+id: mged:consultant
+name: consultant
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_984" xsd:string
+def: "A contact who provides some service related to some aspect of the experiment which is not data coding or analysis. E.g. help with an experimental design." xsd:string
+
+[Term]
+id: mged:curator
+name: curator
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_893" xsd:string
+def: "person who checks the consistency of the data and MAGE-ML file" xsd:string
+
+[Term]
+id: mged:data_analyst
+name: data_analyst
+instance_of: mged:Roles
+def: "A contact who performs data analysis, e.g. statistician." xsd:string
+property_value: mged:unique_identifier "MO_753" xsd:string
+
+[Term]
+id: mged:data_coder
+name: data_coder
+instance_of: mged:Roles
+def: "person who prepares the MAGE-ML file" xsd:string
+property_value: mged:unique_identifier "MO_695" xsd:string
+
+[Term]
+id: mged:funder
+name: funder
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_520" xsd:string
+def: "Contact which provides funding for experiments." xsd:string
+
+[Term]
+id: mged:hardware_manufacturer
+name: hardware_manufacturer
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_763" xsd:string
+def: "Person or organization that manufactured the hardware." xsd:string
+
+[Term]
+id: mged:institution
+name: institution
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_601" xsd:string
+def: "A contact's affiliation, e.g. university, research institute or business." xsd:string
+
+[Term]
+id: mged:investigator
+name: investigator
+instance_of: mged:Roles
+def: "Person who contributed to the study." xsd:string
+property_value: mged:unique_identifier "MO_769" xsd:string
+
+[Term]
+id: mged:software_manufacturer
+name: software_manufacturer
+instance_of: mged:Roles
+property_value: mged:unique_identifier "MO_475" xsd:string
+def: "Person or organization that manufactured the software." xsd:string
+
+[Term]
+id: mged:submitter
+name: submitter
+instance_of: mged:Roles
+def: "Person who is the primary contact for data submitted to a database." xsd:string
+property_value: mged:unique_identifier "MO_882" xsd:string
+
+[Term]
+id: mged:Contact
+name: Contact
+def: Organizations or individuals that may be contacted.
+is_a: mged:AuditAndSecurityPackage
+relationship: mged:has_address xsd:string
+relationship: mged:has_phone xsd:string
+relationship: mged:has_URI mged:URI
+relationship: mged:has_email xsd:string
+relationship: mged:has_fax xsd:string
+relationship: mged:has_toll_free_phone xsd:string
+relationship: mged:has_type mged:Roles
+property_value: mged:class_role "abstract" xsd:string
+property_value: mged:unique_identifier "MO_147" xsd:string
+property_value: mged:class_source "mage" xsd:string
+
+[Term]
+id: mged:Roles
+name: Roles
+def: Controlled terms for descriptors of the role of contact, e.g. submitter, biosource_provider.
+is_a: mged:AuditAndSecurityPackage
+property_value: mged:unique_identifier "MO_180" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
+
+[Term]
+id: mged:array_manufacturer
+name: array_manufacturer
+instance_of: mged:Roles
+def: "Person or organization that manufactured the array." xsd:string
+property_value: mged:unique_identifier "MO_890" xsd:string
+
+
+[Term]
+id: mged:Person
+name: Person
+def: The individual to contact regarding something provided such as a biomaterial.
+is_a: mged:Contact
+relationship: mged:has_first_name xsd:string
+relationship: mged:has_last_name xsd:string
+relationship: mged:has_affiliation mged:Organization
+relationship: mged:has_mid_initials xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:unique_identifier "MO_24" xsd:string
+property_value: mged:class_source "mage" xsd:string
