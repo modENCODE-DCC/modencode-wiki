@@ -17,7 +17,7 @@
     "invalidversion" => false
   );
   $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
-  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required");
+  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign");
   $modENCODE_markers_to_data = array();
 
   function modENCODE_DBFields_setup() {
@@ -100,6 +100,10 @@
       array_push($string_attributes, "$key=\"$value\"");
     }
     $attrib_string = join(" ", $string_attributes);
+
+    if ($name == "textarea") {
+      $extra_content_before = "<div class=\"nobr\">";
+    }
     
     // Write out the filtered tag
     $modENCODE_dbfields_data["xml"] .= $extra_content_before;
@@ -114,6 +118,7 @@
     global $modENCODE_dbfields_data;
     global $modENCODE_dbfields_allowed_tags;
     global $renderParser;
+    global $prefix;
     if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
 
     $extra_content_before = '';
@@ -131,6 +136,13 @@
     }
     if ($name == "input") {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
+
+      if ($input["attribs"]["type"] == "cvterm" || $input["attribs"]["type"] == "text") {
+	$help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
+	$help_name = str_replace(" ", "_", $help_name);
+	$help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
+	$extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+      }
 
       if ($input["attribs"]["type"] == "cvterm") {
 	$attribs = $input["attribs"];
@@ -154,6 +166,12 @@
       }
     }
     if ($name == "input" || $name == "select") {
+      if ($name == "select") {
+	$help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
+	$help_name = str_replace(" ", "_", $help_name);
+	$help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
+	$extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+      }
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $attribs = $input["attribs"];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
@@ -184,6 +202,13 @@
 	}
       }
     }
+    if ($name == "textarea") {
+      $help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
+      $help_name = str_replace(" ", "_", $help_name);
+      $help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
+      $extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img class=\"questionmark\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+    }
+    $extra_content_after .= "</div>";
 
 
     $modENCODE_dbfields_data["xml"] .= $extra_content_before;
@@ -292,6 +317,7 @@
     global $modENCODE_DBFields_conf;
     global $wgOut;
     global $renderParser;
+    global $prefix;
     $renderParser = $parser;
     $parser->disableCache();
 
@@ -463,7 +489,7 @@
         if ($output_type[2]) {
           array_push($output_headings, "Result Value " . $output_type[2]);
         } else {
-          array_push($output_headings, "[Source|Sample|Extract|Labeled Extract|Hybridization] Name | Array Data File | Data File");
+          array_push($output_headings, "[Source|Sample|Extract|Labeled Extract|Hybridization] Name | Array Data File | Data File | Result Value");
         }
         array_push($output_values, "Data of type " . trim($output_type[1]));
       }
@@ -480,7 +506,7 @@
 
 
     $server_url = "http://" . $_SERVER["SERVER_NAME"];
-    $parsed_xml .= "<br/>Please use this page's permanent link when referencing it in data submission:<br/>";
+    $parsed_xml .= "<br/>Please use this page's permanent link when referencing it in data submission (e.g. in the IDF):<br/>";
     $parsed_xml .= "<a href=\"$permalink\">${server_url}$permalink</a>";
 
     $modENCODE_markers_to_data[] = $parsed_xml;
