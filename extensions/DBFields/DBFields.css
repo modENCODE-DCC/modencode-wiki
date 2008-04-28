@@ -1,10 +1,10 @@
-form.modENCODE_dbfields th { text-align: right; font-weight: normal; }
+form.modENCODE_dbfields th { text-align: right; vertical-align: top; font-weight: normal; }
 form.modENCODE_dbfields td div.yui-ac { display: inline; }
 form.modENCODE_dbfields input { border: thin solid #AAAAAA; }
 form.modENCODE_dbfields input.dbfields_input { width: 400px; }
 form.modENCODE_dbfields .dbfields_readonly { background-color: #DDDDDD; }
 form.modENCODE_dbfields select { border: thin solid #AAAAAA; width: 200px; }
-form.modENCODE_dbfields textarea { border: thin solid #AAAAAA; width: 200px; }
+form.modENCODE_dbfields textarea { border: thin solid #AAAAAA; }
 
 form.modENCODE_dbfields div.formattedResult { float: none; }
 form.modENCODE_dbfields div.formattedResult div.termName { }
