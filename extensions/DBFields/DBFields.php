@@ -207,8 +207,8 @@
       $help_name = str_replace(" ", "_", $help_name);
       $help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
       $extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img class=\"questionmark\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+      $extra_content_after .= "</div>";
     }
-    $extra_content_after .= "</div>";
 
 
     $modENCODE_dbfields_data["xml"] .= $extra_content_before;
