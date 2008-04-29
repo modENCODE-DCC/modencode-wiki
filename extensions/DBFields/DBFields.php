@@ -166,13 +166,13 @@
       }
     }
     if ($name == "input" || $name == "select") {
+      $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       if ($name == "select") {
 	$help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
 	$help_name = str_replace(" ", "_", $help_name);
 	$help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
 	$extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
       }
-      $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $attribs = $input["attribs"];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
       if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
@@ -203,6 +203,7 @@
       }
     }
     if ($name == "textarea") {
+      $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
       $help_name = str_replace(" ", "_", $help_name);
       $help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
