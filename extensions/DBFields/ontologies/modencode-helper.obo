@@ -720,6 +720,12 @@ is_a: ME:0000040 ! microarray_metadata_file
 relationship: part_of: ME:0000101 ! SOFT_submission_package
 
 
+[Term]
+id: ME:0000103
+name: TraceArchive_record
+def: "A data record of a sequence trace file located at the TraceArchive at NCBI, accessible by ID.  See http://trace.ncbi.nlm.nih.gov/Traces for more information."  [BBOP:nlw]
+is_a: ME:0000050 ! sequence_trace_file
+
 [Typedef]
 id: has_input
 name: has_input
