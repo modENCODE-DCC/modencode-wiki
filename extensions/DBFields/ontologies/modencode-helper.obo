@@ -746,6 +746,12 @@ exact_synonym: Model-based Analysis of 2-Color Arrays
 exact_synonym: MA2C
 is_a:  ME:0000010 ! protocol
 
+[Term]
+id: ME:0000107
+name: flybase_annotation_version
+def: "A particular release of flybase annotations for gene models and other genomic features.  The annotation version is linked to a particular genome sequence version.  For example, 'Flybase 5.7' indicates the 7th version of annotations in the 5th genomic release." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+xref: SO:0001026 ! genome
 
 [Typedef]
 id: has_input
