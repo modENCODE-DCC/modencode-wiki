@@ -15,7 +15,7 @@ relationship: part_of ME:0000009
 [Term]
 id: ME:0000002
 name: maxGap
-def: "The value of the maximum gap of nucleotides between positive probe pairs to be used in a normalization protocol when generating transfrags." [BBOP:nlw]
+def: "The value of the maximum gap of nucleotides between positive probe pairs to be used in a normalization protocol." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 
 [Term]
@@ -403,7 +403,7 @@ is_a: ME:0000021 ! data_file
 [Term]
 id: ME:0000057
 name: bandwidth
-def: ". " [BBOP:nlw]
+def: "sequence window" [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 !part_of ME:000000? !microarray_data_processing_protocol
 
@@ -725,6 +725,13 @@ id: ME:0000103
 name: TraceArchive_record
 def: "A data record of a sequence trace file located at the TraceArchive at NCBI, accessible by ID.  See http://trace.ncbi.nlm.nih.gov/Traces for more information."  [BBOP:nlw]
 is_a: ME:0000050 ! sequence_trace_file
+
+[Term]
+id: ME:0000104
+name: minProbeRun
+def: "The value of the mininum run of probes to be considered part of a single binding event resulting from a microarray experiment used in a normalization protocol." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+
 
 [Typedef]
 id: has_input
