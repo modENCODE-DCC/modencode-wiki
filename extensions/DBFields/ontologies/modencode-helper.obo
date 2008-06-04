@@ -732,6 +732,12 @@ name: minProbeRun
 def: "The value of the mininum run of probes to be considered part of a single binding event resulting from a microarray experiment used in a normalization protocol." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 
+[Term]
+id: ME:0000105
+name: cell_cycle_synchronization_protocol
+def: "A technique of using a reagent unify the cells in a populationaccording to a specific characteristic, such as their cell cycle stage."  [BBOP:nlw]
+is_a:  ME:0000010 ! protocol
+
 
 [Typedef]
 id: has_input
