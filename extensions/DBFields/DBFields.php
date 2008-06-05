@@ -399,7 +399,7 @@
 
         foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
           $key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-          $value = modENCODE_db_escape(htmlentities($value), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+          $value = modENCODE_db_escape(htmlentities(utf8_decode($value)), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
           modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
         }
       }
