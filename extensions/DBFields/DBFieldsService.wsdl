@@ -40,6 +40,7 @@
             <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
             <element name="version" minOccurs="1" maxOccurs="1" type="xsd:int"/>
             <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
+            <element name="string_values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
           </all>
         </complexType>
         <complexType name="LoginResult">
@@ -58,6 +59,7 @@
           <all>
             <element name="name" minOccurs="0" maxOccurs="1" type="xsd:string"/>
             <element name="version" minOccurs="0" maxOccurs="1" type="xsd:int"/>
+            <element name="revision" minOccurs="0" maxOccurs="1" type="xsd:int"/>
             <element name="auth" minOccurs="0" maxOccurs="1" type="tnstypes:LoginResult"/>
             <element name="url" minOccurs="0" maxOccurs="1" type="xsd:string"/>
           </all>

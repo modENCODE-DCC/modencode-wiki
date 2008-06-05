@@ -33,12 +33,12 @@
     $wgUser = new StubUser();
     unset($_SESSION);
     print "Form data:";
-    $url = "http://wiki.modencode.org/project/index.php?title=Sequencing&oldid=5358";
+    #$url = "http://wiki.modencode.org/project/index.php?title=Sequencing&oldid=5358";
     $submission = new FormDataQuery();
-    #$submission->name = $form;
-    $submission->version = $version;
+    $submission->name = "CME L1";
+    $submission->version = 3;
     $submission->auth = $auth;
-    $submission->url = $url;
+#    $submission->url = $url;
     print_r($dbfs->getFormData($submission));
   } else {
     $server->setClass("DBFieldsService");
@@ -48,6 +48,7 @@
   class FormDataQuery {
     public $name;
     public $version;
+    public $revision;
     public $auth;
     public $url;
   }
@@ -55,6 +56,7 @@
     public $name;
     public $version;
     public $values = array();
+    public $string_values = array();
     public function __construct($name, $version) {
       $this->name = $name;
       $this->version = $version;
@@ -79,6 +81,20 @@
 	array_push($this->values, $newvalues);
       }
     }
+    public function setStringValue($key, $value) {
+      $found = false;
+      foreach ($this->string_values as $existing_value) {
+	if ($existing_value->name == $key) {
+	  $existing_value->addValue($value);
+	  $found = true; break;
+	}
+      }
+      if (!$found) {
+	$newvalues = new FormValues($key);
+	$newvalues->addValue($value);
+	array_push($this->string_values, $newvalues);
+      }
+    }
   }
   class FormValues {
     public $name;
@@ -92,6 +108,9 @@
     }
     public function addValue($value) {
       array_push($this->values, $value);
+    }
+    public function setValue($value) {
+      $this->values = array($value);
     }
   }
   class LoginResult {
@@ -135,6 +154,9 @@
       $version = $submission->version;
       $auth = $submission->auth;
       $wiki_url = urldecode(html_entity_decode($submission->url));
+      if (strlen($submission->revision)) {
+	$revisionId = $submission->revision;
+      }
 
 
       # Get a form and revision ID from a URL, if provided
@@ -213,6 +235,7 @@
 	foreach ($values as $value) {
 	  $formdata->addValue($row["key"], trim($value));
 	}
+	$formdata->setStringValue($row["key"], $row["value"]);
       }
 
       modENCODE_db_close($db, $modENCODE_DBFields_conf["form_data"]["type"]);
