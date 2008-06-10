@@ -123,8 +123,8 @@
      LIMIT ?";
   $modENCODE_DBFields_conf["cvterms"]["go"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/gene_ontology/gene_ontology.obo";
   $modENCODE_DBFields_conf["cvterms"]["go"]["canonical_url_type"] = "OBO";
-$modENCODE_DBFields_conf["cvterms"]["cc"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/gene_ontology/gene_ontology.obo";
-  $modENCODE_DBFields_conf["cvterms"]["cc"]["canonical_url_type"] = "OBO";
+$modENCODE_DBFields_conf["cvterms"]["go_cc"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/gene_ontology/gene_ontology.obo";
+  $modENCODE_DBFields_conf["cvterms"]["go_cc"]["canonical_url_type"] = "OBO";
 
   $modENCODE_DBFields_conf["cvterms"]["modencode-helper"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/modencode-helper.obo";
   $modENCODE_DBFields_conf["cvterms"]["modencode-helper"]["canonical_url_type"] = "OBO";
