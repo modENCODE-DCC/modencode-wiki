@@ -1,5 +1,5 @@
 format-version: 1.2
-date: 10:06:2008 16:43
+date: 10:06:2008 16:52
 auto-generated-by: OBO-Edit 2.000-beta39
 subsetdef: goslim_candida "Candida GO slim"
 subsetdef: goslim_generic "Generic GO slim"
@@ -317,40 +317,12 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044424 ! intracellular part
 
 [Term]
-id: GO:0000180
-name: cytosolic large ribosomal subunit
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: This term was made obsolete because more specific children exist.
-is_obsolete: true
-consider: GO:0022625
-
-[Term]
-id: GO:0000181
-name: cytosolic small ribosomal subunit
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: This term was made obsolete because more specific children exist.
-is_obsolete: true
-consider: GO:0022627
-
-[Term]
 id: GO:0000214
 name: tRNA-intron endonuclease complex
 namespace: cellular_component
 def: "A complex that catalyzes the endonucleolytic cleavage of pre-tRNA, producing 5'-hydroxyl and 2',3'-cyclic phosphate termini, and specifically removing the intron." [EC:3.1.27.9]
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044428 ! nuclear part
-
-[Term]
-id: GO:0000219
-name: vacuolar hydrogen-transporting ATPase
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because more specific terms were created.
-synonym: "V-ATPase" EXACT []
-is_obsolete: true
-consider: GO:0016469
 
 [Term]
 id: GO:0000220
@@ -414,42 +386,6 @@ subset: gosubset_prok
 synonym: "cytoplasmic interphase chromosome" NARROW []
 is_a: GO:0005694 ! chromosome
 is_a: GO:0044444 ! cytoplasmic part
-
-[Term]
-id: GO:0000230
-name: nuclear mitotic chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the nucleus during mitosis." [GOC:mah]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0000794
-
-[Term]
-id: GO:0000231
-name: cytoplasmic mitotic chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the cytoplasm during mitosis." [GOC:mah]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0000793
-
-[Term]
-id: GO:0000232
-name: nuclear interphase chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the nucleus during interphase." [GOC:mah]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0000228
-
-[Term]
-id: GO:0000233
-name: cytoplasmic interphase chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the cytoplasm during interphase." [GOC:mah]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0000229
 
 [Term]
 id: GO:0000235
@@ -933,15 +869,6 @@ synonym: "26S proteasome" NARROW []
 synonym: "proteasome complex (sensu Eukaryota)" EXACT []
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044424 ! intracellular part
-
-[Term]
-id: GO:0000504
-name: proteasome regulatory particle (sensu Bacteria)
-namespace: cellular_component
-def: "OBSOLETE. A multisubunit complex that recognizes and unfolds ubiquitinated proteins, and translocates them to the core complex in an ATP dependent manner. As in, but not restricted to, the taxon Bacteria (Bacteria, ncbi_taxonomy_id:2)." [GOC:rb]
-comment: This term was made obsolete because there is no ubiquitin in bacteria and they do not have proteasome regulatory particles. Instead they have proteasome-activating nucleotidase.
-synonym: "26S proteasome" NARROW []
-is_obsolete: true
 
 [Term]
 id: GO:0000506
@@ -1657,15 +1584,6 @@ synonym: "fibrillin" RELATED []
 is_a: GO:0043205 ! fibril
 
 [Term]
-id: GO:0001529
-name: elastin
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
-replaced_by: GO:0030023
-
-[Term]
 id: GO:0001533
 name: cornified envelope
 namespace: cellular_component
@@ -1749,115 +1667,6 @@ synonym: "female germ cell nucleus (sensu Metazoa)" EXACT []
 synonym: "female germ-cell nucleus" EXACT []
 synonym: "female germ-cell nucleus (sensu Animalia)" EXACT []
 is_a: GO:0043073 ! germ cell nucleus
-
-[Term]
-id: GO:0001683
-name: axonemal dynein heavy chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005858
-
-[Term]
-id: GO:0001684
-name: axonemal dynein intermediate chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005858
-
-[Term]
-id: GO:0001685
-name: axonemal dynein intermediate light chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005858
-
-[Term]
-id: GO:0001686
-name: axonemal dynein light chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005858
-
-[Term]
-id: GO:0001687
-name: cytoplasmic dynein heavy chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005868
-
-[Term]
-id: GO:0001688
-name: cytoplasmic dynein intermediate chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005868
-
-[Term]
-id: GO:0001689
-name: cytoplasmic dynein intermediate light chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005868
-
-[Term]
-id: GO:0001690
-name: cytoplasmic dynein light chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005868
-
-[Term]
-id: GO:0001721
-name: intermediate filament associated protein
-namespace: cellular_component
-def: "OBSOLETE. Proteins that associate with intermediate filaments and function in the supramolecular organization of cellular intermediate filament networks." [GOC:ajp, PMID:9484600]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-synonym: "IFAP" EXACT []
-is_obsolete: true
-replaced_by: GO:0005882
-
-[Term]
-id: GO:0001722
-name: type I intermediate filament associated protein
-namespace: cellular_component
-def: "OBSOLETE. Low molecular weight (10-45 kDa) proteins that associate with intermediate filaments by lateral binding of the filaments and have the effect of creating tight macrofilament aggregates." [GOC:ajp, PMID:9484600]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005882
-
-[Term]
-id: GO:0001723
-name: type II intermediate filament associated protein
-namespace: cellular_component
-def: "OBSOLETE. High molecular weight (100-300 kDa) proteins that associate with intermediate filaments to cross-link them into loose networks." [GOC:ajp, PMID:9484600]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005882
-
-[Term]
-id: GO:0001724
-name: type III intermediate filament associated protein
-namespace: cellular_component
-def: "OBSOLETE. Proteins that associate with the ends of intermediate filaments and couple the intermediate filaments to the plasma membrane." [GOC:ajp, PMID:9484600]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0045098
 
 [Term]
 id: GO:0001725
@@ -2024,103 +1833,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044428 ! nuclear part
 
 [Term]
-id: GO:0003675
-name: protein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005559
-name: ribozyme
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005561
-name: nucleic acid
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005562
-name: RNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005564
-name: cytosolic tRNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005565
-name: mitochondrial tRNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO rather than being made obsolete and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005567
-name: cytosolic ribosomal RNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005568
-name: mitochondrial rRNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO rather than being made obsolete and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005571
-name: untranslated RNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005572
-name: RNA polymerase II transcribed untranslated RNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
-id: GO:0005573
-name: telomerase RNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:krc]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
-replaced_by: GO:0000332
-
-[Term]
-id: GO:0005574
-name: DNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: Note that this term was deleted from GO and was restored to the ontology in Feb 2003 to ensure that the ID is not reused.
-is_obsolete: true
-
-[Term]
 id: GO:0005575
 name: cellular_component
 namespace: cellular_component
@@ -2189,15 +1901,6 @@ synonym: "TCC" EXACT []
 synonym: "terminal complement complex" EXACT []
 is_a: GO:0043234 ! protein complex
 is_a: GO:0046930 ! pore complex
-
-[Term]
-id: GO:0005580
-name: membrane attack complex protein alphaM chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005579
 
 [Term]
 id: GO:0005581
@@ -2363,14 +2066,6 @@ is_a: GO:0044421 ! extracellular region part
 relationship: part_of GO:0005615 ! extracellular space
 
 [Term]
-id: GO:0005603
-name: complement component C2 complex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because prior to cleavage, complement component C2 is a single polypeptide rather than a complex, and after cleavage the products do not remain physically associated; there is thus no known biological entitiy corresponding to "complement C2 complex".
-is_obsolete: true
-
-[Term]
 id: GO:0005604
 name: basement membrane
 namespace: cellular_component
@@ -2442,15 +2137,6 @@ def: "A laminin complex composed of alpha3, beta2 and gamma1 polypeptide chains.
 is_a: GO:0043256 ! laminin complex
 
 [Term]
-id: GO:0005613
-name: laminin receptor protein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it is out of date. It seems to be referring to the non-integrin 34/67kDa laminin receptor, which new research has shown to actually be a ribosomal protein of the SP2 family.
-is_obsolete: true
-consider: GO:0008305
-
-[Term]
 id: GO:0005614
 name: interstitial matrix
 namespace: cellular_component
@@ -2477,15 +2163,6 @@ def: "A multisubunit protein complex which, in Drosophila, is a heterohexamer of
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044421 ! extracellular region part
 relationship: part_of GO:0005615 ! extracellular space
-
-[Term]
-id: GO:0005617
-name: larval serum protein-1
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: This term was made obsolete because it represents a gene product.
-synonym: "LSP1" EXACT []
-is_obsolete: true
 
 [Term]
 id: GO:0005618
@@ -2568,14 +2245,6 @@ def: "That fraction of cells, prepared by disruptive biochemical methods, that i
 comment: Note that this term refers to disrupted cells, and does not necessarily correspond to any specific structure(s) in an intact cell.
 synonym: "particle-bound" RELATED []
 is_a: GO:0000267 ! cell fraction
-
-[Term]
-id: GO:0005627
-name: ascus
-namespace: cellular_component
-def: "OBSOLETE. A sac-like fruiting body (ascomycete Fungi); contains ascospores (typically eight in number)." [ISBN:0198547684]
-comment: This term was made obsolete because it is a type of cell rather than a cellular component. To update annotations, consider the external ontology term 'ascus ; FAO:0000014'.
-is_obsolete: true
 
 [Term]
 id: GO:0005628
@@ -2722,89 +2391,6 @@ is_a: GO:0044453 ! nuclear membrane part
 is_a: GO:0046930 ! pore complex
 
 [Term]
-id: GO:0005645
-name: RAN-binding protein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0008536
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
-id: GO:0005646
-name: importin
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-synonym: "karyopherin" EXACT []
-is_obsolete: true
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
-id: GO:0005647
-name: importin, alpha-subunit
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-synonym: "karyopherin-alpha" EXACT []
-is_obsolete: true
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
-id: GO:0005648
-name: importin, beta-subunit
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-synonym: "karyopherin-beta1" EXACT []
-is_obsolete: true
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
-id: GO:0005649
-name: transportin
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-synonym: "karyopherin-beta2" EXACT []
-is_obsolete: true
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
-id: GO:0005650
-name: importin, alpha-subunit transport factor
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-synonym: "CAS" RELATED []
-is_obsolete: true
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
-id: GO:0005651
-name: exportin
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0005634
-consider: GO:0005643
-consider: GO:0005737
-
-[Term]
 id: GO:0005652
 name: nuclear lamina
 namespace: cellular_component
@@ -2861,17 +2447,6 @@ synonym: "primosome" BROAD []
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044454 ! nuclear chromosome part
 relationship: part_of GO:0043601 ! nuclear replisome
-
-[Term]
-id: GO:0005660
-name: delta-DNA polymerase cofactor complex
-namespace: cellular_component
-def: "OBSOLETE. A complex of proteins that interacts with delta-DNA polymerase, promoting elongation. In humans it is a heteropentamer of subunits of 140/145, 40, 38, 37 and 36.5 kDa, which form a complex with the proliferating cell nuclear antigen (PCNA) in the presence of ATP." [GOC:jl, UniProtKB:P35249]
-comment: This term was made obsolete because it refers to two distinct complexes, PCNA and Replication factor C (RFC), the latter of which is already represented as a separate, unrelated GO term (DNA replication factor C complex ; GO:0005663). In addition, the phrase 'delta-DNA polymerase cofactor' to represent both PCNA and RFC is not used in current literature.
-synonym: "delta DNA polymerase cofactor complex" EXACT []
-is_obsolete: true
-replaced_by: GO:0005663
-replaced_by: GO:0043626
 
 [Term]
 id: GO:0005662
@@ -2950,15 +2525,6 @@ namespace: cellular_component
 def: "A complex composed of TATA binding protein (TBP) and TBP associated factors (TAFs); the total mass is typically about 800 kDa. Most of the TAFs are conserved across species. In TATA-containing promoters for RNA polymerase II (Pol II), TFIID is believed to recognize at least two distinct elements, the TATA element and a downstream promoter element. TFIID is also involved in recognition of TATA-less Pol II promoters. Binding of TFIID to DNA is necessary but not sufficient for transcription initiation from most RNA polymerase II promoters." [GOC:krc, GOC:mah, ISBN:0471953393, ISBN:0879695501]
 is_a: GO:0005667 ! transcription factor complex
 relationship: part_of GO:0016591 ! DNA-directed RNA polymerase II, holoenzyme
-
-[Term]
-id: GO:0005670
-name: transcription-activating factor, 30kD
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005669
 
 [Term]
 id: GO:0005671
@@ -3150,27 +2716,6 @@ synonym: "prophase chromosome" NARROW []
 is_a: GO:0043232 ! intracellular non-membrane-bounded organelle
 
 [Term]
-id: GO:0005695
-name: chromatid
-namespace: cellular_component
-def: "OBSOLETE. One of the two daughter strands of a duplicated chromosome that become apparent between early prophase and metaphase in mitosis and between diplotene and second metaphase in meiosis." [ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]
-comment: This term was made obsolete because it is not a unique subcellular component, i.e. the difference between this term and 'chromosome' is based on temporal and process distinctions.
-is_obsolete: true
-consider: GO:0000793
-consider: GO:0000794
-consider: GO:0005694
-
-[Term]
-id: GO:0005696
-name: telomere
-namespace: cellular_component
-def: "OBSOLETE. A complex of DNA and protein that seals the end of a chromosome. The telomeric DNA consists of simple tandemly repeated sequences specific for each species. Typically one strand is G-rich and the other C-rich. The G-rich strand forms a 3'-terminal overhang, the length of which varies with species. The single strand overhang is bound by a variety of proteins, including telomere capping proteins that bind to the single-stranded DNA." [ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology", PMID:11352055]
-comment: This term was made obsolete because the definition was too sequence oriented and too restrictive.
-is_obsolete: true
-consider: GO:0000781
-consider: GO:0000782
-
-[Term]
 id: GO:0005697
 name: telomerase holoenzyme complex
 namespace: cellular_component
@@ -3178,15 +2723,6 @@ def: "Telomerase is a ribonucleoprotein enzyme complex, with a minimal catalytic
 subset: goslim_pir
 is_a: GO:0030529 ! ribonucleoprotein complex
 is_a: GO:0044428 ! nuclear part
-
-[Term]
-id: GO:0005698
-name: centromere
-namespace: cellular_component
-def: "OBSOLETE. The region of a eukaryotic chromosome that is attached to the spindle during nuclear division. It is defined genetically as the region of the chromosome that always segregates at the first division of meiosis; the region of the chromosome in which no crossing over occurs. At the start of M phase, each chromosome consists of two sister chromatids with a constriction at a point which forms the centromere. During late prophase two kinetochores assemble on each centromere, one kinetochore on each sister chromatid." [ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]
-comment: This term was made obsolete because it is genetically defined region and not a specific subcellular localization.
-is_obsolete: true
-consider: GO:0000775
 
 [Term]
 id: GO:0005700
@@ -3245,53 +2781,6 @@ def: "A thread-like connection joining two regions of ectopically paired polyten
 synonym: "polytene chromosome ectopic fibre" EXACT []
 is_a: GO:0044427 ! chromosomal part
 relationship: part_of GO:0005700 ! polytene chromosome
-
-[Term]
-id: GO:0005707
-name: interphase chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the cell during interphase of the cell cycle. Chromosomes are usually decondensed during interphase and each long DNA molecule in a chromosome is divided into a large number of discrete domains that are folded differently." [GOC:ai, ISBN:0815316194]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0005694
-
-[Term]
-id: GO:0005708
-name: mitotic chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome involved in the process of mitosis." [GOC:ai]
-comment: This term was made obsolete because it is based on a process.
-is_obsolete: true
-consider: GO:0000793
-consider: GO:0000794
-
-[Term]
-id: GO:0005709
-name: prophase chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the cell during prophase." [GOC:ai]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0005694
-
-[Term]
-id: GO:0005710
-name: metaphase chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome found in the cell during metaphase. Typically, sister chromatids are held together at their centromeres and chromosomes are covered with a large number of molecules, including ribonucleoproteins." [GOC:ai]
-comment: This term was made obsolete because it is based on a temporal division of the cell cycle.
-is_obsolete: true
-consider: GO:0000793
-consider: GO:0000794
-
-[Term]
-id: GO:0005711
-name: meiotic chromosome
-namespace: cellular_component
-def: "OBSOLETE. A chromosome involved in the process of meiosis." [GOC:ai]
-comment: This term was made obsolete because it is based on a process.
-is_obsolete: true
-consider: GO:0000794
 
 [Term]
 id: GO:0005712
@@ -3447,31 +2936,6 @@ synonym: "small nucleolar ribonucleoprotein" EXACT []
 synonym: "snoRNP" EXACT []
 is_a: GO:0030529 ! ribonucleoprotein complex
 is_a: GO:0044452 ! nucleolar part
-
-[Term]
-id: GO:0005733
-name: small nucleolar RNA
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because it represents a gene product.
-synonym: "snoRNA" EXACT []
-is_obsolete: true
-
-[Term]
-id: GO:0005734
-name: box C + D snoRNP protein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
-
-[Term]
-id: GO:0005735
-name: box H + ACA snoRNP protein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
 
 [Term]
 id: GO:0005736
@@ -3658,15 +3122,6 @@ synonym: "proton-transporting ATP synthase, catalytic core (sensu Eukaryota)" EX
 is_a: GO:0044455 ! mitochondrial membrane part
 is_a: GO:0045267 ! proton-transporting ATP synthase, catalytic core
 relationship: part_of GO:0000275 ! mitochondrial proton-transporting ATP synthase complex, catalytic core F(1)
-
-[Term]
-id: GO:0005755
-name: hydrogen-transporting ATP synthase, coupling factor CF(0)
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because more specific terms were created.
-is_obsolete: true
-consider: GO:0045263
 
 [Term]
 id: GO:0005756
@@ -3897,17 +3352,6 @@ is_a: GO:0044439 ! peroxisomal part
 relationship: part_of GO:0005778 ! peroxisomal membrane
 
 [Term]
-id: GO:0005781
-name: peroxisome targeting signal receptor complex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because it represents a single polypeptide rather than a complex; all known peroxisome targeting signal receptors are monomeric.
-is_obsolete: true
-consider: GO:0000268
-consider: GO:0006625
-consider: GO:0044439
-
-[Term]
 id: GO:0005782
 name: peroxisomal matrix
 namespace: cellular_component
@@ -4082,26 +3526,6 @@ is_a: GO:0016023 ! cytoplasmic membrane-bounded vesicle
 is_a: GO:0044431 ! Golgi apparatus part
 
 [Term]
-id: GO:0005799
-name: coatomer
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because its position and synonym implied that it confused a coated vesicle with the coat itself.
-synonym: "COPI vesicle" RELATED []
-is_obsolete: true
-consider: GO:0030126
-consider: GO:0030137
-
-[Term]
-id: GO:0005800
-name: COPII vesicle
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology suggested that a new term was required.
-is_obsolete: true
-consider: GO:0030134
-
-[Term]
 id: GO:0005801
 name: cis-Golgi network
 namespace: cellular_component
@@ -4123,72 +3547,6 @@ synonym: "maturing face" RELATED []
 synonym: "TGN" EXACT []
 synonym: "trans Golgi network" EXACT []
 is_a: GO:0044431 ! Golgi apparatus part
-
-[Term]
-id: GO:0005803
-name: secretory vesicle
-namespace: cellular_component
-def: "OBSOLETE. A small subcellular vesicle, or granule, surrounded by a single-layered membrane; formed from the Golgi apparatus and contains a highly concentrated protein destined for secretion." [ISBN:0198547684]
-comment: This term was made obsolete because it was being used to describe two different components.
-synonym: "transition vesicle" NARROW []
-is_obsolete: true
-consider: GO:0030133
-consider: GO:0030141
-
-[Term]
-id: GO:0005804
-name: secretory vesicle membrane
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because its parent was made obsolete.
-is_obsolete: true
-consider: GO:0030658
-consider: GO:0030667
-
-[Term]
-id: GO:0005805
-name: ER-Golgi transport vesicle
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology suggested that a new term was required.
-is_obsolete: true
-consider: GO:0030134
-
-[Term]
-id: GO:0005806
-name: Golgi-ER transport vesicle
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology suggested that a new term was required.
-is_obsolete: true
-consider: GO:0030142
-
-[Term]
-id: GO:0005808
-name: Golgi-plasma membrane transport vesicle
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; a personal communication from John Armstrong indicated that a replacement term was not required, as TGN-Golgi transport is likely to be mediated by tubules rather than vesicles.
-is_obsolete: true
-consider: GO:0030133
-
-[Term]
-id: GO:0005809
-name: Golgi-vacuole transport vesicle
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology suggested that a new term was required.
-is_obsolete: true
-consider: GO:0030133
-
-[Term]
-id: GO:0005810
-name: endocytotic transport vesicle
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology suggested that a new term was required.
-is_obsolete: true
-replaced_by: GO:0030139
 
 [Term]
 id: GO:0005811
@@ -4242,14 +3600,6 @@ namespace: cellular_component
 def: "The microtubule organizing center in fungi; functionally homologous to the animal cell centrosome." [ISBN:0879693568]
 is_a: GO:0005815 ! microtubule organizing center
 relationship: part_of GO:0000922 ! spindle pole
-
-[Term]
-id: GO:0005817
-name: centrosomal mitotic factor
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:clt]
-comment: This term was made obsolete because it was not defined.
-is_obsolete: true
 
 [Term]
 id: GO:0005818
@@ -4420,15 +3770,6 @@ def: "A protein complex that possesses fatty-acyl-CoA synthase activity." [BREND
 comment: Note that fatty acid synthetases of vertebrates and yeast are stable enzyme complexes of multifunctional polypeptide chains, whereas the fatty acid synthetases of plants and E. coli consist of non-associated individual enzymes.
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044445 ! cytosolic part
-
-[Term]
-id: GO:0005837
-name: 26S proteasome
-namespace: cellular_component
-def: "OBSOLETE. A large multisubunit protease found in the cytosol that recognizes, unfolds, and digests protein substrates that have been marked for degradation by the attachment of a ubiquitin moiety. Individual subcomplexes of the complete 26S proteasome are involved in these different tasks: the ATP-dependent 19S caps are believed to unfold substrates and feed them to the actual protease, the 20S proteasome." [PMID:10410804]
-comment: This term was made obsolete because its definition was inaccurate.
-is_obsolete: true
-consider: GO:0000502
 
 [Term]
 id: GO:0005838
@@ -4810,15 +4151,6 @@ is_a: GO:0016021 ! integral to membrane
 is_a: GO:0031226 ! intrinsic to plasma membrane
 
 [Term]
-id: GO:0005888
-name: proteoglycan integral to plasma membrane
-namespace: cellular_component
-def: "OBSOLETE. Penetrating at least one phospholipid bilayer of a plasma membrane and consisting of proteoglycan. Also refers to the state of being buried in the bilayer with no exposure outside the bilayer." [GOC:go_curators]
-comment: This term was made obsolete because it describes the composition (i.e. proteoglycan) and not the location of a gene product.
-is_obsolete: true
-replaced_by: GO:0005887
-
-[Term]
 id: GO:0005889
 name: hydrogen:potassium-exchanging ATPase complex
 namespace: cellular_component
@@ -4974,36 +4306,6 @@ name: coated pit
 namespace: cellular_component
 def: "An invagination of the cell membrane of many eukaryotic cells, concerned in receptor-mediated selective transport of many proteins and other macromolecules across the cell membrane. During endocytosis it is converted into a coated vesicle. The coat is of clathrin." [ISBN:0198506732 "Oxford Dictionary of Biochemistry and Molecular Biology"]
 is_a: GO:0044459 ! plasma membrane part
-
-[Term]
-id: GO:0005906
-name: clathrin adaptor
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because it was positioned incorrectly, so the replacement term has a definition different from what this term appeared to mean.
-synonym: "adaptin" RELATED []
-is_obsolete: true
-replaced_by: GO:0030119
-
-[Term]
-id: GO:0005907
-name: HA1 clathrin adaptor
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology was erroneous.
-synonym: "AP1" RELATED []
-is_obsolete: true
-consider: GO:0030121
-
-[Term]
-id: GO:0005908
-name: HA2 clathrin adaptor
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete as part of a general reorganization of vesicle and vesicle coat terms; its position in the ontology was erroneous.
-synonym: "AP2" RELATED []
-is_obsolete: true
-consider: GO:0030122
 
 [Term]
 id: GO:0005911
@@ -5219,16 +4521,6 @@ is_a: GO:0030427 ! site of polarized growth
 relationship: part_of GO:0005933 ! cellular bud
 
 [Term]
-id: GO:0005936
-name: shmoo
-namespace: cellular_component
-def: "OBSOLETE. The characteristic projection formed in response to mating pheromone by cells of Saccharomyces and other fungi with similar life cycles. Named after the Al Capp cartoon character, whose shape it resembles." [GOC:mah, GOC:mcc]
-comment: This term was made obsolete because it represents a type of whole cell rather than a cellular component. To update annotations, consider the external ontology term 'shmoo ; FAO:0001023'.
-is_obsolete: true
-consider: GO:0001400
-consider: GO:0005937
-
-[Term]
 id: GO:0005937
 name: mating projection
 namespace: cellular_component
@@ -5259,14 +4551,6 @@ synonym: "septin ring (sensu Fungi)" NARROW []
 is_a: GO:0032156 ! septin cytoskeleton
 is_a: GO:0044430 ! cytoskeletal part
 is_a: GO:0044448 ! cell cortex part
-
-[Term]
-id: GO:0005941
-name: unlocalized protein complex
-namespace: cellular_component
-def: "OBSOLETE. Used as a holding place for cellular components whose precise localization is, as yet, unknown, or has not been determined by GO (the latter is the major reason for nodes to have this parent); this term should not be used for annotation of gene products." [GOC:ma]
-comment: This term was made obsolete because it was originally intended only as a temporary parent for protein complex terms for which no more specific parents had been found. This term no longer has any children: All protein complex terms are is_a 'protein complex ; GO:0043234' and nearly all have been placed under parents to yield more specific paths traversing a part_of relationship. In other words, the term has been superseded by other terms and relationships in the cellular component ontology, and is no longer needed.
-is_obsolete: true
 
 [Term]
 id: GO:0005942
@@ -5344,14 +4628,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044444 ! cytoplasmic part
 
 [Term]
-id: GO:0005949
-name: aminoadipate-semialdehyde dehydrogenase complex
-namespace: cellular_component
-def: "OBSOLETE. A heterodimeric enzyme composed of an alpha and beta subunit. Catalyzes the formation of L-2-aminoadipate from L-2-aminoadipate 6-semialdehyde." [EC:1.2.1.31, UniProtKB:Q12572]
-comment: This term was made obsolete because the catalytic activity resides in a single polypeptide that is not part of a complex with other gene products.
-is_obsolete: true
-
-[Term]
 id: GO:0005950
 name: anthranilate synthase complex
 namespace: cellular_component
@@ -5424,15 +4700,6 @@ comment: Note that this term represents a location and not a function; the activ
 synonym: "casein kinase II complex" EXACT []
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044424 ! intracellular part
-
-[Term]
-id: GO:0005957
-name: debranching enzyme
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it is ambiguous (there are several debranching enzymes) and because it probably represents the glycogen debranching enzyme which is a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0043033
 
 [Term]
 id: GO:0005958
@@ -5547,36 +4814,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044444 ! cytoplasmic part
 
 [Term]
-id: GO:0005972
-name: fibrinogen alpha chain
-namespace: cellular_component
-alt_id: GO:0008005
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0005577
-
-[Term]
-id: GO:0005973
-name: fibrinogen beta chain
-namespace: cellular_component
-alt_id: GO:0008006
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0005577
-
-[Term]
-id: GO:0005974
-name: fibrinogen gamma chain
-namespace: cellular_component
-alt_id: GO:0008007
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0005577
-
-[Term]
 id: GO:0008002
 name: lamina lucida
 namespace: cellular_component
@@ -5602,15 +4839,6 @@ def: "A layer of the basal lamina that contains collagen fibrils and connects th
 is_a: GO:0044420 ! extracellular matrix part
 is_a: GO:0044421 ! extracellular region part
 relationship: part_of GO:0005605 ! basal lamina
-
-[Term]
-id: GO:0008008
-name: membrane attack complex protein beta2 chain
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0005579
 
 [Term]
 id: GO:0008021
@@ -5643,15 +4871,6 @@ namespace: cellular_component
 def: "A iron-storing protein complex, which in humans has 24 subunits. There are two different ferritin subunits, the L (light) chain and H (heavy) chain." [GOC:jl, UniProtKB:P02792]
 is_a: GO:0043234 ! protein complex
 is_a: GO:0044424 ! intracellular part
-
-[Term]
-id: GO:0008051
-name: farnesyl-diphosphate farnesyl transferase complex
-namespace: cellular_component
-def: "OBSOLETE. A complex that possesses farnesyl-diphosphate farnesyl transferase activity." [GOC:mah]
-comment: This term was made obsolete because there is no evidence that this enzyme ever exists as anything other than a monomer.
-is_obsolete: true
-consider: GO:0004310
 
 [Term]
 id: GO:0008074
@@ -5727,16 +4946,6 @@ namespace: cellular_component
 def: "A protein complex consisting of a heterodimer of Ecdysone receptor (EcR) and ultraspiracle (usp) bound to the ligand ecdysone, which activates transcription of target genes." [PMID:10488333]
 synonym: "activator ecdysone receptor holocomplex" RELATED []
 is_a: GO:0008230 ! ecdysone receptor holocomplex
-
-[Term]
-id: GO:0008245
-name: lysosomal membrane hydrogen-transporting ATPase
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because more specific terms were created.
-synonym: "V-ATPase" RELATED []
-is_obsolete: true
-consider: GO:0046611
 
 [Term]
 id: GO:0008247
@@ -5837,16 +5046,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044445 ! cytosolic part
 
 [Term]
-id: GO:0008304
-name: eukaryotic translation initiation factor 4 complex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because more specific terms were created.
-synonym: "eIF-4" EXACT []
-is_obsolete: true
-replaced_by: GO:0016281
-
-[Term]
 id: GO:0008305
 name: integrin complex
 namespace: cellular_component
@@ -5875,14 +5074,6 @@ comment: Consider also annotating to the molecular function term 'microtubule-se
 is_a: GO:0005875 ! microtubule associated complex
 is_a: GO:0044450 ! microtubule organizing center part
 relationship: part_of GO:0005813 ! centrosome
-
-[Term]
-id: GO:0008370
-name: obsolete cellular component
-namespace: cellular_component
-def: "OBSOLETE. These are terms that have been removed from the active component ontology." [GOC:go_curators]
-comment: This term was made obsolete because it is unnecessary in the OBO flat file format.
-is_obsolete: true
 
 [Term]
 id: GO:0008385
@@ -5992,15 +5183,6 @@ synonym: "chitin-containing cell wall" RELATED []
 is_a: GO:0005618 ! cell wall
 
 [Term]
-id: GO:0009278
-name: murein sacculus
-namespace: cellular_component
-def: "OBSOLETE. A peptidoglycan polymer that forms the shape-determining structure of the cell all of Gram-negative bacteria." [GOC:ma]
-comment: This term was made obsolete because it was defined inaccurately.
-is_obsolete: true
-consider: GO:0009276
-
-[Term]
 id: GO:0009279
 name: cell outer membrane
 namespace: cellular_component
@@ -6012,16 +5194,6 @@ synonym: "outer membrane of cell" EXACT []
 is_a: GO:0019867 ! outer membrane
 is_a: GO:0044462 ! external encapsulating structure part
 relationship: part_of GO:0030313 ! cell envelope
-
-[Term]
-id: GO:0009280
-name: cell wall inner membrane
-namespace: cellular_component
-def: "OBSOLETE. In Gram-negative bacteria the membrane that separates the cytoplasm from the murein sacculus." [GOC:ma]
-comment: This term was made obsolete because it was defined inaccurately.
-synonym: "cytoplasmic membrane" BROAD []
-is_obsolete: true
-consider: GO:0009276
 
 [Term]
 id: GO:0009288
@@ -6228,16 +5400,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044464 ! cell part
 
 [Term]
-id: GO:0009335
-name: holo-[acyl-carrier protein] synthase complex
-namespace: cellular_component
-def: "OBSOLETE. An enzyme complex that catalyzes the formation of holo-[acyl-carrier protein] from CoA and apo-[acyl-carrier protein]." [EC:2.7.8.7]
-comment: This term was made obsolete because the catalytic activity resides in a single polypeptide rather than a complex, and the complex is represented by a different GO term.
-synonym: "holo-ACP synthase complex" EXACT []
-is_obsolete: true
-consider: GO:0005835
-
-[Term]
 id: GO:0009336
 name: sulfate adenylyltransferase complex (ATP)
 namespace: cellular_component
@@ -6375,26 +5537,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044424 ! intracellular part
 
 [Term]
-id: GO:0009351
-name: dihydrolipoamide S-acyltransferase complex
-namespace: cellular_component
-def: "OBSOLETE. An enzyme complex that catalyzes the transfer of an acyl group from coenzyme A to dihydrolipoamide." [EC:2.3.1.12]
-comment: This term was made obsolete because dihydrolipoamide S-acyltransferase activity resides in a single polypeptide.
-is_obsolete: true
-
-[Term]
-id: GO:0009352
-name: dihydrolipoyl dehydrogenase complex
-namespace: cellular_component
-def: "OBSOLETE. Complex that possesses dihydrolipoyl dehydrogenase activity." [GOC:mah]
-comment: This term was made obsolete because the activity dihydrolipoamide dehydrogenase is held by a single protein (Lpd1 in yeast), which is one of the components of three different complexes: 2-oxoglutarate dehydrogenase, pyruvate dehydrogenase, and branch chain amino acid dehydrogenase, so dihydrolipoamide dehydrogenase is not a complex itself.
-synonym: "dihydrolipoamide dehydrogenase complex" EXACT []
-is_obsolete: true
-consider: GO:0004148
-consider: GO:0045240
-consider: GO:0045254
-
-[Term]
 id: GO:0009353
 name: mitochondrial oxoglutarate dehydrogenase complex
 namespace: cellular_component
@@ -6404,15 +5546,6 @@ synonym: "oxoglutarate dehydrogenase complex (sensu Eukaryota)" EXACT []
 is_a: GO:0044429 ! mitochondrial part
 is_a: GO:0045252 ! oxoglutarate dehydrogenase complex
 relationship: part_of GO:0005759 ! mitochondrial matrix
-
-[Term]
-id: GO:0009354
-name: dihydrolipoamide S-succinyltransferase complex
-namespace: cellular_component
-def: "OBSOLETE. An enzyme complex that catalyzes the transfer of succinyl-CoA to dihydrolipoamide to form S-succinyldihydrolipoamide. The enzyme is a component of the multienzyme 2-oxoglutarate dehydrogenase complex." [EC:2.3.1.61]
-comment: This term was made obsolete because dihydrolipoamide S-succinyltransferase itself is not a complex, it is a component of the 2-oxoglutarate dehydrogenase complex, the activity dihydrolipoamide S-succinyltransferase is contained in a single polypeptide.
-is_obsolete: true
-consider: GO:0045252
 
 [Term]
 id: GO:0009355
@@ -6572,15 +5705,6 @@ is_a: GO:0043234 ! protein complex
 is_a: GO:0044464 ! cell part
 
 [Term]
-id: GO:0009417
-name: fimbrin
-namespace: cellular_component
-def: "OBSOLETE. A class of proteins that are the subunit components of fimbria." [ISBN:0914826859]
-comment: This term was made obsolete because it represents a class of gene products.
-is_obsolete: true
-replaced_by: GO:0009289
-
-[Term]
 id: GO:0009418
 name: fimbrial shaft
 namespace: cellular_component
@@ -6730,15 +5854,6 @@ name: amyloplast
 namespace: cellular_component
 def: "A plastid whose main function is to synthesize and store starch." [ISBN:0140514031]
 is_a: GO:0009536 ! plastid
-
-[Term]
-id: GO:0009502
-name: photosynthetic electron transport chain
-namespace: cellular_component
-def: "OBSOLETE. A series of membrane-linked oxidation-reduction reactions in which electrons are transferred from an initial electron donor through a series of intermediates to a final electron acceptor (usually oxygen)." [GOC:mtg_electron_transport, ISBN:014051403]
-comment: This term was obsoleted because it represents a process.
-is_obsolete: true
-consider: GO:0009767
 
 [Term]
 id: GO:0009503
@@ -7249,16 +6364,6 @@ synonym: "photosynthetic membrane" RELATED []
 is_a: GO:0034357 ! photosynthetic membrane
 
 [Term]
-id: GO:0009580
-name: thylakoid (sensu Bacteria)
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:go_curators]
-comment: This term was made obsolete because more specific children exist.
-is_obsolete: true
-consider: GO:0030075
-consider: GO:0042716
-
-[Term]
 id: GO:0009654
 name: oxygen evolving complex
 namespace: cellular_component
@@ -7339,15 +6444,6 @@ namespace: cellular_component
 def: "The antenna complex of photosystem II. A photosystem has two closely linked components, an antenna containing light-absorbing pigments and a reaction center. Each antenna contains one or more light-harvesting complexes (LHCs)." [GOC:jic, ISBN:0716731363]
 is_a: GO:0043234 ! protein complex
 relationship: part_of GO:0009523 ! photosystem II
-
-[Term]
-id: GO:0009839
-name: SCF complex substrate recognition subunit
-namespace: cellular_component
-def: "OBSOLETE. The portion of the SCF ubiquitin ligase complex that contains sites required for recognition (and recruitment) of the substrate to the complex." [PMID:11790542, PMID:9857172]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-replaced_by: GO:0019005
 
 [Term]
 id: GO:0009840
@@ -8151,15 +7247,6 @@ def: "The membranes on the sides of epithelial cells which lie at the interface 
 is_a: GO:0044459 ! plasma membrane part
 
 [Term]
-id: GO:0016341
-name: other collagen
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:ai]
-comment: This term was made obsolete because it is a redundant grouping term.
-is_obsolete: true
-replaced_by: GO:0005581
-
-[Term]
 id: GO:0016342
 name: catenin complex
 namespace: cellular_component
@@ -8562,15 +7649,6 @@ def: "An enzyme complex that catalyzes the removal of the phosphate group from p
 is_a: GO:0008287 ! protein serine/threonine phosphatase complex
 
 [Term]
-id: GO:0017052
-name: insulin-like growth factor binding protein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0016942
-
-[Term]
 id: GO:0017053
 name: transcriptional repressor complex
 namespace: cellular_component
@@ -8743,15 +7821,6 @@ synonym: "host organism" EXACT []
 is_a: GO:0043245 ! extraorganismal space
 
 [Term]
-id: GO:0018998
-name: metaxin
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a single gene product and not a complex.
-is_obsolete: true
-consider: GO:0005741
-
-[Term]
 id: GO:0019005
 name: SCF ubiquitin ligase complex
 namespace: cellular_component
@@ -8919,15 +7988,6 @@ def: "The lipid bilayer and associated glycoproteins that surround many types of
 synonym: "viral glycoprotein" RELATED []
 synonym: "viral membrane" EXACT []
 is_a: GO:0044423 ! virion part
-
-[Term]
-id: GO:0019032
-name: viral glycoprotein
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a type of gene product and not a location or complex.
-is_obsolete: true
-consider: GO:0019031
 
 [Term]
 id: GO:0019033
@@ -9098,15 +8158,6 @@ is_a: GO:0019814 ! immunoglobulin complex
 is_a: GO:0043235 ! receptor complex
 is_a: GO:0044459 ! plasma membrane part
 relationship: part_of GO:0001772 ! immunological synapse
-
-[Term]
-id: GO:0019816
-name: B cell receptor accessory molecule complex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:jl]
-comment: This term was made obsolete because it represents a molecule and not a location or complex.
-is_obsolete: true
-consider: GO:0019815
 
 [Term]
 id: GO:0019819
@@ -9669,34 +8720,6 @@ is_a: GO:0045239 ! tricarboxylic acid cycle enzyme complex
 relationship: part_of GO:0005759 ! mitochondrial matrix
 
 [Term]
-id: GO:0030063
-name: murein sacculus
-namespace: cellular_component
-def: "OBSOLETE. A structure formed of the cross-linked polymer peptidoglycan (also called murein) that forms a covalently closed net around a bacterial cell, and imparts structural stability to the bacterial cell wall." [GOC:mah, PMID:9529891]
-comment: This term was made obsolete because it was defined inaccurately.
-synonym: "peptidoglycan layer" EXACT []
-is_obsolete: true
-consider: GO:0009276
-
-[Term]
-id: GO:0030064
-name: cell wall inner membrane
-namespace: cellular_component
-def: "OBSOLETE. The peptidoglycan layer of the cell wall of Gram-negative bacteria." [ISBN:0135712254]
-comment: This term was made obsolete because it was defined inaccurately.
-is_obsolete: true
-consider: GO:0009276
-
-[Term]
-id: GO:0030074
-name: thylakoid (sensu Proteobacteria)
-namespace: cellular_component
-def: "OBSOLETE. A thylakoid; as in, but not restricted to, the purple bacteria and relatives (Proteobacteria, ncbi_taxonomy_id:1224)." [GOC:mah]
-comment: This term was made obsolete because thylakoids are not found in organisms of the Phylum Proteobacteria.
-is_obsolete: true
-consider: GO:0042716
-
-[Term]
 id: GO:0030075
 name: plasma membrane-derived thylakoid
 namespace: cellular_component
@@ -9806,33 +8829,6 @@ is_a: GO:0044425 ! membrane part
 is_a: GO:0044434 ! chloroplast part
 is_a: GO:0044436 ! thylakoid part
 relationship: part_of GO:0009656 ! PSII associated light-harvesting complex II, peripheral complex
-
-[Term]
-id: GO:0030086
-name: PSII associated light-harvesting complex II, core complex, LHCIIa subcomplex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because the 'complex' it refers to contains only one gene product.
-is_obsolete: true
-replaced_by: GO:0009655
-
-[Term]
-id: GO:0030087
-name: PSII associated light-harvesting complex II, core complex, LHCIIc subcomplex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because the 'complex' it refers to contains only one gene product.
-is_obsolete: true
-replaced_by: GO:0009655
-
-[Term]
-id: GO:0030088
-name: PSII associated light-harvesting complex II, core complex, LHCIId subcomplex
-namespace: cellular_component
-def: "OBSOLETE (was not defined before being made obsolete)." [GOC:mah]
-comment: This term was made obsolete because the 'complex' it refers to contains only one gene product.
-is_obsolete: true
-replaced_by: GO:0009655
 
 [Term]
 id: GO:0030089
@@ -10442,16 +9438,6 @@ def: "A long bundle of actin filaments, comprising filamentous actin and associa
 synonym: "actin cable (sensu Fungi)" EXACT []
 synonym: "actin cable (sensu Saccharomyces)" EXACT []
 is_a: GO:0032432 ! actin filament bundle
-
-[Term]
-id: GO:0030484
-name: muscle fiber
-namespace: cellular_component
-def: "OBSOLETE. The contractile fibers, composed of actin, myosin, and associated proteins, found in cells of smooth or striated muscle." [GOC:mah, ISBN:0815316194]
-comment: This term was made obsolete because a muscle fiber is a cell type rather than a cell component.
-synonym: "muscle fibre" EXACT []
-is_obsolete: true
-replaced_by: GO:0043292
 
 [Term]
 id: GO:0030485
@@ -13977,14 +12963,6 @@ def: "Arrays of septin filaments, or bars, found in a series of filamentous stru
 is_a: GO:0032160 ! septin filament array
 
 [Term]
-id: GO:0032167
-name: septin patch
-namespace: cellular_component
-def: "OBSOLETE. An amorphous-appearing accumulation of septin proteins at the future site of cytokinesis." [PMID:16009555]
-comment: This term was made obsolete because it was added in error; it does not refer to a normal subcellular structure.
-is_obsolete: true
-
-[Term]
 id: GO:0032168
 name: hyphal septin ring
 namespace: cellular_component
@@ -16979,17 +15957,6 @@ synonym: "germ-cell nucleus" EXACT []
 is_a: GO:0005634 ! nucleus
 
 [Term]
-id: GO:0043075
-name: sperm cell nucleus (sensu Magnoliophyta)
-namespace: cellular_component
-def: "OBSOLETE. The nucleus of a plant pollen cell, the male gamete, and its descendents." [GOC:jl]
-comment: This term was made obsolete because the definition was incorrect.
-synonym: "pollen germ cell nucleus" EXACT []
-synonym: "pollen germ-cell nucleus" EXACT []
-is_obsolete: true
-consider: GO:0048555
-
-[Term]
 id: GO:0043076
 name: megasporocyte nucleus
 namespace: cellular_component
@@ -18579,26 +17546,6 @@ synonym: "basic/neutral keratin" RELATED []
 is_a: GO:0005882 ! intermediate filament
 
 [Term]
-id: GO:0045096
-name: acidic keratin
-namespace: cellular_component
-def: "OBSOLETE. A type of intermediate filament." [ISBN:0716731363, ISBN:0815316194]
-comment: This term was made obsolete because it represents a gene product.
-synonym: "type I intermediate filament" EXACT []
-is_obsolete: true
-replaced_by: GO:0045095
-
-[Term]
-id: GO:0045097
-name: basic/neutral keratin
-namespace: cellular_component
-def: "OBSOLETE. A type of intermediate filament." [ISBN:0716731363, ISBN:0815316194]
-comment: This term was made obsolete because it represents a gene product.
-synonym: "type II intermediate filament" EXACT []
-is_obsolete: true
-replaced_by: GO:0045095
-
-[Term]
 id: GO:0045098
 name: type III intermediate filament
 namespace: cellular_component
@@ -18609,43 +17556,6 @@ synonym: "peripherin" NARROW []
 synonym: "type III intermediate filament associated protein" NARROW []
 synonym: "vimentin" NARROW []
 is_a: GO:0005882 ! intermediate filament
-
-[Term]
-id: GO:0045099
-name: vimentin
-namespace: cellular_component
-def: "OBSOLETE. A type of intermediate filament." [ISBN:0716731363]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
-replaced_by: GO:0045098
-
-[Term]
-id: GO:0045100
-name: desmin
-namespace: cellular_component
-def: "OBSOLETE. A type of intermediate filament." [ISBN:0815316194]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
-consider: GO:0045098
-
-[Term]
-id: GO:0045101
-name: glial fibrillary acidic protein
-namespace: cellular_component
-def: "OBSOLETE. Glial fibrillary acidic protein forms filaments in the glial cells that surround neurons and in astrocytes." [ISBN:0716731363]
-comment: This term was made obsolete because it represents a gene product.
-synonym: "GFAP" EXACT []
-is_obsolete: true
-consider: GO:0045098
-
-[Term]
-id: GO:0045102
-name: peripherin
-namespace: cellular_component
-def: "OBSOLETE. Peripherin is a type III intermediate filament protein found in neurons of the peripheral nervous system." [ISBN:0716731363]
-comment: This term was made obsolete because it represents a gene product.
-is_obsolete: true
-consider: GO:0045098
 
 [Term]
 id: GO:0045111
