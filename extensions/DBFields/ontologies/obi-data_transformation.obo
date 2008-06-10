@@ -1,0 +1,750 @@
+format-version: 1.2
+idspace: bfo http://www.ifomis.org/bfo/1.1# ""
+idspace: cell http://purl.org/obo/owl/CL# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: dcterms http://purl.org/dc/terms/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: OBI:annot obi/AnnotationProperty.owl# ""
+idspace: OBI:biomat obi/Biomaterial.owl# ""
+idspace: OBI:data_trans obi/DataTransformation.owl# ""
+idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
+idspace: OBI:ext obi/external.owl# ""
+idspace: OBI:extd obi/externalDerived.owl# ""
+idspace: OBI:func obi/OBI-Function.owl# ""
+idspace: OBI:instr obi/InstrumentAndPart.owl# ""
+idspace: OBI:obsolete obi/Obsolete.owl# ""
+idspace: OBI:owlfull obi/obi-owl-full.owl# ""
+idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
+idspace: OBI:quality obi/Quality.owl# ""
+idspace: OBI:rel obi/Relations.owl# ""
+idspace: OBI:rest obi/TheRest.owl# ""
+idspace: OBI:role obi/Role.owl# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: pato http://purl.org/obo/owl/PATO# ""
+idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: ro http://www.obofoundry.org/ro/ro.owl# ""
+idspace: robfo http://purl.org/obo/owl/ro_bfo_bridge/1.1# ""
+idspace: rotoo http://purl.org/obo/owl/ro# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.1/span# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+
+[Term]
+id: OBI:0200000
+name: data transformation
+
+[Term]
+id: OBI:0200002
+name: logistic-log curve fitting
+is_a: OBI:0200072  ! curve fitting
+
+[Term]
+id: OBI:0200003
+name: logit-log curve fitting
+is_a: OBI:0200072  ! curve fitting
+
+[Term]
+id: OBI:0200004
+name: log-log curve fitting
+is_a: OBI:0200072  ! curve fitting
+
+[Term]
+id: OBI:0200005
+name: feature extraction
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200006
+name: biexponential transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200007
+name: box-cox transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200008
+name: hyperlog transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200009
+name: background correction
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200010
+name: loess scale group transformation one-channel
+is_a: OBI:0200025  ! loess scale group transformation
+
+[Term]
+id: OBI:0200011
+name: logicle transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200012
+name: loess scale group transformation two-channel
+is_a: OBI:0200025  ! loess scale group transformation
+
+[Term]
+id: OBI:0200013
+name: loess global transformation one-channel
+is_a: OBI:0200023  ! loess global transformation
+
+[Term]
+id: OBI:0200014
+name: split-scale transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200015
+name: loess global transformation two-channel
+is_a: OBI:0200023  ! loess global transformation
+
+[Term]
+id: OBI:0200016
+name: sine transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200017
+name: cosine transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200018
+name: loess group transformation one-channel
+is_a: OBI:0200024  ! loess group transformation
+
+[Term]
+id: OBI:0200019
+name: loess group transformation two-channel
+is_a: OBI:0200024  ! loess group transformation
+
+[Term]
+id: OBI:0200020
+name: homogeneous polynomial transformation
+is_a: OBI:0200093  ! polynomial transformation
+
+[Term]
+id: OBI:0200021
+name: linlog transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200022
+name: variance stabilizing transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200023
+name: loess global transformation
+is_a: OBI:0200071  ! loess transformation
+
+[Term]
+id: OBI:0200024
+name: loess group transformation
+is_a: OBI:0200071  ! loess transformation
+
+[Term]
+id: OBI:0200025
+name: loess scale group transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200026
+name: total intensity transformation single
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200027
+name: total intensity transformation paired
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200028
+name: quantile transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200029
+name: mean centering
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200030
+name: median centering
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200031
+name: differential expression analysis
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200032
+name: K-fold cross validation method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200033
+name: leave one out cross validation method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200034
+name: jackknifing method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200035
+name: boostrapping
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200036
+name: Benjamini and Hochberg false discovery rate correction method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200037
+name: pareto scaling
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200039
+name: clustering method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200040
+name: modular decomposition
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200041
+name: k-means clustering
+is_a: OBI:0200039  ! clustering method
+
+[Term]
+id: OBI:0200042
+name: hierarchical clustering
+is_a: OBI:0200039  ! clustering method
+
+[Term]
+id: OBI:0200043
+name: average linkage
+is_a: OBI:0200042  ! hierarchical clustering
+
+[Term]
+id: OBI:0200044
+name: complete linkage
+is_a: OBI:0200042  ! hierarchical clustering
+
+[Term]
+id: OBI:0200045
+name: simple linkage
+is_a: OBI:0200042  ! hierarchical clustering
+
+[Term]
+id: OBI:0200046
+name: projection
+is_a: OBI:0200050  ! dimensionality reduction
+
+[Term]
+id: OBI:0200049
+name: Benjamini and Yekutieli false discovery rate correction method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200050
+name: dimensionality reduction
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200051
+name: principal components analysis dimensionality reduction
+is_a: OBI:0200050  ! dimensionality reduction
+
+[Term]
+id: OBI:0200052
+name: probabilistic algorithm
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200053
+name: expectation maximization
+is_a: OBI:0200052  ! probabilistic algorithm
+
+[Term]
+id: OBI:0200054
+name: global modularity calculation
+is_a: OBI:0200147  ! network graph quality calculation
+
+[Term]
+id: OBI:0200055
+name: dye swap merge
+is_a: OBI:0200057  ! replicate analysis
+
+[Term]
+id: OBI:0200056
+name: moving average
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200057
+name: replicate analysis
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200058
+name: b cell epitope prediction
+is_a: OBI:0200081  ! sequence analysis
+
+[Term]
+id: OBI:0200059
+name: mhc binding prediction
+is_a: OBI:0200081  ! sequence analysis
+
+[Term]
+id: OBI:0200060
+name: t cell epitope prediction
+is_a: OBI:0200081  ! sequence analysis
+
+[Term]
+id: OBI:0200061
+name: data imputation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200062
+name: continuum mass spectrum
+is_a: OBI:0200085  ! mass spectrometry analysis
+
+[Term]
+id: OBI:0200063
+name: characteristic path length calculation
+is_a: OBI:0200085  ! mass spectrometry analysis
+
+[Term]
+id: OBI:0200064
+name: centroid mass spectrun
+is_a: OBI:0200085  ! mass spectrometry analysis
+
+[Term]
+id: OBI:0200066
+name: Holm false discovery rate correction method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200067
+name: _unclassified
+comment: this class should be removed
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200070
+name: edge weighting
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200071
+name: loess transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200072
+name: curve fitting
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200073
+name: family wise error rate correction method
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200074
+name: submatrix extraction
+is_a: OBI:0200046  ! projection
+
+[Term]
+id: OBI:0200075
+name: row submatrix extraction
+is_a: OBI:0200074  ! submatrix extraction
+
+[Term]
+id: OBI:0200076
+name: column submatrix extraction
+is_a: OBI:0200074  ! submatrix extraction
+
+[Term]
+id: OBI:0200077
+name: gating
+is_a: OBI:0200046  ! projection
+
+[Term]
+id: OBI:0200078
+name: descriptive statistics calculation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200079
+name: mean calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200080
+name: network analysis
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200081
+name: sequence analysis
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200082
+name: longitudinal data analysis
+comment: longitudinal data analysis
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200083
+name: survival analysis
+is_a: OBI:0200082  ! longitudinal data analysis
+
+[Term]
+id: OBI:0200084
+name: time series analysis
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200085
+name: mass spectrometry analysis
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200088
+name: Kaplan Meier
+is_a: OBI:0200082  ! longitudinal data analysis
+
+[Term]
+id: OBI:0200089
+name: multiple testing correction
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200090
+name: multiple comparison adjustments
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200091
+name: inter-rater agreement
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200092
+name: Westfall and Young family wise error rate correction
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200093
+name: polynomial transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200094
+name: logarithmic transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200095
+name: exponential transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200096
+name: spectral integration with user-controlled baseline correction
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200097
+name: non-negative matrix factorization
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200098
+name: soft independent modeling of class analogy analysis
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200099
+name: discriminant function analysis
+is_a: OBI:0200106  ! discriminant analysis
+
+[Term]
+id: OBI:0200100
+name: canonical variate analysis
+is_a: OBI:0200106  ! discriminant analysis
+
+[Term]
+id: OBI:0200101
+name: linear discriminant functional analysis
+is_a: OBI:0200106  ! discriminant analysis
+
+[Term]
+id: OBI:0200102
+name: regression analysis method
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200103
+name: multiple linear regression analysis
+is_a: OBI:0200102  ! regression analysis method
+
+[Term]
+id: OBI:0200104
+name: principal component regression
+is_a: OBI:0200102  ! regression analysis method
+
+[Term]
+id: OBI:0200105
+name: partial least square regression analysis
+is_a: OBI:0200102  ! regression analysis method
+
+[Term]
+id: OBI:0200106
+name: discriminant analysis
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200107
+name: partial least square discriminant analysis
+is_a: OBI:0200106  ! discriminant analysis
+
+[Term]
+id: OBI:0200108
+name: eh transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200109
+name: b transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200110
+name: s transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200111
+name: visualization
+
+[Term]
+id: OBI:0200112
+name: MA plotting
+is_a: OBI:0200111  ! visualization
+
+[Term]
+id: OBI:0200113
+name: similarity calculation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200114
+name: euclidean distance calculation
+is_a: OBI:0200113  ! similarity calculation
+
+[Term]
+id: OBI:0200115
+name: pearson correlation coefficient calculation
+is_a: OBI:0200113  ! similarity calculation
+
+[Term]
+id: OBI:0200116
+name: loess fitting
+is_a: OBI:0200072  ! curve fitting
+
+[Term]
+id: OBI:0200117
+name: mode calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200118
+name: quantile calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200119
+name: median calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200120
+name: variance calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200121
+name: standard deviation calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200122
+name: interquartile-range calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200123
+name: skewness calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200124
+name: kurtosis calculation
+is_a: OBI:0200078  ! descriptive statistics calculation
+
+[Term]
+id: OBI:0200125
+name: data pooling
+is_a: OBI:0200067  ! _unclassified
+
+[Term]
+id: OBI:0200126
+name: network graph construction
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200127
+name: weighted network graph construction
+is_a: OBI:0200126  ! network graph construction
+
+[Term]
+id: OBI:0200128
+name: directed network graph construction
+is_a: OBI:0200126  ! network graph construction
+
+[Term]
+id: OBI:0200129
+name: node quality calculation
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200130
+name: node degree calculation
+is_a: OBI:0200129  ! node quality calculation
+
+[Term]
+id: OBI:0200131
+name: quantitative node degree calculation
+is_a: OBI:0200129  ! node quality calculation
+
+[Term]
+id: OBI:0200132
+name: node indegree calculation
+is_a: OBI:0200129  ! node quality calculation
+
+[Term]
+id: OBI:0200133
+name: node outdegree calculation
+is_a: OBI:0200129  ! node quality calculation
+
+[Term]
+id: OBI:0200134
+name: node shortest path identification
+is_a: OBI:0200129  ! node quality calculation
+
+[Term]
+id: OBI:0200135
+name: edge quality calculation
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200136
+name: edge betweenness calculation
+is_a: OBI:0200135  ! edge quality calculation
+
+[Term]
+id: OBI:0200137
+name: network subgraph quality calculation
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200138
+name: subgraph degree calculation
+is_a: OBI:0200137  ! network subgraph quality calculation
+
+[Term]
+id: OBI:0200139
+name: quantitative subgraph degree calculation
+is_a: OBI:0200137  ! network subgraph quality calculation
+
+[Term]
+id: OBI:0200140
+name: feature
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200141
+name: log base
+is_a: OBI:0200140  ! feature
+
+[Term]
+id: OBI:0200143
+name: subgraph indegree calculation
+is_a: OBI:0200137  ! network subgraph quality calculation
+
+[Term]
+id: OBI:0200144
+name: subgraph outdegree calculation
+is_a: OBI:0200137  ! network subgraph quality calculation
+
+[Term]
+id: OBI:0200145
+name: intra subgraph connectivity calculation
+is_a: OBI:0200137  ! network subgraph quality calculation
+
+[Term]
+id: OBI:0200146
+name: subgraph modularity calculation
+is_a: OBI:0200137  ! network subgraph quality calculation
+
+[Term]
+id: OBI:0200147
+name: network graph quality calculation
+is_a: OBI:0200080  ! network analysis
+
+[Term]
+id: OBI:0200149
+name: unit-variance scaling
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200150
+name: MA transformation
+is_a: OBI:0200000  ! data transformation
+
+[Term]
+id: OBI:0200151
+name: exponential base
+is_a: OBI:0200140  ! feature
+
+[Term]
+id: OBI:0200152
+name: polynomial degree
+is_a: OBI:0200140  ! feature
+
+[Term]
+id: OBI:0200153
+name: number of variables
+is_a: OBI:0200140  ! feature
+

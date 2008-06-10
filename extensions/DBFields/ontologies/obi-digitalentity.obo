@@ -1,0 +1,258 @@
+format-version: 1.2
+idspace: bfo http://www.ifomis.org/bfo/1.1# ""
+idspace: cell http://purl.org/obo/owl/CL# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: dcterms http://purl.org/dc/terms/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: OBI:annot obi/AnnotationProperty.owl# ""
+idspace: OBI:biomat obi/Biomaterial.owl# ""
+idspace: OBI:data_trans obi/DataTransformation.owl# ""
+idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
+idspace: OBI:ext obi/external.owl# ""
+idspace: OBI:extd obi/externalDerived.owl# ""
+idspace: OBI:func obi/OBI-Function.owl# ""
+idspace: OBI:instr obi/InstrumentAndPart.owl# ""
+idspace: OBI:obsolete obi/Obsolete.owl# ""
+idspace: OBI:owlfull obi/obi-owl-full.owl# ""
+idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
+idspace: OBI:quality obi/Quality.owl# ""
+idspace: OBI:rel obi/Relations.owl# ""
+idspace: OBI:rest obi/TheRest.owl# ""
+idspace: OBI:role obi/Role.owl# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: pato http://purl.org/obo/owl/PATO# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: ro http://www.obofoundry.org/ro/ro.owl# ""
+idspace: robfo http://purl.org/obo/owl/ro_bfo_bridge/1.1# ""
+idspace: rotoo http://purl.org/obo/owl/ro# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.1/span# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+
+[Term]
+id: OBI:0000001
+name: report display element
+is_a: OBI:0000013  ! narrative object
+
+[Term]
+id: OBI:0000010
+name: fluorescent reporter intensity
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000013
+name: narrative object
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000021
+name: list-mode data file
+is_a: OBI:0000261  ! digital entity
+
+[Term]
+id: OBI:0000027
+name: report figure
+is_a: OBI:0000001  ! report display element
+
+[Term]
+id: OBI:0000028
+name: patent content
+is_a: OBI:0000013  ! narrative object
+
+[Term]
+id: OBI:0000030
+name: image
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000039
+name: source code module
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000042
+name: data set
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000046
+name: non-realizable information entity
+
+[Term]
+id: OBI:0000054
+name: ratio of collected to emitted light 
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000058
+name: programming language
+
+[Term]
+id: OBI:0000071
+name: quantitative confidence value
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000078
+name: eMedical record
+is_a: OBI:0000195  ! digital document
+
+[Term]
+id: OBI:0000083
+name: electronic case report tabulation
+is_a: OBI:0000195  ! digital document
+
+[Term]
+id: OBI:0000099
+name: report of results
+is_a: OBI:0000013  ! narrative object
+
+[Term]
+id: OBI:0000101
+name: measured expression level
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000118
+name: gene list
+is_a: OBI:0000042  ! data set
+
+[Term]
+id: OBI:0000119
+name: number of particles in subset
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000123
+name: dot plot
+is_a: OBI:0000240  ! report graph
+
+[Term]
+id: OBI:0000125
+name: number of lost events electronic
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000132
+name: text based digital entity
+is_a: OBI:0000195  ! digital document
+
+[Term]
+id: OBI:0000142
+name: information content entity
+is_a: OBI:0000046  ! non-realizable information entity
+
+[Term]
+id: OBI:0000158
+name: eSource document
+is_a: OBI:0000195  ! digital document
+
+[Term]
+id: OBI:0000159
+name: journal article content
+is_a: OBI:0000099  ! report of results
+
+[Term]
+id: OBI:0000167
+name: electronic case report form
+is_a: OBI:0000195  ! digital document
+
+[Term]
+id: OBI:0000172
+name: parameter threshold
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000175
+name: p-value
+is_a: OBI:0000071  ! quantitative confidence value
+
+[Term]
+id: OBI:0000176
+name: measurement unit
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000179
+name: density plot
+is_a: OBI:0000240  ! report graph
+
+[Term]
+id: OBI:0000195
+name: digital document
+is_a: OBI:0000261  ! digital entity
+
+[Term]
+id: OBI:0000199
+name: software interpreter
+
+[Term]
+id: OBI:0000210
+name: analytical cytology data file
+is_a: OBI:0000261  ! digital entity
+
+[Term]
+id: OBI:0000213
+name: fluorescence compensation matrix
+is_a: OBI:0000142  ! information content entity
+
+[Term]
+id: OBI:0000218
+name: investigation results report
+is_a: OBI:0000099  ! report of results
+
+[Term]
+id: OBI:0000222
+name: binary executable
+is_a: OBI:0000261  ! digital entity
+
+[Term]
+id: OBI:0000235
+name: standard error
+is_a: OBI:0000071  ! quantitative confidence value
+
+[Term]
+id: OBI:0000240
+name: report graph
+is_a: OBI:0000027  ! report figure
+
+[Term]
+id: OBI:0000244
+name: binary digital entity
+is_a: OBI:0000261  ! digital entity
+
+[Term]
+id: OBI:0000246
+name: contour plot
+is_a: OBI:0000240  ! report graph
+
+[Term]
+id: OBI:0000251
+name: cluster
+is_a: OBI:0000042  ! data set
+
+[Term]
+id: OBI:0000261
+name: digital entity
+is_a: OBI:0000046  ! non-realizable information entity
+
+[Term]
+id: OBI:0000265
+name: report table
+is_a: OBI:0000001  ! report display element
+
+[Term]
+id: OBI:0000269
+name: number of lost events computer
+is_a: OBI:0000305  ! datum
+
+[Term]
+id: OBI:0000305
+name: datum
+is_a: OBI:0000142  ! information content entity
+

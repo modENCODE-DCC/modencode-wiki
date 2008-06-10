@@ -1,0 +1,356 @@
+format-version: 1.2
+idspace: bfo http://www.ifomis.org/bfo/1.1# ""
+idspace: cell http://purl.org/obo/owl/CL# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: dcterms http://purl.org/dc/terms/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: OBI:annot obi/AnnotationProperty.owl# ""
+idspace: OBI:biomat obi/Biomaterial.owl# ""
+idspace: OBI:data_trans obi/DataTransformation.owl# ""
+idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
+idspace: OBI:ext obi/external.owl# ""
+idspace: OBI:extd obi/externalDerived.owl# ""
+idspace: OBI:func obi/OBI-Function.owl# ""
+idspace: OBI:instr obi/InstrumentAndPart.owl# ""
+idspace: OBI:obsolete obi/Obsolete.owl# ""
+idspace: OBI:owlfull obi/obi-owl-full.owl# ""
+idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
+idspace: OBI:quality obi/Quality.owl# ""
+idspace: OBI:rel obi/Relations.owl# ""
+idspace: OBI:rest obi/TheRest.owl# ""
+idspace: OBI:role obi/Role.owl# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: pato http://purl.org/obo/owl/PATO# ""
+idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: ro http://www.obofoundry.org/ro/ro.owl# ""
+idspace: robfo http://purl.org/obo/owl/ro_bfo_bridge/1.1# ""
+idspace: rotoo http://purl.org/obo/owl/ro# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.1/span# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+
+[Term]
+id: OBI:0000044
+name: physical_document
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0000065
+name: polyethylene glycol p-(1,1,3,3-tetramethylbutyl)-phenyl ether
+
+[Term]
+id: OBI:0000141
+name: material entity
+union_of: snap:FiatObjectPart 
+union_of: snap:Object 
+union_of: snap:ObjectAggregate 
+
+[Term]
+id: OBI:0000157
+name: chromium 51
+
+[Term]
+id: OBI:0000164
+name: cDNA library
+is_a: OBI:0302714  ! collection (of entities of organismal origin)
+
+[Term]
+id: OBI:0000181
+name: population
+is_a: OBI:0302714  ! collection (of entities of organismal origin)
+
+[Term]
+id: OBI:0000233
+name: _defined_material
+
+[Term]
+id: OBI:0000245
+name: organization
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0000256
+name: environmental matter (formerly known as environmental sample)
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0000263
+name: person
+is_a: OBI:0100026  ! organism
+
+[Term]
+id: OBI:0000264
+name: sample population
+is_a: OBI:0000181  ! population
+
+[Term]
+id: OBI:0100000
+name: biomaterial
+is_a: OBI:0000233  ! _defined_material
+intersection_of: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0100010
+name: Epstein Barr virus transformed B cell
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100011
+name: cytotoxic T-cell
+
+[Term]
+id: OBI:0100014
+name: chimera
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100015
+name: anatomical entity - cardinal part of organism
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0100016
+name: blood plasma
+is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
+
+[Term]
+id: OBI:0100017
+name: blood serum
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100022
+name: biomolecule
+
+[Term]
+id: OBI:0100023
+name: enzyme
+is_a: OBI:0100085  ! protein
+
+[Term]
+id: OBI:0100024
+name: DNA polymerase
+is_a: OBI:0100023  ! enzyme
+
+[Term]
+id: OBI:0100025
+name: reverse transcriptase
+is_a: OBI:0100024  ! DNA polymerase
+
+[Term]
+id: OBI:0100026
+name: organism
+is_a: OBI:0000141  ! material entity
+union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_10239 
+union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_2 
+union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_2157 
+union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_2759 
+
+[Term]
+id: OBI:0100035
+name: immortal cell
+
+[Term]
+id: OBI:0100039
+name: fragment derived from protein
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100046
+name: phosphate buffered saline solution
+is_a: OBI:0302729  ! chemical entities in solution
+
+[Term]
+id: OBI:0100051
+name: entity of organismal origin
+intersection_of: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0100052
+name: cell of organismal origin
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100053
+name: cell component
+is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
+
+[Term]
+id: OBI:0100054
+name: cellular compartment
+is_a: OBI:0100053  ! cell component
+
+[Term]
+id: OBI:0100055
+name: cell line cell
+
+[Term]
+id: OBI:0100056
+name: immortalized cell line
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100057
+name: multicellular entity of organismal origin (Should be deprecated\!)
+is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
+
+[Term]
+id: OBI:0100058
+name: xenograft
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100060
+name: cell culture
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100061
+name: primary cell culture
+is_a: OBI:0100060  ! cell culture
+
+[Term]
+id: OBI:0100062
+name: cell line culture
+is_a: OBI:0100060  ! cell culture
+
+[Term]
+id: OBI:0100063
+name: clonal cell culture
+is_a: OBI:0100060  ! cell culture
+
+[Term]
+id: OBI:0100064
+name: screening library
+is_a: OBI:0302714  ! collection (of entities of organismal origin)
+
+[Term]
+id: OBI:0100065
+name: synthetic polypeptide
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100066
+name: organ section
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100067
+name: bronchial aveolar lavage
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:0100068
+name: monomer
+is_a: OBI:0100022  ! biomolecule
+
+[Term]
+id: OBI:0100069
+name: polymer
+is_a: OBI:0100022  ! biomolecule
+
+[Term]
+id: OBI:0100070
+name: amino acid
+is_a: OBI:0100068  ! monomer
+
+[Term]
+id: OBI:0100083
+name: peptide
+is_a: OBI:0100069  ! polymer
+
+[Term]
+id: OBI:0100084
+name: polypeptide
+is_a: OBI:0100069  ! polymer
+
+[Term]
+id: OBI:0100085
+name: protein
+is_a: OBI:0100069  ! polymer
+
+[Term]
+id: OBI:0302714
+name: collection (of entities of organismal origin)
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0302716
+name: pool of specimens
+is_a: OBI:0000264  ! sample population
+
+[Term]
+id: OBI:0302717
+name: test synthetic peptide
+is_a: OBI:0000233  ! _defined_material
+intersection_of: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0302722
+name: multi-tissue structure
+is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
+
+[Term]
+id: OBI:0302723
+name: portion of tissue
+is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
+
+[Term]
+id: OBI:0302729
+name: chemical entities in solution
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:0302743
+name: liver
+is_a: OBI:0302722  ! multi-tissue structure
+
+[Term]
+id: OBI:0302744
+name: epithelium
+is_a: OBI:0302723  ! portion of tissue
+
+[Term]
+id: OBI:0302745
+name: adipose tissue
+is_a: OBI:0302722  ! multi-tissue structure
+
+[Term]
+id: OBI:1000023
+name: cell culture supernatant
+is_a: OBI:0000141  ! material entity
+
+[Term]
+id: OBI:1000024
+name: cell pellet
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:1000029
+name: phage display library
+is_a: OBI:0302714  ! collection (of entities of organismal origin)
+
+[Term]
+id: OBI:1000036
+name: lysate
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:1000042
+name: peptide construct
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:1000048
+name: transgenic organism
+is_a: OBI:0100051  ! entity of organismal origin
+
+[Term]
+id: OBI:1000049
+name: whole mount tissue
+is_a: OBI:0000141  ! material entity
+

@@ -1,0 +1,777 @@
+format-version: 1.2
+idspace: bfo http://www.ifomis.org/bfo/1.1# ""
+idspace: cell http://purl.org/obo/owl/CL# ""
+idspace: dc http://purl.org/dc/elements/1.1/ ""
+idspace: dcterms http://purl.org/dc/terms/ ""
+idspace: eor http://dublincore.org/2000/03/13/eor# ""
+idspace: OBI:annot obi/AnnotationProperty.owl# ""
+idspace: OBI:biomat obi/Biomaterial.owl# ""
+idspace: OBI:data_trans obi/DataTransformation.owl# ""
+idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
+idspace: OBI:ext obi/external.owl# ""
+idspace: OBI:extd obi/externalDerived.owl# ""
+idspace: OBI:func obi/OBI-Function.owl# ""
+idspace: OBI:instr obi/InstrumentAndPart.owl# ""
+idspace: OBI:obsolete obi/Obsolete.owl# ""
+idspace: OBI:owlfull obi/obi-owl-full.owl# ""
+idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
+idspace: OBI:quality obi/Quality.owl# ""
+idspace: OBI:rel obi/Relations.owl# ""
+idspace: OBI:rest obi/TheRest.owl# ""
+idspace: OBI:role obi/Role.owl# ""
+idspace: owl http://www.w3.org/2002/07/owl# ""
+idspace: pato http://purl.org/obo/owl/PATO# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
+idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
+idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
+idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
+idspace: ro http://www.obofoundry.org/ro/ro.owl# ""
+idspace: robfo http://purl.org/obo/owl/ro_bfo_bridge/1.1# ""
+idspace: rotoo http://purl.org/obo/owl/ro# ""
+idspace: serql http://www.openrdf.org/schema/serql# ""
+idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
+idspace: span http://www.ifomis.org/bfo/1.1/span# ""
+idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: xsd http://www.w3.org/2001/XMLSchema# ""
+
+[Term]
+id: OBI:0000011
+name: objective driven process
+
+[Term]
+id: OBI:0000035
+name: _cloning placeholder
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0000043
+name: xenotransplantation
+is_a: OBI:0000105  ! transplantation
+
+[Term]
+id: OBI:0000045
+name: waiting
+is_a: OBI:0600009  ! exposure of material to environment
+
+[Term]
+id: OBI:0000057
+name: allotransplantation
+is_a: OBI:0000105  ! transplantation
+
+[Term]
+id: OBI:0000066
+name: investigation
+is_a: OBI:0000011  ! objective driven process
+
+[Term]
+id: OBI:0000069
+name: protocol application
+is_a: OBI:0600062  ! planned process
+
+[Term]
+id: OBI:0000070
+name: assay
+is_a: OBI:0000069  ! protocol application
+
+[Term]
+id: OBI:0000073
+name: sample preparation for assay
+is_a: OBI:0600065  ! _defined protocol application
+
+[Term]
+id: OBI:0000076
+name: _unplanned process part
+
+[Term]
+id: OBI:0000080
+name: information entity
+
+[Term]
+id: OBI:0000085
+name: concretized protocol
+is_a: OBI:0000260  ! concretized information entity
+
+[Term]
+id: OBI:0000094
+name: material transformation
+is_a: OBI:0000069  ! protocol application
+
+[Term]
+id: OBI:0000105
+name: transplantation
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0000115
+name: intervention design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0000117
+name: Bernoulli trial
+is_a: OBI:0600065  ! _defined protocol application
+
+[Term]
+id: OBI:0000126
+name: _induction of natural processes
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0000153
+name: cell co-culturing
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0000171
+name: autotransplantation
+is_a: OBI:0000105  ! transplantation
+
+[Term]
+id: OBI:0000182
+name: nuclear magnetic resonance assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0000183
+name: mass spectrometry assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0000185
+name: imaging assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0000187
+name: data format specification
+is_a: OBI:0000333  ! specification
+
+[Term]
+id: OBI:0000201
+name: radioactivity detection
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0000227
+name: data encoding
+is_a: OBI:0000340  ! documenting
+
+[Term]
+id: OBI:0000231
+name: enzymatic cleavage
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0000253
+name: nucleic acid hybridization
+is_a: OBI:0000126  ! _induction of natural processes
+
+[Term]
+id: OBI:0000257
+name: DNA extraction
+is_a: OBI:0666667  ! nucleic acid extraction
+
+[Term]
+id: OBI:0000260
+name: concretized information entity
+
+[Term]
+id: OBI:0000270
+name: algorithm
+is_a: OBI:0000333  ! specification
+
+[Term]
+id: OBI:0000272
+name: protocol
+is_a: OBI:0000344  ! plan
+
+[Term]
+id: OBI:0000278
+name: _disease stage
+
+[Term]
+id: OBI:0000296
+name: enrollment
+is_a: OBI:0600062  ! planned process
+
+[Term]
+id: OBI:0000310
+name: adverse event trigger
+is_a: OBI:0000349  ! instruction trigger
+
+[Typedef]
+id: OBI:0000316
+
+[Term]
+id: OBI:0000331
+name: time trigger
+is_a: OBI:0000349  ! instruction trigger
+
+[Term]
+id: OBI:0000333
+name: specification
+is_a: OBI:0000080  ! information entity
+
+[Term]
+id: OBI:0000335
+name: investigation design
+is_a: OBI:0000344  ! plan
+
+[Term]
+id: OBI:0000337
+name: realizable-information entity
+is_a: OBI:0000333  ! specification
+
+[Term]
+id: OBI:0000338
+name: interpreting data
+is_a: OBI:0000011  ! objective driven process
+
+[Term]
+id: OBI:0000339
+name: planning
+is_a: OBI:0000011  ! objective driven process
+
+[Term]
+id: OBI:0000340
+name: documenting
+is_a: OBI:0000011  ! objective driven process
+
+[Term]
+id: OBI:0000341
+name: histological sample preparation
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0000342
+name: investigation planning
+is_a: OBI:0000339  ! planning
+
+[Term]
+id: OBI:0000343
+name: inductive reasoning
+is_a: OBI:0000338  ! interpreting data
+
+[Term]
+id: OBI:0000344
+name: plan
+is_a: OBI:0000337  ! realizable-information entity
+
+[Term]
+id: OBI:0000349
+name: instruction trigger
+is_a: OBI:0000333  ! specification
+
+[Term]
+id: OBI:0000354
+name: _disease course
+
+[Term]
+id: OBI:0000355
+name: hypothesis driven investigation
+is_a: OBI:0000066  ! investigation
+
+[Term]
+id: OBI:0000356
+name: hypothesis generating investigation
+is_a: OBI:0000066  ! investigation
+
+[Term]
+id: OBI:0300310
+name: sequential design
+is_a: OBI:0000115  ! intervention design
+
+[Term]
+id: OBI:0300311
+name: observation design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0302736
+name: comet assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0302737
+name: PCR-SSCP assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0500000
+name: study design
+is_a: OBI:0000344  ! plan
+
+[Term]
+id: OBI:0500001
+name: clinical study design
+is_a: OBI:0000115  ! intervention design
+
+[Term]
+id: OBI:0500002
+name: repeated measure design
+is_a: OBI:0000115  ! intervention design
+
+[Term]
+id: OBI:0500003
+name: cross over design
+is_a: OBI:0500002  ! repeated measure design
+
+[Term]
+id: OBI:0500004
+name: n-to-1 design
+is_a: OBI:0500003  ! cross over design
+
+[Term]
+id: OBI:0500005
+name: matched pairs design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500006
+name: parallel group design
+is_a: OBI:0000115  ! intervention design
+
+[Term]
+id: OBI:0500007
+name: randomized complete block design
+is_a: OBI:0000115  ! intervention design
+
+[Term]
+id: OBI:0500008
+name: balanced incomplete block design
+is_a: OBI:0500014  ! factorial design
+
+[Term]
+id: OBI:0500009
+name: loop design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500010
+name: reference design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500011
+name: latin square design
+is_a: OBI:0500007  ! randomized complete block design
+
+[Term]
+id: OBI:0500012
+name: graeco latin square design
+is_a: OBI:0500007  ! randomized complete block design
+
+[Term]
+id: OBI:0500013
+name: hyper graeco latin square design
+is_a: OBI:0500007  ! randomized complete block design
+
+[Term]
+id: OBI:0500014
+name: factorial design
+is_a: OBI:0000115  ! intervention design
+
+[Term]
+id: OBI:0500015
+name: 2x2 factorial design
+is_a: OBI:0500014  ! factorial design
+
+[Term]
+id: OBI:0500016
+name: fractional factorial design
+is_a: OBI:0500014  ! factorial design
+
+[Term]
+id: OBI:0500017
+name: dye swap design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500018
+name: replicate design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500019
+name: self vs self design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500020
+name: time series design
+is_a: OBI:0500000  ! study design
+
+[Term]
+id: OBI:0500021
+name: rule
+is_a: OBI:0000349  ! instruction trigger
+
+[Term]
+id: OBI:0500022
+name: stopping rule
+is_a: OBI:0500021  ! rule
+
+[Term]
+id: OBI:0500023
+name: compliance rule
+is_a: OBI:0500021  ! rule
+
+[Term]
+id: OBI:0500024
+name: standard compliance rule
+is_a: OBI:0500023  ! compliance rule
+
+[Term]
+id: OBI:0500025
+name: ethical standard compliance rule
+is_a: OBI:0500024  ! standard compliance rule
+
+[Term]
+id: OBI:0500026
+name: eligibility rule
+is_a: OBI:0500021  ! rule
+
+[Term]
+id: OBI:0500027
+name: inclusion rule
+is_a: OBI:0500026  ! eligibility rule
+
+[Term]
+id: OBI:0500028
+name: exclusion rule
+is_a: OBI:0500026  ! eligibility rule
+
+[Term]
+id: OBI:0600000
+name: administering substance to cell culture
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600002
+name: tumor grading
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600003
+name: clinical diagnosis
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600004
+name: human subject enrollment
+is_a: OBI:0000296  ! enrollment
+
+[Term]
+id: OBI:0600005
+name: taking sample from organism
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600006
+name: killing
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600007
+name: administering substance in vivo
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600008
+name: acquisition
+is_a: OBI:0000011  ! objective driven process
+
+[Term]
+id: OBI:0600009
+name: exposure of material to environment
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600010
+name: object acquisition
+is_a: OBI:0600008  ! acquisition
+
+[Term]
+id: OBI:0600011
+name: acclimatization
+is_a: OBI:0600009  ! exposure of material to environment
+
+[Term]
+id: OBI:0600012
+name: environmental material collection
+is_a: OBI:0600008  ! acquisition
+
+[Term]
+id: OBI:0600013
+name: data collection
+is_a: OBI:0600008  ! acquisition
+
+[Term]
+id: OBI:0600014
+name: material separation
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600015
+name: group assignment
+is_a: OBI:0600062  ! planned process
+
+[Term]
+id: OBI:0600016
+name: material pooling
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600017
+name: detection of label
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600018
+name: material portioning
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600019
+name: non-specific labeling
+is_a: OBI:0600038  ! labeling
+
+[Term]
+id: OBI:0600020
+name: histology
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600021
+name: cell fixation
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600022
+name: excision
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600023
+name: non specific enzymatic cleavage
+is_a: OBI:0000231  ! enzymatic cleavage
+
+[Term]
+id: OBI:0600024
+name: maintaining cell culture
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600025
+name: substance detection
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600026
+name: weight assessment
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600027
+name: cell membrane lysis
+is_a: OBI:0000126  ! _induction of natural processes
+
+[Term]
+id: OBI:0600028
+name: reverse transcription
+is_a: OBI:0000126  ! _induction of natural processes
+
+[Term]
+id: OBI:0600029
+name: isolation of cell culture supernatant
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600030
+name: experimental disease induction
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600031
+name: ELISPOT assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600032
+name: DNA repair
+is_a: OBI:0000126  ! _induction of natural processes
+
+[Term]
+id: OBI:0600033
+name: cell permeabalization
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600034
+name: precipitation
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600036
+name: establishing cell culture
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600037
+name: cell culture splitting
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600038
+name: labeling
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600039
+name: methylation
+is_a: OBI:0000126  ! _induction of natural processes
+
+[Term]
+id: OBI:0600040
+name: synthesize
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600041
+name: concentrate
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600042
+name: recombinant plasmid cloning
+is_a: OBI:0000035  ! _cloning placeholder
+
+[Term]
+id: OBI:0600043
+name: genetic transformation
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600044
+name: lavage
+is_a: OBI:0600005  ! taking sample from organism
+
+[Term]
+id: OBI:0600045
+name: structure assay
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600046
+name: chromatography
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600047
+name: sequencing
+is_a: OBI:0000070  ! assay
+
+[Term]
+id: OBI:0600048
+name: amplification of a clone
+is_a: OBI:0600063  ! cell growth mediated amplification
+
+[Term]
+id: OBI:0600049
+name: DNA polymerase amplification
+is_a: OBI:0600058  ! enzymatic amplification
+
+[Term]
+id: OBI:0600050
+name: specific enzymatic cleavage
+is_a: OBI:0000231  ! enzymatic cleavage
+
+[Term]
+id: OBI:0600051
+name: gradient separation
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600052
+name: dialysis
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600053
+name: electrophoresis
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:0600054
+name: selection by survival
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600055
+name: DNA cleavage, restriction analysis
+is_a: OBI:0000231  ! enzymatic cleavage
+
+[Term]
+id: OBI:0600056
+name: protease cleavage
+is_a: OBI:0000231  ! enzymatic cleavage
+
+[Term]
+id: OBI:0600057
+name: enzymatic DNA replication
+is_a: OBI:0600058  ! enzymatic amplification
+
+[Term]
+id: OBI:0600058
+name: enzymatic amplification
+is_a: OBI:0000094  ! material transformation
+
+[Term]
+id: OBI:0600059
+name: DNA transduction
+is_a: OBI:0600043  ! genetic transformation
+
+[Term]
+id: OBI:0600060
+name: DNA transfection
+is_a: OBI:0600043  ! genetic transformation
+
+[Term]
+id: OBI:0600062
+name: planned process
+is_a: OBI:0000011  ! objective driven process
+
+[Term]
+id: OBI:0600063
+name: cell growth mediated amplification
+is_a: OBI:0000035  ! _cloning placeholder
+
+[Term]
+id: OBI:0600064
+name: recombinant vector cloning
+is_a: OBI:0000035  ! _cloning placeholder
+
+[Term]
+id: OBI:0600065
+name: _defined protocol application
+
+[Term]
+id: OBI:0600067
+name: specific labeling
+is_a: OBI:0600038  ! labeling
+
+[Term]
+id: OBI:0666666
+name: RNA extraction
+is_a: OBI:0666667  ! nucleic acid extraction
+
+[Term]
+id: OBI:0666667
+name: nucleic acid extraction
+is_a: OBI:0600014  ! material separation
+
+[Term]
+id: OBI:9999994
+name: chromium release assay
+is_a: OBI:0000070  ! assay
+
