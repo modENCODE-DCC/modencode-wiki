@@ -84,6 +84,12 @@ foreach my $value (@allvalues) {
   if (!defined($parsed_terms{$newterm{'id'}})) {
     $content .= "[Term]\n";
     foreach my $var (keys(%newterm)) {
+      $newterm{$var} =~ s/\\/\\\\/g;
+      $newterm{$var} =~ s/!/\\!/g;
+      $newterm{$var} =~ s/"/\\"/g;
+      if ($var ne "id") {
+	$newterm{$var} = '"' . $newterm{$var} . '" [BBOP:modENCODE]';
+      }
       $content .= "$var: " . $newterm{$var} . "\n";
     }
     $content .= "\n";
