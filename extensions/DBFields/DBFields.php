@@ -16,8 +16,8 @@
     "values" => array(),
     "invalidversion" => false
   );
-  $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
-  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign");
+$modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
+$modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign", "title");
   $modENCODE_markers_to_data = array();
 
   function modENCODE_DBFields_setup() {
@@ -34,6 +34,12 @@
     global $modENCODE_dbfields_data;
     global $modENCODE_dbfields_allowed_tags;
     global $modENCODE_dbfields_allowed_attributes;
+
+    if ($name == "balloon" && function_exists("renderBalloonSpan")) {
+      $modENCODE_dbfields_data["chrdata"] = false;
+      $modENCODE_dbfields_data["balloon_args"] = $attribs;
+      return;
+    }
 
     // Keep only allowed tags
     if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
@@ -119,6 +125,14 @@
     global $modENCODE_dbfields_allowed_tags;
     global $renderParser;
     global $prefix;
+
+    if ($name == "balloon" && function_exists("renderBalloonSpan")) {
+      $modENCODE_dbfields_data["xml"] .= renderBalloonSpan($modENCODE_dbfields_data["chrdata"], $modENCODE_dbfields_data["balloon_args"]);
+      $modENCODE_dbfields_data["balloon_args"] = false;
+      $modENCODE_dbfields_data["chrdata"] = false;
+      return;
+    }
+
     if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
 
     $extra_content_before = '';
