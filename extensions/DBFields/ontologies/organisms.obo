@@ -1,0 +1,335 @@
+format-version: 1.2
+date: 11:06:2008 17:06
+saved-by: yostinso
+auto-generated-by: fly_genes.pl
+synonymtypedef: common_name "Common Name" BROAD
+synonymtypedef: abbreviation "Abbreviation" EXACT
+default-namespace: organisms
+
+[Term]
+id: Organisms:Homo_sapiens
+name: Homo sapiens
+namespace: organisms
+synonym: "H.sapiens" EXACT abbreviation []
+synonym: "human" BROAD common_name []
+
+[Term]
+id: Organisms:Drosophila_melanogaster
+name: Drosophila melanogaster
+namespace: organisms
+synonym: "D.melanogaster" EXACT abbreviation []
+synonym: "fruitfly" BROAD common_name []
+
+[Term]
+id: Organisms:Mus_musculus
+name: Mus musculus
+namespace: organisms
+synonym: "M.musculus" EXACT abbreviation []
+synonym: "mouse" BROAD common_name []
+
+[Term]
+id: Organisms:Anopheles_gambiae
+name: Anopheles gambiae
+namespace: organisms
+synonym: "A.gambiae" EXACT abbreviation []
+synonym: "mosquito" BROAD common_name []
+
+[Term]
+id: Organisms:Rattus_norvegicus
+name: Rattus norvegicus
+namespace: organisms
+synonym: "R.norvegicus" EXACT abbreviation []
+synonym: "rat" BROAD common_name []
+
+[Term]
+id: Organisms:Arabidopsis_thaliana
+name: Arabidopsis thaliana
+namespace: organisms
+synonym: "A.thaliana" EXACT abbreviation []
+synonym: "mouse-ear cress" BROAD common_name []
+
+[Term]
+id: Organisms:Caenorhabditis_elegans
+name: Caenorhabditis elegans
+namespace: organisms
+synonym: "C.elegans" EXACT abbreviation []
+synonym: "worm" BROAD common_name []
+
+[Term]
+id: Organisms:Danio_rerio
+name: Danio rerio
+namespace: organisms
+synonym: "D.rerio" EXACT abbreviation []
+synonym: "zebrafish" BROAD common_name []
+
+[Term]
+id: Organisms:Oryza_sativa
+name: Oryza sativa
+namespace: organisms
+synonym: "O.sativa" EXACT abbreviation []
+synonym: "rice" BROAD common_name []
+
+[Term]
+id: Organisms:Saccharomyces_cerevisiae
+name: Saccharomyces cerevisiae
+namespace: organisms
+synonym: "S.cerevisiae" EXACT abbreviation []
+synonym: "yeast" BROAD common_name []
+
+[Term]
+id: Organisms:Xenopus_laevis
+name: Xenopus laevis
+namespace: organisms
+synonym: "X.laevis" EXACT abbreviation []
+synonym: "frog" BROAD common_name []
+
+[Term]
+id: Organisms:Caenorhabditis_briggsae
+name: Caenorhabditis briggsae
+namespace: organisms
+
+[Term]
+id: Organisms:null_null
+name: null null
+namespace: organisms
+
+[Term]
+id: Organisms:Caenorhabditis_remanei
+name: Caenorhabditis remanei
+namespace: organisms
+
+[Term]
+id: Organisms:Serratia_marcescens
+name: Serratia marcescens
+namespace: organisms
+
+[Term]
+id: Organisms:Caenorhabditis_.
+name: Caenorhabditis .
+namespace: organisms
+
+[Term]
+id: Organisms:?_null
+name: ? null
+namespace: organisms
+
+[Term]
+id: Organisms:Panagrellus_redivivus
+name: Panagrellus redivivus
+namespace: organisms
+
+[Term]
+id: Organisms:Mesorhabditis_miotki
+name: Mesorhabditis miotki
+namespace: organisms
+
+[Term]
+id: Organisms:Escherichia_coli
+name: Escherichia coli
+namespace: organisms
+
+[Term]
+id: Organisms:Mesorhabditis_sp.
+name: Mesorhabditis sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Pristionchus_sp.
+name: Pristionchus sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditis_brassicae
+name: Rhabditis brassicae
+namespace: organisms
+
+[Term]
+id: Organisms:Acrobeloides_sp.
+name: Acrobeloides sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditis_sp.
+name: Rhabditis sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Pellioditis_typica
+name: Pellioditis typica
+namespace: organisms
+
+[Term]
+id: Organisms:Pristionchus_pacificus
+name: Pristionchus pacificus
+namespace: organisms
+
+[Term]
+id: Organisms:Serratia_marcescens.
+name: Serratia marcescens.
+namespace: organisms
+
+[Term]
+id: Organisms:Zeldia_sp.
+name: Zeldia sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Oscheius_tipulae
+name: Oscheius tipulae
+namespace: organisms
+
+[Term]
+id: Organisms:Caenorhabditis_sp n
+name: Caenorhabditis sp n
+namespace: organisms
+
+[Term]
+id: Organisms:Panagrolaimus_sp.
+name: Panagrolaimus sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Pelodera_strongyloides
+name: Pelodera strongyloides
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditis_(Caenorhabditis)
+name: Rhabditis (Caenorhabditis)
+namespace: organisms
+
+[Term]
+id: Organisms:Microbacterium_nematophilum.
+name: Microbacterium nematophilum.
+namespace: organisms
+
+[Term]
+id: Organisms:Teratorhabditis_palmarum
+name: Teratorhabditis palmarum
+namespace: organisms
+
+[Term]
+id: Organisms:Acrobeloides_ellesmerensis
+name: Acrobeloides ellesmerensis
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditis_myriophila
+name: Rhabditis myriophila
+namespace: organisms
+
+[Term]
+id: Organisms:Comamonas_sp.
+name: Comamonas sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Oscheius_dolichura
+name: Oscheius dolichura
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditoides_regina
+name: Rhabditoides regina
+namespace: organisms
+
+[Term]
+id: Organisms:Pellioditis_sp.
+name: Pellioditis sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Oscheius_akosreti
+name: Oscheius akosreti
+namespace: organisms
+
+[Term]
+id: Organisms:Panagrolaimus_rigidus
+name: Panagrolaimus rigidus
+namespace: organisms
+
+[Term]
+id: Organisms:C._remanei ssp. vulgaris
+name: C. remanei ssp. vulgaris
+namespace: organisms
+
+[Term]
+id: Organisms:Oscheius_dolichuroides
+name: Oscheius dolichuroides
+namespace: organisms
+
+[Term]
+id: Organisms:Acrobeloides_thornei
+name: Acrobeloides thornei
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditis_blumi
+name: Rhabditis blumi
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditis_(Choriorhabditis)
+name: Rhabditis (Choriorhabditis)
+namespace: organisms
+
+[Term]
+id: Organisms:Operculrhabditis_sp.
+name: Operculrhabditis sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Rhabditella_axei
+name: Rhabditella axei
+namespace: organisms
+
+[Term]
+id: Organisms:Cephalobus_sp.
+name: Cephalobus sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Bacillus_megaterium
+name: Bacillus megaterium
+namespace: organisms
+
+[Term]
+id: Organisms:Acrobeloides_butschlii
+name: Acrobeloides butschlii
+namespace: organisms
+
+[Term]
+id: Organisms:Dolichorhabditis_sp.
+name: Dolichorhabditis sp.
+namespace: organisms
+
+[Term]
+id: Organisms:Caenorhabditis_sp 4
+name: Caenorhabditis sp 4
+namespace: organisms
+
+[Term]
+id: Organisms:Zeldia_punctata
+name: Zeldia punctata
+namespace: organisms
+
+[Term]
+id: Organisms:Pelodera_teres
+name: Pelodera teres
+namespace: organisms
+
+[Term]
+id: Organisms:Oscheius_myriophila
+name: Oscheius myriophila
+namespace: organisms
+
+[Term]
+id: Organisms:Mesorhabditis_longespiculosa
+name: Mesorhabditis longespiculosa
+namespace: organisms
+
+[Term]
+id: Organisms:Escherichia_coli     Genotype: E. coli.  Description: Bacterial strain.
+name: Escherichia coli     Genotype: E. coli.  Description: Bacterial strain.
+namespace: organisms
+
