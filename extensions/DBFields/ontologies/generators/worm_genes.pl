@@ -45,6 +45,7 @@ while (<FH>) {
   }
   foreach my $key (keys(%cur_row)) {
     $cur_row{$key} =~ s/\\/\\\\/g;
+    $cur_row{$key} =~ s/"/\\"/g;
   }
 
   if ($prev_gene_id && $prev_gene_id ne $cur_row{"Gene WB ID"}) {

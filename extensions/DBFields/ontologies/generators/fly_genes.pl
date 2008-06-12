@@ -91,6 +91,7 @@ while (my ($feature_id) = $get_genes->fetchrow_array()) {
   while (my $row = $get_feature->fetchrow_hashref()) {
     foreach my $key (keys(%$row)) {
       $row->{$key} =~ s/\\/\\\\/g;
+      $row->{$key} =~ s/"/\\"/g;
     }
     $gene{'feature_name'} = $row->{'feature_name'};
     $gene{'feature_uniquename'} = $row->{'feature_uniquename'};
