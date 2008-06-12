@@ -78,11 +78,11 @@ print STDERR "Fetching genes...";
 $get_genes->execute($organism_id);
 print STDERR "Done.\n";
 
-my $progbar = new Term::ProgressBar({ 'count' => $get_genes->rows(), 'fh' => \*STDERR, 'name' => 'Loading genes: ' });
-my $next_update = 0;
+my $progbar = new Term::ProgressBar({'count' => $get_genes->rows, 'fh' => \*STDERR});
 my $so_far = 0;
 
 while (my ($feature_id) = $get_genes->fetchrow_array()) {
+  $so_far++;
   $get_feature->execute($feature_id);
   my %gene = (
     'synonyms' => [],
@@ -118,7 +118,5 @@ while (my ($feature_id) = $get_genes->fetchrow_array()) {
   print "namespace: fly_gene\n";
   print join("\n", map { "synonym: \"" . $_->{'name'} . "\" EXACT " . $_->{'type'} . " []" } @{$gene{'synonyms'}}) . "\n";
   print "\n";
-  $so_far++;
-  #print STDERR $gene{'feature_uniquename'} . "\n";
-  $next_update = $progbar->update($so_far) if $so_far >= $next_update;
+  $progbar->update($so_far);
 }
