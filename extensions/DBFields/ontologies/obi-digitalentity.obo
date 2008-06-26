@@ -4,21 +4,22 @@ idspace: cell http://purl.org/obo/owl/CL# ""
 idspace: dc http://purl.org/dc/elements/1.1/ ""
 idspace: dcterms http://purl.org/dc/terms/ ""
 idspace: eor http://dublincore.org/2000/03/13/eor# ""
-idspace: OBI:annot obi/AnnotationProperty.owl# ""
-idspace: OBI:biomat obi/Biomaterial.owl# ""
-idspace: OBI:data_trans obi/DataTransformation.owl# ""
-idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
-idspace: OBI:ext obi/external.owl# ""
-idspace: OBI:extd obi/externalDerived.owl# ""
-idspace: OBI:func obi/OBI-Function.owl# ""
-idspace: OBI:instr obi/InstrumentAndPart.owl# ""
-idspace: OBI:obsolete obi/Obsolete.owl# ""
-idspace: OBI:owlfull obi/obi-owl-full.owl# ""
-idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
-idspace: OBI:quality obi/Quality.owl# ""
-idspace: OBI:rel obi/Relations.owl# ""
-idspace: OBI:rest obi/TheRest.owl# ""
-idspace: OBI:role obi/Role.owl# ""
+idspace: obi http://purl.obofoundry.org/obo/ ""
+idspace: obi_annot http://purl.obofoundry.org/obo/obi/AnnotationProperty.owl# ""
+idspace: obi_biomat http://purl.obofoundry.org/obo/obi/Biomaterial.owl# ""
+idspace: obi_data_trans http://purl.obofoundry.org/obo/obi/DataTransformation.owl# ""
+idspace: obi_denrie http://purl.obofoundry.org/obo/obi/DigitalEntityPlus.owl# ""
+idspace: obi_ext http://purl.obofoundry.org/obo/obi/external.owl# ""
+idspace: obi_extd http://purl.obofoundry.org/obo/obi/externalDerived.owl# ""
+idspace: obi_func http://purl.obofoundry.org/obo/obi/OBI-Function.owl# ""
+idspace: obi_instr http://purl.obofoundry.org/obo/obi/InstrumentAndPart.owl# ""
+idspace: obi_obsolete http://purl.obofoundry.org/obo/obi/Obsolete.owl# ""
+idspace: obi_owlfull http://purl.obofoundry.org/obo/obi/obi-owl-full.owl# ""
+idspace: obi_plan http://purl.obofoundry.org/obo/obi/PlanAndPlannedProcess.owl# ""
+idspace: obi_quality http://purl.obofoundry.org/obo/obi/Quality.owl# ""
+idspace: obi_rel http://purl.obofoundry.org/obo/obi/Relations.owl# ""
+idspace: obi_rest http://purl.obofoundry.org/obo/obi/TheRest.owl# ""
+idspace: obi_role http://purl.obofoundry.org/obo/obi/Role.owl# ""
 idspace: owl http://www.w3.org/2002/07/owl# ""
 idspace: pato http://purl.org/obo/owl/PATO# ""
 idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
@@ -32,227 +33,277 @@ idspace: serql http://www.openrdf.org/schema/serql# ""
 idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
 idspace: span http://www.ifomis.org/bfo/1.1/span# ""
 idspace: swrl http://www.w3.org/2003/11/swrl# ""
-idspace: xsd http://www.w3.org/2001/XMLSchema# ""
 
 [Term]
-id: OBI:0000001
+id: obi:OBI_0000001
 name: report display element
-is_a: OBI:0000013  ! narrative object
+def: "A report display element is a narrative object that is part of a report. Report display elements are set off from the textual parts of a report and are typically given a label(e.g. Figure 2) which is used to refer to the element from the text. Typically the 2d layout is part of the identity of such elements." []
+is_a: obi:OBI_0000013  ! narrative object
 
 [Term]
-id: OBI:0000010
+id: obi:OBI_0000005
+name: Conclusion
+def: "A conclusion is a narrative object which can be published in a paper summerizing and interpreting a protocol application." []
+is_a: obi:OBI_0000013  ! narrative object
+
+[Term]
+id: obi:OBI_0000010
 name: fluorescent reporter intensity
-is_a: OBI:0000305  ! datum
+def: "The fluorescent reproter intensity is a datum that represents the output of a scanner measuring the intensity value for each fluorescent reporter." []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000013
+id: obi:OBI_0000013
 name: narrative object
-is_a: OBI:0000142  ! information content entity
+def: "A narrative object is an information content entity that is a set of propositions." []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000021
+id: obi:OBI_0000021
 name: list-mode data file
-is_a: OBI:0000261  ! digital entity
+def: "A list-mode data file is a digital entity where events are stored sequentially, parameter by parameter." []
+is_a: obi:OBI_0000261  ! digital entity
 
 [Term]
-id: OBI:0000027
+id: obi:OBI_0000027
 name: report figure
-is_a: OBI:0000001  ! report display element
+def: "A report figure is a report display element that has some aspect of illustration, but may be a composite of figures, images, and other elements" []
+is_a: obi:OBI_0000001  ! report display element
 
 [Term]
-id: OBI:0000028
+id: obi:OBI_0000028
 name: patent content
-is_a: OBI:0000013  ! narrative object
+def: "A patent content is a report for the purpose of obtaining a license from a government conferring for a set period the sole right to make, use, or sell some process or invention" []
+is_a: obi:OBI_0000013  ! narrative object
 
 [Term]
-id: OBI:0000030
+id: obi:OBI_0000030
 name: image
-is_a: OBI:0000142  ! information content entity
+def: "An image is an information content entity which provides a visual representation of for the result of a measurement." []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000039
+id: obi:OBI_0000039
 name: source code module
-is_a: OBI:0000142  ! information content entity
+def: "A source code module is an information content entity that specifies, using a programming language, some algorithm. " []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000042
+id: obi:OBI_0000042
 name: data set
-is_a: OBI:0000142  ! information content entity
+def: "A data set is an information content entity that is an aggregate of other information_content_entities that have something in common and are considered to form a unit." []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000046
+id: obi:OBI_0000046
 name: non-realizable information entity
+def: "A non-realizable information entity is a generically dependent continuant which conveys meaning that can be communicated but whose meaning does necessarily imply that some process might follow from that meaning." []
 
 [Term]
-id: OBI:0000054
+id: obi:OBI_0000054
 name: ratio of collected to emitted light 
-is_a: OBI:0000305  ! datum
+def: "A ratio of collected to emitted light is a datum measuring the amount of light collected s compared to the total amount of emitted light in the detector component of a flow cytometer instrument. The datum has a qualitative role" []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000058
+id: obi:OBI_0000058
 name: programming language
+def: "A language in which source code is written, intended to executed/run by a software interpreter. Programming languages are ways to write instructions that specify what to do, and sometimes, how to do it. " []
 
 [Term]
-id: OBI:0000071
+id: obi:OBI_0000071
 name: quantitative confidence value
-is_a: OBI:0000142  ! information content entity
+def: "A quantitative confidence value is a information content entity which is used to indicate the degree of uncertainty about a measurement. " []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000078
+id: obi:OBI_0000078
 name: eMedical record
-is_a: OBI:0000195  ! digital document
+def: "An eMedical record is a digital document derived from a computer system used primarily for patient care in a clinical setting.  Not required to be compliant with requirements of 21 CFR Part 11." []
+is_a: obi:OBI_0000195  ! digital document
 
 [Term]
-id: OBI:0000083
+id: obi:OBI_0000083
 name: electronic case report tabulation
-is_a: OBI:0000195  ! digital document
+def: "An electronic case report tabulation is a digital document containing tabular data about multiple trial participants which is part of a clinical regulatory submission.  An eCRT has the property that it can be audited and compliant with requirements of 21 CFR Part 11  and has format suited to review by regulators." []
+is_a: obi:OBI_0000195  ! digital document
 
 [Term]
-id: OBI:0000099
+id: obi:OBI_0000099
 name: report of results
-is_a: OBI:0000013  ! narrative object
+def: "A report is a narrative object that is a formal statement of the results of an investigation, or of any matter on which definite information is required, made by some person or body instructed or required to do so." []
+is_a: obi:OBI_0000013  ! narrative object
 
 [Term]
-id: OBI:0000101
+id: obi:OBI_0000101
 name: measured expression level
-is_a: OBI:0000305  ! datum
+def: "A measured expression level is a datum that is the outcome of the quantification of an assay for the activity of a gene, or the number of RNA trancsripts." []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000118
+id: obi:OBI_0000118
 name: gene list
-is_a: OBI:0000042  ! data set
+def: "A gene list is a report of the names or identifiers of genes that are the outcome of an analysis or have been put together for the purpose of an analysis." []
+is_a: obi:OBI_0000042  ! data set
 
 [Term]
-id: OBI:0000119
+id: obi:OBI_0000119
 name: number of particles in subset
-is_a: OBI:0000305  ! datum
+def: "A number of particles in subset is a datum measuring the the number of subjects in a defined subset in a flow cytometer instrument. The datum has a qualitative role" []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000123
+id: obi:OBI_0000123
 name: dot plot
-is_a: OBI:0000240  ! report graph
+def: "A dot plot is a report graph which is a graphical representation of data where each data point is represented by a single dot placed on coordinates corresponding to data point values in particular dimensions." []
+is_a: obi:OBI_0000240  ! report graph
 
 [Term]
-id: OBI:0000125
+id: obi:OBI_0000125
 name: number of lost events electronic
-is_a: OBI:0000305  ! datum
+def: "A number of lost events electronic is a datum measuring the the number of analysis events lost due to errors in data acquisition electronic coincidence in a flow cytometer insturment. The datum has a qualitative role." []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000132
+id: obi:OBI_0000132
 name: text based digital entity
-is_a: OBI:0000195  ! digital document
+def: "A text based digital entity is a digital entity that is encoded so that it only contains text characters." []
+is_a: obi:OBI_0000195  ! digital document
 
 [Term]
-id: OBI:0000142
+id: obi:OBI_0000142
 name: information content entity
-is_a: OBI:0000046  ! non-realizable information entity
+def: "An information content entity is a non-realizable information entity that 'is encoded in' some digital or physical entity." []
+is_a: obi:OBI_0000046  ! non-realizable information entity
 
 [Term]
-id: OBI:0000158
+id: obi:OBI_0000158
 name: eSource document
-is_a: OBI:0000195  ! digital document
+def: "an eSource document is a digital document consisting of a logical collection of Source data and other eSource documents that can be presented in an ordered way and capture the time of completion, change, and any signatures" []
+is_a: obi:OBI_0000195  ! digital document
 
 [Term]
-id: OBI:0000159
+id: obi:OBI_0000159
 name: journal article content
-is_a: OBI:0000099  ! report of results
+def: "Journal article content is a narrative object that is the information content encoded in a article published in a serious, scholarly publication, most often peer-reviewed." []
+is_a: obi:OBI_0000099  ! report of results
 
 [Term]
-id: OBI:0000167
+id: obi:OBI_0000167
 name: electronic case report form
-is_a: OBI:0000195  ! digital document
+def: "An electronic case report form is a digital document used to record all of the protocol required information to be reported for each trial subject. An eCRF has the property that it can be audited and compliant with requirements of 21 CFR Part 11." []
+is_a: obi:OBI_0000195  ! digital document
 
 [Term]
-id: OBI:0000172
+id: obi:OBI_0000172
 name: parameter threshold
-is_a: OBI:0000305  ! datum
+def: "A parameter threshold is a datum measuring the minimal signal that must be detected to generate an electrical event, as comparewd to the maximal detected signal in a flow cytometer insturment. The datum has a qualitative role" []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000175
+id: obi:OBI_0000175
 name: p-value
-is_a: OBI:0000071  ! quantitative confidence value
+def: "A p-value is a quantitative confidence value which represents the probability of obtaining a result at least as extreme as that actually obtained, assuming that the actual value was the result of chance alone." []
+is_a: obi:OBI_0000071  ! quantitative confidence value
 
 [Term]
-id: OBI:0000176
+id: obi:OBI_0000176
 name: measurement unit
-is_a: OBI:0000142  ! information content entity
+def: "A measurement unit is an information content entity associated with a physical magnitude that has been conventionally assigned a number." []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000179
+id: obi:OBI_0000179
 name: density plot
-is_a: OBI:0000240  ! report graph
+def: "A density plot is a report graph which is a graphical representation of data where the tint of a particular pixel corresponds to some kind of function corresponding the the amount of data points relativelly with their distance from the the pixel." []
+is_a: obi:OBI_0000240  ! report graph
 
 [Term]
-id: OBI:0000195
+id: obi:OBI_0000195
 name: digital document
-is_a: OBI:0000261  ! digital entity
+def: "A digital document is a digital entity consisting of an electronic file which can be rendered into human-readable form by one or more computational applications.  The digital document does not refer to the information content of the document but to an instance of the file." []
+is_a: obi:OBI_0000261  ! digital entity
 
 [Term]
-id: OBI:0000199
+id: obi:OBI_0000199
 name: software interpreter
+def: "A  software interpreter is a generically dependent realizable entity that takes, as input, some digital entity, and takes action driven by the information content of that digital entity" []
 
 [Term]
-id: OBI:0000210
+id: obi:OBI_0000210
 name: analytical cytology data file
-is_a: OBI:0000261  ! digital entity
+def: "A digital entity intended to capture data in analytical cytology domain." []
+is_a: obi:OBI_0000261  ! digital entity
 
 [Term]
-id: OBI:0000213
+id: obi:OBI_0000213
 name: fluorescence compensation matrix
-is_a: OBI:0000142  ! information content entity
+def: "A fluorescence compensation matrix is a square matrix which is used as the left multiplier of the vector of fluorescence values while performing digital fluorescence compensation. Also, fluorescence compensation matrix is the inverse of the fluorescence spillover matrix." []
+is_a: obi:OBI_0000142  ! information content entity
 
 [Term]
-id: OBI:0000218
+id: obi:OBI_0000218
 name: investigation results report
-is_a: OBI:0000099  ! report of results
+def: "An investigation report is a report on the results of an investigation." []
+is_a: obi:OBI_0000099  ! report of results
 
 [Term]
-id: OBI:0000222
+id: obi:OBI_0000222
 name: binary executable
-is_a: OBI:0000261  ! digital entity
+def: "Binary executable is a digital entity consisting of the binary representation of machine instructions of a specific processor or they may be binary pseudocode for a virtual machine. A non-source executable file is also called an object program. It is assumed that the binary executable file contains properly-formatted computer instructions.  (derived from Wikipedia, Nov 1, 2007)" []
+is_a: obi:OBI_0000261  ! digital entity
 
 [Term]
-id: OBI:0000235
+id: obi:OBI_0000235
 name: standard error
-is_a: OBI:0000071  ! quantitative confidence value
+def: "Standard error is a quantitative confidence value which is the standard deviations of the sample in a frequency distribution, obtained by dividing the standard deviation by the total number of cases in the frequency distribution." []
+is_a: obi:OBI_0000071  ! quantitative confidence value
 
 [Term]
-id: OBI:0000240
+id: obi:OBI_0000240
 name: report graph
-is_a: OBI:0000027  ! report figure
+def: "A report graph is a report figure that presents one or more tuples of information my mapping those tuples in to a two dimensional space in a non arbitrary way." []
+is_a: obi:OBI_0000027  ! report figure
 
 [Term]
-id: OBI:0000244
+id: obi:OBI_0000244
 name: binary digital entity
-is_a: OBI:0000261  ! digital entity
+def: "A binary digital entity is a digital entity that is encoded in a way that is not easily human readable and that contains other than text characters." []
+is_a: obi:OBI_0000261  ! digital entity
 
 [Term]
-id: OBI:0000246
+id: obi:OBI_0000246
 name: contour plot
-is_a: OBI:0000240  ! report graph
+def: "A contour plot is a report graph which is a graphical representation of a 3-dimensional surface by plotting constant z slices, called contours, on a 2-dimensional format. That is, given a value for z, lines are drawn for connecting the (x,y) coordinates where that z value occurs." []
+is_a: obi:OBI_0000240  ! report graph
 
 [Term]
-id: OBI:0000251
+id: obi:OBI_0000251
 name: cluster
-is_a: OBI:0000042  ! data set
+def: "A data cluster is a data set which is a subset of data that are a similar to each other in some way." []
+is_a: obi:OBI_0000042  ! data set
 
 [Term]
-id: OBI:0000261
+id: obi:OBI_0000261
 name: digital entity
-is_a: OBI:0000046  ! non-realizable information entity
+def: "A digital entity is an information entity which is a collection of bits that can be interpreted by a computer. Two digital entities are the same if they are bitwise identical." []
+is_a: obi:OBI_0000046  ! non-realizable information entity
 
 [Term]
-id: OBI:0000265
+id: obi:OBI_0000265
 name: report table
-is_a: OBI:0000001  ! report display element
+def: "A report table is a report display element consisting of a matrix of cells layed out in a grid, some set of which are filled with some information content" []
+is_a: obi:OBI_0000001  ! report display element
 
 [Term]
-id: OBI:0000269
+id: obi:OBI_0000269
 name: number of lost events computer
-is_a: OBI:0000305  ! datum
+def: "A number of lost events is a datum recording the the number of measurement events lost due to overloading of the analysis chip in a flow cytometer insturment. The datum has a qualitative role" []
+is_a: obi:OBI_0000305  ! datum
 
 [Term]
-id: OBI:0000305
+id: obi:OBI_0000305
 name: datum
-is_a: OBI:0000142  ! information content entity
+def: "A datum is an information content entity that is a recording of the output of a measurement such as produced by an instrument." []
+is_a: obi:OBI_0000142  ! information content entity
 

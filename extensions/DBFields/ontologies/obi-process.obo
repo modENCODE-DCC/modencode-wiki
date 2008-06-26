@@ -4,21 +4,22 @@ idspace: cell http://purl.org/obo/owl/CL# ""
 idspace: dc http://purl.org/dc/elements/1.1/ ""
 idspace: dcterms http://purl.org/dc/terms/ ""
 idspace: eor http://dublincore.org/2000/03/13/eor# ""
-idspace: OBI:annot obi/AnnotationProperty.owl# ""
-idspace: OBI:biomat obi/Biomaterial.owl# ""
-idspace: OBI:data_trans obi/DataTransformation.owl# ""
-idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
-idspace: OBI:ext obi/external.owl# ""
-idspace: OBI:extd obi/externalDerived.owl# ""
-idspace: OBI:func obi/OBI-Function.owl# ""
-idspace: OBI:instr obi/InstrumentAndPart.owl# ""
-idspace: OBI:obsolete obi/Obsolete.owl# ""
-idspace: OBI:owlfull obi/obi-owl-full.owl# ""
-idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
-idspace: OBI:quality obi/Quality.owl# ""
-idspace: OBI:rel obi/Relations.owl# ""
-idspace: OBI:rest obi/TheRest.owl# ""
-idspace: OBI:role obi/Role.owl# ""
+idspace: obi http://purl.obofoundry.org/obo/ ""
+idspace: obi_annot http://purl.obofoundry.org/obo/obi/AnnotationProperty.owl# ""
+idspace: obi_biomat http://purl.obofoundry.org/obo/obi/Biomaterial.owl# ""
+idspace: obi_data_trans http://purl.obofoundry.org/obo/obi/DataTransformation.owl# ""
+idspace: obi_denrie http://purl.obofoundry.org/obo/obi/DigitalEntityPlus.owl# ""
+idspace: obi_ext http://purl.obofoundry.org/obo/obi/external.owl# ""
+idspace: obi_extd http://purl.obofoundry.org/obo/obi/externalDerived.owl# ""
+idspace: obi_func http://purl.obofoundry.org/obo/obi/OBI-Function.owl# ""
+idspace: obi_instr http://purl.obofoundry.org/obo/obi/InstrumentAndPart.owl# ""
+idspace: obi_obsolete http://purl.obofoundry.org/obo/obi/Obsolete.owl# ""
+idspace: obi_owlfull http://purl.obofoundry.org/obo/obi/obi-owl-full.owl# ""
+idspace: obi_plan http://purl.obofoundry.org/obo/obi/PlanAndPlannedProcess.owl# ""
+idspace: obi_quality http://purl.obofoundry.org/obo/obi/Quality.owl# ""
+idspace: obi_rel http://purl.obofoundry.org/obo/obi/Relations.owl# ""
+idspace: obi_rest http://purl.obofoundry.org/obo/obi/TheRest.owl# ""
+idspace: obi_role http://purl.obofoundry.org/obo/obi/Role.owl# ""
 idspace: owl http://www.w3.org/2002/07/owl# ""
 idspace: pato http://purl.org/obo/owl/PATO# ""
 idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
@@ -32,746 +33,1205 @@ idspace: serql http://www.openrdf.org/schema/serql# ""
 idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
 idspace: span http://www.ifomis.org/bfo/1.1/span# ""
 idspace: swrl http://www.w3.org/2003/11/swrl# ""
-idspace: xsd http://www.w3.org/2001/XMLSchema# ""
 
 [Term]
-id: OBI:0000011
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description1
+is_anonymous: true
+intersection_of: obi:OBI_0000293 snap:Object 
+intersection_of: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description4 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description19
+is_anonymous: true
+intersection_of: obi:OBI_0100060 
+intersection_of: obi:OBI_0000298 obi:OBI_0302883 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description22
+is_anonymous: true
+intersection_of: obi:OBI_0100026 
+intersection_of: obi:OBI_0000298 pato:PATO_0001421 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description25
+is_anonymous: true
+intersection_of: obi:OBI_0100026 
+intersection_of: obi:OBI_0000298 pato:PATO_0001422 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description29
+is_anonymous: true
+intersection_of: span:Process 
+intersection_of: ro:has_part __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description31 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description36
+is_anonymous: true
+intersection_of: obi:OBI_0100051 
+intersection_of: obi:OBI_0000298 obi:OBI_0302872 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description4
+is_anonymous: true
+intersection_of: obi:OBI_0000305 
+intersection_of: obi:OBI_0000314 obi:OBI_0000019 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description42
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23091 
+intersection_of: obi:OBI_0000316 obi:OBI_0302732 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description45
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302873 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description48
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23091 
+intersection_of: obi:OBI_0000316 obi:OBI_0000140 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description51
+is_anonymous: true
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description55
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302845 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description62
+is_anonymous: true
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description65
+is_anonymous: true
+union_of: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description66 
+union_of: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description68 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description66
+is_anonymous: true
+intersection_of: obi:OBI_0100052 
+intersection_of: obi:OBI_0000298 obi:OBI_0302851 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description68
+is_anonymous: true
+intersection_of: obi:OBI_0100066 
+intersection_of: obi:OBI_0000298 obi:OBI_0302851 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description73
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302865 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description76
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23091 
+intersection_of: obi:OBI_0000316 obi:OBI_0000250 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description8
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0000019 
+intersection_of: obi:OBI_0000298 obi:OBI_0302848 
+
+[Term]
+id: obi:OBI_0000011
 name: objective driven process
+def: "is a process which is initiataed by one or more human participants with an overall objective they wish to achieve. The participantes do not necessarily have to have a plan how to achieve it." []
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description60
 
 [Term]
-id: OBI:0000035
+id: obi:OBI_0000035
 name: _cloning placeholder
-is_a: OBI:0000094  ! material transformation
+def: "Place holder class, see editor note" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0000043
+id: obi:OBI_0000043
 name: xenotransplantation
-is_a: OBI:0000105  ! transplantation
+def: "is the transplantation of living cells, tissues or \\norgans from one species to another such as from pigs to humans" []
+is_a: obi:OBI_0000105  ! transplantation
 
 [Term]
-id: OBI:0000045
+id: obi:OBI_0000045
 name: waiting
-is_a: OBI:0600009  ! exposure of material to environment
+def: "not actively doing anything to a material for a duration of time." []
+is_a: obi:OBI_0600009  ! exposure of material to environment
 
 [Term]
-id: OBI:0000057
+id: obi:OBI_0000057
 name: allotransplantation
-is_a: OBI:0000105  ! transplantation
+def: "is the transplantation of organs between members of \\nthe same species." []
+is_a: obi:OBI_0000105  ! transplantation
 
 [Term]
-id: OBI:0000066
+id: obi:OBI_0000066
 name: investigation
-is_a: OBI:0000011  ! objective driven process
+def: "An investigation is a planned process with the objective to generate an \n'information entity of scientific value' by planning protocol applications, carrying them out and documenting  the results. In addition, an investigation can include a sub process of interpreting the data to draw conclusions." []
+is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
-id: OBI:0000069
+id: obi:OBI_0000069
 name: protocol application
-is_a: OBI:0600062  ! planned process
+def: "A protocol application is a process carried out to bring about the  objective defined in the protocol applied. Every protocol_application has one or more inputs and outputs definition_source: OBI. a protocol_application is a planned process realizes a process in which the   objective of the protocol is achieved. The manipulation of materials and information on materials as part of an investigation" []
+is_a: obi:OBI_0600062  ! planned process
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description58
 
 [Term]
-id: OBI:0000070
+id: obi:OBI_0000070
 name: assay
-is_a: OBI:0000069  ! protocol application
+def: "An assay is a protocol application which includes evaluant (evaluant term  definition to be added by Richard, currently under role) as an input  and  which objective is to generate output data about qualities or other   features on the input material [Action Item for Barry to refine   definition] definition_source: OBI." []
+is_a: obi:OBI_0000069  ! protocol application
+relationship: obi:OBI_0000313 obi:OBI_0400002
 
 [Term]
-id: OBI:0000073
+id: obi:OBI_0000073
 name: sample preparation for assay
-is_a: OBI:0600065  ! _defined protocol application
+def: "A sample_preparation_for_assay is a protocol_application including material_enrollments and biomaterial_transformations. definition_source: OBI." []
+synonym: "study"  []
+is_a: obi:OBI_0600065  ! _defined protocol application
 
 [Term]
-id: OBI:0000076
+id: obi:OBI_0000076
 name: _unplanned process part
+def: "An extraneous process is a process which is external in origin to the investigation that has an impact on the outcome." []
 
 [Term]
-id: OBI:0000080
-name: information entity
+id: obi:OBI_0000080
+def: "BFO to do" []
 
 [Term]
-id: OBI:0000085
+id: obi:OBI_0000085
 name: concretized protocol
-is_a: OBI:0000260  ! concretized information entity
+def: "BFO to do" []
+is_a: obi:OBI_0000260  ! concretized information entity
 
 [Term]
-id: OBI:0000094
+id: obi:OBI_0000094
 name: material transformation
-is_a: OBI:0000069  ! protocol application
+def: "A material transformation is a protocol_application carried out to generate output material from the input material" []
+is_a: obi:OBI_0000069  ! protocol application
 
 [Term]
-id: OBI:0000105
+id: obi:OBI_0000105
 name: transplantation
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application to replace an organ or tissue of an organism" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0000115
+id: obi:OBI_0000115
 name: intervention design
-is_a: OBI:0500000  ! study design
+def: "an intervention design is a study design in which treatments (perturbations or intervention) defined as a combination of values taken by independant variable manipulated by the experimentalists are applied to the recruited subjects assigned (possibly by applying specific methods) to treatment groups. The specificity of intervention design is the fact that independent variables are being manipulated and a response of the biological system is evaluated via response variables as monitored by possibly a series of assays." []
+is_a: obi:OBI_0500000  ! study design
+relationship: obi:OBI_0000297 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description28
 
 [Term]
-id: OBI:0000117
+id: obi:OBI_0000117
 name: Bernoulli trial
-is_a: OBI:0600065  ! _defined protocol application
+def: "is an assay where the output data is a datum with one of two values denoted success and failure." []
+is_a: obi:OBI_0600065  ! _defined protocol application
 
 [Term]
-id: OBI:0000126
+id: obi:OBI_0000126
 name: _induction of natural processes
-is_a: OBI:0000094  ! material transformation
+def: "Place holder class, see editor note" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0000153
+id: obi:OBI_0000153
 name: cell co-culturing
-is_a: OBI:0000094  ! material transformation
+def: "A material combination in which cell cultures of two or more different types are are combined and allowed to culture as one." []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0000171
+id: obi:OBI_0000171
 name: autotransplantation
-is_a: OBI:0000105  ! transplantation
+def: "is the transplantation of tissue from one part of \\nthe body to another in the same individual. )" []
+is_a: obi:OBI_0000105  ! transplantation
 
 [Term]
-id: OBI:0000182
+id: obi:OBI_0000182
 name: nuclear magnetic resonance assay
-is_a: OBI:0000070  ! assay
+def: "A nuclear magnetic resonance assay is an assay used to identify the chemical structure of a compound or biological macromolecule. definition_source: www.nature.com/nrd/journal/v2/n5/glossary/nrd1086_glossary.html" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0000183
+id: obi:OBI_0000183
 name: mass spectrometry assay
-is_a: OBI:0000070  ! assay
+def: "A mass spectrometry assay is an assay to measure and analyze the molecules of a sample based on it's mass and charge. definition_source: OBI." []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0000185
+id: obi:OBI_0000185
 name: imaging assay
-is_a: OBI:0000070  ! assay
+def: "An imaging assay is an assay to produce a picture of an entity. definition_source: OBI." []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0000187
+id: obi:OBI_0000187
 name: data format specification
-is_a: OBI:0000333  ! specification
+def: "A data format specification is a plan which organizes information. Example: The ISO document specifying what encompasses an XML document; The instructions in a XSD file" []
+is_a: obi:OBI_0000337  ! realizable information entity
 
 [Term]
-id: OBI:0000201
+id: obi:OBI_0000201
 name: radioactivity detection
-is_a: OBI:0000070  ! assay
+def: "An assay in which a material's radioactivity is measured." []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0000227
+id: obi:OBI_0000227
 name: data encoding
-is_a: OBI:0000340  ! documenting
+def: "is a process to encode an information entitiy into a digital document" []
+is_a: obi:OBI_0000340  ! documenting
 
 [Term]
-id: OBI:0000231
+id: obi:OBI_0000231
 name: enzymatic cleavage
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application to digest the fraction of input material that is susceptible to that enzyme" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0000253
+id: obi:OBI_0000253
 name: nucleic acid hybridization
-is_a: OBI:0000126  ! _induction of natural processes
+def: "Is a material transformation in which strands of nucleic acids that are (somewhat) complementary form a double-stranded molecule. Has input at least two single stranded molecules of nucleic acid molecules." []
+is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
-id: OBI:0000257
+id: obi:OBI_0000257
 name: DNA extraction
-is_a: OBI:0666667  ! nucleic acid extraction
+def: "A DNA extraction is a nucleic acid extration where the desired output material is DNA." []
+is_a: obi:OBI_0666667  ! nucleic acid extraction
 
 [Term]
-id: OBI:0000260
+id: obi:OBI_0000260
 name: concretized information entity
+def: "BFO to do" []
 
 [Term]
-id: OBI:0000270
+id: obi:OBI_0000270
 name: algorithm
-is_a: OBI:0000333  ! specification
+def: "an algorithm is a plan which describes inputs, output of mathematical functions as well as workflow of execution for achieving an predefined objective. Algorithms are realized usually by means of implementation as computer programs for execution by automata." []
+is_a: obi:OBI_0000337  ! realizable information entity
 
 [Term]
-id: OBI:0000272
+id: obi:OBI_0000272
 name: protocol
-is_a: OBI:0000344  ! plan
+def: "protocol is a plan which outlines a set of instructions to achieve a specific objective relevant to the biomedical domain and which can be realized as a protocol application." []
+is_a: obi:OBI_0000344 
 
 [Term]
-id: OBI:0000278
+id: obi:OBI_0000278
 name: _disease stage
+def: "is a fiat_process_part which is part_of a disease_process which is associated with position in the normal progression of the disease" []
 
 [Term]
-id: OBI:0000296
+id: obi:OBI_0000296
 name: enrollment
-is_a: OBI:0600062  ! planned process
+def: "process of identifying a set of objects for further use in an investigation" []
+is_a: obi:OBI_0600062  ! planned process
 
 [Term]
-id: OBI:0000310
+id: obi:OBI_0000310
 name: adverse event trigger
-is_a: OBI:0000349  ! instruction trigger
+def: "revisit?" []
+is_a: obi:OBI_0000349  ! instruction trigger
 
 [Typedef]
-id: OBI:0000316
+id: obi:OBI_0000316
 
 [Term]
-id: OBI:0000331
+id: obi:OBI_0000331
 name: time trigger
-is_a: OBI:0000349  ! instruction trigger
+def: "revisit?" []
+is_a: obi:OBI_0000349  ! instruction trigger
 
 [Term]
-id: OBI:0000333
-name: specification
-is_a: OBI:0000080  ! information entity
-
-[Term]
-id: OBI:0000335
+id: obi:OBI_0000335
 name: investigation design
-is_a: OBI:0000344  ! plan
+def: "Investigation_design is a plan for an investigation. definition_source: OBI." []
+is_a: obi:OBI_0000344 
 
 [Term]
-id: OBI:0000337
-name: realizable-information entity
-is_a: OBI:0000333  ! specification
+id: obi:OBI_0000337
+name: realizable information entity
+def: "is the specification of a process that can be concretized and realized by an actor" []
+synonym: "instruction"  []
+is_a: obi:OBI_0000080 
 
 [Term]
-id: OBI:0000338
+id: obi:OBI_0000338
 name: interpreting data
-is_a: OBI:0000011  ! objective driven process
+def: "is the process of evaluating the data gathered in an investigation with the objective to generate more general conclusions or to identify what additional data is necessary to draw conclusions" []
+is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
-id: OBI:0000339
+id: obi:OBI_0000339
 name: planning
-is_a: OBI:0000011  ! objective driven process
+def: "planning is the process of creating or modifying a plan." []
+is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
-id: OBI:0000340
+id: obi:OBI_0000340
 name: documenting
-is_a: OBI:0000011  ! objective driven process
+def: "the process of capturing information in a digital or physical representation with the capacity and intend to communicate" []
+is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
-id: OBI:0000341
+id: obi:OBI_0000341
 name: histological sample preparation
-is_a: OBI:0000094  ! material transformation
+def: "is the preparation of an input tissue via slicing and labeling to make tissue microstructure of interest visible in a future histology assay" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0000342
+id: obi:OBI_0000342
 name: investigation planning
-is_a: OBI:0000339  ! planning
+def: "a planning process with the objective to create or modify an investigation design" []
+is_a: obi:OBI_0000339  ! planning
 
 [Term]
-id: OBI:0000343
+id: obi:OBI_0000343
 name: inductive reasoning
-is_a: OBI:0000338  ! interpreting data
+def: "It is used to ascribe properties or relations to types based on an observation instance (i.e., on a number of observations or experiences); or to formulate laws based on limited observations of recurring phenomenal patterns." []
+is_a: obi:OBI_0000338  ! interpreting data
 
 [Term]
-id: OBI:0000344
-name: plan
-is_a: OBI:0000337  ! realizable-information entity
+id: obi:OBI_0000344
 
 [Term]
-id: OBI:0000349
+id: obi:OBI_0000349
 name: instruction trigger
-is_a: OBI:0000333  ! specification
+def: "is a plan to carry out a process or an event if the trigger condition is fulfilled" []
+is_a: obi:OBI_0000337  ! realizable information entity
 
 [Term]
-id: OBI:0000354
+id: obi:OBI_0000354
 name: _disease course
+def: "is a process through which a disease manifests itself" []
 
 [Term]
-id: OBI:0000355
+id: obi:OBI_0000355
 name: hypothesis driven investigation
-is_a: OBI:0000066  ! investigation
+def: "is an investigation with the goal to test one or more hypothesis" []
+is_a: obi:OBI_0000066  ! investigation
 
 [Term]
-id: OBI:0000356
+id: obi:OBI_0000356
 name: hypothesis generating investigation
-is_a: OBI:0000066  ! investigation
+def: "is an investigation in which data is generated and analyzed with the purpose of generating new hypothesis" []
+is_a: obi:OBI_0000066  ! investigation
 
 [Term]
-id: OBI:0300310
+id: obi:OBI_0300310
 name: sequential design
-is_a: OBI:0000115  ! intervention design
+def: "Any design in which the decision as to whether to enroll the next patient, pair of patients, or block of patients is determined by whether the cumulative treatment difference for all previous patients is within specified limits.  Enrollment is continued if the difference does not exceed the limits.  It is terminated if it does" []
+is_a: obi:OBI_0000115  ! intervention design
 
 [Term]
-id: OBI:0300311
+id: obi:OBI_0300311
 name: observation design
-is_a: OBI:0500000  ! study design
+def: "observation design is a study design in which subjects are monitored in the absence of any active intervention by experimentalists." []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0302736
+id: obi:OBI_0302736
 name: comet assay
-is_a: OBI:0000070  ! assay
+def: "a comet assay is an assay which utilizes gel electropheris on cell exposed to a challenge with the objective to assess DNA damage (DNA breakage) by determining the size and shape of DNA migration in cell placed in an electric field in specific conditions." []
+synonym: "SCGE assay"  []
+synonym: "single cell gel electrophoresis  assay"  []
+is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 cell:CL_0000000
+relationship: obi:OBI_0000299 obi:OBI_0000030
+relationship: obi:OBI_0000313 obi:OBI_0400140
 
 [Term]
-id: OBI:0302737
+id: obi:OBI_0302737
 name: PCR-SSCP assay
-is_a: OBI:0000070  ! assay
+def: "a PCR-SSCP assay is an assay which aims at the  identification  of DNA sequence variation (mutation,deletion, insertions) using gel electrophoresis technique and denaturating conditions on target DNA sequences amplified using polymerase chain reaction procedure." []
+synonym: "polymerase chain reaction-single strand conformation polymorphism assay"  []
+is_a: obi:OBI_0000070  ! assay
+relationship: ro:has_participant obi:OBI_0000030
 
 [Term]
-id: OBI:0500000
+id: obi:OBI_0302884
+name: extraction
+is_a: obi:OBI_0600014  ! material separation
+
+[Term]
+id: obi:OBI_0302885
+name: filtration
+def: "filtration is a process which separates components suspended in a fluid based on granularity properties relying on a filter device" []
+is_a: obi:OBI_0600014  ! material separation
+relationship: obi:OBI_0000313 obi:OBI_0000151
+
+[Term]
+id: obi:OBI_0302886
+name: centrifugation
+def: "centrifugation is a process separating molecules by size or density using centrifugal forces generated by a spinning rotor. G-forces of several hundred thousand times gravity are generated in ultracentrifugation" []
+is_a: obi:OBI_0600014  ! material separation
+relationship: obi:OBI_0000313 obi:OBI_0400106
+
+[Term]
+id: obi:OBI_0302887
+name: staining
+def: "Staining is a process which results in the addition a class-specific (DNA, proteins, lipids, carbohydrates) dye to a substrate to qualify or quantify the presence of a specific compound." []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description73
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description76
+
+[Term]
+id: obi:OBI_0302888
+name: washing
+def: "washing is a process by which a material entity acting as  contaminant (e.g. excess staining reagent) is removed by application of one or more cycles of solution in flow." []
+is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0302889
+name: irradiation
+def: "irradiation is a process by which a material entity is exposed to radiative energy, which could be ionizing radiation (such as gamma rays or X-rays)  or not such as UV light or microwaves" []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description8
+
+[Term]
+id: obi:OBI_0302890
+name: polymerization
+def: "polymerization is process by which molecular entity of small mass are aggregated in motifs over the course of a chemical reaction catalyzed by enzymes or other molecular entities acting as catalyst. ploymerization results in molecular entity of high molecular weight" []
+is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0302891
+name: trypsination
+is_a: obi:OBI_0600056  ! protease cleavage
+
+[Term]
+id: obi:OBI_0302892
+name: enzymatic ligation
+def: "ligation is a process which fragments of molecule  can be united or or open molecules can be circularized  by covalent bond through the action of enzyme or other agent with ligase activity" []
+is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0302893
+name: storage
+def: "storage is a process by which material entities are placed in well identified location and possibly under controlled environment in ad-hoc devices/structures in order to preserve and protect them from decay/alteration and maintain availability" []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description55
+
+[Term]
+id: obi:OBI_0302894
+name: cell lysis
+def: "cell lysis is a process by which cell membrane integrity of live cells  is compromised and leads to cell death. Cell lysis may be achieved by means of viral action or osmotic shock." []
+is_a: obi:OBI_0600006  ! killing
+
+[Term]
+id: obi:OBI_0302895
+name: electrocution
+def: "electrocution is process by which electric current is applied to a material with quality alive and result the termination of life process." []
+is_a: obi:OBI_0600006  ! killing
+relationship: obi:OBI_0000313 obi:OBI_0400142
+
+[Term]
+id: obi:OBI_0302896
+name: cervical dislocation
+def: "cervical dislocation is a process by which a Vertebrate organism has its life terminated by rupturing spinal cord between cervical vertebrae induced by excessive mechanical torsion" []
+is_a: obi:OBI_0600006  ! killing
+
+[Term]
+id: obi:OBI_0302897
+name: asphyxiation
+def: "asphyxiation is a process by which oxygen supplies are restricted (by mechanical, e.g obstructing airways or chemical means, e.g. increasing CO2 partial pressure) resulting in termination of life in oxygen reliant organisms." []
+is_a: obi:OBI_0600006  ! killing
+
+[Term]
+id: obi:OBI_0302898
+name: lethal injection
+is_a: obi:OBI_0600006  ! killing
+relationship: obi:OBI_0000309 http://purl.org/obo/owl/CHEBI#CHEBI_23091
+
+[Term]
+id: obi:OBI_0302899
+name: decapitation
+def: "decapitation is a process by which the head of a living organism is physically removed from the body, usually resulting in rapid death (in Rhodnius prolixus, it might take a bit longer..)" []
+is_a: obi:OBI_0600006  ! killing
+
+[Term]
+id: obi:OBI_0302900
+name: randomization
+def: "randomization is a group assignemnt which relies on chance to assign materials to a group of materials in order to avoid biais in experimental set up." []
+is_a: obi:OBI_0600015  ! group assignment
+
+[Term]
+id: obi:OBI_0302901
+name: activation
+def: "activation is a process by which a material entity status is modified and confered a capability of reacting\n(this sounds like a circular definition , hugh\!)" []
+is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0302902
+name: immobilization
+def: "immbolization is a process by which material entity become (possibly covalently but not necessarily) attached to the surface of another material entity used a substratum." []
+is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0302903
+name: nucleic acid hybridization
+def: "hybridization of nucleic acid is process by which totally or partially  complementary, single-stranded nucleic acids  can be combined into a single molecule called heteroduplex or homoduplex depending on the quality of the complementation." []
+is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0302905
+name: elution
+def: "the process of extracting one material from another by washing with a solvent to remove adsorbed material from an adsorbent (as in washing of loaded ion-exchange resins to remove captured ions)" []
+is_a: obi:OBI_0600014  ! material separation
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description42
+relationship: obi:OBI_0000313 obi:OBI_0000038
+
+[Term]
+id: obi:OBI_0302906
+name: substraction
+def: "DNA subtraction is a material separation process by which repetitive genomic DNA is removed during the construction of cDNA library." []
+is_a: obi:OBI_0600014  ! material separation
+
+[Term]
+id: obi:OBI_0302908
+name: editing
+def: "editing is a process by which" []
+synonym: "curation"  []
+is_a: obi:OBI_0000340  ! documenting
+
+[Term]
+id: obi:OBI_0302910
+name: prediction
+is_a: obi:OBI_0600062  ! planned process
+
+[Term]
+id: obi:OBI_0302911
+name: validation
+def: "validation is a process by which the accuracy or the quality of a claim  satisfies criteria and  is assessed by comparing with independent results" []
+is_a: obi:OBI_0600062  ! planned process
+
+[Term]
+id: obi:OBI_0302912
+name: electroporation
+def: "Electroporation, or electropermeabilization, is a significant increase in the electrical conductivity and permeability of the cell plasma membrane caused by an externally applied electrical field. It is usually used in molecular biology as a way of introducing some substance into a cell, such as loading it with a molecular probe, a drug that can change the cell's function, or a piece of coding DNA" []
+is_a: obi:OBI_0600033  ! cell permeabalization
+relationship: obi:OBI_0000293 obi:OBI_0100060
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description19
+relationship: obi:OBI_0000313 obi:OBI_0400142
+
+[Term]
+id: obi:OBI_0302914
+name: digital curation
+def: "Digital curation is the process of establishing and developing long term repositories of digital assets for current and future reference by researchers, scientists, and historians, and scholars generally." []
+is_a: obi:OBI_0000340  ! documenting
+
+[Term]
+id: obi:OBI_0500000
 name: study design
-is_a: OBI:0000344  ! plan
+def: "A formal description of the constraints on the possible configurations of an experiment which is subject to given conditions. A design is sometimes called an experimental design. source:http://mathworld.wolfram.com/Design.html\\nEditor Note: Philippe Rocca-Serra added this; Description of how an experiment is performed. Experiments are designed by applying applications to biomaterials in an ordered fashion. Applications define protocols which are used to moving biomaterial through a series of manipulations to generate one or more desired products. methods describe the particulars of the manipulation, reagents and associated materials used in the manipulation of the biomaterial." []
+synonym: "experimental design"  []
+is_a: obi:OBI_0000344 
 
 [Term]
-id: OBI:0500001
+id: obi:OBI_0500001
 name: clinical study design
-is_a: OBI:0000115  ! intervention design
+def: "Plan for the precise procedure to be followed in a clinical trial, including planned and actual timing of events, choice of control group, method of allocating treatments, blinding methods; assigns a subject to pass through one or more epochs in the course of a trial. Specific design elements, e.g., crossover, parallel; dose-escalation [Modified from Pocock, Clinical Trials: A Practical Approach]" []
+is_a: obi:OBI_0000115  ! intervention design
 
 [Term]
-id: OBI:0500002
+id: obi:OBI_0500002
 name: repeated measure design
-is_a: OBI:0000115  ! intervention design
+def: "A repeated measure design is a study design which use the same individuals and exposure them to a set of conditions. The effect of order and practice can be confounding factor in such designs" []
+is_a: obi:OBI_0000115  ! intervention design
 
 [Term]
-id: OBI:0500003
+id: obi:OBI_0500003
 name: cross over design
-is_a: OBI:0500002  ! repeated measure design
+def: "a cross-over design is a study design which ensures that experimental units receive, in sequence, the treatment (or the control), and then, after a specified time interval (aka *wash-out periods*), switch to the control (or treatment). In this design, subjects (patients in human context) serve as their own controls, and randomization may be used to determine the ordering which a subject receives the treatment and control" []
+is_a: obi:OBI_0500002  ! repeated measure design
 
 [Term]
-id: OBI:0500004
+id: obi:OBI_0500004
 name: n-to-1 design
-is_a: OBI:0500003  ! cross over design
+def: "N-of-1 design is a cross-over design in which the same patient is repeatedly randomised to receive either the experimental treatment or its control (Senn, 1993)." []
+is_a: obi:OBI_0500003  ! cross over design
 
 [Term]
-id: OBI:0500005
+id: obi:OBI_0500005
 name: matched pairs design
-is_a: OBI:0500000  ! study design
+def: "A matched pair design is a study design which use groups of individuals associated (hence matched) to each other based on a set of criteria, one member going to one treatment, the other member receiving the other treatment." []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500006
+id: obi:OBI_0500006
 name: parallel group design
-is_a: OBI:0000115  ! intervention design
+def: "A parallel group design or independent measure design is a study design which uses unique experimental unit each experimental group, in other word no two individuals are shared between experimental groups, hence also known as parallel group design. Subjects of a treatment group receive a unique combination of independent variable values making up a treatment" []
+synonym: "independent measure design"  []
+is_a: obi:OBI_0000115  ! intervention design
 
 [Term]
-id: OBI:0500007
+id: obi:OBI_0500007
 name: randomized complete block design
-is_a: OBI:0000115  ! intervention design
+def: "A randomized complete block design is_a study design which assigns randomly treatments to block. The number of units per block equals the number of treatment so each block receives each treatment exactly once (hence the qualifier 'complete'). The design was originally devised from field trials used in agronomy and agriculture. The analysis assumes that there is no interaction between block and treatment. The method was then used in other settings So The randomised complete block design is a design in which the subjects are matched according to a variable which the experimenter wishes to control. The subjects are put into groups (blocks) of the same size as the number of treatments. The members of each block are then randomly assigned to different treatment groups." []
+is_a: obi:OBI_0000115  ! intervention design
 
 [Term]
-id: OBI:0500008
+id: obi:OBI_0500008
 name: balanced incomplete block design
-is_a: OBI:0500014  ! factorial design
+def: "balanced incomplete block design is a kind of factorial design where all treatment pairs occur together within a block an equal number ?? times. ??ii' is the number of times treatment i occurs with i'" []
+is_a: obi:OBI_0500014  ! factorial design
 
 [Term]
-id: OBI:0500009
+id: obi:OBI_0500009
 name: loop design
-is_a: OBI:0500000  ! study design
+def: "A loop experiment design is where labeled extracts are compared in consecutive pairs. synonym: circular design" []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500010
+id: obi:OBI_0500010
 name: reference design
-is_a: OBI:0500000  ! study design
+def: "A reference experiment design type is where all samples are compared to a common reference." []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500011
+id: obi:OBI_0500011
 name: latin square design
-is_a: OBI:0500007  ! randomized complete block design
+def: "Latin square design is_a study design which allows in its simpler form controlling 2 levels of nuisance variables (also known as blocking variables).he 2 nuisance factors are divided into a tabular grid with the property that each row and each column receive each treatment exactly once." []
+is_a: obi:OBI_0500007  ! randomized complete block design
 
 [Term]
-id: OBI:0500012
+id: obi:OBI_0500012
 name: graeco latin square design
-is_a: OBI:0500007  ! randomized complete block design
+def: "Greco-Latin square design is a study design which relates to Latin square design" []
+is_a: obi:OBI_0500007  ! randomized complete block design
 
 [Term]
-id: OBI:0500013
+id: obi:OBI_0500013
 name: hyper graeco latin square design
-is_a: OBI:0500007  ! randomized complete block design
+def: "PRS to do" []
+is_a: obi:OBI_0500007  ! randomized complete block design
 
 [Term]
-id: OBI:0500014
+id: obi:OBI_0500014
 name: factorial design
-is_a: OBI:0000115  ! intervention design
+def: "factorial design is_a study design which is used to evaluate two or more factors simultaneously. The treatments are combinations of levels of the factors. The advantages of factorial designs over one-factor-at-a-time experiments is that they are more efficient and they allow interactions to be detected. In statistics, a factorial design experiment is an experiment whose design consists of two or more factors, each with discrete possible values or levels, and whose experimental units take on all possible combinations of these levels across all such factors. Such an experiment allows studying the effect of each factor on the response variable, as well as the effects of interactions between factors on the response variable." []
+is_a: obi:OBI_0000115  ! intervention design
 
 [Term]
-id: OBI:0500015
+id: obi:OBI_0500015
 name: 2x2 factorial design
-is_a: OBI:0500014  ! factorial design
+def: "2x2 factorial design is factorial design which has 2 experimental factors (aka independent variables) and 2 factor levels per experimental factors" []
+is_a: obi:OBI_0500014  ! factorial design
 
 [Term]
-id: OBI:0500016
+id: obi:OBI_0500016
 name: fractional factorial design
-is_a: OBI:0500014  ! factorial design
+def: "A fractional factorial design is_a study design in which only an adequately chosen fraction of the treatment combinations required for the complete factorial experiment is selected to be run" []
+is_a: obi:OBI_0500014  ! factorial design
 
 [Term]
-id: OBI:0500017
+id: obi:OBI_0500017
 name: dye swap design
-is_a: OBI:0500000  ! study design
+def: "An experiment design type where the label orientations are reversed. exact synonym: flip dye, dye flip" []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500018
+id: obi:OBI_0500018
 name: replicate design
-is_a: OBI:0500000  ! study design
+def: "A replicate experimental design type is where a series of replicates are performed to evaluate reproducibility or as a pilot study to determine the appropriate number of replicates for a subsequent experiments." []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500019
+id: obi:OBI_0500019
 name: self vs self design
-is_a: OBI:0500000  ! study design
+def: "A self vs. self experiment design investigates variance and error estimates in the experimental system, and is where the same extract is compared." []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500020
+id: obi:OBI_0500020
 name: time series design
-is_a: OBI:0500000  ! study design
+def: "Groups of assays that are related as part of a time series." []
+is_a: obi:OBI_0500000  ! study design
 
 [Term]
-id: OBI:0500021
+id: obi:OBI_0500021
 name: rule
-is_a: OBI:0000349  ! instruction trigger
+def: "a rule is an executable which guides, defines, restricts actions" []
+is_a: obi:OBI_0000349  ! instruction trigger
 
 [Term]
-id: OBI:0500022
+id: obi:OBI_0500022
 name: stopping rule
-is_a: OBI:0500021  ! rule
+def: "a stopping rule (criterion) is_a *rule* which causes a *stopping process* to happen" []
+is_a: obi:OBI_0500021  ! rule
 
 [Term]
-id: OBI:0500023
+id: obi:OBI_0500023
 name: compliance rule
-is_a: OBI:0500021  ! rule
+def: "a compliance rule is a rule which ensures a compliance process occurs" []
+is_a: obi:OBI_0500021  ! rule
 
 [Term]
-id: OBI:0500024
+id: obi:OBI_0500024
 name: standard compliance rule
-is_a: OBI:0500023  ! compliance rule
+def: "a  standard compliance rule is a compliance rule which defines conformity to a representation standard" []
+is_a: obi:OBI_0500023  ! compliance rule
 
 [Term]
-id: OBI:0500025
+id: obi:OBI_0500025
 name: ethical standard compliance rule
-is_a: OBI:0500024  ! standard compliance rule
+def: "an ethical standard compliance rule is_a *compliance rule* which enable a  *ethical compliance process* to occur" []
+is_a: obi:OBI_0500024  ! standard compliance rule
 
 [Term]
-id: OBI:0500026
+id: obi:OBI_0500026
 name: eligibility rule
-is_a: OBI:0500021  ! rule
+def: "an eligibility rule (criterion) is_a *rule* which defines the positive and negative criteria decide an entity to enter a study and that will define the population of the study" []
+is_a: obi:OBI_0500021  ! rule
 
 [Term]
-id: OBI:0500027
+id: obi:OBI_0500027
 name: inclusion rule
-is_a: OBI:0500026  ! eligibility rule
+def: "an inclusion rule (criterion) is_ rule*  in a protocol that prospective subjects must meet to be eligible for participation in a study" []
+is_a: obi:OBI_0500026  ! eligibility rule
 
 [Term]
-id: OBI:0500028
+id: obi:OBI_0500028
 name: exclusion rule
-is_a: OBI:0500026  ! eligibility rule
+def: "an exclusion rule (criterion) is_a *eligibility rule*  prospective subjects should not meet to be eligible for participation in a study" []
+is_a: obi:OBI_0500026  ! eligibility rule
 
 [Term]
-id: OBI:0600000
+id: obi:OBI_0600000
 name: administering substance to cell culture
-is_a: OBI:0000094  ! material transformation
+def: "material combination where one of the input materials is a cell culture and another material is not a cell culture" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600002
+id: obi:OBI_0600002
 name: tumor grading
-is_a: OBI:0000070  ! assay
+def: "Determination of the grade (severity/stage)  of a tumor sample, used in cancer biology to describe abnormalities/qualities of tumor cells or tissues.Values can be described by terms from NCI Thesaurus." []
+synonym: "grading of tumor"  []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600003
+id: obi:OBI_0600003
 name: clinical diagnosis
-is_a: OBI:0000070  ! assay
+def: "a protocol application during which a series of tests are made of a patient  leading to determination of disease state, or condition." []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600004
+id: obi:OBI_0600004
 name: human subject enrollment
-is_a: OBI:0000296  ! enrollment
+def: "enrollment of humans based on eligibility criteria for an investigation" []
+is_a: obi:OBI_0000296  ! enrollment
 
 [Term]
-id: OBI:0600005
+id: obi:OBI_0600005
 name: taking sample from organism
-is_a: OBI:0600014  ! material separation
+def: "is a protocol application in which material that is part of an organism is separated from the organism" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600006
+id: obi:OBI_0600006
 name: killing
-is_a: OBI:0000094  ! material transformation
+def: "A protocol application in which an organism is intentionally put to death" []
+synonym: "death status type"  []
+synonym: "euthanisia"  []
+synonym: "life termination"  []
+synonym: "sacrifice"  []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description22
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description25
 
 [Term]
-id: OBI:0600007
+id: obi:OBI_0600007
 name: administering substance in vivo
-is_a: OBI:0000094  ! material transformation
+def: "a substance is intentionally given to an organism through a specified route of administration" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600008
+id: obi:OBI_0600008
 name: acquisition
-is_a: OBI:0000011  ! objective driven process
+def: "the process of obtaining a continuant from a source." []
+is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
-id: OBI:0600009
+id: obi:OBI_0600009
 name: exposure of material to environment
-is_a: OBI:0000094  ! material transformation
+def: "an input material is exposed to a defined set of conditions in a controlled environment. The environment is an input of the protocol." []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600010
+id: obi:OBI_0600010
 name: object acquisition
-is_a: OBI:0600008  ! acquisition
+def: "an object acquisition is an acquisition of an object from an investigator, institution or vendor. Participant roles include source, destination, carrier, container, transaction record, payer..." []
+is_a: obi:OBI_0600008  ! acquisition
 
 [Term]
-id: OBI:0600011
+id: obi:OBI_0600011
 name: acclimatization
-is_a: OBI:0600009  ! exposure of material to environment
+def: "A protocol application in which an object is left in an environment for some period of time, until some qualities of interest are in equilibrium with that environment." []
+is_a: obi:OBI_0600009  ! exposure of material to environment
 
 [Term]
-id: OBI:0600012
+id: obi:OBI_0600012
 name: environmental material collection
-is_a: OBI:0600008  ! acquisition
+def: "environmental_material_collection is an acquisition where an object is taken from an environment and put into a storage container. Roles include, environment, thing collected, container, acquirer." []
+is_a: obi:OBI_0600008  ! acquisition
 
 [Term]
-id: OBI:0600013
+id: obi:OBI_0600013
 name: data collection
-is_a: OBI:0600008  ! acquisition
+def: "is an aquisition of information from an organization that provides information." []
+is_a: obi:OBI_0600008  ! acquisition
 
 [Term]
-id: OBI:0600014
+id: obi:OBI_0600014
 name: material separation
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application in which one input material is separated (in space) into two or more output materials" []
+synonym: "purification"  []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600015
+id: obi:OBI_0600015
 name: group assignment
-is_a: OBI:0600062  ! planned process
+def: "assigning objects to groups" []
+is_a: obi:OBI_0600062  ! planned process
 
 [Term]
-id: OBI:0600016
+id: obi:OBI_0600016
 name: material pooling
-is_a: OBI:0000094  ! material transformation
+def: "physical combination of several instances of like material" []
+synonym: "sample pooling"  []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0100051
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description36
 
 [Term]
-id: OBI:0600017
+id: obi:OBI_0600017
 name: detection of label
-is_a: OBI:0000070  ! assay
+def: "the detection of the amount of a label which is a proxy for the detection of the labeled biomaterial" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600018
+id: obi:OBI_0600018
 name: material portioning
-is_a: OBI:0600014  ! material separation
+def: "A material separtion in  which the input substance is partitioned into a number of portions that are similar in composition." []
+synonym: "aliquoting"  []
+synonym: "apportioning"  []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600019
+id: obi:OBI_0600019
 name: non-specific labeling
-is_a: OBI:0600038  ! labeling
+def: "The addition of a reagent labeling the entire input biomaterial enabling future detection of the output biomaterial" []
+is_a: obi:OBI_0600038  ! labeling
 
 [Term]
-id: OBI:0600020
+id: obi:OBI_0600020
 name: histology
-is_a: OBI:0000070  ! assay
+def: "the visual examination of cells or tissue (or images of them) with an assessment regarding a quality of the cells or tissue. Parts are: staining, imaging, judgement" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600021
+id: obi:OBI_0600021
 name: cell fixation
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application to preserve defined  qualities of cells or tissues (sample) which may otherwise change over time" []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description65
 
 [Term]
-id: OBI:0600022
+id: obi:OBI_0600022
 name: excision
-is_a: OBI:0600014  ! material separation
+def: "the use physical means to remove a portion of a substance from the rest" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600023
+id: obi:OBI_0600023
 name: non specific enzymatic cleavage
-is_a: OBI:0000231  ! enzymatic cleavage
+def: "a protocol application to digest the fraction of input material that is susceptible to that enzyme" []
+is_a: obi:OBI_0000231  ! enzymatic cleavage
 
 [Term]
-id: OBI:0600024
+id: obi:OBI_0600024
 name: maintaining cell culture
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application in which cells are kept alive in a defined environment outside of an organism.  part of cell_culturing" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600025
+id: obi:OBI_0600025
 name: substance detection
-is_a: OBI:0000070  ! assay
+def: "any protocol which results in the detection of a specified substance" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600026
+id: obi:OBI_0600026
 name: weight assessment
-is_a: OBI:0000070  ! assay
+def: "an assay in which the weight of an organism is measured over time" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600027
+id: obi:OBI_0600027
 name: cell membrane lysis
-is_a: OBI:0000126  ! _induction of natural processes
+def: "a material transformation to break the membranes of cells, releasing the cells contents; input=>cells; output=>cell_lysate" []
+is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
-id: OBI:0600028
+id: obi:OBI_0600028
 name: reverse transcription
-is_a: OBI:0000126  ! _induction of natural processes
+def: "a protocol to transcribe single-stranded RNA into complementary DNA (cDNA)" []
+is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
-id: OBI:0600029
+id: obi:OBI_0600029
 name: isolation of cell culture supernatant
-is_a: OBI:0600014  ! material separation
+def: "a protocol which results in the separation of supernatant material from a cell culture" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600030
+id: obi:OBI_0600030
 name: experimental disease induction
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application to induce a specific disease in an organism" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600031
+id: obi:OBI_0600031
 name: ELISPOT assay
-is_a: OBI:0000070  ! assay
+def: "an assay in which the number of cells producing a biomaterial in a larger cell population are stained and counted" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600032
+id: obi:OBI_0600032
 name: DNA repair
-is_a: OBI:0000126  ! _induction of natural processes
+def: "a protocol application to repair damaged DNA molecules" []
+is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
-id: OBI:0600033
+id: obi:OBI_0600033
 name: cell permeabalization
-is_a: OBI:0000094  ! material transformation
+def: "A protocol application to permeabilize cell membranes, allowing molecules to more easily pass through the membrane than was possible prior to the protocol application" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600034
+id: obi:OBI_0600034
 name: precipitation
-is_a: OBI:0000094  ! material transformation
+def: "a protocol application to cause a material to precipitate (becoming a solid) out of solution. Input is a solution, ouput is a solution plus a solid component (the precipitate)" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600036
+id: obi:OBI_0600036
 name: establishing cell culture
-is_a: OBI:0000094  ! material transformation
+def: "creating an in vitro environment in which cells are sustained from input material containing cells. input: cell-containing material, output cell culture, part of cell culturing. Cells are originally plated at a certain concentration referred to as seeding density." []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600037
+id: obi:OBI_0600037
 name: cell culture splitting
-is_a: OBI:0600014  ! material separation
+def: "The act of taking part of a homogeneous cell culture and creating one or more additional separate cultures of similar qualities. input: cell_culture, output cell_culture min cardinality 2. part of cell culturing" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600038
+id: obi:OBI_0600038
 name: labeling
-is_a: OBI:0000094  ! material transformation
+def: "the addition of a labeling reagent to an input biomaterial in order to detect the labeled material in the future" []
+is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description45
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description48
 
 [Term]
-id: OBI:0600039
+id: obi:OBI_0600039
 name: methylation
-is_a: OBI:0000126  ! _induction of natural processes
+def: "a protocol application to add methyl groups to molecules" []
+is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
-id: OBI:0600040
+id: obi:OBI_0600040
 name: synthesize
-is_a: OBI:0000094  ! material transformation
+def: "the construction of a biomaterial from simpler biomaterials" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600041
+id: obi:OBI_0600041
 name: concentrate
-is_a: OBI:0600014  ! material separation
+def: "a protocol application to create an output material with an increased density of a material of interest that is part of the input material by separating other parts of the input material" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600042
+id: obi:OBI_0600042
 name: recombinant plasmid cloning
-is_a: OBI:0000035  ! _cloning placeholder
+def: "the insertion of a particular gene into a plasmid in order to make copies of a biomaterial" []
+is_a: obi:OBI_0000035  ! _cloning placeholder
 
 [Term]
-id: OBI:0600043
+id: obi:OBI_0600043
 name: genetic transformation
-is_a: OBI:0000094  ! material transformation
+def: "the introduction and integration of genetic material into a cell or organism in order to alter its genetic make-up" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600044
+id: obi:OBI_0600044
 name: lavage
-is_a: OBI:0600005  ! taking sample from organism
+def: "a protocol application to separate cells and/or cellular secretions from an anatomical space by the introduction and removal of fluid" []
+is_a: obi:OBI_0600005  ! taking sample from organism
 
 [Term]
-id: OBI:0600045
+id: obi:OBI_0600045
 name: structure assay
-is_a: OBI:0000070  ! assay
+def: "any protocol resulting in information on the 3-dimensional qualities of a biomaterial" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600046
+id: obi:OBI_0600046
 name: chromatography
-is_a: OBI:0600014  ! material separation
+def: "the use of a biomaterial's preferential affinity for either the mobile phase or the stationary phase to separate it from other materials of differing affinity" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600047
+id: obi:OBI_0600047
 name: sequencing
-is_a: OBI:0000070  ! assay
+def: "the use of a chemical or biochemical means to infer the sequence of a biomaterial" []
+is_a: obi:OBI_0000070  ! assay
 
 [Term]
-id: OBI:0600048
+id: obi:OBI_0600048
 name: amplification of a clone
-is_a: OBI:0600063  ! cell growth mediated amplification
+def: "the use of a clonal cell line to produce a biomaterial" []
+is_a: obi:OBI_0600063  ! cell growth mediated amplification
 
 [Term]
-id: OBI:0600049
+id: obi:OBI_0600049
 name: DNA polymerase amplification
-is_a: OBI:0600058  ! enzymatic amplification
+def: "the use of a DNA polymerase to make copies of a biomaterial" []
+is_a: obi:OBI_0600058  ! enzymatic amplification
 
 [Term]
-id: OBI:0600050
+id: obi:OBI_0600050
 name: specific enzymatic cleavage
-is_a: OBI:0000231  ! enzymatic cleavage
+def: "a protocol application to digest the fraction of input material that is susceptible to that enzyme" []
+is_a: obi:OBI_0000231  ! enzymatic cleavage
 
 [Term]
-id: OBI:0600051
+id: obi:OBI_0600051
 name: gradient separation
-is_a: OBI:0600014  ! material separation
+def: "a protocol application that uses different concentrations of materials in a defined order to create a gradient to facilitate the separation of an input material into its components with specific qualities" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600052
+id: obi:OBI_0600052
 name: dialysis
-is_a: OBI:0600014  ! material separation
+def: "a protocol application that uses diffusiton through a semi-permeable membrane to separate an input material into two fractions of different composition" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600053
+id: obi:OBI_0600053
 name: electrophoresis
-is_a: OBI:0600014  ! material separation
+def: "a protocol application that uses an electrical potential to move material through a defined matrix in order to separate it by its resistance to movement and its charge" []
+is_a: obi:OBI_0600014  ! material separation
 
 [Term]
-id: OBI:0600054
+id: obi:OBI_0600054
 name: selection by survival
-is_a: OBI:0000094  ! material transformation
+def: "the use of environmental conditions to select for the organism or cells that have a certain trait" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600055
+id: obi:OBI_0600055
 name: DNA cleavage, restriction analysis
-is_a: OBI:0000231  ! enzymatic cleavage
+def: "the use of enzymes to cut DNA molecules, the study of DNA through cleavage, mapping, and analysis of the fragments" []
+is_a: obi:OBI_0000231  ! enzymatic cleavage
 
 [Term]
-id: OBI:0600056
+id: obi:OBI_0600056
 name: protease cleavage
-is_a: OBI:0000231  ! enzymatic cleavage
+def: "the use of enzymes to cut proteins" []
+is_a: obi:OBI_0000231  ! enzymatic cleavage
 
 [Term]
-id: OBI:0600057
+id: obi:OBI_0600057
 name: enzymatic DNA replication
-is_a: OBI:0600058  ! enzymatic amplification
+def: "the use of enzymes to duplicate DNA moleculeany process used to make additional copies of a biomaterial" []
+is_a: obi:OBI_0600058  ! enzymatic amplification
 
 [Term]
-id: OBI:0600058
+id: obi:OBI_0600058
 name: enzymatic amplification
-is_a: OBI:0000094  ! material transformation
+def: "the use of enzymes to increase the number of molecules of a biomaterial" []
+is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
-id: OBI:0600059
+id: obi:OBI_0600059
 name: DNA transduction
-is_a: OBI:0600043  ! genetic transformation
+def: "the use of lysogenic infection to transfer DNA sequences into an organism" []
+is_a: obi:OBI_0600043  ! genetic transformation
 
 [Term]
-id: OBI:0600060
+id: obi:OBI_0600060
 name: DNA transfection
-is_a: OBI:0600043  ! genetic transformation
+def: "the use of physical, electrical and chemical phenomena to introduce DNA into a cell" []
+is_a: obi:OBI_0600043  ! genetic transformation
 
 [Term]
-id: OBI:0600062
+id: obi:OBI_0600062
 name: planned process
-is_a: OBI:0000011  ! objective driven process
+def: "is a process that is the realization of some plan" []
+is_a: obi:OBI_0000011  ! objective driven process
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description71
+relationship: ro:has_part obi:OBI_0000011 ! objective driven process
 
 [Term]
-id: OBI:0600063
+id: obi:OBI_0600063
 name: cell growth mediated amplification
-is_a: OBI:0000035  ! _cloning placeholder
+def: "is the generation of copies of biomaterial by in a cell_culture modified for this purpose by insertion of an expression vectors" []
+is_a: obi:OBI_0000035  ! _cloning placeholder
 
 [Term]
-id: OBI:0600064
+id: obi:OBI_0600064
 name: recombinant vector cloning
-is_a: OBI:0000035  ! _cloning placeholder
+def: "insertion of  a DNA fragment into a cloning vector which creates. Has input vectors + DNA fragments. Has output: recombinant vectors" []
+is_a: obi:OBI_0000035  ! _cloning placeholder
 
 [Term]
-id: OBI:0600065
+id: obi:OBI_0600065
 name: _defined protocol application
+def: "Place holder class, see editor note" []
 
 [Term]
-id: OBI:0600067
+id: obi:OBI_0600067
 name: specific labeling
-is_a: OBI:0600038  ! labeling
+def: "a labeling in which the labeling reagent used  has a specificity to bind only certain components of the input material" []
+is_a: obi:OBI_0600038  ! labeling
 
 [Term]
-id: OBI:0666666
+id: obi:OBI_0666666
 name: RNA extraction
-is_a: OBI:0666667  ! nucleic acid extraction
+def: "A RNA  extraction is a nucleic acid extration where the desired output material is RNA" []
+is_a: obi:OBI_0666667  ! nucleic acid extraction
 
 [Term]
-id: OBI:0666667
+id: obi:OBI_0666667
 name: nucleic acid extraction
-is_a: OBI:0600014  ! material separation
+def: "a material separation to recover the nuceic acid fraction of an input material" []
+is_a: obi:OBI_0302884  ! extraction
+relationship: obi:OBI_0000293 obi:OBI_0000141
 
 [Term]
-id: OBI:9999994
+id: obi:OBI_9999994
 name: chromium release assay
-is_a: OBI:0000070  ! assay
+def: "An assay in which radioactive chromium is absorbed by cells and released into supernatant when the cells die. The amount of radioactivity measured in the supernatant is a proxy for the number of cells that have died." []
+is_a: obi:OBI_0000070  ! assay
 

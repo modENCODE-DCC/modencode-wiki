@@ -4,21 +4,22 @@ idspace: cell http://purl.org/obo/owl/CL# ""
 idspace: dc http://purl.org/dc/elements/1.1/ ""
 idspace: dcterms http://purl.org/dc/terms/ ""
 idspace: eor http://dublincore.org/2000/03/13/eor# ""
-idspace: OBI:annot obi/AnnotationProperty.owl# ""
-idspace: OBI:biomat obi/Biomaterial.owl# ""
-idspace: OBI:data_trans obi/DataTransformation.owl# ""
-idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
-idspace: OBI:ext obi/external.owl# ""
-idspace: OBI:extd obi/externalDerived.owl# ""
-idspace: OBI:func obi/OBI-Function.owl# ""
-idspace: OBI:instr obi/InstrumentAndPart.owl# ""
-idspace: OBI:obsolete obi/Obsolete.owl# ""
-idspace: OBI:owlfull obi/obi-owl-full.owl# ""
-idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
-idspace: OBI:quality obi/Quality.owl# ""
-idspace: OBI:rel obi/Relations.owl# ""
-idspace: OBI:rest obi/TheRest.owl# ""
-idspace: OBI:role obi/Role.owl# ""
+idspace: obi http://purl.obofoundry.org/obo/ ""
+idspace: obi_annot http://purl.obofoundry.org/obo/obi/AnnotationProperty.owl# ""
+idspace: obi_biomat http://purl.obofoundry.org/obo/obi/Biomaterial.owl# ""
+idspace: obi_data_trans http://purl.obofoundry.org/obo/obi/DataTransformation.owl# ""
+idspace: obi_denrie http://purl.obofoundry.org/obo/obi/DigitalEntityPlus.owl# ""
+idspace: obi_ext http://purl.obofoundry.org/obo/obi/external.owl# ""
+idspace: obi_extd http://purl.obofoundry.org/obo/obi/externalDerived.owl# ""
+idspace: obi_func http://purl.obofoundry.org/obo/obi/OBI-Function.owl# ""
+idspace: obi_instr http://purl.obofoundry.org/obo/obi/InstrumentAndPart.owl# ""
+idspace: obi_obsolete http://purl.obofoundry.org/obo/obi/Obsolete.owl# ""
+idspace: obi_owlfull http://purl.obofoundry.org/obo/obi/obi-owl-full.owl# ""
+idspace: obi_plan http://purl.obofoundry.org/obo/obi/PlanAndPlannedProcess.owl# ""
+idspace: obi_quality http://purl.obofoundry.org/obo/obi/Quality.owl# ""
+idspace: obi_rel http://purl.obofoundry.org/obo/obi/Relations.owl# ""
+idspace: obi_rest http://purl.obofoundry.org/obo/obi/TheRest.owl# ""
+idspace: obi_role http://purl.obofoundry.org/obo/obi/Role.owl# ""
 idspace: owl http://www.w3.org/2002/07/owl# ""
 idspace: pato http://purl.org/obo/owl/PATO# ""
 idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
@@ -31,720 +32,851 @@ idspace: serql http://www.openrdf.org/schema/serql# ""
 idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
 idspace: span http://www.ifomis.org/bfo/1.1/span# ""
 idspace: swrl http://www.w3.org/2003/11/swrl# ""
-idspace: xsd http://www.w3.org/2001/XMLSchema# ""
 
 [Term]
-id: OBI:0200000
+id: obi:OBI_0200000
 name: data transformation
+def: "A data transformation is a protocol application which  produces output data from input data - e.g. the application of a clustering protocol to microarray data or the application of a statistical testing method on a primary data set to determine a p-value." []
+synonym: "data analysis"  []
+synonym: "data processing"  []
 
 [Term]
-id: OBI:0200002
+id: obi:OBI_0200002
 name: logistic-log curve fitting
-is_a: OBI:0200072  ! curve fitting
+def: "A logistic-log curve fitting is a curve fitting where a curve of the form y=d+((a-d)/(1+(x/c)^b)) is obtained, where a, b, c, and d are determined so to optimize its fit to the input data points (x_1, y_1), (x_2, y_2), ..., (x_n, y_n)." []
+is_a: obi:OBI_0200072  ! curve fitting
 
 [Term]
-id: OBI:0200003
+id: obi:OBI_0200003
 name: logit-log curve fitting
-is_a: OBI:0200072  ! curve fitting
+def: "A logit-log curve fitting is a curve fitting where first the limits y_0 an y_infty of y when x->0 and x->infinity, respectively, are estimated from the input data points (x_1, y_1), (x_2,y_2), ..., (x_n, y_n). Then a curve with equation log((y-y_0)/(y_infty-y))=a+b log(x) is obtained, where a and b are determined to optimize its fit to the input data points." []
+is_a: obi:OBI_0200072  ! curve fitting
 
 [Term]
-id: OBI:0200004
+id: obi:OBI_0200004
 name: log-log curve fitting
-is_a: OBI:0200072  ! curve fitting
+def: "A log-log curve fitting is a curve fitting where first a logarithmic transformation is applied both to the x and the y coordinates of the input data points (x_1, y_1), (x_2, y_2), ..., (x_n, y_n), and then coefficients a and b are determined to optimize the fit of log(y)=a+b*log(x) to these input data points." []
+is_a: obi:OBI_0200072  ! curve fitting
 
 [Term]
-id: OBI:0200005
+id: obi:OBI_0200005
 name: feature extraction
-is_a: OBI:0200000  ! data transformation
+def: "A feature extraction is a data transformation which generates quantified values from a scanned image." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200006
+id: obi:OBI_0200006
 name: biexponential transformation
-is_a: OBI:0200000  ! data transformation
+def: "A biexponential transformation is a data transformation that, for each (one dimensional) real number input x, outputs an approximation (found, e.g. with the Newton's method) to a solution y of the equation B(y)-x=0, where B denotes a b transformation." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200007
+id: obi:OBI_0200007
 name: box-cox transformation
-is_a: OBI:0200000  ! data transformation
+def: "A box-cox transformation is a data transformation according to the methods of Box and Cox as described in the article Box, G. E. P. and Cox, D.R. (1964) An analysis of transformations. Journal of Royal Statistical Society, Series B, vol. 26, pp. 211-246." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200008
+id: obi:OBI_0200008
 name: hyperlog transformation
-is_a: OBI:0200000  ! data transformation
+def: "A hyperlog transformation ia a data transformation that, for each (one dimensional) real number input x, outputs an approximation (found, e.g. with the Newton's method) to a solution y of the equation EH(y)-x=0, where EH denotes an eh transformation." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200009
+id: obi:OBI_0200009
 name: background correction
-is_a: OBI:0200000  ! data transformation
+def: "A background correction is a data transformation intended to remove irrelevant contributions from the measured signal, e.g. those due to instrument noise or sample preparation." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200010
+id: obi:OBI_0200010
 name: loess scale group transformation one-channel
-is_a: OBI:0200025  ! loess scale group transformation
+def: "A loess scale group transformation one-channel is a loess scale group transformation consisting in the application of a scale adjustment following a loess group transformation one-channel, to render the M group variances similar." []
+is_a: obi:OBI_0200025  ! loess scale group transformation
 
 [Term]
-id: OBI:0200011
+id: obi:OBI_0200011
 name: logicle transformation
-is_a: OBI:0200000  ! data transformation
+def: "A logicle transformation is a data transformation that, for each (one dimensional) real number input x, outputs an approximation (found, e.g. with the Newton's method) to a solution y of the equation S(y)-x=0, where S denotes an s transformation." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200012
+id: obi:OBI_0200012
 name: loess scale group transformation two-channel
-is_a: OBI:0200025  ! loess scale group transformation
+def: "A loess scale group transformation two-channel is a loess scale group transformation consisting in the application of a scale adjustment following a loess group transformation two-channel, to render the M group variances similar." []
+is_a: obi:OBI_0200025  ! loess scale group transformation
 
 [Term]
-id: OBI:0200013
+id: obi:OBI_0200013
 name: loess global transformation one-channel
-is_a: OBI:0200023  ! loess global transformation
+def: "A loess global transformation one-channel is a loess global transformation in the special case where the input is the result of an MA transformation applied to intensities from two related one-channel assays." []
+is_a: obi:OBI_0200023  ! loess global transformation
 
 [Term]
-id: OBI:0200014
+id: obi:OBI_0200014
 name: split-scale transformation
-is_a: OBI:0200000  ! data transformation
+def: "A split-scale transformation is a data transformation which is an application of a function f described as follows to a (one dimensional) real number input. f(x)=a*x+b if x=for x>t; where log denotes a logarithmic transformation and a, b, c, d, r, t are real constants, with a, c, d, r, t positive, chosen so that f is continuos with a continuous derivative at the transition point t." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200015
+id: obi:OBI_0200015
 name: loess global transformation two-channel
-is_a: OBI:0200023  ! loess global transformation
+def: "A loess global transformation two-channel is a loess global transformation in the special case where the input the result of an MA transformation applied to intensities from the two channels of a two-channel assay." []
+is_a: obi:OBI_0200023  ! loess global transformation
 
 [Term]
-id: OBI:0200016
+id: obi:OBI_0200016
 name: sine transformation
-is_a: OBI:0200000  ! data transformation
+def: "A sine transformation is a data transformation which consists in applying the sine function to a (one dimensional) real number input. The sine function is one of the basic trigonometric functions and a definition is provided, e.g., at http://mathworld.wolfram.com/Sine.html." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200017
+id: obi:OBI_0200017
 name: cosine transformation
-is_a: OBI:0200000  ! data transformation
+def: "A cosine transformation is a data transformation which consists in applying the cosine function to a (one dimensional) real number input. The cosine function is one of the basic trigonometric functions and a definition is provided, e.g., at http://mathworld.wolfram.com/Cosine.html." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200018
+id: obi:OBI_0200018
 name: loess group transformation one-channel
-is_a: OBI:0200024  ! loess group transformation
+def: "A loess group transformation one-channel is a loess group transformation in the special case where the input is the result of an MA transformation applied to intensities from two related one-channel assays." []
+is_a: obi:OBI_0200024  ! loess group transformation
 
 [Term]
-id: OBI:0200019
+id: obi:OBI_0200019
 name: loess group transformation two-channel
-is_a: OBI:0200024  ! loess group transformation
+def: "A loess group transformation two-channel is a loess group transformation in the special case where the input is the result of an MA transformation applied to intensities from the two channels of a two-channel assay." []
+is_a: obi:OBI_0200024  ! loess group transformation
 
 [Term]
-id: OBI:0200020
+id: obi:OBI_0200020
 name: homogeneous polynomial transformation
-is_a: OBI:0200093  ! polynomial transformation
+def: "A homogeneous polynomial transformation is a polynomial transformation where all the term of the polynomial have the same degree." []
+is_a: obi:OBI_0200093  ! polynomial transformation
 
 [Term]
-id: OBI:0200021
+id: obi:OBI_0200021
 name: linlog transformation
-is_a: OBI:0200000  ! data transformation
+def: "A linlog transformation is a data transformation, described in PMID 16646782, whose input is a matrix [y_ik] and whose output is a matrix obtained by applying formula (9) of this paper, where values below an appropriately determined threshold (dependent on the row i) are transformed via a polynomial of degree 1, and values above this threshold are transformed via a logarithm." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200022
+id: obi:OBI_0200022
 name: variance stabilizing transformation
-is_a: OBI:0200000  ! data transformation
+def: "A variance stabilizing transformationi is a data transformation, described in PMID 12169536, whose input is a matrix [y_ik] and whose output is a matrix obtained by applying formula (6) in this paper. One of the goals is to obtain an output matrix whose rows have equal variances. The method relies on various assumptions described in the paper." []
+synonym: "variance stabilising transformation"  []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200023
+id: obi:OBI_0200023
 name: loess global transformation
-is_a: OBI:0200071  ! loess transformation
+def: "A loess global transformation is a loess transformation where only one loess fitting is performed, utilizing one subset of (or possiby all of) the data points in the input so that there is only one resulting loess curve y=f(x) which is used for the transformation." []
+is_a: obi:OBI_0200071  ! loess transformation
 
 [Term]
-id: OBI:0200024
+id: obi:OBI_0200024
 name: loess group transformation
-is_a: OBI:0200071  ! loess transformation
+def: "A loess group transformation is a loess transformation where the input is partitioned into groups and for each group a loess fitting is performed, utilizing a subset of (or possibly all of) the data points in that group. Thus, a collection of loess curves y=f_i(x) is generated, one per group. Each (x, y) in the input is transformed into (x, y-f_i(x)), where f_i(x) is the curve corresponding to the group to which that data point belongs." []
+is_a: obi:OBI_0200071  ! loess transformation
 
 [Term]
-id: OBI:0200025
+id: obi:OBI_0200025
 name: loess scale group transformation
-is_a: OBI:0200000  ! data transformation
+def: "A loess scale group transformation is a data transformation consisting in the application of a scale adjustment following a loess group transformation, to render the group variances for the second variable (y) similar." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200026
+id: obi:OBI_0200026
 name: total intensity transformation single
-is_a: OBI:0200000  ! data transformation
+def: "A total intensity transformation single is a data transformation that takes as input an n-dimensional (real) vector and multiplies each component of this vector by a coefficient, where the coefficient is obtained by taking the sum of the input components or of a subset of these, multiplied by a constant of choice." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200027
+id: obi:OBI_0200027
 name: total intensity transformation paired
-is_a: OBI:0200000  ! data transformation
+def: "A total intensity transformation paired is a data transformation that takes as input two n-dimensional (real) vectors and multiplies each component of the first vector by a coefficient, where the coefficient is obtained by taking the ratio of the sum of the second input components or of a subset of these by the sum of the first input components or of a subset of these (the same subset is used for the two vectors)." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200028
+id: obi:OBI_0200028
 name: quantile transformation
-is_a: OBI:0200000  ! data transformation
+def: "A quantile transformation is a data transformation that takes as input a collection of data sets, where each can be thought as an n-dimensional (real) vector, and which transforms each data set so that the resulting output data sets have equal quantiles." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200029
+id: obi:OBI_0200029
 name: mean centering
-is_a: OBI:0200000  ! data transformation
+def: "A mean centering is a data transformation that takes as input an n-dimensional (real) vector, performs a mean calculation on its components, and subtracts the resulting mean from each component of the input." []
+synonym: "mean_centring"  []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200030
+id: obi:OBI_0200030
 name: median centering
-is_a: OBI:0200000  ! data transformation
+def: "A median centering is a data transformation that takes as input an n-dimensional (real) vector, performs a median calculation on its components, and subtracts the resulting median from each component of the input." []
+synonym: "median centring"  []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200031
+id: obi:OBI_0200031
 name: differential expression analysis
-is_a: OBI:0200000  ! data transformation
+def: "A differential expression analysis is a data transformation whose input consists of expression levels of entities (such as transcripts or proteins), or of sets of such expression levels, under two or more conditions and whose output reflects which of these are likely to have different expression across such conditions." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200032
+id: obi:OBI_0200032
 name: K-fold cross validation method
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200033
+id: obi:OBI_0200033
 name: leave one out cross validation method
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200034
+id: obi:OBI_0200034
 name: jackknifing method
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200035
+id: obi:OBI_0200035
 name: boostrapping
-is_a: OBI:0200067  ! _unclassified
+def: "Bootstrapping is a statistical method for estimating the sampling distribution of a statistic by sampling with replacement from the original data, most often with the purpose of deriving robust estimates of standard errors and confidence intervals of a population parameter like a mean, median, proportion, odds ratio, correlation coefficient or regression coefficient" []
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200036
+id: obi:OBI_0200036
 name: Benjamini and Hochberg false discovery rate correction method
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200037
+id: obi:OBI_0200037
 name: pareto scaling
-is_a: OBI:0200000  ! data transformation
+def: "A pareto scaling is a data transformation that divides all measurements of a variable by the square root of the standard deviation of that variable." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200039
-name: clustering method
-is_a: OBI:0200067  ! _unclassified
-
-[Term]
-id: OBI:0200040
+id: obi:OBI_0200040
 name: modular decomposition
-is_a: OBI:0200080  ! network analysis
+def: "Molecular decompostion is the partition of a network into distinct subgraphs for the purpose of identifying functional clusters.  The network data is run through any of several existing algorithms designed to partition a network into distinct subgraphs for the purpose of isolating groups of functionally linked biological elements such as proteins." []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200041
+id: obi:OBI_0200041
 name: k-means clustering
-is_a: OBI:0200039  ! clustering method
+def: "A k-means clustering is a data transformation, typically with a class discovery objective, which takes as input a collection of objects (represented as points in multidimensional space) and which partitions them into a specified number k of clusters. The algorithm attempts to find the centers of natural clusters in the data. The most common form of the algorithm starts by partitioning the input points into k initial sets, either at random or using some heuristic data. It then calculates the mean point, or centroid, of each set. It constructs a new partition by associating each point with the closest centroid. Then the centroids are recalculated for the new clusters, and the algorithm repeated by alternate applications of these two steps until convergence, which is obtained when the points no longer switch clusters (or alternatively centroids are no longer changed)." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200042
+id: obi:OBI_0200042
 name: hierarchical clustering
-is_a: OBI:0200039  ! clustering method
+def: "A hierarchical clustering is a data transformation, typically with a class discovery objective, which takes as input a collection of objects and builds a hierarchy of clusters. The traditional representation of this hierarchy is a tree (visualized by a dendrogram), with the individual input objects at one end (leaves) and a single cluster containing every object at the other (root)." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200043
-name: average linkage
-is_a: OBI:0200042  ! hierarchical clustering
+id: obi:OBI_0200043
+name: average linkage hierarchical clustering
+def: "An average linkage hierarchical clustering is an agglomerative hierarchical clustering which generates successive clusters based on a distance measure, where the distance between two clusters is calculated as the average distance between objects from the first cluster and objects from the second cluster." []
+is_a: obi:OBI_0200154  ! agglomerative hierarchical clustering
 
 [Term]
-id: OBI:0200044
-name: complete linkage
-is_a: OBI:0200042  ! hierarchical clustering
+id: obi:OBI_0200044
+name: complete linkage hierarchical clustering
+def: "A complete linkage hierarchical clustering is an agglomerative hierarchical clustering which generates successive clusters based on a distance measure, where the distance between two clusters is calculated as the maximum distance between objects from the first cluster and objects from the second cluster." []
+is_a: obi:OBI_0200154  ! agglomerative hierarchical clustering
 
 [Term]
-id: OBI:0200045
-name: simple linkage
-is_a: OBI:0200042  ! hierarchical clustering
+id: obi:OBI_0200045
+name: single linkage hierarchical clustering
+def: "A single linkage hierarchical clustering is an agglomerative hierarchical clustering which generates successive clusters based on a distance measure, where the distance between two clusters is calculated as the minimum distance between objects from the first cluster and objects from the second cluster." []
+is_a: obi:OBI_0200154  ! agglomerative hierarchical clustering
 
 [Term]
-id: OBI:0200046
+id: obi:OBI_0200046
 name: projection
-is_a: OBI:0200050  ! dimensionality reduction
+def: "A projection is a dimensionality reduction where the transformation is a simple projection into a subset of the components, i.e. (x_1, x_2, ..., x_m) is transformed into (x_i1, x_i2, ..., x_in) for some 1<=i1... <=m and n<m." []
+is_a: obi:OBI_0200050  ! dimensionality reduction
 
 [Term]
-id: OBI:0200049
+id: obi:OBI_0200049
 name: Benjamini and Yekutieli false discovery rate correction method
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200050
+id: obi:OBI_0200050
 name: dimensionality reduction
-is_a: OBI:0200000  ! data transformation
+def: "A dimensionality reduction is data transformation which transforms each input m-dimensional vector (x_1, x_2, …, x_m) into an output n-dimensional vector (y_1, y_2, …, y_n), where n is smaller than m." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200051
+id: obi:OBI_0200051
 name: principal components analysis dimensionality reduction
-is_a: OBI:0200050  ! dimensionality reduction
+def: "A principal components analysis dimensionality reduction is a dimensionality reduction achieved by applying principal components analysis and by keeping low-order principal components and excluding higher-order ones." []
+synonym: "pca data reduction"  []
+is_a: obi:OBI_0200050  ! dimensionality reduction
 
 [Term]
-id: OBI:0200052
+id: obi:OBI_0200052
 name: probabilistic algorithm
-is_a: OBI:0200000  ! data transformation
+def: "A probabilistic algorithm is one which involves an element of probability or randomness in the transformation of the data." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200053
+id: obi:OBI_0200053
 name: expectation maximization
-is_a: OBI:0200052  ! probabilistic algorithm
+def: "EM is a probabilistic algorithm used to estimate the maximum likelihood of parameters from existing data where the model involves unobserved latent variables. The input to this method is the data model for which the estimation is performed over and the output is an approximateed probability function." []
+is_a: obi:OBI_0200052  ! probabilistic algorithm
 
 [Term]
-id: OBI:0200054
+id: obi:OBI_0200054
 name: global modularity calculation
-is_a: OBI:0200147  ! network graph quality calculation
+def: "A network graph quality calculation in which an input data set of subgraph modules and their indegree and outdegree qualities is used to calculate the average modularity of subgraphs within the network." []
+is_a: obi:OBI_0200147  ! network graph quality calculation
 
 [Term]
-id: OBI:0200055
+id: obi:OBI_0200055
 name: dye swap merge
-is_a: OBI:0200057  ! replicate analysis
+def: "A dye swap merge is a replicate analysis which takes as input data from paired two-channel microarray assays where the sample labeled with one dye in the first assay is labeled with the other dye in the second assay and viceversa. The output for each reporter is obtained by combining its (raw or possibly pre-processed) M values in the two assays, where the M value in an assay is defined as the difference of the log intensities in the two channels. This can be used as a normalization step, when appropriate assumptions are met." []
+is_a: obi:OBI_0200057  ! replicate analysis
 
 [Term]
-id: OBI:0200056
+id: obi:OBI_0200056
 name: moving average
-is_a: OBI:0200000  ! data transformation
+def: "A moving average is a data transformation in which center calculations, usually mean calculations, are performed on values within a sliding window across the input data set." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200057
+id: obi:OBI_0200057
 name: replicate analysis
-is_a: OBI:0200000  ! data transformation
+def: "A replicate analysis is a data transformation in which data from replicates are combined, e.g. through descriptive statistics calculations, and the results might be utilized for a variety of purposes, like assessing reproducibility, identifying outliers, normalizing, etc." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200058
+id: obi:OBI_0200058
 name: b cell epitope prediction
-is_a: OBI:0200081  ! sequence analysis
+def: "A B cell epitope prediction takes as input an antigen sequence, and through an analysis of this sequence, produces as output a prediction of the likelihood the biomaterial is a B Cell Epitope." []
+is_a: obi:OBI_0200081  ! sequence analysis
 
 [Term]
-id: OBI:0200059
+id: obi:OBI_0200059
 name: mhc binding prediction
-is_a: OBI:0200081  ! sequence analysis
+def: "An MHC binding prediction takes an input of a biomaterial sequence and through an analysis of this sequence, produces as output a prediction of the likelihood that the biomaterial will bind to an MHC molecule." []
+is_a: obi:OBI_0200081  ! sequence analysis
 
 [Term]
-id: OBI:0200060
+id: obi:OBI_0200060
 name: t cell epitope prediction
-is_a: OBI:0200081  ! sequence analysis
+def: "A T cell epitope prediction takes as input an antigen sequence, and through an analysis of this sequence, produces as output a prediction of the likelihood the biomaterial is a T cell epitope." []
+is_a: obi:OBI_0200081  ! sequence analysis
 
 [Term]
-id: OBI:0200061
+id: obi:OBI_0200061
 name: data imputation
-is_a: OBI:0200000  ! data transformation
+def: "Imputation is a means of filling in missing data values from a predictive distribution of the missing values.  The predictive distribution can be created either based on a formal statistical model (i,e, a multivariate normal distribution) or an algorithm." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200062
+id: obi:OBI_0200062
 name: continuum mass spectrum
-is_a: OBI:0200085  ! mass spectrometry analysis
+def: "A continuum mass spectrum is a data transformation that contains the full profile of the detected signals for a given ion." []
+is_a: obi:OBI_0200085  ! mass spectrometry analysis
 
 [Term]
-id: OBI:0200063
+id: obi:OBI_0200063
 name: characteristic path length calculation
-is_a: OBI:0200085  ! mass spectrometry analysis
+def: "Quantifying subgraph navigability based on shortest-path length averaged over all pairs of subgraph vertices" []
+is_a: obi:OBI_0200085  ! mass spectrometry analysis
 
 [Term]
-id: OBI:0200064
+id: obi:OBI_0200064
 name: centroid mass spectrun
-is_a: OBI:0200085  ! mass spectrometry analysis
+def: "A centroid mass spectrum is a data transformation that is generated by drawing a line from the tip of each peak to the base of the graph.  Centroid mass spectra contain discrete peaks of zero width." []
+is_a: obi:OBI_0200085  ! mass spectrometry analysis
 
 [Term]
-id: OBI:0200066
+id: obi:OBI_0200066
 name: Holm false discovery rate correction method
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200067
+id: obi:OBI_0200067
 name: _unclassified
+def: "All classes yet to be suitably placed in a hierarchy" []
 comment: this class should be removed
-is_a: OBI:0200000  ! data transformation
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200070
+id: obi:OBI_0200070
 name: edge weighting
-is_a: OBI:0200080  ! network analysis
+def: "Edge weighting is the substitution or transformation of edge length using numerical data.  Data input include a symmetric adjacency matrix for a network and a second data set, for example a list of interactor pairs and a confidence score associated with the experimental detection of each pair's interaction.  Each element in the adjacency matrix is transformed or replaced with the corresponding number in the second data set.  Output data are a modified adjacency matrix reflecting the transformed state of the network.  " []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200071
+id: obi:OBI_0200071
 name: loess transformation
-is_a: OBI:0200000  ! data transformation
+def: "A loess transformation is a data transformation that takes as input a collection of real number pairs (x, y) and, after performing (one or more) loess fittings, utilizes the resulting curves to transform each (x, y) in the input into (x, y-f(x)) where f(x) is one of the fitted curves." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200072
+id: obi:OBI_0200072
 name: curve fitting
-is_a: OBI:0200000  ! data transformation
+def: "A curve fitting is a data transformation consisting in finding a curve which matches a series of data points and possibly other constraints." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200073
+id: obi:OBI_0200073
 name: family wise error rate correction method
-is_a: OBI:0200067  ! _unclassified
+synonym: "FWER_correction"  []
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200074
+id: obi:OBI_0200074
 name: submatrix extraction
-is_a: OBI:0200046  ! projection
+def: "A submatrix extraction is a projection whose input is a matrix and whose output is a matrix obtained by selecting certain rows and columns from the input. (Note that, if one represents the input matrix as a vector obtained by concatenating its rows, then extracting a submatrix is equivalent to projecting this vector into that composed by the entries belonging to the rows and columns of interest from the input matrix.)" []
+is_a: obi:OBI_0200046  ! projection
 
 [Term]
-id: OBI:0200075
+id: obi:OBI_0200075
 name: row submatrix extraction
-is_a: OBI:0200074  ! submatrix extraction
+def: "A row submatrix extraction is a submatrix extraction where all the columns of the input matrix are retained and selection only occurs on the rows." []
+is_a: obi:OBI_0200074  ! submatrix extraction
 
 [Term]
-id: OBI:0200076
+id: obi:OBI_0200076
 name: column submatrix extraction
-is_a: OBI:0200074  ! submatrix extraction
+def: "A column submatrix extraction is a submatrix extraction where all the rows of the input matrix are retained and selection only occurs on the columns." []
+is_a: obi:OBI_0200074  ! submatrix extraction
 
 [Term]
-id: OBI:0200077
+id: obi:OBI_0200077
 name: gating
-is_a: OBI:0200046  ! projection
+def: "A gating is a projection consisting in a data selection process in which a subset of qualities about cells obtained through flow cytometry is used to select all the information of a subset of the cells." []
+is_a: obi:OBI_0200046  ! projection
 
 [Term]
-id: OBI:0200078
+id: obi:OBI_0200078
 name: descriptive statistics calculation
-is_a: OBI:0200000  ! data transformation
+def: "A descriptive statistics calculation is a data transformation which concerns any calculation intended to describe a feature of a data set, for example, its center or its variability." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200079
+id: obi:OBI_0200079
 name: mean calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A mean calulcation is a  descriptive statistics calculation in which the mean is calculated by taking the sum of all of the observations in a data set divided by the total number of observations.  It gives a measure of the “center of gravity” for the data set.  It is also known as the first moment." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200080
+id: obi:OBI_0200080
 name: network analysis
-is_a: OBI:0200000  ! data transformation
+def: "A data transformation that takes as input data that describes biological networks in terms of the node (a.k.a. vertex) and edge graph elements and their characteristics and generates as output properties of the constituent nodes and edges, the sub-graphs, and the entire network." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200081
+id: obi:OBI_0200081
 name: sequence analysis
-is_a: OBI:0200000  ! data transformation
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200082
+id: obi:OBI_0200082
 name: longitudinal data analysis
+def: "graph_position_temporary" []
 comment: longitudinal data analysis
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200083
+id: obi:OBI_0200083
 name: survival analysis
-is_a: OBI:0200082  ! longitudinal data analysis
+is_a: obi:OBI_0200082  ! longitudinal data analysis
 
 [Term]
-id: OBI:0200084
-name: time series analysis
-is_a: OBI:0200067  ! _unclassified
-
-[Term]
-id: OBI:0200085
+id: obi:OBI_0200085
 name: mass spectrometry analysis
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200088
+id: obi:OBI_0200088
 name: Kaplan Meier
-is_a: OBI:0200082  ! longitudinal data analysis
+is_a: obi:OBI_0200082  ! longitudinal data analysis
 
 [Term]
-id: OBI:0200089
+id: obi:OBI_0200089
 name: multiple testing correction
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200090
+id: obi:OBI_0200090
 name: multiple comparison adjustments
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200091
+id: obi:OBI_0200091
 name: inter-rater agreement
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200092
+id: obi:OBI_0200092
 name: Westfall and Young family wise error rate correction
-is_a: OBI:0200067  ! _unclassified
+synonym: "Westfall_and_Young_FWER_correction"  []
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200093
+id: obi:OBI_0200093
 name: polynomial transformation
-is_a: OBI:0200000  ! data transformation
+def: "A polynommial transformation is a data transformation that is obtained through a polynomial, where a polynomial is a mathematical expression involving a sum of powers in one or more variables multiplied by coefficients (e.g. see http://mathworld.wolfram.com/Polynomial.html). The number of variables and the degree are properties of a polynomial. The degree of a polynomial is the highest power of its terms, where the terms of a polynomial are the individual summands with the coefficients omitted." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200094
+id: obi:OBI_0200094
 name: logarithmic transformation
-is_a: OBI:0200000  ! data transformation
+def: "A logarithmic transformation is a data transformation consisting in the application of the logarithm function with a given base a (where a>0 and a is not equal to 1) to a (one dimensional) positive real number input. The logarithm function with base a can be defined as the inverse of the exponential function with the same base. See e.g. http://en.wikipedia.org/wiki/Logarithm." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200095
+id: obi:OBI_0200095
 name: exponential transformation
-is_a: OBI:0200000  ! data transformation
+def: "An exponential transformation is a data transformation consisting in the application of the exponential function with a given base a (where a>0 and a is typically not equal to 1) to a (one dimensional) real number input. For alternative definitions and properties of this function see, e.g., http://en.wikipedia.org/wiki/Exponential_function and http://en.wikipedia.org/wiki/Characterizations_of_the_exponential_function." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200096
+id: obi:OBI_0200096
 name: spectral integration with user-controlled baseline correction
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200097
+id: obi:OBI_0200097
 name: non-negative matrix factorization
-is_a: OBI:0200067  ! _unclassified
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200098
+id: obi:OBI_0200098
 name: soft independent modeling of class analogy analysis
-is_a: OBI:0200000  ! data transformation
+def: "Soft independent modelling by class analogy (SIMCA) is a descriptive statistics method for supervised classification of data. The method requires a training data set consisting of samples (or objects) with a set of attributes and their class membership. The term soft refers to the fact the classifier can identify samples as belonging to multiple classes and not necessarily producing a classification of samples into non-overlapping classes." []
+synonym: "SIMCA"  []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200099
+id: obi:OBI_0200099
 name: discriminant function analysis
-is_a: OBI:0200106  ! discriminant analysis
+def: "Discriminant function analysis is a form of discriminant analysis used to determine which variables discriminate between two or more naturally occurring groups. Analysis is used to determine which variable(s) are the best predictors of a particular outcome." []
+is_a: obi:OBI_0200106  ! discriminant analysis
 
 [Term]
-id: OBI:0200100
+id: obi:OBI_0200100
 name: canonical variate analysis
-is_a: OBI:0200106  ! discriminant analysis
+def: "canonical variate analysis is a form of discriminant analysis that takes several continuous predictor variables and uses the entire set to predict several criterion variables, each of which is also continuous. CVA simultaneously calculates a linear composite of all x variables and  a linear composite of all y variables. Unlike other multivariate techniques, these weighted composites are derived in pairs. Each linear combination is called a canonical variate and takes the general linear form." []
+synonym: "CVA"  []
+is_a: obi:OBI_0200106  ! discriminant analysis
 
 [Term]
-id: OBI:0200101
+id: obi:OBI_0200101
 name: linear discriminant functional analysis
-is_a: OBI:0200106  ! discriminant analysis
+def: "Linear discriminant functional analysis (LDFA) is a multivariate technique used in special applications where there are several intact groups (random assignment may be impossible) and they have been measured on several independent measures. Thus, you will want to describe how these groups differ on the basis of these measures. In this case, classification and prediction is the main objective." []
+is_a: obi:OBI_0200106  ! discriminant analysis
 
 [Term]
-id: OBI:0200102
+id: obi:OBI_0200102
 name: regression analysis method
-is_a: OBI:0200000  ! data transformation
+def: "Regression analysis is a descriptive statistics technique that examines the relation of a dependent variable (response variable) to specified independent variables (explanatory variables). Regression analysis can be used as a descriptive method of data analysis (such as curve fitting) without relying on any assumptions about underlying processes generating the data." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200103
+id: obi:OBI_0200103
 name: multiple linear regression analysis
-is_a: OBI:0200102  ! regression analysis method
+def: "multiple linear regression is a regression method that models the relationship between a dependent variable Y, independent variables Xi, i = 1, ..., p, and a random term ε. The model can be written as\n    Y = \\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\cdots +\\beta_p X_p + \\varepsilon\nwhere β0 is the intercept (\"constant\" term), the βis are the respective parameters of independent variables, and p is the number of parameters to be estimated in the linear regression." []
+is_a: obi:OBI_0200102  ! regression analysis method
 
 [Term]
-id: OBI:0200104
+id: obi:OBI_0200104
 name: principal component regression
-is_a: OBI:0200102  ! regression analysis method
+def: "The Principal Component Regression method is a regression analysis method that combines the Principal Component Analysis (PCA)spectral decomposition with an Inverse Least Squares (ILS) regression method to create a quantitative model for complex samples. Unlike quantitation methods based directly on Beer's Law which attempt to calculate the absorbtivity coefficients for the constituents of interest from a direct regression of the constituent concentrations onto the spectroscopic responses, the PCR method regresses the concentrations on the PCA scores." []
+is_a: obi:OBI_0200102  ! regression analysis method
 
 [Term]
-id: OBI:0200105
+id: obi:OBI_0200105
 name: partial least square regression analysis
-is_a: OBI:0200102  ! regression analysis method
+def: "Partial least squares regression is an extension of the multiple linear regression model (see, e.g., Multiple Regression or General Stepwise Regression). In its simplest form, a linear model specifies the (linear) relationship between a dependent (response) variable Y, and a set of predictor variables, the X's, so that\nY = b0 + b1X1 + b2X2 + ... + bpXp\nIn this equation b0 is the regression coefficient for the intercept and the bi values are the regression coefficients (for variables 1 through p) computed from the data." []
+synonym: "PLS-RA"  []
+is_a: obi:OBI_0200102  ! regression analysis method
 
 [Term]
-id: OBI:0200106
+id: obi:OBI_0200106
 name: discriminant analysis
-is_a: OBI:0200000  ! data transformation
+def: "Discriminant function analysis is used to determine which variables discriminate between two or more naturally occurring groups. Analysis is used to determine which variable(s) are the best predictors of a particular outcome." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200107
+id: obi:OBI_0200107
 name: partial least square discriminant analysis
-is_a: OBI:0200106  ! discriminant analysis
+def: "PLS Discriminant Analysis (PLS-DA) is a discriminant analysis performed in order to sharpen the separation between groups of observations, by hopefully rotating PCA (Principal Components Analysis) components such that a maximum separation among classes is obtained, and to understand which variables carry the class separating information." []
+synonym: "PLS-DA"  []
+is_a: obi:OBI_0200106  ! discriminant analysis
 
 [Term]
-id: OBI:0200108
+id: obi:OBI_0200108
 name: eh transformation
-is_a: OBI:0200000  ! data transformation
+def: "An eh transformation is a data transformation obtained by applying the function EH described in what follows to a (one dimensional) real number input. EH(x)=exp(x*d/r)+b*(d/r)*x-1, if x>=0, and EH(x)=-exp(-x*d/r)+b*(d/r)*x+1, otherwise. Here exp denotes an exponential_transformation and b, d, r are positive real constants." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200109
+id: obi:OBI_0200109
 name: b transformation
-is_a: OBI:0200000  ! data transformation
+def: "A b transformation is a data transformation obtained by applying the function B described in what follows to a (one dimensional) real number input. B(x)= a*exp(b*x)-c*exp(-d*x)+f, where exp denotes an exponential_transformation and a, b, c, d, f are real constants with a, b, c, d positive." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200110
+id: obi:OBI_0200110
 name: s transformation
-is_a: OBI:0200000  ! data transformation
+def: "An s transformation is a data transformation obtained by applying the function S described in what follows to a (one dimensional) real number input. S(x)=T*exp(w-m)*(exp(x-w)-(p^2)*exp((w-x)/p)+p^2-1) if x>=w, S(x)=-S(w-x) otherwise; where exp denotes an exponential_transformations, 'p^' denotes the exponential_transformation with base p; T, w, m, p are real constants with T, m, and p positive and w non-negative, and where w and p are related by w=2p*ln(p)(p+1)." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200111
-name: visualization
-
-[Term]
-id: OBI:0200112
-name: MA plotting
-is_a: OBI:0200111  ! visualization
-
-[Term]
-id: OBI:0200113
+id: obi:OBI_0200113
 name: similarity calculation
-is_a: OBI:0200000  ! data transformation
+def: "A similarity calculation is a data transformation that attaches to each pair of objects in the input a number that is meant to reflect how 'close' or 'similar' those objects are." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200114
+id: obi:OBI_0200114
 name: euclidean distance calculation
-is_a: OBI:0200113  ! similarity calculation
+def: "An euclidean distance calculation is a similarity calculation that attaches to each pair of real number vectors of the same dimension n the square root of the sum of the square differences between corresponding components. The smaller this number, the more similar the two vectors are considered." []
+is_a: obi:OBI_0200113  ! similarity calculation
 
 [Term]
-id: OBI:0200115
+id: obi:OBI_0200115
 name: pearson correlation coefficient calculation
-is_a: OBI:0200113  ! similarity calculation
+def: "A pearson correlation coefficient calculation is a similarity calculation which attaches to each pair of random variables X and Y the ratio of their covariance by the product of their standard deviations. Given a series of n measurements of X and Y written as x_i and y_i where i = 1, 2, ..., n, then their Pearson correlation coefficient refers to the \"sample correlation coefficient\" and is written as the sum over i of the ratios (x_i-xbar)*(y_i-ybar)/((n-1)*s_x*s_y) where xbar and ybar are the sample means of X and Y , s_x and s_y are the sample standard deviations of X and Y. The closer the pearson correlation coefficient is to 1, the more similar the inputs are considered." []
+is_a: obi:OBI_0200113  ! similarity calculation
 
 [Term]
-id: OBI:0200116
+id: obi:OBI_0200116
 name: loess fitting
-is_a: OBI:0200072  ! curve fitting
+def: "A loess fitting is a curve fitting obtained by localized regression. The latter refers to fitting a polynomial (straight line, quadratic, cubic, etc) to data values within a window covering a fraction of the total number of observations. As the window slides along the axis, a new polynomial is fit to the observations falling within the window. This continues until all points are fit with a local polynomial. The results are then smoothed together to form a curve. The smoothness of loess fits is controlled by a smoothing parameter (often denoted as alpha, usually between ¼ and 1) and the degree of the polynomial that is fitted by the method (usually denoted by lambda)." []
+is_a: obi:OBI_0200072  ! curve fitting
 
 [Term]
-id: OBI:0200117
+id: obi:OBI_0200117
 name: mode calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A mode calulcation is a  descriptive statistics calculation in which the mode is calculated which is the most common value in a data set.  It is most often used as a measure of center for discrete data." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200118
+id: obi:OBI_0200118
 name: quantile calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A quantile calculation is a descriptive statistics calculation in which the kth quantile is the data value for which an approximate k fraction of the data is less than or equal to that value.  See http://www.stat.wvu.edu/SRS/Modules/Quantiles/quantiles.html for details." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200119
+id: obi:OBI_0200119
 name: median calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A median calculation is a  descriptive statistics calculation in which the midpoint of the data set (the 0.5 quantile) is calculated.  First, the observations are sorted in increasing order.  For an odd number of observations, the median is the middle value of the sorted data.  For an even number of observations, the median is the average of the two middle values." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200120
+id: obi:OBI_0200120
 name: variance calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A variance calculation is a descriptive statistics calculation in which the variance is defined as the average squared distance of each observation in the data set to the mean of the data set.  It is also known as the second central moment." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200121
+id: obi:OBI_0200121
 name: standard deviation calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A standard deviation calculation is a descriptive statistics calculation defined as the square root of the variance.  Also thought of as the average distance of each value to the mean." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200122
+id: obi:OBI_0200122
 name: interquartile-range calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "The interquartile range is a descriptive statistics calculation defined as the difference between the 0.75 quantile and the 0.25 quantile for a set of data." []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200123
+id: obi:OBI_0200123
 name: skewness calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A skewness calculation is a descriptive statistics calculation defined as a parameter that describes how much a distribution (or a data set) varies from a bell-shaped curve.  See http://www.riskglossary.com/link/skewness.htm for details.  It is also known as the third central moment" []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200124
+id: obi:OBI_0200124
 name: kurtosis calculation
-is_a: OBI:0200078  ! descriptive statistics calculation
+def: "A kurtosis calculation is a descriptive statistics calculation defined as a parameter that measures how large or small the tails of a distribution are relative to the mean.  For details, see http://davidmlane.com/hyperstat/A53638.html" []
+is_a: obi:OBI_0200078  ! descriptive statistics calculation
 
 [Term]
-id: OBI:0200125
+id: obi:OBI_0200125
 name: data pooling
-is_a: OBI:0200067  ! _unclassified
+def: "A data transformation in which individual input data elements and values are merged together into a output set of data elements and values." []
+is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
-id: OBI:0200126
+id: obi:OBI_0200126
 name: network graph construction
-is_a: OBI:0200080  ! network analysis
+def: "A network analysis in which an input data set describing objects and relationships between objects is transformed into an output representation of these objects as nodes and the relationships as edges of a network graph." []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200127
+id: obi:OBI_0200127
 name: weighted network graph construction
-is_a: OBI:0200126  ! network graph construction
+def: "A network graph construction in which an input data set describing objects and quantitative relationships between objects is transformed into and output representation of these objects as nodes and the quantitative relationships as weighted edges of a network graph." []
+is_a: obi:OBI_0200126  ! network graph construction
 
 [Term]
-id: OBI:0200128
+id: obi:OBI_0200128
 name: directed network graph construction
-is_a: OBI:0200126  ! network graph construction
+def: "A network graph construction in which an input data set describing objects and directional relationships between objects is transformed into and output representation of these objects as nodes and the directional relationships as directed edges of a network graph." []
+is_a: obi:OBI_0200126  ! network graph construction
 
 [Term]
-id: OBI:0200129
+id: obi:OBI_0200129
 name: node quality calculation
-is_a: OBI:0200080  ! network analysis
+def: "A network analysis in which an input data set describing node objects and edge relationships between node objects is used to determine the output quality of one of the node objects in the network." []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200130
+id: obi:OBI_0200130
 name: node degree calculation
-is_a: OBI:0200129  ! node quality calculation
+def: "A node quality calculation in which an input data set describing object nodes and relationship edges between object nodes is used to enumerate the number of unique relationships of an individual object node." []
+is_a: obi:OBI_0200129  ! node quality calculation
 
 [Term]
-id: OBI:0200131
+id: obi:OBI_0200131
 name: quantitative node degree calculation
-is_a: OBI:0200129  ! node quality calculation
+def: "A node quality calculation in which an input data set describing object nodes and quantitative relationship edges between object nodes is used to sum all of the quantitative relationships of an individual object node." []
+is_a: obi:OBI_0200129  ! node quality calculation
 
 [Term]
-id: OBI:0200132
+id: obi:OBI_0200132
 name: node indegree calculation
-is_a: OBI:0200129  ! node quality calculation
+def: "A node quality calculation in which an input data set describing object nodes and directional relationship edges between object nodes is used to enumerate the number of unique relationships pointing into an individual object node." []
+is_a: obi:OBI_0200129  ! node quality calculation
 
 [Term]
-id: OBI:0200133
+id: obi:OBI_0200133
 name: node outdegree calculation
-is_a: OBI:0200129  ! node quality calculation
+def: "A node quality calculation in which an input data set describing object nodes and directional relationship edges between object nodes is used to enumerate the number of unique relationships pointing out of an individual object node." []
+is_a: obi:OBI_0200129  ! node quality calculation
 
 [Term]
-id: OBI:0200134
+id: obi:OBI_0200134
 name: node shortest path identification
-is_a: OBI:0200129  ! node quality calculation
+def: "A node quality calculation in which a path describing the shortest path needed to transverse through connected nodes and edges to arive at a specific target node in the network." []
+is_a: obi:OBI_0200129  ! node quality calculation
 
 [Term]
-id: OBI:0200135
+id: obi:OBI_0200135
 name: edge quality calculation
-is_a: OBI:0200080  ! network analysis
+def: "A network analysis in which an input data set describing node objects and edge relationships between node objects is used to determine the output quality of one of the edge relationships in the network." []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200136
+id: obi:OBI_0200136
 name: edge betweenness calculation
-is_a: OBI:0200135  ! edge quality calculation
+def: "An edge quality calculation in which the input is a data sets of shortest paths between all pairs of node in the network and the output is the sum of all shortest paths that traverse the specific edge." []
+is_a: obi:OBI_0200135  ! edge quality calculation
 
 [Term]
-id: OBI:0200137
+id: obi:OBI_0200137
 name: network subgraph quality calculation
-is_a: OBI:0200080  ! network analysis
+def: "A network analysis in which an input data set describing node objects and edge relationships between node objects is used to determine the output quality of a subgraph partition of the network." []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200138
+id: obi:OBI_0200138
 name: subgraph degree calculation
-is_a: OBI:0200137  ! network subgraph quality calculation
+def: "A network subgraph quality calculation in which an input data set describing subgraphs and relationship edges between subgraphs and other network objects is used to enumerate the number of unique relationships of an individual subgraph." []
+is_a: obi:OBI_0200137  ! network subgraph quality calculation
 
 [Term]
-id: OBI:0200139
+id: obi:OBI_0200139
 name: quantitative subgraph degree calculation
-is_a: OBI:0200137  ! network subgraph quality calculation
+def: "A network subgraph quality calculation in which an input data set describing subgraphs and quantitative relationship edges between subgraphs and other network objects is used to sum the quantitative relationships of an individual subgraph." []
+is_a: obi:OBI_0200137  ! network subgraph quality calculation
 
 [Term]
-id: OBI:0200140
+id: obi:OBI_0200140
 name: feature
-is_a: OBI:0200000  ! data transformation
+def: "feature is a (parent_class) that describes a characteristic or trait of a class" []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200141
+id: obi:OBI_0200141
 name: log base
-is_a: OBI:0200140  ! feature
+def: "The log base is a feature of a logarithmic function which is defined in http://en.wikipedia.org/wiki/Logarithm. Its value can be any positive real number different from 1." []
+synonym: "logarithm base"  []
+synonym: "logarithmic base"  []
+is_a: obi:OBI_0200140  ! feature
 
 [Term]
-id: OBI:0200143
+id: obi:OBI_0200143
 name: subgraph indegree calculation
-is_a: OBI:0200137  ! network subgraph quality calculation
+def: "A network subgraph quality calculation in which an input data set describing subgraphs and directional relationship edges between subgraphs and other network objects is used to enumerate the number of unique relationships pointing into an individual subgraph." []
+is_a: obi:OBI_0200137  ! network subgraph quality calculation
 
 [Term]
-id: OBI:0200144
+id: obi:OBI_0200144
 name: subgraph outdegree calculation
-is_a: OBI:0200137  ! network subgraph quality calculation
+def: "A network subgraph quality calculation in which an input data set describing subgraphs and relationship edges between subgraphs and other network objects is used to enumerate the number of unique relationships pointing out of an individual subgraph." []
+is_a: obi:OBI_0200137  ! network subgraph quality calculation
 
 [Term]
-id: OBI:0200145
+id: obi:OBI_0200145
 name: intra subgraph connectivity calculation
-is_a: OBI:0200137  ! network subgraph quality calculation
+def: "A network subgraph quality calculation in which an input data set describing internal nodes, edges and node degrees is used to determine the average node degree within the subgraph." []
+is_a: obi:OBI_0200137  ! network subgraph quality calculation
 
 [Term]
-id: OBI:0200146
+id: obi:OBI_0200146
 name: subgraph modularity calculation
-is_a: OBI:0200137  ! network subgraph quality calculation
+def: "A network subgraph quality calculation in which an input data set of subgraph indegree and outdegree qualities is used to calculate the ratio of indegree to outdegree as a measure of modularity." []
+is_a: obi:OBI_0200137  ! network subgraph quality calculation
 
 [Term]
-id: OBI:0200147
+id: obi:OBI_0200147
 name: network graph quality calculation
-is_a: OBI:0200080  ! network analysis
+def: "A network analysis in which an input data set describing node objects and edge relationships between node objects is used to determine the output quality of the network as a whole." []
+is_a: obi:OBI_0200080  ! network analysis
 
 [Term]
-id: OBI:0200149
+id: obi:OBI_0200149
 name: unit-variance scaling
-is_a: OBI:0200000  ! data transformation
+def: "A unit-variance scaling is a data transformation that divides all measurements of a variable by the standard deviation of that variable." []
+synonym: "autoscaling"  []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200150
+id: obi:OBI_0200150
 name: MA transformation
-is_a: OBI:0200000  ! data transformation
+def: "An MA transformation is a data transformation which takes as input a collection of data points (g_1, r_1), (g_2, r_2), ..., (g_n, r_n)  with the r_i and g_i positive real numbers, and whose output is the collection of data points (A_1, M_1), (A_2, M_2), ..., (A_n, M_n) where, for each i, A_i=(log(g_i)+log(r_i))/2 and M_i=log(r_i)-log(g_i). Here log denotes a logarithmic transformation." []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
-id: OBI:0200151
+id: obi:OBI_0200151
 name: exponential base
-is_a: OBI:0200140  ! feature
+def: "The exponential base is a feature of an exponential function which is defined in http://en.wikipedia.org/wiki/Exponential_function. Its value can be any positive real number (typically different from 1)." []
+is_a: obi:OBI_0200140  ! feature
 
 [Term]
-id: OBI:0200152
+id: obi:OBI_0200152
 name: polynomial degree
-is_a: OBI:0200140  ! feature
+def: "The polynomial degree is a feature of a polynomial function defined as the highest power of the polynomial's terms, where the terms of a polynomial are the individual summands with the coefficients omitted." []
+is_a: obi:OBI_0200140  ! feature
 
 [Term]
-id: OBI:0200153
+id: obi:OBI_0200153
 name: number of variables
-is_a: OBI:0200140  ! feature
+def: "The number of variables is a feature of any function (including polynomial functions) with domain contained in an n-dimensional vector space and is defined as n, the dimension of such space." []
+is_a: obi:OBI_0200140  ! feature
+
+[Term]
+id: obi:OBI_0200154
+name: agglomerative hierarchical clustering
+def: "An agglomerative hierarchical clustering is a hierarchical clustering which starts with each object as a separate cluster and then successively combines these clusters until there is only one cluster remaining." []
+synonym: "bottom-up hierarchical clustering"  []
+is_a: obi:OBI_0200042  ! hierarchical clustering
+
+[Term]
+id: obi:OBI_0200155
+name: divisive hierarchical clustering
+def: "A divisive hierarchical clustering is a hierarchical clustering which starts with a single cluster containing all objects, and then successively splits resulting clusters until only clusters of individual objects remain." []
+synonym: "top-down hierarchical clustering"  []
+is_a: obi:OBI_0200042  ! hierarchical clustering
 

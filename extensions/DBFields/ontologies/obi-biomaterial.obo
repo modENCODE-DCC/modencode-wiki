@@ -4,21 +4,22 @@ idspace: cell http://purl.org/obo/owl/CL# ""
 idspace: dc http://purl.org/dc/elements/1.1/ ""
 idspace: dcterms http://purl.org/dc/terms/ ""
 idspace: eor http://dublincore.org/2000/03/13/eor# ""
-idspace: OBI:annot obi/AnnotationProperty.owl# ""
-idspace: OBI:biomat obi/Biomaterial.owl# ""
-idspace: OBI:data_trans obi/DataTransformation.owl# ""
-idspace: OBI:denrie obi/DigitalEntityPlus.owl# ""
-idspace: OBI:ext obi/external.owl# ""
-idspace: OBI:extd obi/externalDerived.owl# ""
-idspace: OBI:func obi/OBI-Function.owl# ""
-idspace: OBI:instr obi/InstrumentAndPart.owl# ""
-idspace: OBI:obsolete obi/Obsolete.owl# ""
-idspace: OBI:owlfull obi/obi-owl-full.owl# ""
-idspace: OBI:plan obi/PlanAndPlannedProcess.owl# ""
-idspace: OBI:quality obi/Quality.owl# ""
-idspace: OBI:rel obi/Relations.owl# ""
-idspace: OBI:rest obi/TheRest.owl# ""
-idspace: OBI:role obi/Role.owl# ""
+idspace: obi http://purl.obofoundry.org/obo/ ""
+idspace: obi_annot http://purl.obofoundry.org/obo/obi/AnnotationProperty.owl# ""
+idspace: obi_biomat http://purl.obofoundry.org/obo/obi/Biomaterial.owl# ""
+idspace: obi_data_trans http://purl.obofoundry.org/obo/obi/DataTransformation.owl# ""
+idspace: obi_denrie http://purl.obofoundry.org/obo/obi/DigitalEntityPlus.owl# ""
+idspace: obi_ext http://purl.obofoundry.org/obo/obi/external.owl# ""
+idspace: obi_extd http://purl.obofoundry.org/obo/obi/externalDerived.owl# ""
+idspace: obi_func http://purl.obofoundry.org/obo/obi/OBI-Function.owl# ""
+idspace: obi_instr http://purl.obofoundry.org/obo/obi/InstrumentAndPart.owl# ""
+idspace: obi_obsolete http://purl.obofoundry.org/obo/obi/Obsolete.owl# ""
+idspace: obi_owlfull http://purl.obofoundry.org/obo/obi/obi-owl-full.owl# ""
+idspace: obi_plan http://purl.obofoundry.org/obo/obi/PlanAndPlannedProcess.owl# ""
+idspace: obi_quality http://purl.obofoundry.org/obo/obi/Quality.owl# ""
+idspace: obi_rel http://purl.obofoundry.org/obo/obi/Relations.owl# ""
+idspace: obi_rest http://purl.obofoundry.org/obo/obi/TheRest.owl# ""
+idspace: obi_role http://purl.obofoundry.org/obo/obi/Role.owl# ""
 idspace: owl http://www.w3.org/2002/07/owl# ""
 idspace: pato http://purl.org/obo/owl/PATO# ""
 idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
@@ -31,326 +32,356 @@ idspace: serql http://www.openrdf.org/schema/serql# ""
 idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
 idspace: span http://www.ifomis.org/bfo/1.1/span# ""
 idspace: swrl http://www.w3.org/2003/11/swrl# ""
-idspace: xsd http://www.w3.org/2001/XMLSchema# ""
 
 [Term]
-id: OBI:0000044
-name: physical_document
-is_a: OBI:0000141  ! material entity
+id: __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description10
+is_anonymous: true
+union_of: obi:OBI_0000086 
+union_of: obi:OBI_0000254 
 
 [Term]
-id: OBI:0000065
+id: __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description15
+is_anonymous: true
+intersection_of: obi:OBI_0600036 
+intersection_of: obi:OBI_0000309 http://purl.org/obo/owl/NCBITaxon#NCBITaxon_10239 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
+is_anonymous: true
+union_of: obi:OBI_0000086 
+union_of: obi:OBI_0000254 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description7
+is_anonymous: true
+union_of: obi:OBI_0000086 
+union_of: obi:OBI_0000112 
+
+[Term]
+id: obi:OBI_0000044
+name: physical document
+def: "A physical document is an object serving as a record of information by means of symbolic marks." []
+is_a: obi:OBI_0000141  ! material entity
+
+[Term]
+id: obi:OBI_0000065
 name: polyethylene glycol p-(1,1,3,3-tetramethylbutyl)-phenyl ether
+def: "triton X100 is a chemical entity which belongs to the group of The pluronics which are triblock copolymers of ethylene oxide and propylene oxide. Triton x-100 is_used_as detergent due to its non-ionic surfactant properties" []
 
 [Term]
-id: OBI:0000141
+id: obi:OBI_0000141
 name: material entity
+def: "Material is any of bfo:Object, bfo:ObjectAggregate, or bfo:FiatObjectPart." []
 union_of: snap:FiatObjectPart 
 union_of: snap:Object 
 union_of: snap:ObjectAggregate 
 
 [Term]
-id: OBI:0000157
-name: chromium 51
-
-[Term]
-id: OBI:0000164
+id: obi:OBI_0000164
 name: cDNA library
-is_a: OBI:0302714  ! collection (of entities of organismal origin)
+def: "Mixed population of cDNAs (complementaryDNA) made from mRNA from a defined source, usually a specific cell type. This term should be associated only to nucleic acid interactors not to their proteins product. For instance in 2h screening use living cells (MI:0349) as sample process.\n\nALT DEF:: a cDNA library is a collection of host cells, typically E.Coli cells but not exclusively. modified by transfer of plasmid DNA molecule used as vector containing a fragment or totality of cDNA molecule (the insert) .  cDNA library may have an array of role and applications." []
+is_a: obi:OBI_0302714  ! collection (of entities of organismal origin)
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:0000181
+id: obi:OBI_0000181
 name: population
-is_a: OBI:0302714  ! collection (of entities of organismal origin)
+def: "a population is a collection of individuals from the same taxonomic class living, counted or sampled at a particular site or in a particular area" []
+is_a: obi:OBI_0302714  ! collection (of entities of organismal origin)
 
 [Term]
-id: OBI:0000233
+id: obi:OBI_0000233
 name: _defined_material
+def: "Place holder class, Utility class to gather the defined classes" []
 
 [Term]
-id: OBI:0000245
+id: obi:OBI_0000245
 name: organization
-is_a: OBI:0000141  ! material entity
+def: "An organization is a continuant entity which can play roles,  has members, and has a set of organization rules.  Members of organizations are either organizations themselves or individual people. Members can play specific organization member roles that are determined in the organization rules. The organization rules also determine how decisions are made on behalf of the organization by the organization members." []
+is_a: obi:OBI_0000141  ! material entity
 
 [Term]
-id: OBI:0000256
+id: obi:OBI_0000256
 name: environmental matter (formerly known as environmental sample)
-is_a: OBI:0000141  ! material entity
+def: "Matter in or on which organisms may live (From ENVO) OR an environmental sample is an object that contains an array of objects that may or may not contain a biomaterial. definition_source: OBI." []
+synonym: "site_sample"  []
+is_a: obi:OBI_0000141  ! material entity
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:0000263
+id: obi:OBI_0000263
 name: person
-is_a: OBI:0100026  ! organism
+def: "a human being regarded as an individual" []
 
 [Term]
-id: OBI:0000264
+id: obi:OBI_0000264
 name: sample population
-is_a: OBI:0000181  ! population
+def: "A sample population is an object aggregate that is selected from the population, e.g. the fish in the net that were sampled from the lake, the people that responded to the call for volunteers." []
+is_a: obi:OBI_0000181  ! population
 
 [Term]
-id: OBI:0100000
-name: biomaterial
-is_a: OBI:0000233  ! _defined_material
-intersection_of: OBI:0000141  ! material entity
-
-[Term]
-id: OBI:0100010
+id: obi:OBI_0100010
 name: Epstein Barr virus transformed B cell
-is_a: OBI:0100051  ! entity of organismal origin
+def: "an EBV transformed B cell is an entity of organismal entity which results from viral transformation process using EBV as transformation agent when applied to B-cell entity" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
+intersection_of: obi:OBI_0000312 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description15 
 
 [Term]
-id: OBI:0100011
-name: cytotoxic T-cell
-
-[Term]
-id: OBI:0100014
+id: obi:OBI_0100014
 name: chimera
-is_a: OBI:0100051  ! entity of organismal origin
+def: "An organism which contains cells or tissues with a different genotype" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100015
+id: obi:OBI_0100015
 name: anatomical entity - cardinal part of organism
-is_a: OBI:0000141  ! material entity
+def: "Biological entity that is either an individual member of a biological species or constitutes the structural organization of an individual member of a biological species.CARO:0000000\n\nAn organism_part is a part of organism's anatomy or substance arising from an organism from which the biomaterial was derived, excludes cells. E.g. tissue, organ, system, sperm, blood or body location (arm)." []
+is_a: obi:OBI_0000141  ! material entity
 
 [Term]
-id: OBI:0100016
+id: obi:OBI_0100016
 name: blood plasma
-is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
+def: "blood plasma is an entity of organismal origin which corresponds to the liquid component of blood, in which the blood cells are suspended." []
+synonym: "plasma"  []
+is_a: obi:OBI_0100015  ! anatomical entity - cardinal part of organism
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:0100017
+id: obi:OBI_0100017
 name: blood serum
-is_a: OBI:0100051  ! entity of organismal origin
+def: "Blood serum is blood plasma without fibrinogen or the other clotting factors." []
+is_a: obi:OBI_0100051  ! entity of organismal origin
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:0100022
-name: biomolecule
-
-[Term]
-id: OBI:0100023
+id: obi:OBI_0100023
 name: enzyme
-is_a: OBI:0100085  ! protein
+def: "Enzymes are proteins that catalyze (i.e. accelerate) chemical reactions. They work by lowering the activation energy (Ea or ΔG‡) for a reaction, thus dramatically accelerating the rate of the reaction." []
 
 [Term]
-id: OBI:0100024
+id: obi:OBI_0100024
 name: DNA polymerase
-is_a: OBI:0100023  ! enzyme
+def: "A DNA polymerase is an enzyme that assists in DNA replication. Such enzymes catalyze the polymerization of deoxyribonucleotides alongside a DNA strand, which they \"read\" and use as a template. The newly-polymerized molecule is complementary to the template strand and identical to the template's partner strand." []
+is_a: obi:OBI_0100023  ! enzyme
 
 [Term]
-id: OBI:0100025
+id: obi:OBI_0100025
 name: reverse transcriptase
-is_a: OBI:0100024  ! DNA polymerase
+def: "A reverse transcriptase is a DNA polymerase enzyme that transcribes single-stranded RNA into single-stranded DNA." []
+synonym: "RNA-dependent DNA polymerase"  []
+is_a: obi:OBI_0100024  ! DNA polymerase
 
 [Term]
-id: OBI:0100026
+id: obi:OBI_0100026
 name: organism
-is_a: OBI:0000141  ! material entity
+def: "An organism is biomaterial entity that is an individual living system, such as animal, plant or micro-organism, that is capable of reproduction, growth and maintenance. An organism may be unicellular or made up, like humans, of many billions of cells divided into specialized tissues and organs." []
+is_a: obi:OBI_0000141  ! material entity
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description10
 union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_10239 
 union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_2 
 union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_2157 
 union_of: http://purl.org/obo/owl/NCBITaxon#NCBITaxon_2759 
 
 [Term]
-id: OBI:0100035
+id: obi:OBI_0100035
 name: immortal cell
+def: "a cell derived from a multicellular organism that has the potential to replicate indefinately" []
 
 [Term]
-id: OBI:0100039
+id: obi:OBI_0100039
 name: fragment derived from protein
-is_a: OBI:0100051  ! entity of organismal origin
+def: "is a biomaterial which is derived from a  protein" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100046
+id: obi:OBI_0100046
 name: phosphate buffered saline solution
-is_a: OBI:0302729  ! chemical entities in solution
+def: "Phosphate buffered saline (abbreviated PBS) is a buffer solution commonly used in biochemistry. It is a salty solution containing sodium chloride, sodium phosphate and potassium phosphate. The buffer helps to maintain a constant pH. The concentration usually matches the human body (isotonic)." []
+synonym: "PBS buffer"  []
+is_a: obi:OBI_0302729  ! chemical entities in solution
+relationship: obi:OBI_0000316 obi:OBI_0302731
 
 [Term]
-id: OBI:0100051
+id: obi:OBI_0100051
 name: entity of organismal origin
-intersection_of: OBI:0000141  ! material entity
+def: "An entity of organismal origin is a biomaterial entity which is obtained from an organism." []
+intersection_of: obi:OBI_0000141  ! material entity
+intersection_of: obi:OBI_0000312 obi:OBI_0000069 
+intersection_of: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description7 
 
 [Term]
-id: OBI:0100052
+id: obi:OBI_0100052
 name: cell of organismal origin
-is_a: OBI:0100051  ! entity of organismal origin
+def: "A cell of organismal origin is an entity of organismal origin that contains nuclear and cytoplasmic material enclosed by a semipermeable membrane. definition_source: OBI." []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100053
-name: cell component
-is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
-
-[Term]
-id: OBI:0100054
+id: obi:OBI_0100054
 name: cellular compartment
-is_a: OBI:0100053  ! cell component
+def: "a cellular compartment is a cellular component which is defined or enlosed by a lipidic membrane (golgi) and nucleic acid material (nucleole)." []
 
 [Term]
-id: OBI:0100055
+id: obi:OBI_0100055
 name: cell line cell
+def: "A cell line is an entity of organismal origin that represents generations of a primary culture." []
 
 [Term]
-id: OBI:0100056
+id: obi:OBI_0100056
 name: immortalized cell line
-is_a: OBI:0100051  ! entity of organismal origin
+def: "An immortalized cell line is a cell line that is able to replicate indefinitely" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100057
-name: multicellular entity of organismal origin (Should be deprecated\!)
-is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
-
-[Term]
-id: OBI:0100058
+id: obi:OBI_0100058
 name: xenograft
-is_a: OBI:0100051  ! entity of organismal origin
+def: "Living cells, tissues or organs that have been transplanted  from one species to another." []
+synonym: "xenotransplant"  []
+is_a: obi:OBI_0100051  ! entity of organismal origin
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:0100060
+id: obi:OBI_0100060
 name: cell culture
-is_a: OBI:0100051  ! entity of organismal origin
+def: "population of cells and cell culture medium maintained in vitro. Can be homogeneous (monoclonal),  heterogenous (oligoclonal, polyclonal)" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100061
+id: obi:OBI_0100061
 name: primary cell culture
-is_a: OBI:0100060  ! cell culture
+def: "cells put directly into culture from a tissue source." []
+is_a: obi:OBI_0100060  ! cell culture
 
 [Term]
-id: OBI:0100062
+id: obi:OBI_0100062
 name: cell line culture
-is_a: OBI:0100060  ! cell culture
+def: "long term culture of cells that are replicating continuosly. The cell population is homogenous but not clonal" []
+is_a: obi:OBI_0100060  ! cell culture
 
 [Term]
-id: OBI:0100063
+id: obi:OBI_0100063
 name: clonal cell culture
-is_a: OBI:0100060  ! cell culture
+def: "cell culture in which all cells can be assumed to be identical, tracking back to a single ancestor cell." []
+is_a: obi:OBI_0100060  ! cell culture
 
 [Term]
-id: OBI:0100064
+id: obi:OBI_0100064
 name: screening library
-is_a: OBI:0302714  ! collection (of entities of organismal origin)
+def: "a screening library is a collection of materials engineered to identify qualities of a subset of its members during a screening process?" []
+is_a: obi:OBI_0302714  ! collection (of entities of organismal origin)
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:0100065
+id: obi:OBI_0100065
 name: synthetic polypeptide
-is_a: OBI:0100051  ! entity of organismal origin
+def: "artificially engineered biomaterial consisting of a chain of amino acids" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100066
+id: obi:OBI_0100066
 name: organ section
-is_a: OBI:0100051  ! entity of organismal origin
+def: "An organ_section is a portion of an organ removed from the context of the organ" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100067
+id: obi:OBI_0100067
 name: bronchial aveolar lavage
-is_a: OBI:0100051  ! entity of organismal origin
+def: "Group of biomaterials present in the bronchial aveolar space of an organism which are collected through lavage including the reagents used to for the lavage process, organisms, cells, and cellular secretions present in the bronchial aveolar space." []
+synonym: "BAL"  []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0100068
-name: monomer
-is_a: OBI:0100022  ! biomolecule
-
-[Term]
-id: OBI:0100069
-name: polymer
-is_a: OBI:0100022  ! biomolecule
-
-[Term]
-id: OBI:0100070
+id: obi:OBI_0100070
 name: amino acid
-is_a: OBI:0100068  ! monomer
+def: "Carboxylic acids containing one or more amino groups." []
 
 [Term]
-id: OBI:0100083
+id: obi:OBI_0100083
 name: peptide
-is_a: OBI:0100069  ! polymer
+def: "Amides derived from two or more amino carboxylic acid molecules (the same or different) by formation of a covalent bond from the carbonyl carbon of one to the nitrogen atom of another with formal loss of water. The term is usually applied to structures formed from alpha-amino acids, but it includes those derived from any amino carboxylic acid." []
 
 [Term]
-id: OBI:0100084
-name: polypeptide
-is_a: OBI:0100069  ! polymer
-
-[Term]
-id: OBI:0100085
-name: protein
-is_a: OBI:0100069  ! polymer
-
-[Term]
-id: OBI:0302714
+id: obi:OBI_0302714
 name: collection (of entities of organismal origin)
-is_a: OBI:0000141  ! material entity
+def: "a collection is a bfo:aggregate object, that is a set of material object of the same kind" []
+synonym: "set, group, ensemble"  []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:0302716
+id: obi:OBI_0302716
 name: pool of specimens
-is_a: OBI:0000264  ! sample population
+def: "A pool of specimens is a sample population that is a set of specimens which have been gathered from one or more sample_populations, obtained by the physical process of mixing individual specimens, e.g.  mixing the DNA collected from the individual fish." []
+is_a: obi:OBI_0000264  ! sample population
 
 [Term]
-id: OBI:0302717
+id: obi:OBI_0302717
 name: test synthetic peptide
-is_a: OBI:0000233  ! _defined_material
-intersection_of: OBI:0000141  ! material entity
+def: "Placeholder for testing" []
+is_a: obi:OBI_0000233  ! _defined_material
+intersection_of: obi:OBI_0000141  ! material entity
+intersection_of: obi:OBI_0000316 obi:OBI_0000023 
 
 [Term]
-id: OBI:0302722
-name: multi-tissue structure
-is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
-
-[Term]
-id: OBI:0302723
-name: portion of tissue
-is_a: OBI:0100015  ! anatomical entity - cardinal part of organism
-
-[Term]
-id: OBI:0302729
+id: obi:OBI_0302729
 name: chemical entities in solution
-is_a: OBI:0000141  ! material entity
+def: "a solution of chemicals is a material which is made up of at least 2 chemical entities, one chemical entity playing the role of solvent and the other one playing the role of solute." []
+is_a: obi:OBI_0000141  ! material entity
 
 [Term]
-id: OBI:0302743
+id: obi:OBI_0302743
 name: liver
-is_a: OBI:0302722  ! multi-tissue structure
+def: "liver is an anatomical entity which consituant are mainly hepatocytes, which has a function of detoxification,hemotapoeietic center, glucose and fat metabolism management. liver is only found in animals , all Vertebrates and some families of invertebrates" []
 
 [Term]
-id: OBI:0302744
-name: epithelium
-is_a: OBI:0302723  ! portion of tissue
-
-[Term]
-id: OBI:0302745
+id: obi:OBI_0302745
 name: adipose tissue
-is_a: OBI:0302722  ! multi-tissue structure
+def: "adipose tissue is a tissue which main constituants are adipocytes. adipose tissue can be classified base on its location (site) but also based on adipocyte subtypes (brown or white) which reflect functional differences and is only found in animals, Vertebrates or invertebrates." []
 
 [Term]
-id: OBI:1000023
+id: obi:OBI_1000023
 name: cell culture supernatant
-is_a: OBI:0000141  ! material entity
+def: "Supernatant of a cell culture.  Contains media, supplements, and secreted products of the cells." []
+is_a: obi:OBI_0000141  ! material entity
+relationship: obi:OBI_0000312 obi:OBI_0600029
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description7
 
 [Term]
-id: OBI:1000024
+id: obi:OBI_1000024
 name: cell pellet
-is_a: OBI:0100051  ! entity of organismal origin
+def: "A cell pellet is an aggegration of cells produced by the application of centrifugal force" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:1000029
+id: obi:OBI_1000029
 name: phage display library
-is_a: OBI:0302714  ! collection (of entities of organismal origin)
+def: "a display library is a collection of materials in which a mixture of genes or gene fragments is expressed and can be individually selected and amplified." []
+synonym: "display_library"  []
+is_a: obi:OBI_0302714  ! collection (of entities of organismal origin)
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description3
 
 [Term]
-id: OBI:1000036
+id: obi:OBI_1000036
 name: lysate
-is_a: OBI:0100051  ! entity of organismal origin
+def: "A mixture (collection) of cell components created by rupturing of the cell wall" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:1000042
+id: obi:OBI_1000042
 name: peptide construct
-is_a: OBI:0100051  ! entity of organismal origin
+def: "is a biomaterial containing a number of peptides conjugated together in a non-linear fashion" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:1000048
+id: obi:OBI_1000048
 name: transgenic organism
-is_a: OBI:0100051  ! entity of organismal origin
+def: "is an organism which has been modified to express a gene not normally part of it" []
+is_a: obi:OBI_0100051  ! entity of organismal origin
 
 [Term]
-id: OBI:1000049
+id: obi:OBI_1000049
 name: whole mount tissue
-is_a: OBI:0000141  ! material entity
+def: "A whole_mount tissue is an entity of organismal origin resulting from a histological preparation known as whole mount preparation where the whole specimen is mounted or spread on the microscope (glass) slide" []
+synonym: "whole mount sample"  []
+is_a: obi:OBI_0000141  ! material entity
+relationship: obi:OBI_0000312 obi:OBI_0000341
+relationship: obi:OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/5bc0af29fd9bbd0c067b6a125c5599e8.url#__Description7
 
