@@ -680,20 +680,20 @@ xref: xsd:date
 [Term]
 id: ME:0000097
 name: biosample_preparation_protocol
-def: "The general protocol for preparing a sample of biomaterial for downstream protocol applications such as PCR, IP, array, etc."
+def: "The general protocol for preparing a sample of biomaterial for downstream protocol applications such as PCR, IP, array, etc." []
 is_a: ME:0000010 ! protocol
 
 [Term]
 id: ME:0000098
 name: organism_purification_protocol
-def: "The general protocol for growing/preparing/isolating an organism sample based on some parameter such as stage, growth conditions, etc."
+def: "The general protocol for growing/preparing/isolating an organism sample based on some parameter such as stage, growth conditions, etc." []
 is_a: ME:0000097 ! biosample_preparation_protocol
 xref: mged:grow ! a growth protocol
 
 [Term]
 id: ME:0000099
 name: SOFT_sample_file
-def: "A microarray data file who's format conforms to the NCBI data submission standard for their GEO repository."
+def: "A microarray data file who's format conforms to the NCBI data submission standard for their GEO repository." []
 is_a: ME:0000027 ! processed_microarray_data_file
 relationship: part_of: ME:0000101 ! SOFT_submission_package
 
@@ -735,15 +735,15 @@ is_a: ME:0000001 ! parameter
 [Term]
 id: ME:0000105
 name: cell_cycle_synchronization_protocol
-def: "A technique of using a reagent unify the cells in a populationaccording to a specific characteristic, such as their cell cycle stage."  [BBOP:nlw]
+def: "A technique of using a reagent unify the cells in a population according to a specific characteristic, such as their cell cycle stage."  [BBOP:nlw]
 is_a:  ME:0000010 ! protocol
 
 [Term]
 id: ME:0000106
 name: ma2C_normalization_protocol
 def: "A normalization method based on the GC content of probes for two-color tiling-arrays, developed by Song et al. See http://liulab.dfci.harvard.edu/MA2C/MA2C.htm"  [BBOP:nlw]
-exact_synonym: Model-based Analysis of 2-Color Arrays
-exact_synonym: MA2C
+exact_synonym: "Model-based Analysis of 2-Color Arrays" []
+exact_synonym: "MA2C" []
 is_a:  ME:0000010 ! protocol
 
 [Term]
