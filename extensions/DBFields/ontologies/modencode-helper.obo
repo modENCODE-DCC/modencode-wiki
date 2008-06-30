@@ -753,6 +753,15 @@ def: "A particular release of flybase annotations for gene models and other geno
 is_a: ME:0000001 ! parameter
 xref: SO:0001026 ! genome
 
+[Term]
+id: ME:0000108
+name: step_size
+def: "A number sequence positions for which to slide a window when performing a computation.  For example, in ChIPotle, a window where averages are computed is moved on the chromosome by the step size specified in the algorithm." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+synonym: "window" []
+!part_of ME:000000? !microarray_data_processing_protocol
+
+
 [Typedef]
 id: has_input
 name: has_input

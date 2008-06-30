@@ -129,6 +129,9 @@ $modENCODE_DBFields_conf["cvterms"]["go_cc"]["canonical_url"] = "http://www.berk
   $modENCODE_DBFields_conf["cvterms"]["modencode-helper"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/modencode-helper.obo";
   $modENCODE_DBFields_conf["cvterms"]["modencode-helper"]["canonical_url_type"] = "OBO";
 
+  $modENCODE_DBFields_conf["cvterms"]["cell_lines"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/cell_lines.obo";
+  $modENCODE_DBFields_conf["cvterms"]["cell_lines"]["canonical_url_type"] = "OBO";
+
   $modENCODE_DBFields_conf["cvterms"]["mged"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/mged/mged.obo";
   $modENCODE_DBFields_conf["cvterms"]["mged"]["canonical_url_type"] = "OBO";
   $modENCODE_DBFields_conf["cvterms"]["mged-material"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/mged/mged.obo";
