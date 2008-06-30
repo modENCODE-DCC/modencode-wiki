@@ -735,13 +735,13 @@ is_a: ME:0000001 ! parameter
 [Term]
 id: ME:0000105
 name: cell_cycle_synchronization_protocol
-def: "A technique of using a reagent unify the cells in a population according to a specific characteristic, such as their cell cycle stage."  [BBOP:nlw]
+def: "A technique of using a reagent unify the cells in a population according to a specific characteristic, such as their cell cycle stage." [BBOP:nlw]
 is_a:  ME:0000010 ! protocol
 
 [Term]
 id: ME:0000106
 name: ma2C_normalization_protocol
-def: "A normalization method based on the GC content of probes for two-color tiling-arrays, developed by Song et al. See http://liulab.dfci.harvard.edu/MA2C/MA2C.htm"  [BBOP:nlw]
+def: "A normalization method based on the GC content of probes for two-color tiling-arrays, developed by Song et al. See http://liulab.dfci.harvard.edu/MA2C/MA2C.htm" [BBOP:nlw]
 exact_synonym: "Model-based Analysis of 2-Color Arrays" []
 exact_synonym: "MA2C" []
 is_a:  ME:0000010 ! protocol
