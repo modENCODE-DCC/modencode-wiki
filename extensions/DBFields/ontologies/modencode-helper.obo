@@ -503,14 +503,14 @@ is_a: ME:0000045 ! sequence_file
 [Term]
 id: ME:0000072
 name: early_replication_origin_identification_design
-def: "A source file used to construct a pairwise sequence alignment" [BBOP:nlw]
-is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
+def: "An experiment type that identifies the feature locations on the genome where early replication origins are found." [BBOP:nlw]
+is_a: ME:0000074 !  biomolecular_annotation_experimental_design_type
 
 
 [Term]
 id: ME:0000073
 name: replication_origin_timing_design
-def: "A source file used to construct a pairwise sequence alignment" [BBOP:nlw]
+def: "An experiment type that identified the feature locations on the genome where replication origins occur." [BBOP:nlw]
 is_a: ME:0000074 ! biomolecular_annotation_experimental_design_type
 
 
