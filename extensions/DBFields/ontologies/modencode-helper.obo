@@ -761,6 +761,11 @@ is_a: ME:0000001 ! parameter
 synonym: "window" []
 !part_of ME:000000? !microarray_data_processing_protocol
 
+[Term]
+id: ME:0000109
+name: GEO_record
+def: "The Gene Expression Omnibus (GEO) record identification number supplied after a successful submission. These should take the format like GSM280082."  []
+is_a: ME:0000045 ! sequence_file
 
 [Typedef]
 id: has_input
