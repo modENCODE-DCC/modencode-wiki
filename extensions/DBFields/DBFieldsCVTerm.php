@@ -48,7 +48,7 @@
   function getExactTermsFor($searchCv, $searchTerm, $delimiter = null, $brackets = "on") {
     $searchTerms = getTermsArray($searchTerm, $delimiter);
     $okayTerms = array();
-    $multipleCvs = (!is_null($delimiter) && strpos($searchCv, $delimiter) !== false) ? true : false;
+    $multipleCvs = ((!is_null($delimiter) && strpos($searchCv, $delimiter) !== false) || ((is_null($delimiter) || $delimiter == "null") && strpos($searchCv, ",") !== false)) ? true : false;
     foreach ($searchTerms as $searchTerm) {
       if ($brackets != "off") {
 	preg_match('/([^\[]*)(?:\[([^\]]*)\])?/', $searchTerm, $searchTermAndName);
