@@ -767,6 +767,27 @@ name: GEO_record
 def: "The Gene Expression Omnibus (GEO) record identification number supplied after a successful submission. These should take the format like GSM280082."  []
 is_a: ME:0000045 ! sequence_file
 
+[Term]
+id: ME:0000110
+name: nucleic_acid_hybridized_microarray
+def: "A nucleic acid-based microarray chip with a nucleic acid sample that has been hybridized." []
+is_a: ME:0000019 ! biosample
+comment: "Term requested from OBI on 7/8/08"
+
+[Term]
+id: ME:0000111
+name: RNA_hybridized_array
+def: "A nucleic acid-based microarray chip with a RNA sample that has been hybridized." []
+is_a: ME:0000110 ! nucleic_acid_hybridized_microarray
+comment: "Term requested from OBI on 7/8/08"
+
+[Term]
+id: ME:0000112
+name: DNA_hybridized_array
+def: "A nucleic acid-based microarray chip with a DNA sample that has been hybridized." []
+is_a: ME:0000110 ! nucleic_acid_hybridized_microarray
+comment: "Term requested from OBI on 7/8/08"
+
 [Typedef]
 id: has_input
 name: has_input
