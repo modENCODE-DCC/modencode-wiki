@@ -788,6 +788,20 @@ def: "A nucleic acid-based microarray chip with a DNA sample that has been hybri
 is_a: ME:0000110 ! nucleic_acid_hybridized_microarray
 comment: "Term requested from OBI on 7/8/08"
 
+[Term]
+id: ME:0000113
+name: FASTQ
+def: "A file format used frequently at the Wellcome Trust Sanger Institute to bundle a FASTA sequence and its quality data." [HTTP:www.bioperl.org/wiki/FASTQ_sequence_format]
+comment: "See: http://www.bioperl.org/wiki/FASTQ_sequence_format"
+is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000114
+name: FASTA
+def: "A standard sequence file format for both protein and DNA sequences.  There are no standard file extensions, and no formal definitions for the header line." [HTTP:www.bioperl.org/wiki/FASTA_sequence_format]
+comment: "See: http://www.bioperl.org/wiki/FASTA_sequence_format"
+is_a: ME:0000045 ! sequence_file
+
 [Typedef]
 id: has_input
 name: has_input
