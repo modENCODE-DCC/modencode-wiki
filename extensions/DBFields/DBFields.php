@@ -6,6 +6,7 @@
   // Version too old for:
   //$wgHooks['BeforePageDisplay'][] = 'modENCODE_dbfields_BeforePageDisplay_addCSSandJS';
   $wgHooks['OutputPageBeforeHTML'][] = 'modENCODE_dbfields_BeforePageDisplay_addCSSandJS';
+  $wgHooks['TitleMoveComplete'][] = 'modENCODE_dbfields_TitleMoveComplete_relocateFormData';
 
   $modENCODE_dbfields_data = array(
     "xml" => "", 
@@ -557,6 +558,23 @@
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/DBFields.js.php?diff=' . rand() . '"></script>'
       );
     }
+    return true;
+  }
+  function modENCODE_dbfields_TitleMoveComplete_relocateFormData(&$title, &$newtitle, &$user, $oldid, $newid) {
+    global $modENCODE_DBFields_conf;
+    $db = modENCODE_db_connect(
+      $modENCODE_DBFields_conf["form_data"]["host"], 
+      $modENCODE_DBFields_conf["form_data"]["dbname"], 
+      $modENCODE_DBFields_conf["form_data"]["user"], 
+      $modENCODE_DBFields_conf["form_data"]["password"], 
+      $modENCODE_DBFields_conf["form_data"]["type"]
+    );
+    $oldname = modENCODE_db_escape($title, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+    $newname = modENCODE_db_escape($newtitle, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+    $res = modENCODE_db_query($db,
+      "UPDATE data SET name = '$newname' WHERE name = '$oldname'",
+      $modENCODE_DBFields_conf["form_data"]["type"]
+    );
     return true;
   }
 

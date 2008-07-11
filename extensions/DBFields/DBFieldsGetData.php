@@ -35,8 +35,9 @@
     print "Form data:";
     #$url = "http://wiki.modencode.org/project/index.php?title=Sequencing&oldid=5358";
     $submission = new FormDataQuery();
-    $submission->name = "CME L1";
-    $submission->version = 3;
+    $submission->name = $form;
+    $submission->name = "COMMENT ME TO DEBUG";
+    $submission->version = $version;
     $submission->auth = $auth;
 #    $submission->url = $url;
     print_r($dbfs->getFormData($submission));
@@ -169,6 +170,17 @@
 	$revisionId = $matches[2];
       }
 
+      # Handle possible redirection...
+      $is_redir_title = Title::newFromText($form);
+      $is_redir_article = new Article($is_redir_title);
+      $is_redir = $is_redir_article->isRedirect();
+      if ($is_redir) {
+        $form = $is_redir_article->followRedirect();
+      }
+        
+
+
+      ###########
 
       global $wgUser;
       if ($wgUser->mId <= 0 && $auth) {
@@ -245,7 +257,7 @@
       $newRev = Revision::newFromId($revId);
       if ($newRev) {
 	$wikitext = $wiki_parser->preprocess($newRev->revText(), $newRev->getTitle(), new ParserOptions(), $revId);
-	
+
 	preg_match('/<dbfields.*<\/dbfields>/ism', $wikitext, $matches);
 	$dbfieldsText = $matches[0];
 	preg_match_all('/<(input|select|textarea)[^>]*type="cvterm"[^>]*>/ism', $dbfieldsText, $matches);
