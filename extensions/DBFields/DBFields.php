@@ -146,7 +146,7 @@
 
       if ($input["attribs"]["type"] == "cvterm" || $input["attribs"]["type"] == "text" && $modENCODE_dbfields_data["balloon_args"]) {
 	$image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . 
-                 "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding-left:3px;padding-bottom:3px\"/>";
+                 "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
 	$extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
 	$modENCODE_dbfields_data["balloon_args"] = false;
 	$modENCODE_dbfields_data["chrdata"] = false;
@@ -177,7 +177,7 @@
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       if ($name == "select" && $modENCODE_dbfields_data["balloon_args"]) {
         $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
-	  "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding-left:3px;padding-bottom:3px\"/>";
+	  "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
         $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
         $modENCODE_dbfields_data["balloon_args"] = false;
         $modENCODE_dbfields_data["chrdata"] = false;
@@ -214,7 +214,7 @@
     if ($name == "textarea" && $modENCODE_dbfields_data["balloon_args"]) {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
-	"/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding-left:3px;padding-bottom:3px\"/>";
+	"/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
       $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
       $modENCODE_dbfields_data["balloon_args"] = false;
       $modENCODE_dbfields_data["chrdata"] = false;
