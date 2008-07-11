@@ -16,8 +16,8 @@
     "values" => array(),
     "invalidversion" => false
   );
-$modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label");
-$modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign", "title");
+  $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label", "img");
+  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign", "title", "src", "alt");
   $modENCODE_markers_to_data = array();
 
   function modENCODE_DBFields_setup() {
@@ -126,13 +126,6 @@ $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border"
     global $renderParser;
     global $prefix;
 
-    if ($name == "balloon" && function_exists("renderBalloonSpan")) {
-      $modENCODE_dbfields_data["xml"] .= renderBalloonSpan($modENCODE_dbfields_data["chrdata"], $modENCODE_dbfields_data["balloon_args"]);
-      $modENCODE_dbfields_data["balloon_args"] = false;
-      $modENCODE_dbfields_data["chrdata"] = false;
-      return;
-    }
-
     if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
 
     $extra_content_before = '';
@@ -151,11 +144,12 @@ $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border"
     if ($name == "input") {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
 
-      if ($input["attribs"]["type"] == "cvterm" || $input["attribs"]["type"] == "text") {
-	$help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
-	$help_name = str_replace(" ", "_", $help_name);
-	$help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
-	$extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+      if ($input["attribs"]["type"] == "cvterm" || $input["attribs"]["type"] == "text" && $modENCODE_dbfields_data["balloon_args"]) {
+	$image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . 
+                 "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding-left:3px;padding-bottom:3px\"/>";
+	$extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
+	$modENCODE_dbfields_data["balloon_args"] = false;
+	$modENCODE_dbfields_data["chrdata"] = false;
       }
 
       if ($input["attribs"]["type"] == "cvterm") {
@@ -181,11 +175,12 @@ $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border"
     }
     if ($name == "input" || $name == "select") {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
-      if ($name == "select") {
-	$help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
-	$help_name = str_replace(" ", "_", $help_name);
-	$help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
-	$extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+      if ($name == "select" && $modENCODE_dbfields_data["balloon_args"]) {
+        $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
+	  "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding-left:3px;padding-bottom:3px\"/>";
+        $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
+        $modENCODE_dbfields_data["balloon_args"] = false;
+        $modENCODE_dbfields_data["chrdata"] = false;
       }
       $attribs = $input["attribs"];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
@@ -216,12 +211,13 @@ $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border"
 	}
       }
     }
-    if ($name == "textarea") {
+    if ($name == "textarea" && $modENCODE_dbfields_data["balloon_args"]) {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
-      $help_name = ($prefix ? $prefix : "Protocol" ). ":" . $input["attribs"]["name"];
-      $help_name = str_replace(" ", "_", $help_name);
-      $help_url = Title::newFromText("DBFields_help")->getLocalURL() . "#$help_name";
-      $extra_content_after .= "<a target=\"dbfields_help\" href=\"$help_url\"><img class=\"questionmark\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . "/extensions/DBFields/question.jpg\" border=\"0\" alt=\"?\"/></a>";
+      $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
+	"/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding-left:3px;padding-bottom:3px\"/>";
+      $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
+      $modENCODE_dbfields_data["balloon_args"] = false;
+      $modENCODE_dbfields_data["chrdata"] = false;
       $extra_content_after .= "</div>";
     }
 

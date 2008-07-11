@@ -141,7 +141,7 @@ $modENCODE_DBFields_conf["cvterms"]["go_cc"]["canonical_url"] = "http://www.berk
   $modENCODE_DBFields_conf["cvterms"]["mged-protocol"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/mged/mged.obo";
   $modENCODE_DBFields_conf["cvterms"]["mged-protocol"]["canonical_url_type"] = "OBO";
 
-  $modENCODE_DBFields_conf["cvterms"]["obi-process"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obi.obo";
+  $modENCODE_DBFields_conf["cvterms"]["obi-process"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/obi/obi.obo";
   $modENCODE_DBFields_conf["cvterms"]["obi-process"]["canonical_url_type"] = "OBO";
   $modENCODE_DBFields_conf["cvterms"]["obi-biomaterial"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/obi/obi.obo";
   $modENCODE_DBFields_conf["cvterms"]["obi-biomaterial"]["canonical_url_type"] = "OBO";
