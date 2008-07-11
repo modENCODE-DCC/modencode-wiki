@@ -687,7 +687,9 @@ Balloon.prototype.setStyle = function(el,att,val) {
     }
   }
   else {
-    YAHOO.util.Dom.setStyle(el,att,val);
+    if (el) {
+      YAHOO.util.Dom.setStyle(el,att,val);
+    }
   }
 }
 
