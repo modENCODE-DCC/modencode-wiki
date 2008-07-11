@@ -1,589 +1,588 @@
-
 format-version: 1.2
 remark: $Revision 1 $ Describes cell lines used in the modENCODE project
 idspace: DGRC_INDIANA https://dgrc.cgb.indiana.edu/product/View?product=# "Indiana U. Dros. Genomics Resource Center Cell Line Catalog"
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 177. Special Features: haploid. Cell Line: 1182-4H." [BBOP:modENCODE]
-name: "1182-4H" [BBOP:modENCODE]
+name: 1182-4H
 id: DGRC_INDIANA:177
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 175. Cell Line: CCa." [BBOP:modENCODE]
-name: "CCa" [BBOP:modENCODE]
+name: CCa
 id: DGRC_INDIANA:175
 
 [Term]
 def: "Tissue Source: leg disc. Species: melanogaster. Stock Number: 156. Cell Line: CME L1." [BBOP:modENCODE]
-name: "CME L1" [BBOP:modENCODE]
+name: CME L1
 id: DGRC_INDIANA:156
 
 [Term]
 def: "Tissue Source: leg disc. Species: melanogaster. Stock Number: 158. Cell Line: CME L1A." [BBOP:modENCODE]
-name: "CME L1A" [BBOP:modENCODE]
+name: CME L1A
 id: DGRC_INDIANA:158
 
 [Term]
 def: "Tissue Source: leg disc. Species: melanogaster. Stock Number: 157. Cell Line: CME L2." [BBOP:modENCODE]
-name: "CME L2" [BBOP:modENCODE]
+name: CME L2
 id: DGRC_INDIANA:157
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 180. Special Features: coming soon. Cell Line: CME W1." [BBOP:modENCODE]
-name: "CME W1" [BBOP:modENCODE]
+name: CME W1
 id: DGRC_INDIANA:180
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 151. Cell Line: CME W1 Cl.8+." [BBOP:modENCODE]
-name: "CME W1 Cl.8+" [BBOP:modENCODE]
+name: CME W1 Cl.8+
 id: DGRC_INDIANA:151
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 162. Cell Line: CME W1 cl.8R." [BBOP:modENCODE]
-name: "CME W1 cl.8R" [BBOP:modENCODE]
+name: CME W1 cl.8R
 id: DGRC_INDIANA:162
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 155. Cell Line: CME W2." [BBOP:modENCODE]
-name: "CME W2" [BBOP:modENCODE]
+name: CME W2
 id: DGRC_INDIANA:155
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 13. Special Features: Replaced by 1182-4H. Cell Line: D." [BBOP:modENCODE]
-name: "D" [BBOP:modENCODE]
+name: D
 id: DGRC_INDIANA:13
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 10. Cell Line: D1." [BBOP:modENCODE]
-name: "D1" [BBOP:modENCODE]
+name: D1
 id: DGRC_INDIANA:10
 
 [Term]
 def: "Tissue Source: embryo. Species: hydei. Stock Number: 23. Cell Line: DH-33." [BBOP:modENCODE]
-name: "DH-33" [BBOP:modENCODE]
+name: DH-33
 id: DGRC_INDIANA:23
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 173. Cell Line: DM." [BBOP:modENCODE]
-name: "DM" [BBOP:modENCODE]
+name: DM
 id: DGRC_INDIANA:173
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 176. Cell Line: DX." [BBOP:modENCODE]
-name: "DX" [BBOP:modENCODE]
+name: DX
 id: DGRC_INDIANA:176
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 153. Special Features: Myc-tagged Delta. Cell Line: DeltaWTNdeMYC." [BBOP:modENCODE]
-name: "DeltaWTNdeMYC" [BBOP:modENCODE]
+name: DeltaWTNdeMYC
 id: DGRC_INDIANA:153
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 12. Special Features: Adhn-1. Cell Line: E-Adh-n1." [BBOP:modENCODE]
-name: "E-Adh-n1" [BBOP:modENCODE]
+name: E-Adh-n1
 id: DGRC_INDIANA:12
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 22. Cell Line: E-CS." [BBOP:modENCODE]
-name: "E-CS" [BBOP:modENCODE]
+name: E-CS
 id: DGRC_INDIANA:22
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 14. Special Features: y l(1)E5CD1ts. Cell Line: E-E12[ts] mal[1]." [BBOP:modENCODE]
-name: "E-E12[ts] mal[1]" [BBOP:modENCODE]
+name: E-E12[ts] mal[1]
 id: DGRC_INDIANA:14
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 20. Cell Line: E-FM1." [BBOP:modENCODE]
-name: "E-FM1" [BBOP:modENCODE]
+name: E-FM1
 id: DGRC_INDIANA:20
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 21. Cell Line: E-OR." [BBOP:modENCODE]
-name: "E-OR" [BBOP:modENCODE]
+name: E-OR
 id: DGRC_INDIANA:21
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 24. Special Features: mal1. Cell Line: E-mal[1]." [BBOP:modENCODE]
-name: "E-mal[1]" [BBOP:modENCODE]
+name: E-mal[1]
 id: DGRC_INDIANA:24
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 17. Special Features: malF3. Cell Line: E-mal[F3]." [BBOP:modENCODE]
-name: "E-mal[F3]" [BBOP:modENCODE]
+name: E-mal[F3]
 id: DGRC_INDIANA:17
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 15. Special Features: r1. Cell Line: E-r[1]." [BBOP:modENCODE]
-name: "E-r[1]" [BBOP:modENCODE]
+name: E-r[1]
 id: DGRC_INDIANA:15
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 18. Special Features: r36. Cell Line: E-r[36]." [BBOP:modENCODE]
-name: "E-r[36]" [BBOP:modENCODE]
+name: E-r[36]
 id: DGRC_INDIANA:18
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 7. Special Features: shits. Cell Line: EH34A3." [BBOP:modENCODE]
-name: "EH34A3" [BBOP:modENCODE]
+name: EH34A3
 id: DGRC_INDIANA:7
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 16. Cell Line: G1." [BBOP:modENCODE]
-name: "G1" [BBOP:modENCODE]
+name: G1
 id: DGRC_INDIANA:16
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 4. Cell Line: G2." [BBOP:modENCODE]
-name: "G2" [BBOP:modENCODE]
+name: G2
 id: DGRC_INDIANA:4
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 39. Cell Line: GM2." [BBOP:modENCODE]
-name: "GM2" [BBOP:modENCODE]
+name: GM2
 id: DGRC_INDIANA:39
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 11. Cell Line: GM3." [BBOP:modENCODE]
-name: "GM3" [BBOP:modENCODE]
+name: GM3
 id: DGRC_INDIANA:11
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 178. Special Features: GFP-labeled microtubules. Cell Line: Jupiter." [BBOP:modENCODE]
-name: "Jupiter" [BBOP:modENCODE]
+name: Jupiter
 id: DGRC_INDIANA:178
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 1. Cell Line: Kc167." [BBOP:modENCODE]
-name: "Kc167" [BBOP:modENCODE]
+name: Kc167
 id: DGRC_INDIANA:1
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 182. Special Features: coming soonsecretes high level of extracellular matrix. Cell Line: Kc7E10." [BBOP:modENCODE]
-name: "Kc7E10" [BBOP:modENCODE]
+name: Kc7E10
 id: DGRC_INDIANA:182
 
 [Term]
 def: "Tissue Source: leg disc. Species: melanogaster. Stock Number: 163. Cell Line: L127D6." [BBOP:modENCODE]
-name: "L127D6" [BBOP:modENCODE]
+name: L127D6
 id: DGRC_INDIANA:163
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 2. Special Features: EcR-deficient. Cell Line: L57-3-11." [BBOP:modENCODE]
-name: "L57-3-11" [BBOP:modENCODE]
+name: L57-3-11
 id: DGRC_INDIANA:2
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 160. Cell Line: MCW12." [BBOP:modENCODE]
-name: "MCW12" [BBOP:modENCODE]
+name: MCW12
 id: DGRC_INDIANA:160
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 8. Special Features: aprt-deficient. Cell Line: MDR3." [BBOP:modENCODE]
-name: "MDR3" [BBOP:modENCODE]
+name: MDR3
 id: DGRC_INDIANA:8
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 49. Cell Line: ML-DmBG1." [BBOP:modENCODE]
-name: "ML-DmBG1" [BBOP:modENCODE]
+name: ML-DmBG1
 id: DGRC_INDIANA:49
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 50. Cell Line: ML-DmBG1-c1." [BBOP:modENCODE]
-name: "ML-DmBG1-c1" [BBOP:modENCODE]
+name: ML-DmBG1-c1
 id: DGRC_INDIANA:50
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 51. Cell Line: ML-DmBG2." [BBOP:modENCODE]
-name: "ML-DmBG2" [BBOP:modENCODE]
+name: ML-DmBG2
 id: DGRC_INDIANA:51
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 52. Cell Line: ML-DmBG2-c1." [BBOP:modENCODE]
-name: "ML-DmBG2-c1" [BBOP:modENCODE]
+name: ML-DmBG2-c1
 id: DGRC_INDIANA:52
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 62. Cell Line: ML-DmBG2-c10." [BBOP:modENCODE]
-name: "ML-DmBG2-c10" [BBOP:modENCODE]
+name: ML-DmBG2-c10
 id: DGRC_INDIANA:62
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 63. Cell Line: ML-DmBG2-c11." [BBOP:modENCODE]
-name: "ML-DmBG2-c11" [BBOP:modENCODE]
+name: ML-DmBG2-c11
 id: DGRC_INDIANA:63
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 64. Cell Line: ML-DmBG2-c12." [BBOP:modENCODE]
-name: "ML-DmBG2-c12" [BBOP:modENCODE]
+name: ML-DmBG2-c12
 id: DGRC_INDIANA:64
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 53. Cell Line: ML-DmBG2-c2." [BBOP:modENCODE]
-name: "ML-DmBG2-c2" [BBOP:modENCODE]
+name: ML-DmBG2-c2
 id: DGRC_INDIANA:53
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 54. Cell Line: ML-DmBG2-c3." [BBOP:modENCODE]
-name: "ML-DmBG2-c3" [BBOP:modENCODE]
+name: ML-DmBG2-c3
 id: DGRC_INDIANA:54
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 55. Special Features: currently unavailable. Cell Line: ML-DmBG2-c4." [BBOP:modENCODE]
-name: "ML-DmBG2-c4" [BBOP:modENCODE]
+name: ML-DmBG2-c4
 id: DGRC_INDIANA:55
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 56. Cell Line: ML-DmBG2-c5." [BBOP:modENCODE]
-name: "ML-DmBG2-c5" [BBOP:modENCODE]
+name: ML-DmBG2-c5
 id: DGRC_INDIANA:56
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 3. Cell Line: ML-DmBG2-c6." [BBOP:modENCODE]
-name: "ML-DmBG2-c6" [BBOP:modENCODE]
+name: ML-DmBG2-c6
 id: DGRC_INDIANA:3
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 60. Cell Line: ML-DmBG2-c8." [BBOP:modENCODE]
-name: "ML-DmBG2-c8" [BBOP:modENCODE]
+name: ML-DmBG2-c8
 id: DGRC_INDIANA:60
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 66. Cell Line: ML-DmBG3." [BBOP:modENCODE]
-name: "ML-DmBG3" [BBOP:modENCODE]
+name: ML-DmBG3
 id: DGRC_INDIANA:66
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 67. Cell Line: ML-DmBG3-c1." [BBOP:modENCODE]
-name: "ML-DmBG3-c1" [BBOP:modENCODE]
+name: ML-DmBG3-c1
 id: DGRC_INDIANA:67
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 68. Cell Line: ML-DmBG3-c2." [BBOP:modENCODE]
-name: "ML-DmBG3-c2" [BBOP:modENCODE]
+name: ML-DmBG3-c2
 id: DGRC_INDIANA:68
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 69. Cell Line: ML-DmBG3-c3." [BBOP:modENCODE]
-name: "ML-DmBG3-c3" [BBOP:modENCODE]
+name: ML-DmBG3-c3
 id: DGRC_INDIANA:69
 
 [Term]
 def: "Tissue Source: CNS. Species: melanogaster. Stock Number: 77. Cell Line: ML-DmBG8." [BBOP:modENCODE]
-name: "ML-DmBG8" [BBOP:modENCODE]
+name: ML-DmBG8
 id: DGRC_INDIANA:77
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 79. Cell Line: ML-DmD1." [BBOP:modENCODE]
-name: "ML-DmD1" [BBOP:modENCODE]
+name: ML-DmD1
 id: DGRC_INDIANA:79
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 81. Cell Line: ML-DmD1-c3." [BBOP:modENCODE]
-name: "ML-DmD1-c3" [BBOP:modENCODE]
+name: ML-DmD1-c3
 id: DGRC_INDIANA:81
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 82. Cell Line: ML-DmD1-c4." [BBOP:modENCODE]
-name: "ML-DmD1-c4" [BBOP:modENCODE]
+name: ML-DmD1-c4
 id: DGRC_INDIANA:82
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 122. Cell Line: ML-DmD1-c5." [BBOP:modENCODE]
-name: "ML-DmD1-c5" [BBOP:modENCODE]
+name: ML-DmD1-c5
 id: DGRC_INDIANA:122
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 83. Cell Line: ML-DmD1-c7." [BBOP:modENCODE]
-name: "ML-DmD1-c7" [BBOP:modENCODE]
+name: ML-DmD1-c7
 id: DGRC_INDIANA:83
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 84. Cell Line: ML-DmD1-c8." [BBOP:modENCODE]
-name: "ML-DmD1-c8" [BBOP:modENCODE]
+name: ML-DmD1-c8
 id: DGRC_INDIANA:84
 
 [Term]
 def: "Tissue Source: eye-antenna disc. Species: melanogaster. Stock Number: 94. Cell Line: ML-DmD11." [BBOP:modENCODE]
-name: "ML-DmD11" [BBOP:modENCODE]
+name: ML-DmD11
 id: DGRC_INDIANA:94
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 96. Cell Line: ML-DmD16-c1." [BBOP:modENCODE]
-name: "ML-DmD16-c1" [BBOP:modENCODE]
+name: ML-DmD16-c1
 id: DGRC_INDIANA:96
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 97. Cell Line: ML-DmD16-c3." [BBOP:modENCODE]
-name: "ML-DmD16-c3" [BBOP:modENCODE]
+name: ML-DmD16-c3
 id: DGRC_INDIANA:97
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 100. Cell Line: ML-DmD16-c6." [BBOP:modENCODE]
-name: "ML-DmD16-c6" [BBOP:modENCODE]
+name: ML-DmD16-c6
 id: DGRC_INDIANA:100
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 101. Cell Line: ML-DmD16-c7." [BBOP:modENCODE]
-name: "ML-DmD16-c7" [BBOP:modENCODE]
+name: ML-DmD16-c7
 id: DGRC_INDIANA:101
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 102. Cell Line: ML-DmD16-c8." [BBOP:modENCODE]
-name: "ML-DmD16-c8" [BBOP:modENCODE]
+name: ML-DmD16-c8
 id: DGRC_INDIANA:102
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 103. Cell Line: ML-DmD16-c9." [BBOP:modENCODE]
-name: "ML-DmD16-c9" [BBOP:modENCODE]
+name: ML-DmD16-c9
 id: DGRC_INDIANA:103
 
 [Term]
 def: "Tissue Source: haltere disc. Species: melanogaster. Stock Number: 107. Cell Line: ML-DmD17-c3." [BBOP:modENCODE]
-name: "ML-DmD17-c3" [BBOP:modENCODE]
+name: ML-DmD17-c3
 id: DGRC_INDIANA:107
 
 [Term]
 def: "Tissue Source: antenna disc. Species: melanogaster. Stock Number: 108. Cell Line: ML-DmD20-c1." [BBOP:modENCODE]
-name: "ML-DmD20-c1" [BBOP:modENCODE]
+name: ML-DmD20-c1
 id: DGRC_INDIANA:108
 
 [Term]
 def: "Tissue Source: antenna disc. Species: melanogaster. Stock Number: 109. Cell Line: ML-DmD20-c2." [BBOP:modENCODE]
-name: "ML-DmD20-c2" [BBOP:modENCODE]
+name: ML-DmD20-c2
 id: DGRC_INDIANA:109
 
 [Term]
 def: "Tissue Source: antenna disc. Species: melanogaster. Stock Number: 111. Cell Line: ML-DmD20-c4." [BBOP:modENCODE]
-name: "ML-DmD20-c4" [BBOP:modENCODE]
+name: ML-DmD20-c4
 id: DGRC_INDIANA:111
 
 [Term]
 def: "Tissue Source: antenna disc. Species: melanogaster. Stock Number: 112. Cell Line: ML-DmD20-c5." [BBOP:modENCODE]
-name: "ML-DmD20-c5" [BBOP:modENCODE]
+name: ML-DmD20-c5
 id: DGRC_INDIANA:112
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 86. Cell Line: ML-DmD21." [BBOP:modENCODE]
-name: "ML-DmD21" [BBOP:modENCODE]
+name: ML-DmD21
 id: DGRC_INDIANA:86
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 121. Cell Line: ML-DmD23." [BBOP:modENCODE]
-name: "ML-DmD23" [BBOP:modENCODE]
+name: ML-DmD23
 id: DGRC_INDIANA:121
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 87. Cell Line: ML-DmD23-c1." [BBOP:modENCODE]
-name: "ML-DmD23-c1" [BBOP:modENCODE]
+name: ML-DmD23-c1
 id: DGRC_INDIANA:87
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 116. Cell Line: ML-DmD23-c2." [BBOP:modENCODE]
-name: "ML-DmD23-c2" [BBOP:modENCODE]
+name: ML-DmD23-c2
 id: DGRC_INDIANA:116
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 88. Cell Line: ML-DmD23-c3." [BBOP:modENCODE]
-name: "ML-DmD23-c3" [BBOP:modENCODE]
+name: ML-DmD23-c3
 id: DGRC_INDIANA:88
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 89. Cell Line: ML-DmD23-c4." [BBOP:modENCODE]
-name: "ML-DmD23-c4" [BBOP:modENCODE]
+name: ML-DmD23-c4
 id: DGRC_INDIANA:89
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 117. Cell Line: ML-DmD23-c5." [BBOP:modENCODE]
-name: "ML-DmD23-c5" [BBOP:modENCODE]
+name: ML-DmD23-c5
 id: DGRC_INDIANA:117
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 118. Cell Line: ML-DmD23-c6." [BBOP:modENCODE]
-name: "ML-DmD23-c6" [BBOP:modENCODE]
+name: ML-DmD23-c6
 id: DGRC_INDIANA:118
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 119. Cell Line: ML-DmD25-c2." [BBOP:modENCODE]
-name: "ML-DmD25-c2" [BBOP:modENCODE]
+name: ML-DmD25-c2
 id: DGRC_INDIANA:119
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 144. Cell Line: ML-DmD31." [BBOP:modENCODE]
-name: "ML-DmD31" [BBOP:modENCODE]
+name: ML-DmD31
 id: DGRC_INDIANA:144
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 145. Cell Line: ML-DmD32." [BBOP:modENCODE]
-name: "ML-DmD32" [BBOP:modENCODE]
+name: ML-DmD32
 id: DGRC_INDIANA:145
 
 [Term]
 def: "Tissue Source: mixed imaginal discs. Species: melanogaster. Stock Number: 126. Cell Line: ML-DmD4-c1." [BBOP:modENCODE]
-name: "ML-DmD4-c1" [BBOP:modENCODE]
+name: ML-DmD4-c1
 id: DGRC_INDIANA:126
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 92. Cell Line: ML-DmD8." [BBOP:modENCODE]
-name: "ML-DmD8" [BBOP:modENCODE]
+name: ML-DmD8
 id: DGRC_INDIANA:92
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 85. Cell Line: ML-DmD9." [BBOP:modENCODE]
-name: "ML-DmD9" [BBOP:modENCODE]
+name: ML-DmD9
 id: DGRC_INDIANA:85
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 25. Cell Line: ML81-18." [BBOP:modENCODE]
-name: "ML81-18" [BBOP:modENCODE]
+name: ML81-18
 id: DGRC_INDIANA:25
 
 [Term]
 def: "Tissue Source: embryo. Species: simulans. Stock Number: 27. Cell Line: ML82-19a." [BBOP:modENCODE]
-name: "ML82-19a" [BBOP:modENCODE]
+name: ML82-19a
 id: DGRC_INDIANA:27
 
 [Term]
 def: "Tissue Source: embryo. Species: teissieri. Stock Number: 31. Cell Line: ML83-1b." [BBOP:modENCODE]
-name: "ML83-1b" [BBOP:modENCODE]
+name: ML83-1b
 id: DGRC_INDIANA:31
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 38. Cell Line: ML83-26." [BBOP:modENCODE]
-name: "ML83-26" [BBOP:modENCODE]
+name: ML83-26
 id: DGRC_INDIANA:38
 
 [Term]
 def: "Tissue Source: embryo. Species: erecta. Stock Number: 35. Cell Line: ML83-33." [BBOP:modENCODE]
-name: "ML83-33" [BBOP:modENCODE]
+name: ML83-33
 id: DGRC_INDIANA:35
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 46. Special Features: mei9 mei41. Cell Line: ML83-61." [BBOP:modENCODE]
-name: "ML83-61" [BBOP:modENCODE]
+name: ML83-61
 id: DGRC_INDIANA:46
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 41. Cell Line: ML83-62." [BBOP:modENCODE]
-name: "ML83-62" [BBOP:modENCODE]
+name: ML83-62
 id: DGRC_INDIANA:41
 
 [Term]
 def: "Tissue Source: embryo. Species: pseudoobscura. Stock Number: 33. Cell Line: ML83-63." [BBOP:modENCODE]
-name: "ML83-63" [BBOP:modENCODE]
+name: ML83-63
 id: DGRC_INDIANA:33
 
 [Term]
 def: "Tissue Source: embryo. Species: auraria. Stock Number: 34. Cell Line: ML83-68." [BBOP:modENCODE]
-name: "ML83-68" [BBOP:modENCODE]
+name: ML83-68
 id: DGRC_INDIANA:34
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 42. Cell Line: ML84-1." [BBOP:modENCODE]
-name: "ML84-1" [BBOP:modENCODE]
+name: ML84-1
 id: DGRC_INDIANA:42
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 45. Cell Line: ML84-27b." [BBOP:modENCODE]
-name: "ML84-27b" [BBOP:modENCODE]
+name: ML84-27b
 id: DGRC_INDIANA:45
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 44. Cell Line: ML84-29." [BBOP:modENCODE]
-name: "ML84-29" [BBOP:modENCODE]
+name: ML84-29
 id: DGRC_INDIANA:44
 
 [Term]
 def: "Tissue Source: embryo. Species: yakuba. Stock Number: 32. Cell Line: ML85-5." [BBOP:modENCODE]
-name: "ML85-5" [BBOP:modENCODE]
+name: ML85-5
 id: DGRC_INDIANA:32
 
 [Term]
 def: "Tissue Source: embryo. Species: sechellia. Stock Number: 30. Cell Line: ML89-1." [BBOP:modENCODE]
-name: "ML89-1" [BBOP:modENCODE]
+name: ML89-1
 id: DGRC_INDIANA:30
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 9. Cell Line: S1." [BBOP:modENCODE]
-name: "S1" [BBOP:modENCODE]
+name: S1
 id: DGRC_INDIANA:9
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 6. Cell Line: S2." [BBOP:modENCODE]
-name: "S2" [BBOP:modENCODE]
+name: S2
 id: DGRC_INDIANA:6
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 181. Special Features: isolate of S2 used for RNAi in the DRSC. Cell Line: S2-DRSC." [BBOP:modENCODE]
-name: "S2-DRSC" [BBOP:modENCODE]
+name: S2-DRSC
 id: DGRC_INDIANA:181
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 152. Special Features: Delta. Cell Line: S2-Mt-Dl." [BBOP:modENCODE]
-name: "S2-Mt-Dl" [BBOP:modENCODE]
+name: S2-Mt-Dl
 id: DGRC_INDIANA:152
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 171. Special Features: EB1-GFP fusion. Cell Line: S2-Mt-EB1-GFP." [BBOP:modENCODE]
-name: "S2-Mt-EB1-GFP" [BBOP:modENCODE]
+name: S2-Mt-EB1-GFP
 id: DGRC_INDIANA:171
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 169. Special Features: GFP-Act5C fusion. Cell Line: S2-Mt-GFP-Act5C." [BBOP:modENCODE]
-name: "S2-Mt-GFP-Act5C" [BBOP:modENCODE]
+name: S2-Mt-GFP-Act5C
 id: DGRC_INDIANA:169
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 168. Special Features: GFP-alphaTub84B fusion. Cell Line: S2-Mt-GFP-alphaTub84B." [BBOP:modENCODE]
-name: "S2-Mt-GFP-alphaTub84B" [BBOP:modENCODE]
+name: S2-Mt-GFP-alphaTub84B
 id: DGRC_INDIANA:168
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 154. Special Features: Notch. Cell Line: S2-Mt-N." [BBOP:modENCODE]
-name: "S2-Mt-N" [BBOP:modENCODE]
+name: S2-Mt-N
 id: DGRC_INDIANA:154
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 172. Special Features: Sqh-GFP fusion. Cell Line: S2-SQH-GFP." [BBOP:modENCODE]
-name: "S2-SQH-GFP" [BBOP:modENCODE]
+name: S2-SQH-GFP
 id: DGRC_INDIANA:172
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 165. Special Features: wingless. Cell Line: S2-Tub-wg." [BBOP:modENCODE]
-name: "S2-Tub-wg" [BBOP:modENCODE]
+name: S2-Tub-wg
 id: DGRC_INDIANA:165
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 170. Special Features: GFP-alphaTub84B fusion. Cell Line: S2-act-GFP-alphaTub84B." [BBOP:modENCODE]
-name: "S2-act-GFP-alphaTub84B" [BBOP:modENCODE]
+name: S2-act-GFP-alphaTub84B
 id: DGRC_INDIANA:170
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 150. Cell Line: S2R+." [BBOP:modENCODE]
-name: "S2R+" [BBOP:modENCODE]
+name: S2R+
 id: DGRC_INDIANA:150
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 5. Cell Line: S3." [BBOP:modENCODE]
-name: "S3" [BBOP:modENCODE]
+name: S3
 id: DGRC_INDIANA:5
 
 [Term]
 def: "Tissue Source: embryo. Species: melanogaster. Stock Number: 179. Cell Line: Sg4." [BBOP:modENCODE]
-name: "Sg4" [BBOP:modENCODE]
+name: Sg4
 id: DGRC_INDIANA:179
 
 [Term]
 def: "Tissue Source: wing disc. Species: melanogaster. Stock Number: 159. Cell Line: W20C6." [BBOP:modENCODE]
-name: "W20C6" [BBOP:modENCODE]
+name: W20C6
 id: DGRC_INDIANA:159
 
 [Term]
 def: "Tissue Source: embryo. Species: virilis. Stock Number: 40. Cell Line: WR Dv-1." [BBOP:modENCODE]
-name: "WR Dv-1" [BBOP:modENCODE]
+name: WR Dv-1
 id: DGRC_INDIANA:40
 
 [Term]
 def: "Tissue Source: hemocyte. Species: melanogaster. Stock Number: 147. Special Features: tumorous blood cells. Cell Line: mbn2." [BBOP:modENCODE]
-name: "mbn2" [BBOP:modENCODE]
+name: mbn2
 id: DGRC_INDIANA:147
 

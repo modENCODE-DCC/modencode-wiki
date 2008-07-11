@@ -87,7 +87,7 @@ foreach my $value (@allvalues) {
       $newterm{$var} =~ s/\\/\\\\/g;
       $newterm{$var} =~ s/!/\\!/g;
       $newterm{$var} =~ s/"/\\"/g;
-      if ($var ne "id") {
+      if ($var eq "def") {
 	$newterm{$var} = '"' . $newterm{$var} . '" [BBOP:modENCODE]';
       }
       $content .= "$var: " . $newterm{$var} . "\n";
