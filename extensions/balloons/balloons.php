@@ -101,7 +101,6 @@ function addBalloonJavascript(&$out) {
                   "<script type=\"text/javascript\" src=\"${jsPath}/DCCballoon.js\"></script>\n" .			
                   "<script type=\"text/javascript\">\n" .
                   "var balloon = new DCCBalloon;\n" .
-		  "balloon.maxWidth = 400;\n" .
                   "balloon.images   = '${wgScriptPath}/extensions/balloons/images';\n" .
                   # Some skins need document.body as the parent, others use the 'content' layer
                   # Custom skin users/developers may need to edit the regular expression below
