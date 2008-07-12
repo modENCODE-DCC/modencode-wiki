@@ -32,18 +32,26 @@ function richEditLink(&$out, &$text) {
   }
   $script = <<<END
 <script type="text/javascript">
-    addOnloadHook( function() {
-		     var editLink = function() {
-                       if (!document.body.innerHTML.match('rich edit')) return false;
-                       var c = document.getElementById('content');
-                       var newTitle = 'use FCKeditor, a rich-text wiki editor';
-                       var sectionEdit = /(<span class=\"?editsection\"?.+href=\"(\S+)\".+?<\/span>)/ig;
-                       var replacement = "<span class=\"editsection\"><a href=\"$2&fck=1\" title=\""+newTitle+"\">[rich edit]</a></span> $1";
-                       var cHTML = c.innerHTML.replace(sectionEdit,replacement);
-                       c.innerHTML = cHTML;
-                     };
-                     editLink();
-                   } );
+addOnloadHook( function() {
+  var newRichTitle = 'use FCKeditor, a rich-text wiki editor';
+  var richEditLink = function() {
+    if (!document.body.innerHTML.match('rich edit')) return false;
+    var tags = document.getElementsByTagName('span');
+    for (var i = 0; i < tags.length; i++) {
+      var c = tags[i];
+      if (c.className && c.className.match(/editsection/i)) {
+	var links = c.getElementsByTagName('a');
+	if (links[0]) {
+	  var href = links[0].getAttribute('href');
+	  href = href + '&fck=1';
+	  var newLink = ' [<a href="'+href+'" title="'+newRichTitle+'">rich edit</a>]';
+	  c.innerHTML += newLink;
+      	}
+      }
+    }
+  };
+  richEditLink();
+} );
 </script>
 END;
 
@@ -64,21 +72,24 @@ function richEditMessage($form) {
 
   $script = <<<END
 <script type="text/javascript">
-      addOnloadHook( function() {
-                       var editMessage = function() {
-                         if (!window.location.href.match('fck=1')) return false;
-                         if (!document.body.innerHTML.match('rich edit')) return false;
-                         var newTitle = '<big><b>This is FCKeditor, a rich-text wiki editor</b></big><br>';
-                         newTitle = newTitle + '<b>Alternatives:</b> Click the "Wikitext" button below to edit the wiki source code; Use the "edit" tab above for the normal editor';
-                         newTitle = '<div style="background:yellow;border: 1px solid red">'+newTitle+'</div>';
-                         var sectionEdit = /(<h1.+?>Editing[^\<]+<\/h1>)/i;
-                         var replacement = "$1"+newTitle;
-                         var c = document.getElementById('content');
-                         var cHTML = c.innerHTML.replace(sectionEdit,replacement);
-                         c.innerHTML = cHTML;
-                       };
-                       editMessage();
-                     } );
+addOnloadHook( function() {
+  var editMessage = function() {
+    // do not go on if we have no rich edit
+    if (!window.location.href.match('fck=1')) return false;
+    if (!document.body.innerHTML.match('rich edit')) return false;
+
+    var newTitle = '<big><b>This is FCKeditor, a rich-text wiki editor</b></big><br>\
+                    <b>Alternatives:</b> Click the "Wikitext" button below to edit \
+                    the wiki source code; Use the "edit" tab above for the normal editor';
+    newTitle = '<div style="background:yellow;border: 1px solid red">'+newTitle+'</div>';
+    var sectionEdit = /(<h1.+?>Editing[^\<]+<\/h1>)/i;
+    var replacement = "$1"+newTitle;
+    var c = document.getElementById('content');
+    var cHTML = c.innerHTML.replace(sectionEdit,replacement);
+    c.innerHTML = cHTML;
+  };
+  editMessage();
+} );
 </script>
 END;
   $wgOut->addScript($script);
