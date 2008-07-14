@@ -37,7 +37,6 @@
     global $modENCODE_dbfields_allowed_attributes;
 
     if ($name == "balloon" && function_exists("renderBalloonSpan")) {
-      #$modENCODE_dbfields_data["chrdata"] = false;
       $modENCODE_dbfields_data["balloon_args"] = $attribs;
       return;
     }
@@ -150,7 +149,6 @@
                  "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
 	$extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
 	$modENCODE_dbfields_data["balloon_args"] = false;
-        #$modENCODE_dbfields_data["chrdata"] = false;
       }
 
       if ($input["attribs"]["type"] == "cvterm") {
@@ -181,7 +179,6 @@
 	  "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
         $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
         $modENCODE_dbfields_data["balloon_args"] = false;
-        #$modENCODE_dbfields_data["chrdata"] = false;
       }
       $attribs = $input["attribs"];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
@@ -219,7 +216,6 @@
       if ($modENCODE_dbfields_data["balloon_args"]) {
         $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
         $modENCODE_dbfields_data["balloon_args"] = false;
-        #$modENCODE_dbfields_data["chrdata"] = false;
       }
       $extra_content_after .= "</div>";
     }
