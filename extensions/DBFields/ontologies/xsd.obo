@@ -20,3 +20,7 @@ name: date
 id: xsd:anyURI
 name: anyURI
 
+[Term]
+id: xsd:file
+name: file
+
