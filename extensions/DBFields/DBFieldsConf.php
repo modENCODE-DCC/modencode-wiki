@@ -47,7 +47,7 @@
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["query"] = $cvquery;
 
-  $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url"] = "http://www.sequenceontology.org/release/2.2/so_2_2.obo";
+  $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url"] = "http://heartbroken.lbl.gov/SO_local.obo";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url_type"] = "OBO";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["dbname"] = "wormbase_175";
