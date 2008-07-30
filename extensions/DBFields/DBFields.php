@@ -519,7 +519,8 @@
 
     $server_url = "http://" . $_SERVER["SERVER_NAME"];
     $parsed_xml .= "<br/>Please use this page's permanent link when referencing it in data submission (e.g. in the IDF):<br/>";
-    $parsed_xml .= "<a href=\"$permalink\">${server_url}$permalink</a>";
+    $parsed_xml .= "<a href=\"$permalink\">${server_url}$permalink</a><br/>";
+    $parsed_xml .= "IE Users: Right-click and choose 'Copy Shortcut' to copy the permalink URL to the clipboard.";
 
     $modENCODE_markers_to_data[] = $parsed_xml;
 
