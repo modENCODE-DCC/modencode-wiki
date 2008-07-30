@@ -182,6 +182,9 @@
     global $modENCODE_DBFields_conf;
     $resultTerms = array();
 
+    if (!($modENCODE_DBFields_conf["cvterms"][$searchCv]["dbname"] && $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"])) {
+      return array();
+    }
     $db = modENCODE_db_connect(
       $modENCODE_DBFields_conf["cvterms"][$searchCv]["host"], 
       $modENCODE_DBFields_conf["cvterms"][$searchCv]["dbname"], 
