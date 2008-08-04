@@ -56,6 +56,9 @@
     // If there are values in the DB, read them out
     // (this overwrites any default values)
     $orig_attribs = $attribs;
+    if (!is_array($modENCODE_dbfields_data["stack"])) {
+      $modENCODE_dbfields_data["stack"] = array();
+    }
     array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
     $extra_content_before = '';
     $extra_content_after = '';
@@ -96,6 +99,9 @@
 	  }
 	}
       }
+    }
+    if (!is_array($modENCODE_dbfields_data["stack_of_parsed_elements"])) {
+      $modENCODE_dbfields_data["stack_of_parsed_elements"] = array();
     }
     array_push($modENCODE_dbfields_data["stack_of_parsed_elements"], array("name" => $name, "attribs" => $attribs));
 
@@ -227,17 +233,23 @@
     $modENCODE_dbfields_data["xml"] .= $modENCODE_dbfields_data["chrdata"] . "</$name>\n";
     $modENCODE_dbfields_data["xml"] .= $extra_content_after;
     $modENCODE_dbfields_data["chrdata"] = false;
-    array_pop($modENCODE_dbfields_data["stack"]);
-    array_pop($modENCODE_dbfields_data["stack_of_parsed_elements"]);
+    if (is_array($modENCODE_dbfields_data["stack"])) {
+      array_pop($modENCODE_dbfields_data["stack"]);
+    }
+    if (is_array($modENCODE_dbfields_data["stack_of_parsed_elements"])) {
+      array_pop($modENCODE_dbfields_data["stack_of_parsed_elements"]);
+    }
   }
   function modENCODE_dbfields_characterData($parser, $data) {
     global $modENCODE_dbfields_data;
     $inTextarea = false;
     $tempstack = $modENCODE_dbfields_data["stack"];
-    while ($parent = array_pop($tempstack)) {
-      if ($parent["name"] == "textarea") {
-        $inTextarea = true;
-        break;
+    if (is_array($tempstack)) {
+      while ($parent = array_pop($tempstack)) {
+	if ($parent["name"] == "textarea") {
+	  $inTextarea = true;
+	  break;
+	}
       }
     }
     if ($inTextarea) {
@@ -348,8 +360,16 @@
       $args["name"] = $parser->mTitle->getText();
     }
     $prefix = $args["prefix"];
+    $nameprefix = $args["nameprefix"];
 
-    $entry_name = modENCODE_db_escape($args["name"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+    $use_name = $args["name"];
+    if (isset($_POST["modENCODE_dbfields"]) && count($_POST["modENCODE_dbfields"])) {
+      $entry_name = $_POST["name_prefix"] . $args["name"];
+    } else {
+      $entry_name = $nameprefix . $args["name"];
+    }
+
+    $entry_name = modENCODE_db_escape($entry_name, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
 
     if (isset($_GET["version"]) && $_GET["version"]) {
       $version = modENCODE_db_escape($_GET["version"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
@@ -386,6 +406,7 @@
     }
     if (isset($_POST["modENCODE_dbfields"]) && count($_POST["modENCODE_dbfields"])) {
       $version++;
+
 
 
       $dbw = wfGetDB(DB_MASTER);
@@ -453,6 +474,9 @@
       $modENCODE_dbfields_data["xml"] = preg_replace("/<input([^>]*)(class=\"[^\"]*)cvterm/", "<input\$1\$2", $modENCODE_dbfields_data["xml"]);
     } else {
       $parsed_xml .= "<form class=\"modENCODE_dbfields yui-skin-sam\" method=\"POST\" action=\"$thispage\">\n";
+      if (strlen($nameprefix) > 0) {
+	$parsed_xml .= "  <input type=\"hidden\" name=\"name_prefix\" value=\"$nameprefix\"/>\n";
+      }
     }
     $parsed_xml .= $modENCODE_dbfields_data["xml"];
 
@@ -526,6 +550,9 @@
 
     $result = "<h2>$prefix \"" . $args["name"] . "\" (Version $version)</h2>\n";
     $result .= htmlspecialchars("modENCODE-marker#" . (count($modENCODE_markers_to_data)-1) . "#");
+
+    $modENCODE_dbfields_data = array();
+
     return $result;
   }
   function modENCODE_dbfields_ParserAfterTidy_MarkerReplacement(&$parser, &$text) {
