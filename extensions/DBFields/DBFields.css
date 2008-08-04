@@ -1,4 +1,6 @@
 form.modENCODE_dbfields th { text-align: right; vertical-align: top; font-weight: normal; }
+form.modENCODE_dbfields th.centered { text-align: center; vertical-align: top; font-weight: normal; }
+form.modENCODE_dbfields th.lefted { text-align: left; vertical-align: top; font-weight: normal; }
 form.modENCODE_dbfields td div.yui-ac { display: inline; }
 form.modENCODE_dbfields input { border: thin solid #AAAAAA; }
 form.modENCODE_dbfields input.dbfields_input { width: 400px; }
