@@ -1,12 +1,14 @@
 #!/usr/bin/perl -w
 
 use strict;
+#se lib "/var/www/cgi-bin/CMS-MediaWiki-0.8013/lib";
+use lib "./lib";
 
 use CMS::MediaWiki;
 use Search::Tools::XML;
 use CGI;
 
-my $page=$ENV{'QUERY_STRING'};
+my $page=$ENV{'QUERY_STRING'} || 'Array_Scanning_for_Expression_Arrays';
 
 my $header = 
 "Content-type: text/html\n\n
@@ -14,6 +16,7 @@ my $header =
  <link rel=\"stylesheet\" href=\"http://www.modencode.org/css/modencode.css\">
  <title>".$page."</title>
 </head><body>";
+
 
 
 my $banner ="
@@ -88,6 +91,8 @@ class=PI>[restricted&nbsp;access]&nbsp;</span><br>
 "
 ;
 
+
+
 my $footer = "</div></table></body></html>";
 
 my $denial_message = "
@@ -103,33 +108,69 @@ my $mw = CMS::MediaWiki->new(
       debug => 0                       # Optional. 0=no debug msgs, 1=some msgs, 2=more msgs
 );
 
+
 if ($mw->login(user => 'Publisher', pass => 'newyork')) {
   die "Could not login\n";
 }
 
-my $lines_ref = $mw->getPage(title => $page);
+my $publicPage = $mw->getHTML(title => "Public_index");
+
+my $bool = "private";
+
+#    if ($publicPage =~ m/.*&lt;li&gt;\s*$page.*/) {
+    if ($publicPage =~ m/.*<li>\s*$page.*/) {
+	$bool = "public";
+    }
+
+#my $lines_ref = $mw->getPage(title => $page);
+
 print $header;
 print $menu;
 print $banner;
 
-my $cat_lines_ref = $mw->getPage(title => "Public_index");
-
-my $bool = "private";
-
-for my $catline (@$cat_lines_ref) {
-    if ($catline =~ m/&lt;li&gt;\s*$page/) {
-	$bool = "public";
-	last;
-    }
-}
 
 if ($bool eq "public") { 
-    for my $line (@$lines_ref) {
-	print Search::Tools::XML->unescape($line), "\n";
-    }
+
+    my $content = $mw->getHTML(title => $page);
+
+    my $purified = "<h2>".&parseHTML($content);
+
+#    print Search::Tools::XML->unescape($content), "\n";
+    print Search::Tools::XML->unescape($purified), "\n";
+
+
 } else {   
     print $denial_message;
 }
 
 print $footer;
+
+
+sub parseHTML {
+    # returns page source
+    my $before = $_[0];
+
+#rm edit boxes
+    $before =~ s/\[.*edit.*\]//g;
+
+#rm form buttons
+    $before =~ s/<input type=\"submit\".*>//g;
+
+#rm help links
+    $before =~ s/<.*alt=\"?\".*>//g;
+
+#rm reference to wiki
+    $before =~ s/<br\/>Please use this page\'s permanent link when referencing .* -->//sg;
+
+#rm footer
+    $before =~ s/<div class=\"printfooter.*>//sg;
+
+#to cut all before the first header
+    $before =~ m/<h2>/;
+
+     return $'; 
+
+}
+
+
 
