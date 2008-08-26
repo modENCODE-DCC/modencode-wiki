@@ -1,14 +1,14 @@
 #!/usr/bin/perl -w
 
 use strict;
-#use lib "/var/www/cgi-bin/CMS-MediaWiki-0.8013/lib";
+#use lib "/var/www/cgi-bin/lib";
 use lib "./lib";
 
 use CMS::MediaWiki;
 use Search::Tools::XML;
 use CGI;
 
-my $page=$ENV{'QUERY_STRING'} || 'Array_Scanning_for_Expression_Arrays';
+my $page=$ENV{'QUERY_STRING'};
 
 my $header = 
 "Content-type: text/html\n\n
