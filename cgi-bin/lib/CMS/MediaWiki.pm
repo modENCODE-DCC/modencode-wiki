@@ -48,6 +48,7 @@ sub new {
 
 	$ua = LWP::UserAgent->new(
 		agent => 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; T312461)' ,
+		'cookie_jar' => {file => "/tmp/lwpcookies.txt", autosave => 1}
 	);
 
 	bless $self, $type;
