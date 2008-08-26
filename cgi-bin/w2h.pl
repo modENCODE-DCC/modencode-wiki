@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
 use strict;
-#se lib "/var/www/cgi-bin/CMS-MediaWiki-0.8013/lib";
+#use lib "/var/www/cgi-bin/CMS-MediaWiki-0.8013/lib";
 use lib "./lib";
 
 use CMS::MediaWiki;
@@ -171,6 +171,4 @@ sub parseHTML {
      return $'; 
 
 }
-
-
 
