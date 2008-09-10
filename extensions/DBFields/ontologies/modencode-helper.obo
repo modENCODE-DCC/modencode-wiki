@@ -807,6 +807,12 @@ id: ME:0000115
 name: anonymous_datum
 def: "A modENCODE-specific datum type for tracking anonymous outputs of protocols as inputs to other protocols" [BBOP:EOS]
 
+[Term]
+id: ME:0000116
+name: clipped_sequence_reads
+def: "A modENCODE-specific data type that is a two-column data format containing short sequences and counts for the number of times the read was identified.  This data format is the output for the Lai lab in their clipping procedure." [BBOP:NLW]
+is_a: ME:0000045 ! sequence_file
+
 [Typedef]
 id: has_input
 name: has_input
