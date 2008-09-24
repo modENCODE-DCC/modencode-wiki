@@ -795,12 +795,13 @@ def: "A file format used frequently at the Wellcome Trust Sanger Institute to bu
 comment: "See: http://www.bioperl.org/wiki/FASTQ_sequence_format"
 is_a: ME:0000045 ! sequence_file
 
-[Term]
-id: ME:0000114
-name: FASTA
-def: "A standard sequence file format for both protein and DNA sequences.  There are no standard file extensions, and no formal definitions for the header line." [HTTP:www.bioperl.org/wiki/FASTA_sequence_format]
-comment: "See: http://www.bioperl.org/wiki/FASTA_sequence_format"
-is_a: ME:0000045 ! sequence_file
+!This was in here twice.  Oops!
+![Term]
+!id: ME:0000114
+!name: FASTA
+!def: "A standard sequence file format for both protein and DNA sequences.  There are no standard file extensions, and no formal definitions for the header line." [HTTP:www.bioperl.org/wiki/FASTA_sequence_format]
+!comment: "See: http://www.bioperl.org/wiki/FASTA_sequence_format"
+!is_a: ME:0000045 ! sequence_file
 
 [Term]
 id: ME:0000115
@@ -812,6 +813,12 @@ id: ME:0000116
 name: clipped_sequence_reads
 def: "A modENCODE-specific data type that is a two-column data format containing short sequences and counts for the number of times the read was identified.  This data format is the output for the Lai lab in their clipping procedure." [BBOP:NLW]
 is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000117
+name: bacterial_transformant
+def: "A bacterial sample containing one or more exogenous DNA sequences that have been taken up by cells having undergone a transforming reaction protocol." [BBOP:NLW]
+is_a: ME:0000019 ! biosample
 
 [Typedef]
 id: has_input
