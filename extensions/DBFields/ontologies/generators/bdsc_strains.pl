@@ -88,7 +88,7 @@ foreach my $value (@allvalues) {
       $newterm{$var} =~ s/\\/\\\\/g;
       $newterm{$var} =~ s/!/\\!/g;
       $newterm{$var} =~ s/\<.\>//g;
-
+      $newterm{$var} =~ s/\s+$//g; #trailing spaces
       $newterm{$var} =~ s/"/\\"/g;
       if ($var eq "def") {
 	$newterm{$var} = '"' . $newterm{$var} . '" [BBOP:modENCODE]';
