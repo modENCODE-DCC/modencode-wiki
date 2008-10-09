@@ -67,6 +67,7 @@ my %parsed_terms;
 foreach my $term (@terms) {
   $term =~ s/\[Term\]//g;
   $term =~ s/(^\s*)|(\s*$)//g;
+
   my @matches = ($term =~ m/^([^:]*):\s*(.*)$/mg);
   my %term_hash;
   for (my $i = 0; $i < scalar(@matches); $i+=2) {
@@ -86,6 +87,8 @@ foreach my $value (@allvalues) {
     foreach my $var (keys(%newterm)) {
       $newterm{$var} =~ s/\\/\\\\/g;
       $newterm{$var} =~ s/!/\\!/g;
+      $newterm{$var} =~ s/\<.\>//g;
+
       $newterm{$var} =~ s/"/\\"/g;
       if ($var eq "def") {
 	$newterm{$var} = '"' . $newterm{$var} . '" [BBOP:modENCODE]';
