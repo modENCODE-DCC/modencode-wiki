@@ -9,7 +9,6 @@
 
   $searchTerm = isset($_GET["term"]) ? $_GET["term"] : null;
   $searchCv = isset($_GET["cv"]) ? $_GET["cv"] : null;
-  print STDERR $searchCv;
   $get_canonical_url = isset($_GET["get_canonical_url"]) && strlen($_GET["get_canonical_url"]) > 0 ? $_GET["get_canonical_url"] : null;
   $validating = isset($_GET["validating"]) && $_GET["validating"] == "validating" ? true : false;
   $delimiter = isset($_GET["delimiter"]) && strlen($_GET["delimiter"]) > 0 ? $_GET["delimiter"] : null;
