@@ -47,7 +47,7 @@
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["query"] = $cvquery;
 
-  $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url"] = "http://heartbroken.lbl.gov/SO_local.obo";
+  $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url"] = " http://obo.cvs.sourceforge.net/*checkout*/obo/obo/ontology/genomic-proteomic/so.obo";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url_type"] = "OBO";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["dbname"] = "wormbase_175";
@@ -143,6 +143,8 @@ $modENCODE_DBFields_conf["cvterms"]["go_cc"]["canonical_url"] = "http://www.berk
 
   $modENCODE_DBFields_conf["cvterms"]["obi-process"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/obi/obi.obo";
   $modENCODE_DBFields_conf["cvterms"]["obi-process"]["canonical_url_type"] = "OBO";
+  $modENCODE_DBFields_conf["cvterms"]["obi"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/obi/obi.obo";
+  $modENCODE_DBFields_conf["cvterms"]["obi"]["canonical_url_type"] = "OBO";
   $modENCODE_DBFields_conf["cvterms"]["obi-biomaterial"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/obi/obi.obo";
   $modENCODE_DBFields_conf["cvterms"]["obi-biomaterial"]["canonical_url_type"] = "OBO";
   $modENCODE_DBFields_conf["cvterms"]["obi-data"]["canonical_url"] = "http://www.berkeleybop.org/ontologies/obo-all/obi/obi.obo";
