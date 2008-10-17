@@ -822,15 +822,28 @@ is_a: ME:0000019 ! biosample
 
 [Term]
 id: ME:0000118
-name: ShortReadArchive_record (SRA)
-def: "The Short Read Archive (SRA) record identification number supplied after a successful submission. These should take the format like SRA280082. See http://www.ncbi.nlm.nih.gov/Traces/sra for more information."  [BBOP:nlw]
+name: ShortReadArchive_project_ID (SRA)
+def: "The Short Read Archive (SRA) project identification number supplied after a successful submission. These should take the format like SRA280082. See http://www.ncbi.nlm.nih.gov/Traces/sra for more information."  [BBOP:nlw]
 is_a: ME:0000045 ! sequence_file
 
 [Term]
 id: ME:0000119
+name: ShortReadArchive_sample_ID (SRS)
+def: "The Short Read Archive (SRA) sample identification number supplied after a successful submission. These should take the format like SRS000246. See http://www.ncbi.nlm.nih.gov/Traces/sra for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000120
 name: false_positive_rate
 def: "A value representing the rate at which positive results are detected which should not have been detected.  This value can be used to determine the threshold of intervals/peaks that are considered to be statistically significant." [BBOP:nlw]
 is_a: ME:0000006 ! cutoff
+
+[Term]
+id: ME:0000121
+name: ShortReadArchive_study_ID (SRP)
+def: "The Short Read Archive (SRA) sample identification number supplied after a successful submission. These should take the format like SRP000057 See http://www.ncbi.nlm.nih.gov/Traces/sra for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
 
 [Typedef]
 id: has_input
