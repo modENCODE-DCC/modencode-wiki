@@ -820,6 +820,18 @@ name: bacterial_transformant
 def: "A bacterial sample containing one or more exogenous DNA sequences that have been taken up by cells having undergone a transforming reaction protocol." [BBOP:NLW]
 is_a: ME:0000019 ! biosample
 
+[Term]
+id: ME:0000118
+name: ShortReadArchive_record (SRA)
+def: "The Short Read Archive (SRA) record identification number supplied after a successful submission. These should take the format like SRA280082. See http://www.ncbi.nlm.nih.gov/Traces/sra for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000119
+name: false_positive_rate
+def: "A value representing the rate at which positive results are detected which should not have been detected.  This value can be used to determine the threshold of intervals/peaks that are considered to be statistically significant." [BBOP:nlw]
+is_a: ME:0000006 ! cutoff
+
 [Typedef]
 id: has_input
 name: has_input
