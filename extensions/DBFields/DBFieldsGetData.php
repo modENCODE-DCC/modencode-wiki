@@ -19,7 +19,9 @@
 	'FormData' => 'FormData',
 	'FormValues' => 'FormValues',
 	'LoginResult' => 'LoginResult',
-	'FormDataQuery' => 'FormDataQuery'
+	'FormDataQuery' => 'FormDataQuery',
+	'CategoryMember' => 'CategoryMember',
+	'CategoryMembersQuery' => 'CategoryMembersQuery'
       )
     )
   );
@@ -32,15 +34,15 @@
     global $wgUser;
     $wgUser = new StubUser();
     unset($_SESSION);
-    print "Form data:";
     #$url = "http://wiki.modencode.org/project/index.php?title=Sequencing&oldid=5358";
-    $submission = new FormDataQuery();
-    $submission->name = $form;
-    $submission->name = "COMMENT ME TO DEBUG";
-    $submission->version = $version;
-    $submission->auth = $auth;
+#    $submission = new FormDataQuery();
+#    $submission->name = $form;
+#    $submission->name = "COMMENT ME TO DEBUG";
+#    $submission->version = $version;
+#    $submission->auth = $auth;
 #    $submission->url = $url;
-    print_r($dbfs->getFormData($submission));
+#    print_r($dbfs->getFormData($submission));
+    print_r($dbfs->getCategoryMembers("Antibody"));
   } else {
     $server->setClass("DBFieldsService");
     $server->handle();
@@ -124,6 +126,15 @@
     public $wait = '';
     public $details = '';
   }
+  class CategoryMembersQuery {
+    public $category;
+    public $auth;
+  }
+  class CategoryMember {
+    public $pageid = '';
+    public $namespace = '';
+    public $title = '';
+  }
 
   class DBFieldsService {
     public function getLoginCookie($username, $password, $domain=false) {
@@ -147,6 +158,45 @@
       }
       return $loginResult;
     }
+    public function getCategoryMembers($submission) {
+
+      $auth = $submission->auth;
+      $category_name = urldecode(html_entity_decode($submission->category));
+
+      global $wgUser;
+      if ($wgUser->mId <= 0 && $auth) {
+	$wgUser = User::newFromSession();
+	$oldCookies = $_COOKIE;
+	$_COOKIE[$auth->cookieprefix . "UserID"] = $auth->lguserid;
+	$_COOKIE[$auth->cookieprefix . "UserName"] = $auth->lgusername;
+	$_COOKIE[$auth->cookieprefix . "Token"] = $auth->lgtoken;
+	$wgUser->load();
+	$_COOKIE = $oldCookies;
+      }
+
+      if ($wgUser->mId <= 0) {
+	throw new SoapFault("Bad Authentication", "User " . $auth->lguserid . " not authorized to view this page!");
+      }
+      
+      $api = new ApiMain(new FauxRequest(array(
+	'action' => 'query',
+	'list' => 'categorymembers',
+	'cmcategory' => $category_name,
+	'cmlimit' => 5000,
+      )));
+      $api->execute();
+      $result = $api->getResultData();
+      $members = array();
+      foreach ($result["query"]["categorymembers"] as $category_member) {
+	$member = new CategoryMember();
+	$member->pageid = (int) $category_member["pageid"];
+	$member->namespace = (string) $category_member["ns"];
+	$member->title = (string) $category_member["title"];
+	array_push($members, $member);
+      }
+
+      return $members;
+    }
     public function getFormData($submission) {
       global $modENCODE_DBFields_conf;
 
@@ -169,6 +219,7 @@
 	$form = str_replace("_", " ", $matches[1]);
 	$revisionId = $matches[2];
       }
+      $form = urldecode($form);
 
       # Handle possible redirection...
       $is_redir_title = Title::newFromText($form);

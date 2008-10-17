@@ -63,6 +63,9 @@
     $extra_content_before = '';
     $extra_content_after = '';
     if ($name == "input" || $name == "textarea" || $name == "select") {
+      if (!isset($attribs["class"])) {
+	$attribs["class"] = '';
+      }	
       $attribs["class"] .= " dbfields_input ";
     }
     if ($name == "input") {

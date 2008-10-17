@@ -64,6 +64,26 @@
             <element name="url" minOccurs="0" maxOccurs="1" type="xsd:string"/>
           </all>
         </complexType>
+        <complexType name="CategoryMembersQuery">
+          <all>
+            <element name="category" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <element name="auth" minOccurs="0" maxOccurs="1" type="tnstypes:LoginResult"/>
+          </all>
+        </complexType>
+        <complexType name="CategoryMember">
+          <all>
+            <element name="pageid" minOccurs="1" maxOccurs="1" type="xsd:int"/>
+            <element name="title" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="namespace" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+          </all>
+        </complexType>
+        <complexType name="ArrayOfCategoryMembers">
+          <complexContent>
+            <restriction base="soapenc:Array">
+              <attribute ref="soapenc:arrayType" xmlns:arrayType="tnstypes:CategoryMember[]"/>
+            </restriction>
+          </complexContent>
+        </complexType>
       </schema>
     </types>
     <!-- Message/method definitions -->
@@ -78,6 +98,12 @@
       <part name="password" type="xsd:string"/>
       <part name="domain" type="xsd:string"/>
     </message>
+    <message name="getCategoryMembersInput">
+      <part name="query" type="tnstypes:CategoryMembersQuery"/>
+    </message>
+    <message name="getCategoryMembersOutput">
+      <part name="categorymembers" type="tnstypes:ArrayOfCategoryMembers"/>
+    </message>
     <message name="getLoginCookieOutput">
       <part name="result" type="tnstypes:LoginResult"/>
     </message>
@@ -90,6 +116,10 @@
       <operation name="getLoginCookie">
         <input name="getLoginCookie" message="tns:getLoginCookieInput"/>
         <output name="getLoginCookie" message="tns:getLoginCookieOutput"/>
+      </operation>
+      <operation name="getCategoryMembers">
+        <input name="getCategoryMembers" message="tns:getCategoryMembersInput"/>
+        <output name="getCategoryMembers" message="tns:getCategoryMembersOutput"/>
       </operation>
     </portType>
     <!-- Bindings -->
@@ -110,6 +140,15 @@
 	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
 	</input>
 	<output name="getLoginCookie">
+	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
+	</output>
+      </operation>
+      <operation name="getCategoryMembers">
+	<soap:operation soapAction="http://wiki.modencode.org/project/extensions/DBFields/DBFieldsGetData.php" style="rpc"/>
+	<input name="getCategoryMembers">
+	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
+	</input>
+	<output name="getCategoryMembers">
 	  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://wiki.modencode.org/project/extensions/DBFields/namespaces/dbfields"/>
 	</output>
       </operation>

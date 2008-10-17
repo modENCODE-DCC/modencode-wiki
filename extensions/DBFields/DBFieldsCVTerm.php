@@ -137,9 +137,10 @@
       }
     }
     # One last section at EOF
-    if (preg_match($pattern, $section, $match) > 0) {
-      array_push($matches, $section);
-      if ($MAX_MATCHES-- <= 0) { break; }
+    if ($MAX_MATCHES-- > 0) {
+      if (preg_match($pattern, $section, $match) > 0) {
+	array_push($matches, $section);
+      }
     }
 
     fclose($obo);
