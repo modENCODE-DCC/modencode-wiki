@@ -1,4 +1,3 @@
-
 ///////////////////////////////////////////////////
 // Constructor for DCCBalloon class, a subclass  //
 // of Balloon with DCC mods                     //

@@ -1,7 +1,7 @@
 /*
  balloon.js -- a DHTML library for balloon tooltips
 
- $Id: balloon.js,v 1.28 2008/07/05 12:42:17 sheldon_mckay Exp $
+ $Id: balloon.js,v 1.41 2008/09/23 16:33:17 sheldon_mckay Exp $
 
  See http://www.gmod.org/wiki/index.php/Popup_Balloons
  for documentation.
@@ -42,84 +42,16 @@ var balloonInvisibleSelects;
 var balloonIsSuppressed;
 var tooltipIsSuppressed;
 
-///////////////////////////////////////////////////
-// Constructor for Balloon class                 //
-// Balloon configuration                         //
-// Reset these values for custom balloon designs //
-///////////////////////////////////////////////////
-var Balloon = function() {
-  // Location of optional ajax handler that returns tooltip contents
-  //this.helpUrl = '/cgi-bin/help.pl';
 
-  // ID of element to which balloon should be added
-  // default = none (document.body is used)
-  // This option may be required for mediawiki or other
-  // implementations with complex stylesheets
-  this.parentID = null;
+//////////////////////////////////////////////////////////////////////////
+// This is constructor that is called to initialize the Balloon object  //
+//////////////////////////////////////////////////////////////////////////
+var Balloon = function () {
 
-  // properties of fonts contained in basic balloons (default black)
-  this.fontColor   = 'black';
-  this.fontFamily  = 'Arial, sans-serif';
-  this.fontSize    = '12pt';
+  // Get default configuration from balloon.config.js
+  BalloonConfig(this);
 
-  // minimum allowed balloon width (px)
-  this.minWidth = 150;
-
-  // maximum allowed balloon width (px)
-  this.maxWidth = 600;
-
-  // Delay before balloon is displayed (msec)
-  this.delayTime = 500;
-
-  // If fade-in/out is allowed
-  this.allowFade = false;
-
-  // time interval for fade-in (msec)
-  this.fadeIn    = 300;
-
-  // time interval for fade-out (msec)
-  this.fadeOut   = 300;  
-
-  // Vertical Distance from cursor location (px)
-  this.vOffset  = 10;
-
-  // text-padding within the balloon (px)
-  this.padding  = 10;
-
-  // How long to display mousover balloons (msec)
-  // false = 'always on'
-  this.displayTime = 10000;
-
-  // width of shadow (space aroung whole balloon; px)
-  // This can be zero if there is no shadow and the
-  // edges of the balloon are also the edges of the image
-  this.shadow   = 20;
-
-  // images of balloon body.  If the browser is IE < 7, png alpha
-  // channels will not work.  An optional alternative image can be 
-  // provided.  It should have the same dimensions as the default png image
-  this.images        = '/images/balloons';
-  this.balloonImage  = 'balloon.png';    // with alpha channels
-  this.ieImage       = 'balloon_ie.png'; // indexed color, transparent background
-
-  // whether the balloon should have a stem
-  this.stem          = true;
-
-  // The height (px) of the stem and the extent to which the 
-  // stem image should overlaps the balloon image.
-  this.stemHeight  = 32;  
-  this.stemOverlap = 3;
-  
-  // A stem for each of the four orientations
-  this.upLeftStem    = 'up_left.png';
-  this.downLeftStem  = 'down_left.png';
-  this.upRightStem   = 'up_right.png';
-  this.downRightStem = 'down_right.png';
-
-  // A close button for sticky balloons
-  this.closeButton   = 'close.png';
-
-  // track the cursor every time the mouse moves
+  // Track the cursor every time the mouse moves
   document.onmousemove = this.setActiveCoordinates;
 
   // scrolling aborts unsticky balloons
@@ -127,19 +59,23 @@ var Balloon = function() {
 
   // make balloons go away if the page is unloading or waiting
   // to unload.
-  window.onbeforeunload = function(){ 
+  window.onbeforeunload = function(){
     Balloon.prototype.hideTooltip(1);
     balloonIsSuppressed = true;
   };
 
+  // for IE, the balloons can;t start until the page is finished loading
+  // set a flag that will get toggled when loading is finished
   if (this.isIE()) {
     this.suppress = true;
   }
+
+  return this;
 }
 
 //////////////////////////////////////////////////////////////////////////
 // This is the function that is called on mouseover.  It has a built-in //
-// delay time to avoid balloons popping up on rapid mouseover events     //
+// delay time to avoid balloons popping up on rapid mouseover events    //
 //////////////////////////////////////////////////////////////////////////
 Balloon.prototype.showTooltip = function(evt,caption,sticky,width) {
   // Awful IE bug, page load aborts if the balloon is fired
@@ -203,28 +139,13 @@ Balloon.prototype.showTooltip = function(evt,caption,sticky,width) {
 
   this.hideTooltip();
 
-  // look for a url in the balloon contents
-  if (caption.match(/^url:/)) {
-    var urlArray = caption.split(':');
-    caption = '';
-    this.activeUrl = urlArray[1];
-  }
-  // or if the contents are to be retrieved from an element
-  else if (caption.match(/^load:/)) {
-    var load = caption.split(':');
-    if (!document.getElementById(load[1])) alert ('problem locating element '+load[1]);
-    caption = document.getElementById(load[1]).innerHTML;
-    this.loadedFromElement = true;
-  }
-  // or if the text is a bare hyperlink
-  else if (caption.match(/^(https?:|\/|ftp:)\S+$/i)) {
-    this.activeUrl = caption;
-    caption = '';
-  }
-
   // request the contents synchronously (ie wait for result)
-  this.currentHelpText = this.getContents(caption);
-  this.loadedFromElement = false;
+  this.currentHelpText = this.getAndCheckContents(caption);
+
+  // no contents? abort.
+  if (!this.currentHelpText) {
+    return false;
+  }
 
   // Put the balloon contents and images into a visible (but offscreen)
   // element so they will be preloaded and have a layout to 
@@ -248,14 +169,18 @@ Balloon.prototype.showTooltip = function(evt,caption,sticky,width) {
 
   // make sure balloon image path is complete
   if (this.images) {
-    this.balloonImage  = this.images +'/'+ this.balloonImage;
-    if (this.ieImage)     
-      this.ieImage   = this.images +'/'+ this.ieImage;
-    this.upLeftStem    = this.images +'/'+ this.upLeftStem;
-    this.upRightStem   = this.images +'/'+ this.upRightStem;
-    this.downLeftStem  = this.images +'/'+ this.downLeftStem;
-    this.downRightStem = this.images +'/'+ this.downRightStem;
-    this.closeButton   = this.images +'/'+ this.closeButton;
+    // main background image
+    this.balloonImage  = this.balloonImage  ? this.images +'/'+ this.balloonImage  : false;
+    this.ieImage       = this.ieImage       ? this.images +'/'+ this.ieImage       : false;
+
+    // optional stems
+    this.upLeftStem    = this.upLeftStem    ? this.images +'/'+ this.upLeftStem    : false;
+    this.upRightStem   = this.upRightStem   ? this.images +'/'+ this.upRightStem   : false;
+    this.downLeftStem  = this.downLeftStem  ? this.images +'/'+ this.downLeftStem  : false;
+    this.downRightStem = this.downRightStem ? this.images +'/'+ this.downRightStem : false;
+
+    this.closeButton   = this.closeButton   ? this.images +'/'+ this.closeButton   : false;
+
     this.images        = false;
   }
 
@@ -267,16 +192,18 @@ Balloon.prototype.showTooltip = function(evt,caption,sticky,width) {
   // preload balloon images 
   if (!this.preloadedImages) {
     var images = new Array(this.balloonImage, this.closeButton);
-    if (this.ieImage) images.push(this.ieImage);
-    if (this.stem)    images.push(this.upLeftStem,this.upRightStem,this.downLeftStem,this.downRightStem);
-    var len = images.length;
- 
-    for (var i=0;i<len;i++) {
-      var preload = new Image;
-      // let's be paranoid and check first
-      if (images[i]) preload.src = images[i];
+    if (this.ieImage) {
+      images.push(this.ieImage);
     }
-   
+    if (this.stem) {
+      images.push(this.upLeftStem,this.upRightStem,this.downLeftStem,this.downRightStem);
+    }
+    var len = images.length;
+    for (var i=0;i<len;i++) {
+      if ( images[i] ) {
+        this.preload(images[i]);
+      }
+    }
     this.preloadedImages = true;
   }
 
@@ -285,10 +212,28 @@ Balloon.prototype.showTooltip = function(evt,caption,sticky,width) {
   // Capture coordinates for mousedown or click
   if (!mouseOver) this.setActiveCoordinates(evt);
 
-  // make delay time short for onmousedown
+  // Remember which event started this
+  this.currentEvent = evt;
+
+  // Make delay time short for onmousedown
   var delay = mouseOver ? this.delayTime : 1;
   this.timeoutTooltip = window.setTimeout(this.doShowTooltip,delay);
 }
+
+
+// Preload the balloon background images
+Balloon.prototype.preload = function(src) {
+  var i = new Image;
+  i.src = src;
+
+  // append to the DOM tree so the images have a layout,
+  // then remove.
+  this.setStyle(i,'position','absolute');
+  this.setStyle(i,'top',-8000);
+  document.body.appendChild(i);
+  document.body.removeChild(i);
+}
+
 
 /////////////////////////////////////////////////////////////////////
 // Tooltip rendering function
@@ -322,12 +267,19 @@ Balloon.prototype.doShowTooltip = function() {
   var balloon = self.makeBalloon();
 
   // window dimensions
-  var pageWidth  = YAHOO.util.Dom.getViewportWidth();
-  var pageCen    = Math.round(pageWidth/2);
-  var pageHeight = YAHOO.util.Dom.getViewportHeight();
-  var pageLeft   = YAHOO.util.Dom.getDocumentScrollLeft();
-  var pageTop    = YAHOO.util.Dom.getDocumentScrollTop();
-  var pageMid    = pageTop + Math.round(pageHeight/2);
+  var pageWidth   = YAHOO.util.Dom.getViewportWidth();
+  var pageCen     = Math.round(pageWidth/2);
+  var pageHeight  = YAHOO.util.Dom.getViewportHeight();
+  var pageLeft    = YAHOO.util.Dom.getDocumentScrollLeft();
+  var pageTop     = YAHOO.util.Dom.getDocumentScrollTop();
+  var pageMid     = pageTop + Math.round(pageHeight/2);
+  self.pageBottom = pageTop + pageHeight;
+  self.pageTop    = pageTop;
+
+  // do we have a cursor position?
+  if (!(self.activeTop && self.activeRight)) {
+    self.setActiveCoordinates();
+  }
 
   // balloon orientation
   var vOrient = self.activeTop > pageMid ? 'up' : 'down';
@@ -341,24 +293,9 @@ Balloon.prototype.doShowTooltip = function() {
   // how and where to draw the balloon
   self.setBalloonStyle(vOrient,hOrient,pageWidth,pageLeft);
 
-  // sticky balloons need a close control
+  // close control for balloon or box
   if (balloonIsSticky) {
-    var topRight = document.getElementById('topRight');
-    var margin   = Math.round(self.padding/2);
-    var top      = margin + self.shadow;
-    var closeImg = new Image();
-    closeImg.src = self.closeButton;
-    // sometimes null on first load, use the default
-    // width in such cases
-    var closeWidth = closeImg.width || 16;
-    var marginLeft = closeImg.width - margin;
-    delete closeImg;
- 
-    topRight.innerHTML = '\
-      <img src="'+self.closeButton+'" title="Close" \
-	  onclick="Balloon.prototype.hideTooltip(1)" \
-          style="position:absolute;top:'+top+'px;left:0px;\
-          margin-left:-'+marginLeft+'px;cursor:pointer;z-index:3">';
+    self.addCloseButton();
   }
 
   balloonIsVisible = true;
@@ -367,6 +304,32 @@ Balloon.prototype.doShowTooltip = function() {
   self.showHide();
 
   self.fade(0,95,self.fadeIn);
+}
+
+Balloon.prototype.addCloseButton = function () {
+  var self         = currentBalloonClass;
+  var margin       = Math.round(self.padding/2);
+  var closeWidth   = self.closeButtonWidth || 16;
+  var balloonTop   = self.getLoc('balloon','y1') + margin + self.shadow;
+  var BalloonLeft  = self.getLoc('topRight','x2') - self.closeButtonWidth - self.shadow - margin;
+  var closeButton  = document.getElementById('closeButton');
+
+  if (!closeButton) {
+    closeButton = new Image;
+    closeButton.setAttribute('id','closeButton');
+    closeButton.setAttribute('src',self.closeButton);
+    closeButton.onclick = function() {
+      Balloon.prototype.hideTooltip(1);
+    };
+    self.setStyle(closeButton,'position','absolute');
+    document.body.appendChild(closeButton);
+  }
+
+  self.setStyle(closeButton,'top',balloonTop);
+  self.setStyle(closeButton,'left',BalloonLeft);
+  self.setStyle(closeButton,'display','inline');
+  self.setStyle(closeButton,'cursor','pointer');
+  self.setStyle(closeButton,'z-index',999999999);
 }
 
 // use a fresh object every time to make sure style 
@@ -611,6 +574,11 @@ Balloon.prototype.hideTooltip = function(override) {
   balloonIsVisible = false;
   balloonIsSticky  = false;
 
+  var closeButton = document.getElementById('closeButton');
+  if (closeButton) {
+    YAHOO.util.Dom.setStyle(closeButton,'display','none');
+  }
+
   if (!self) {
     var hideBalloon  = document.getElementById('balloon');
     if (hideBalloon) Balloon.prototype.setStyle(hideBalloon,'display','none');
@@ -637,13 +605,16 @@ hideAllTooltips = function() {
 
 // Track the active mouseover coordinates
 Balloon.prototype.setActiveCoordinates = function(event) {
-  var evt = event || window.event; 
  
   var self = currentBalloonClass;
   if (!self) return false;
   var b = self.activeBalloon;
 
-  var evt = event || window.event;
+  var evt = event || window.event || self.currentEvent;
+  if (!evt) {
+    return false;
+  }
+
   var XY = self.eventXY(evt);
   self.activeTop    = XY[1] - 10;
   self.activeLeft   = XY[0] - 10;
@@ -659,8 +630,16 @@ Balloon.prototype.setActiveCoordinates = function(event) {
 Balloon.prototype.eventXY = function(event) {
   var XY = new Array(2);
   var e = event || window.event;
-  XY[0] = e.pageX || e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-  XY[1] = e.pageY || e.clientY + document.body.scrollTop  + document.documentElement.scrollTop;
+
+  if (e.pageX || e.pageY) {
+    XY[0] = e.pageX;
+    XY[1] = e.pageY;
+  }
+  else if ( e.clientX || e.clientY ) {
+    XY[0] = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+    XY[1] = e.clientY + document.body.scrollTop  + document.documentElement.scrollTop;
+  }
+
   return XY;
 }
 
@@ -687,9 +666,7 @@ Balloon.prototype.setStyle = function(el,att,val) {
     }
   }
   else {
-    if (el) {
-      YAHOO.util.Dom.setStyle(el,att,val);
-    }
+    YAHOO.util.Dom.setStyle(el,att,val);
   }
 }
 
@@ -794,6 +771,74 @@ Balloon.prototype.isSameElement = function(el1,el2) {
 
 
 ///////////////////////////////////////////////////////
+// Security -- get the balloon contents while checking 
+// for disallowed elements.
+//////////////////////////////////////////////////////
+Balloon.prototype.getAndCheckContents = function(caption) {
+  var originalCaption = caption;
+  var notAllowed = 'are not allowed in popup balloons in this web site.  \
+Please contact the site administrator for assistance.';
+  var notSupported = 'AJAX is not supported for popup balloons in this web site.  \
+Please contact the site administrator for assistance.';
+  
+  // no Help Url without AJAX
+  if (this.helpUrl && !this.allowAJAX) {
+    alert('Sorry, you have specified help URL '+this.helpUrl+' but '+notSupported);
+    return null;
+  }
+
+  // look for a url in the balloon contents
+  if (caption.match(/^url:/)) {
+    this.activeUrl = caption.replace(/^url:/,'');
+    caption = '';
+  }
+  // or if the text is a bare hyperlink
+  else if (caption.match(/^(https?:|\/|ftp:)\S+$/i)) {
+    this.activeUrl = caption;
+    caption = '';
+  }
+
+  // Make sure AJAX is allowed
+  if (this.activeUrl && !this.allowAJAX) {
+    alert('Sorry, you asked for '+originalCaption+' but '+notSupported);
+    return null;
+  }  
+
+  // check if the contents are to be retrieved from an element
+  if (caption.match(/^load:/)) {
+    var load = caption.split(':');
+    if (!document.getElementById(load[1])) alert ('problem locating element '+load[1]);
+    caption = document.getElementById(load[1]).innerHTML;
+    this.loadedFromElement = true;
+  }
+
+  // check if iframes are allowed
+  if (caption.match(/\<\s*iframe/i) && !this.allowIframes) {
+    alert('Sorry: iframe elements '+notAllowed);
+    return null;
+  }
+
+  // check if event handlers are allowed
+  if (caption.match(/\bon(load|mouse|click|unload|before)[^=]*=/i) && !this.allowEventHandlers) {
+    alert('Sorry: JavaScript event handlers '+notAllowed);
+    return null;
+  }
+
+  // check for script elements
+  if (caption.match(/\<\s*script/i) && !this.allowScripts) {
+    alert('Sorry: <script> elements '+notAllowed);
+    return null;
+  }
+
+  // request the contents
+  this.currentHelpText = this.getContents(caption);
+  this.loadedFromElement = false;
+  
+  return this.currentHelpText;;
+}
+
+
+///////////////////////////////////////////////////////
 // AJAX widget to fill the balloons
 // requires prototype.js
 ///////////////////////////////////////////////////////
@@ -802,7 +847,7 @@ Balloon.prototype.getContents = function(section) {
   // just pass it back if no AJAX handler is required.
   if (!this.helpUrl && !this.activeUrl) return section;
 
-  // or if the comntents are alreday loaded
+  // or if the contents are already loaded from another element
   if (this.loadedFromElement) return section;
 
   // inline URL takes precedence
@@ -822,7 +867,7 @@ Balloon.prototype.getContents = function(section) {
   if (ajax) {
     ajax.open("GET", url, false);
     ajax.onreadystatechange=function() {
-      alert(request.readyState);
+      //alert(ajax.readyState);
     };
     try {
       ajax.send(null);
@@ -830,8 +875,8 @@ Balloon.prototype.getContents = function(section) {
     catch (e) {
     // alert(e);
     }
-    this.helpText = ajax.responseText || section;
-    return  this.helpText;
+    var txt = this.escapeHTML ? escape(ajax.responseText) : ajax.responseText;
+    return  txt || section;
   }
   else {
     return section;
