@@ -2,6 +2,21 @@
 /* DCC javascript --- will be added to the head elemant */
 
 
+// TEMP!!!
+/* NOT NEEDED RIGHT NOW
+addOnloadHook (
+function() {
+  if (document.body.innerHTML.match('mirror')) {return false}
+  if (!window.location.href.match('action=edit')) { 
+    document.body.innerHTML = '<div style="position:absolute;left:10px;top:2px;z-index:10;color:red;font-size:14pt;background:yellow"\
+	>This is a mirror site.</div>'+document.body.innerHTML;
+	return false;
+  }
+  document.body.innerHTML = '<span style="z-index:10;color:red;font-size:14pt;background:yellow">This site is a mirror;\
+	 edits made here will be lost.</span><br>'+document.body.innerHTML;
+} 
+);
+*/
 
 // support for links that will open in a new tab/window
 addOnloadHook( function() {
