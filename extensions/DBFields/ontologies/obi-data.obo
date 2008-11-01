@@ -22,6 +22,7 @@ idspace: obi_rest http://purl.obofoundry.org/obo/obi/TheRest.owl# ""
 idspace: obi_role http://purl.obofoundry.org/obo/obi/Role.owl# ""
 idspace: owl http://www.w3.org/2002/07/owl# ""
 idspace: pato http://purl.org/obo/owl/PATO# ""
+idspace: protege http://protege.stanford.edu/plugins/owl/protege# ""
 idspace: protege-dc http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl# ""
 idspace: rdf http://www.w3.org/1999/02/22-rdf-syntax-ns# ""
 idspace: rdfs http://www.w3.org/2000/01/rdf-schema# ""
@@ -32,6 +33,8 @@ idspace: serql http://www.openrdf.org/schema/serql# ""
 idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
 idspace: span http://www.ifomis.org/bfo/1.1/span# ""
 idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: swrlb http://www.w3.org/2003/11/swrlb# ""
+idspace: xsp http://www.owl-ontologies.com/2005/08/07/xsp.owl# ""
 
 [Term]
 id: obi:OBI_0200000
@@ -39,24 +42,30 @@ name: data transformation
 def: "A data transformation is a protocol application which  produces output data from input data - e.g. the application of a clustering protocol to microarray data or the application of a statistical testing method on a primary data set to determine a p-value." []
 synonym: "data analysis"  []
 synonym: "data processing"  []
+relationship: obi:OBI_0000293 obi:OBI_0000046
+relationship: obi:OBI_0000299 obi:OBI_0000046
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/1d2a5574728ca47eee88e3fe3c41132e.url#__Description23
 
 [Term]
 id: obi:OBI_0200002
 name: logistic-log curve fitting
 def: "A logistic-log curve fitting is a curve fitting where a curve of the form y=d+((a-d)/(1+(x/c)^b)) is obtained, where a, b, c, and d are determined so to optimize its fit to the input data points (x_1, y_1), (x_2, y_2), ..., (x_n, y_n)." []
-is_a: obi:OBI_0200072  ! curve fitting
+is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200174
 
 [Term]
 id: obi:OBI_0200003
 name: logit-log curve fitting
 def: "A logit-log curve fitting is a curve fitting where first the limits y_0 an y_infty of y when x->0 and x->infinity, respectively, are estimated from the input data points (x_1, y_1), (x_2,y_2), ..., (x_n, y_n). Then a curve with equation log((y-y_0)/(y_infty-y))=a+b log(x) is obtained, where a and b are determined to optimize its fit to the input data points." []
-is_a: obi:OBI_0200072  ! curve fitting
+is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200174
 
 [Term]
 id: obi:OBI_0200004
 name: log-log curve fitting
 def: "A log-log curve fitting is a curve fitting where first a logarithmic transformation is applied both to the x and the y coordinates of the input data points (x_1, y_1), (x_2, y_2), ..., (x_n, y_n), and then coefficients a and b are determined to optimize the fit of log(y)=a+b*log(x) to these input data points." []
-is_a: obi:OBI_0200072  ! curve fitting
+is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200174
 
 [Term]
 id: obi:OBI_0200005
@@ -69,18 +78,22 @@ id: obi:OBI_0200006
 name: biexponential transformation
 def: "A biexponential transformation is a data transformation that, for each (one dimensional) real number input x, outputs an approximation (found, e.g. with the Newton's method) to a solution y of the equation B(y)-x=0, where B denotes a b transformation." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
+relationship: obi:OBI_0000417 obi:OBI_0200174
 
 [Term]
 id: obi:OBI_0200007
 name: box-cox transformation
 def: "A box-cox transformation is a data transformation according to the methods of Box and Cox as described in the article Box, G. E. P. and Cox, D.R. (1964) An analysis of transformations. Journal of Royal Statistical Society, Series B, vol. 26, pp. 211-246." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200008
 name: hyperlog transformation
 def: "A hyperlog transformation ia a data transformation that, for each (one dimensional) real number input x, outputs an approximation (found, e.g. with the Newton's method) to a solution y of the equation EH(y)-x=0, where EH denotes an eh transformation." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200009
@@ -99,6 +112,7 @@ id: obi:OBI_0200011
 name: logicle transformation
 def: "A logicle transformation is a data transformation that, for each (one dimensional) real number input x, outputs an approximation (found, e.g. with the Newton's method) to a solution y of the equation S(y)-x=0, where S denotes an s transformation." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200012
@@ -129,12 +143,14 @@ id: obi:OBI_0200016
 name: sine transformation
 def: "A sine transformation is a data transformation which consists in applying the sine function to a (one dimensional) real number input. The sine function is one of the basic trigonometric functions and a definition is provided, e.g., at http://mathworld.wolfram.com/Sine.html." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200017
 name: cosine transformation
 def: "A cosine transformation is a data transformation which consists in applying the cosine function to a (one dimensional) real number input. The cosine function is one of the basic trigonometric functions and a definition is provided, e.g., at http://mathworld.wolfram.com/Cosine.html." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200018
@@ -159,6 +175,7 @@ id: obi:OBI_0200021
 name: linlog transformation
 def: "A linlog transformation is a data transformation, described in PMID 16646782, whose input is a matrix [y_ik] and whose output is a matrix obtained by applying formula (9) of this paper, where values below an appropriately determined threshold (dependent on the row i) are transformed via a polynomial of degree 1, and values above this threshold are transformed via a logarithm." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200022
@@ -166,6 +183,7 @@ name: variance stabilizing transformation
 def: "A variance stabilizing transformationi is a data transformation, described in PMID 12169536, whose input is a matrix [y_ik] and whose output is a matrix obtained by applying formula (6) in this paper. One of the goals is to obtain an output matrix whose rows have equal variances. The method relies on various assumptions described in the paper." []
 synonym: "variance stabilising transformation"  []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200023
@@ -190,25 +208,30 @@ id: obi:OBI_0200026
 name: total intensity transformation single
 def: "A total intensity transformation single is a data transformation that takes as input an n-dimensional (real) vector and multiplies each component of this vector by a coefficient, where the coefficient is obtained by taking the sum of the input components or of a subset of these, multiplied by a constant of choice." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200027
 name: total intensity transformation paired
 def: "A total intensity transformation paired is a data transformation that takes as input two n-dimensional (real) vectors and multiplies each component of the first vector by a coefficient, where the coefficient is obtained by taking the ratio of the sum of the second input components or of a subset of these by the sum of the first input components or of a subset of these (the same subset is used for the two vectors)." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200028
 name: quantile transformation
 def: "A quantile transformation is a data transformation that takes as input a collection of data sets, where each can be thought as an n-dimensional (real) vector, and which transforms each data set so that the resulting output data sets have equal quantiles." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
+relationship: obi:OBI_0000417 obi:OBI_0200177
 
 [Term]
 id: obi:OBI_0200029
 name: mean centering
 def: "A mean centering is a data transformation that takes as input an n-dimensional (real) vector, performs a mean calculation on its components, and subtracts the resulting mean from each component of the input." []
-synonym: "mean_centring"  []
+synonym: "mean centring"  []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200030
@@ -216,6 +239,7 @@ name: median centering
 def: "A median centering is a data transformation that takes as input an n-dimensional (real) vector, performs a median calculation on its components, and subtracts the resulting median from each component of the input." []
 synonym: "median centring"  []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200031
@@ -254,6 +278,7 @@ id: obi:OBI_0200037
 name: pareto scaling
 def: "A pareto scaling is a data transformation that divides all measurements of a variable by the square root of the standard deviation of that variable." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200040
@@ -266,12 +291,16 @@ id: obi:OBI_0200041
 name: k-means clustering
 def: "A k-means clustering is a data transformation, typically with a class discovery objective, which takes as input a collection of objects (represented as points in multidimensional space) and which partitions them into a specified number k of clusters. The algorithm attempts to find the centers of natural clusters in the data. The most common form of the algorithm starts by partitioning the input points into k initial sets, either at random or using some heuristic data. It then calculates the mean point, or centroid, of each set. It constructs a new partition by associating each point with the closest centroid. Then the centroids are recalculated for the new clusters, and the algorithm repeated by alternate applications of these two steps until convergence, which is obtained when the points no longer switch clusters (or alternatively centroids are no longer changed)." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200172
+relationship: obi:OBI_0000417 obi:OBI_0200178
 
 [Term]
 id: obi:OBI_0200042
 name: hierarchical clustering
 def: "A hierarchical clustering is a data transformation, typically with a class discovery objective, which takes as input a collection of objects and builds a hierarchy of clusters. The traditional representation of this hierarchy is a tree (visualized by a dendrogram), with the individual input objects at one end (leaves) and a single cluster containing every object at the other (root)." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200172
+relationship: obi:OBI_0000417 obi:OBI_0200178
 
 [Term]
 id: obi:OBI_0200043
@@ -292,12 +321,6 @@ def: "A single linkage hierarchical clustering is an agglomerative hierarchical 
 is_a: obi:OBI_0200154  ! agglomerative hierarchical clustering
 
 [Term]
-id: obi:OBI_0200046
-name: projection
-def: "A projection is a dimensionality reduction where the transformation is a simple projection into a subset of the components, i.e. (x_1, x_2, ..., x_m) is transformed into (x_i1, x_i2, ..., x_in) for some 1<=i1... <=m and n<m." []
-is_a: obi:OBI_0200050  ! dimensionality reduction
-
-[Term]
 id: obi:OBI_0200049
 name: Benjamini and Yekutieli false discovery rate correction method
 is_a: obi:OBI_0200067  ! _unclassified
@@ -305,8 +328,10 @@ is_a: obi:OBI_0200067  ! _unclassified
 [Term]
 id: obi:OBI_0200050
 name: dimensionality reduction
-def: "A dimensionality reduction is data transformation which transforms each input m-dimensional vector (x_1, x_2, …, x_m) into an output n-dimensional vector (y_1, y_2, …, y_n), where n is smaller than m." []
+def: "A dimensionality reduction is data partitioning which transforms each input m-dimensional vector (x_1, x_2, …, x_m) into an output n-dimensional vector (y_1, y_2, …, y_n), where n is smaller than m." []
+synonym: "data projection"  []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200178
 
 [Term]
 id: obi:OBI_0200051
@@ -344,12 +369,14 @@ id: obi:OBI_0200056
 name: moving average
 def: "A moving average is a data transformation in which center calculations, usually mean calculations, are performed on values within a sliding window across the input data set." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200168
 
 [Term]
 id: obi:OBI_0200057
 name: replicate analysis
 def: "A replicate analysis is a data transformation in which data from replicates are combined, e.g. through descriptive statistics calculations, and the results might be utilized for a variety of purposes, like assessing reproducibility, identifying outliers, normalizing, etc." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200058
@@ -374,6 +401,7 @@ id: obi:OBI_0200061
 name: data imputation
 def: "Imputation is a means of filling in missing data values from a predictive distribution of the missing values.  The predictive distribution can be created either based on a formal statistical model (i,e, a multivariate normal distribution) or an algorithm." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200168
 
 [Term]
 id: obi:OBI_0200062
@@ -416,24 +444,26 @@ id: obi:OBI_0200071
 name: loess transformation
 def: "A loess transformation is a data transformation that takes as input a collection of real number pairs (x, y) and, after performing (one or more) loess fittings, utilizes the resulting curves to transform each (x, y) in the input into (x, y-f(x)) where f(x) is one of the fitted curves." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200072
-name: curve fitting
-def: "A curve fitting is a data transformation consisting in finding a curve which matches a series of data points and possibly other constraints." []
+name: curve fitting data transformation
+def: "A curve fitting is a data transformation that has objective curve fitting and that consists of finding a curve which matches a series of data points and possibly other constraints." []
 is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
 id: obi:OBI_0200073
 name: family wise error rate correction method
-synonym: "FWER_correction"  []
-is_a: obi:OBI_0200067  ! _unclassified
+def: "A family wise error rate correction method is a multiple testing procedure that controls the probability of at least one false positive." []
+synonym: "FWER correction"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
 
 [Term]
 id: obi:OBI_0200074
 name: submatrix extraction
 def: "A submatrix extraction is a projection whose input is a matrix and whose output is a matrix obtained by selecting certain rows and columns from the input. (Note that, if one represents the input matrix as a vector obtained by concatenating its rows, then extracting a submatrix is equivalent to projecting this vector into that composed by the entries belonging to the rows and columns of interest from the input matrix.)" []
-is_a: obi:OBI_0200046  ! projection
+is_a: obi:OBI_0200050  ! dimensionality reduction
 
 [Term]
 id: obi:OBI_0200075
@@ -450,8 +480,8 @@ is_a: obi:OBI_0200074  ! submatrix extraction
 [Term]
 id: obi:OBI_0200077
 name: gating
-def: "A gating is a projection consisting in a data selection process in which a subset of qualities about cells obtained through flow cytometry is used to select all the information of a subset of the cells." []
-is_a: obi:OBI_0200046  ! projection
+def: "Gating is a property-based vector selection with the objective of partitioning a data vector set into vector subsets based on dimension values of individual vectors (events), in which vectors represent individual physical particles (often cells) of a sample and dimension values represent light intensity qualities as measured by flow cytometry." []
+is_a: obi:OBI_0200158  ! property-based vector selection
 
 [Term]
 id: obi:OBI_0200078
@@ -464,6 +494,8 @@ id: obi:OBI_0200079
 name: mean calculation
 def: "A mean calulcation is a  descriptive statistics calculation in which the mean is calculated by taking the sum of all of the observations in a data set divided by the total number of observations.  It gives a measure of the “center of gravity” for the data set.  It is also known as the first moment." []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200168
+relationship: obi:OBI_0000417 obi:OBI_0200177
 
 [Term]
 id: obi:OBI_0200080
@@ -494,14 +526,21 @@ name: mass spectrometry analysis
 is_a: obi:OBI_0200067  ! _unclassified
 
 [Term]
+id: obi:OBI_0200086
+name: spread calculation data transformation
+def: "Aspread calculation is a data transformation that has objective spread calculation." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
 id: obi:OBI_0200088
 name: Kaplan Meier
 is_a: obi:OBI_0200082  ! longitudinal data analysis
 
 [Term]
 id: obi:OBI_0200089
-name: multiple testing correction
-is_a: obi:OBI_0200067  ! _unclassified
+name: multiple testing procedure
+def: "A multiple testing correction method is a hypothesis test performed simultaneously on M > 1 hypotheses.  Multiple testing procedures produce a set of rejected hypotheses that is an estimate for the set of false null hypotheses while controlling for a suitably define Type I error rate" []
+is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
 id: obi:OBI_0200090
@@ -530,12 +569,14 @@ id: obi:OBI_0200094
 name: logarithmic transformation
 def: "A logarithmic transformation is a data transformation consisting in the application of the logarithm function with a given base a (where a>0 and a is not equal to 1) to a (one dimensional) positive real number input. The logarithm function with base a can be defined as the inverse of the exponential function with the same base. See e.g. http://en.wikipedia.org/wiki/Logarithm." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200095
 name: exponential transformation
 def: "An exponential transformation is a data transformation consisting in the application of the exponential function with a given base a (where a>0 and a is typically not equal to 1) to a (one dimensional) real number input. For alternative definitions and properties of this function see, e.g., http://en.wikipedia.org/wiki/Exponential_function and http://en.wikipedia.org/wiki/Characterizations_of_the_exponential_function." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200096
@@ -559,6 +600,8 @@ id: obi:OBI_0200099
 name: discriminant function analysis
 def: "Discriminant function analysis is a form of discriminant analysis used to determine which variables discriminate between two or more naturally occurring groups. Analysis is used to determine which variable(s) are the best predictors of a particular outcome." []
 is_a: obi:OBI_0200106  ! discriminant analysis
+relationship: obi:OBI_0000417 obi:OBI_0200178
+relationship: obi:OBI_0000417 obi:OBI_0200179
 
 [Term]
 id: obi:OBI_0200100
@@ -566,12 +609,15 @@ name: canonical variate analysis
 def: "canonical variate analysis is a form of discriminant analysis that takes several continuous predictor variables and uses the entire set to predict several criterion variables, each of which is also continuous. CVA simultaneously calculates a linear composite of all x variables and  a linear composite of all y variables. Unlike other multivariate techniques, these weighted composites are derived in pairs. Each linear combination is called a canonical variate and takes the general linear form." []
 synonym: "CVA"  []
 is_a: obi:OBI_0200106  ! discriminant analysis
+relationship: obi:OBI_0000417 obi:OBI_0200172
 
 [Term]
 id: obi:OBI_0200101
 name: linear discriminant functional analysis
 def: "Linear discriminant functional analysis (LDFA) is a multivariate technique used in special applications where there are several intact groups (random assignment may be impossible) and they have been measured on several independent measures. Thus, you will want to describe how these groups differ on the basis of these measures. In this case, classification and prediction is the main objective." []
 is_a: obi:OBI_0200106  ! discriminant analysis
+relationship: obi:OBI_0000417 obi:OBI_0200178
+relationship: obi:OBI_0000417 obi:OBI_0200179
 
 [Term]
 id: obi:OBI_0200102
@@ -590,6 +636,7 @@ id: obi:OBI_0200104
 name: principal component regression
 def: "The Principal Component Regression method is a regression analysis method that combines the Principal Component Analysis (PCA)spectral decomposition with an Inverse Least Squares (ILS) regression method to create a quantitative model for complex samples. Unlike quantitation methods based directly on Beer's Law which attempt to calculate the absorbtivity coefficients for the constituents of interest from a direct regression of the constituent concentrations onto the spectroscopic responses, the PCR method regresses the concentrations on the PCA scores." []
 is_a: obi:OBI_0200102  ! regression analysis method
+relationship: obi:OBI_0000417 obi:OBI_0200178
 
 [Term]
 id: obi:OBI_0200105
@@ -620,7 +667,7 @@ is_a: obi:OBI_0200000  ! data transformation
 [Term]
 id: obi:OBI_0200109
 name: b transformation
-def: "A b transformation is a data transformation obtained by applying the function B described in what follows to a (one dimensional) real number input. B(x)= a*exp(b*x)-c*exp(-d*x)+f, where exp denotes an exponential_transformation and a, b, c, d, f are real constants with a, b, c, d positive." []
+def: "A b transformation is a data transformation obtained by applying the function B described in what follows to a (one dimensional) real number input. B(x)= a*exp(b*x)-c*exp(-d*x)+f, where exp denotes an exponential transformation and a, b, c, d, f are real constants with a, b, c, d positive." []
 is_a: obi:OBI_0200000  ! data transformation
 
 [Term]
@@ -634,6 +681,8 @@ id: obi:OBI_0200113
 name: similarity calculation
 def: "A similarity calculation is a data transformation that attaches to each pair of objects in the input a number that is meant to reflect how 'close' or 'similar' those objects are." []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200178
+relationship: obi:OBI_0000417 obi:OBI_0200179
 
 [Term]
 id: obi:OBI_0200114
@@ -651,13 +700,15 @@ is_a: obi:OBI_0200113  ! similarity calculation
 id: obi:OBI_0200116
 name: loess fitting
 def: "A loess fitting is a curve fitting obtained by localized regression. The latter refers to fitting a polynomial (straight line, quadratic, cubic, etc) to data values within a window covering a fraction of the total number of observations. As the window slides along the axis, a new polynomial is fit to the observations falling within the window. This continues until all points are fit with a local polynomial. The results are then smoothed together to form a curve. The smoothness of loess fits is controlled by a smoothing parameter (often denoted as alpha, usually between ¼ and 1) and the degree of the polynomial that is fitted by the method (usually denoted by lambda)." []
-is_a: obi:OBI_0200072  ! curve fitting
+is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200174
 
 [Term]
 id: obi:OBI_0200117
 name: mode calculation
 def: "A mode calulcation is a  descriptive statistics calculation in which the mode is calculated which is the most common value in a data set.  It is most often used as a measure of center for discrete data." []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200177
 
 [Term]
 id: obi:OBI_0200118
@@ -670,36 +721,42 @@ id: obi:OBI_0200119
 name: median calculation
 def: "A median calculation is a  descriptive statistics calculation in which the midpoint of the data set (the 0.5 quantile) is calculated.  First, the observations are sorted in increasing order.  For an odd number of observations, the median is the middle value of the sorted data.  For an even number of observations, the median is the average of the two middle values." []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200177
 
 [Term]
 id: obi:OBI_0200120
 name: variance calculation
 def: "A variance calculation is a descriptive statistics calculation in which the variance is defined as the average squared distance of each observation in the data set to the mean of the data set.  It is also known as the second central moment." []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200180
 
 [Term]
 id: obi:OBI_0200121
 name: standard deviation calculation
 def: "A standard deviation calculation is a descriptive statistics calculation defined as the square root of the variance.  Also thought of as the average distance of each value to the mean." []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200180
 
 [Term]
 id: obi:OBI_0200122
 name: interquartile-range calculation
 def: "The interquartile range is a descriptive statistics calculation defined as the difference between the 0.75 quantile and the 0.25 quantile for a set of data." []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200180
 
 [Term]
 id: obi:OBI_0200123
 name: skewness calculation
 def: "A skewness calculation is a descriptive statistics calculation defined as a parameter that describes how much a distribution (or a data set) varies from a bell-shaped curve.  See http://www.riskglossary.com/link/skewness.htm for details.  It is also known as the third central moment" []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200177
 
 [Term]
 id: obi:OBI_0200124
 name: kurtosis calculation
 def: "A kurtosis calculation is a descriptive statistics calculation defined as a parameter that measures how large or small the tails of a distribution are relative to the mean.  For details, see http://davidmlane.com/hyperstat/A53638.html" []
 is_a: obi:OBI_0200078  ! descriptive statistics calculation
+relationship: obi:OBI_0000417 obi:OBI_0200180
 
 [Term]
 id: obi:OBI_0200125
@@ -841,6 +898,7 @@ name: unit-variance scaling
 def: "A unit-variance scaling is a data transformation that divides all measurements of a variable by the standard deviation of that variable." []
 synonym: "autoscaling"  []
 is_a: obi:OBI_0200000  ! data transformation
+relationship: obi:OBI_0000417 obi:OBI_0200167
 
 [Term]
 id: obi:OBI_0200150
@@ -879,4 +937,106 @@ name: divisive hierarchical clustering
 def: "A divisive hierarchical clustering is a hierarchical clustering which starts with a single cluster containing all objects, and then successively splits resulting clusters until only clusters of individual objects remain." []
 synonym: "top-down hierarchical clustering"  []
 is_a: obi:OBI_0200042  ! hierarchical clustering
+
+[Term]
+id: obi:OBI_0200156
+name: data partioning
+def: "Data partitioning is a data transformation with the objective of partitioning or separating input data into output subsets." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
+id: obi:OBI_0200157
+name: data vector reduction
+def: "Data vector reduction is a data partitioning in which k m-dimensional vectors are reduced to j m-dimensional vectors, where j is smaller than k." []
+is_a: obi:OBI_0200156  ! data partioning
+
+[Term]
+id: obi:OBI_0200158
+name: property-based vector selection
+def: "Property-based vector selection is a data vector reduction that partitions a set of input data vectors based on dimension values." []
+is_a: obi:OBI_0200157  ! data vector reduction
+
+[Term]
+id: obi:OBI_0200159
+name: random vector selection
+def: "Random vector selection is a data vector reduction that randomly partitions a set of data vectors without consideration of dimension values." []
+is_a: obi:OBI_0200157  ! data vector reduction
+
+[Term]
+id: obi:OBI_0200160
+name: generalized family wise error rate correction method
+def: "A generalized FWER correction method is a multiple testing procedure that controls the probability of at least k+1 false positives, where k is a user-supplied integer." []
+synonym: "gFWER correction"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
+
+[Term]
+id: obi:OBI_0200161
+name: quantile number of false positives correction method
+def: "A quantile number of false positives correction method is a MTP that controls for the pth quantile of the distribution of the number of false positives out of the total number of tests performed'" []
+synonym: "QNFP"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
+
+[Term]
+id: obi:OBI_0200162
+name: tail probability for the proportion of false positives correction method
+def: "A TPPFP correction method is a MTP that controls the probability that the proportion of false positives among all rejected hypotheses is no greater than a constant q, where q is between 0 and 1." []
+synonym: "TPPFP correction method"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
+
+[Term]
+id: obi:OBI_0200163
+name: false discovery rate correction method
+def: "A false discovery rate correction method is a multiple testing procedure that controls for the expected value of the proportion of false positives among the rejected hypotheses." []
+synonym: "FDR correction method"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
+
+[Term]
+id: obi:OBI_0200164
+name: proportion of expected false positives correction method
+def: "A proprotion of expected false positives correction method is a multiple testing procedure that controls the ratio of the expected value of the numbers of false positives to the expected value of the numbers of rejected hypotheses." []
+synonym: "PEFP correction method"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
+
+[Term]
+id: obi:OBI_0200165
+name: quantile proportion of false positives correction method
+def: "A quantile proportion of false positives correction method is a multiple testing procedure  that controls the pth quantile of the distriubition of the proportion of false positives among the rejected hypothesis (false discovery rate)." []
+synonym: "QPFP correction method"  []
+is_a: obi:OBI_0200089  ! multiple testing procedure
+
+[Term]
+id: obi:OBI_0200169
+name: normalization data transformation
+def: "A normalization data transformation is a data transformation that has objective normalization." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
+id: obi:OBI_0200170
+name: averaging data transformation
+def: "An averaging data transformation is a data transformation that has objective averaging." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
+id: obi:OBI_0200171
+name: partitioning data transformation
+def: "A partitioning data transformation is a data transformation that has objective partitioning." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
+id: obi:OBI_0200175
+name: class discovery data transformation
+def: "A class discovery data transformation (sometimes called unsupervised classification) is a data transformation that has objective class discovery." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
+id: obi:OBI_0200176
+name: Fisher's exact test
+def: "Fisher's exact test is a data transformation used to determine if there are nonrandom associations between two categorical variables." []
+is_a: obi:OBI_0200000  ! data transformation
+
+[Term]
+id: obi:OBI_0200181
+name: center calculation data transformation
+def: "A center calculation data transformation is a data transformation that has objective of center calculation." []
+is_a: obi:OBI_0200000  ! data transformation
 

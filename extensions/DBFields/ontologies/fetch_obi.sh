@@ -11,22 +11,22 @@
 set -x
 
 #The Biomaterial Branch
-Biomaterial='http://obi.svn.sourceforge.net/viewvc/*checkout*/obi/trunk/src/ontology/branches/Biomaterial.owl'
+Biomaterial='http://obi.svn.sourceforge.net/viewvc/obi/trunk/src/ontology/branches/Biomaterial.owl'
 esc_Biomaterial=`echo $Biomaterial | sed s/'\/'/'\%2F'/g | sed s/':'/'\%3A'/g` 
 BiomaterialOut='obi-biomaterial.obo'
 
 #The Data Transformation Branch
-DataTransformation='http://obi.svn.sourceforge.net/viewvc/*checkout*/obi/trunk/src/ontology/branches/DataTransformation.owl'
+DataTransformation='http://obi.svn.sourceforge.net/viewvc/obi/trunk/src/ontology/branches/DataTransformation.owl'
 esc_Data=`echo $DataTransformation | sed s/'\/'/'\%2F'/g | sed s/':'/'\%3A'/g` 
 DataTransformationOut='obi-data.obo'
 
 #The Digital Entity Branch
-DigitalEntity='http://obi.svn.sourceforge.net/viewvc/*checkout*/obi/trunk/src/ontology/branches/DigitalEntityPlus.owl'
+DigitalEntity='http://obi.svn.sourceforge.net/viewvc/obi/trunk/src/ontology/branches/DigitalEntityPlus.owl'
 esc_Digital=`echo $DigitalEntity | sed s/'\/'/'\%2F'/g | sed s/':'/'\%3A'/g` 
 DigitalEntityOut='obi-digitalentity.obo'
 
 #The process branch
-Process='http://obi.svn.sourceforge.net/viewvc/*checkout*/obi/trunk/src/ontology/branches/PlanAndPlannedProcess.owl'
+Process='http://obi.svn.sourceforge.net/viewvc/obi/trunk/src/ontology/branches/PlanAndPlannedProcess.owl'
 esc_Process=`echo $Process | sed s/'\/'/'\%2F'/g | sed s/':'/'\%3A'/g` 
 ProcessOut='obi-process.obo'
 
@@ -46,6 +46,7 @@ echo `curl $converter_base?url=$esc_Biomaterial\&format=$format\&style=$style\&f
 echo `curl $converter_base?url=$esc_Data\&format=$format\&style=$style\&follow_imports=$follow_imports > $DataTransformationOut`
 echo `curl $converter_base?url=$esc_Digital\&format=$format\&style=$style\&follow_imports=$follow_imports > $DigitalEntityOut`
 echo `curl $converter_base?url=$esc_Process\&format=$format\&style=$style\&follow_imports=$follow_imports > $ProcessOut`
+#echo `curl http://www.berkeleybop.org/obo-conv.cgi?url=http%3A%2F%2Fobi.svn.sourceforge.net%2Fviewvc%2Fobi%2Ftrunk%2Fsrc%2Fontology%2Fbranches%2FPlanAndPlannedProcess.owl&format=obo&follow_imports=1&style=obi > $ProcessOut`
 echo `curl $converter_base?url=$esc_OBI\&format=$format\&style=$style\&follow_imports=$follow_imports > $OBIOut`
 
 temp='temp.obo'

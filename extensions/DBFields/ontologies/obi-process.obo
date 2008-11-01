@@ -33,129 +33,594 @@ idspace: serql http://www.openrdf.org/schema/serql# ""
 idspace: snap http://www.ifomis.org/bfo/1.1/snap# ""
 idspace: span http://www.ifomis.org/bfo/1.1/span# ""
 idspace: swrl http://www.w3.org/2003/11/swrl# ""
+idspace: swrlb http://www.w3.org/2003/11/swrlb# ""
+idspace: xsp http://www.owl-ontologies.com/2005/08/07/xsp.owl# ""
+
+[Typedef]
+id: obi:inverse_of_OBI_0000316
+name: role_is_borne_by
+namespace: http://purl.obofoundry.org/obo/
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description1
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description101
 is_anonymous: true
-intersection_of: obi:OBI_0000293 snap:Object 
-intersection_of: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description4 
+intersection_of: obi:Class_5  ! eluant_role
+intersection_of: obi:inverse_of_OBI_0000316 obi:OBI_0100017 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description19
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description104
 is_anonymous: true
-intersection_of: obi:OBI_0100060 
-intersection_of: obi:OBI_0000298 obi:OBI_0302883 
+intersection_of: obi:Class_9  ! analyte_role
+intersection_of: obi:inverse_of_OBI_0000316 http://purl.org/obo/owl/CHEBI#CHEBI_50076 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description22
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description11
 is_anonymous: true
-intersection_of: obi:OBI_0100026 
-intersection_of: obi:OBI_0000298 pato:PATO_0001421 
+union_of: http://purl.org/obo/owl/CHEBI#CHEBI_16991 
+union_of: http://purl.org/obo/owl/CHEBI#CHEBI_33697 
+union_of: http://purl.org/obo/owl/PRO#PRO_000000001 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description25
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description116
 is_anonymous: true
-intersection_of: obi:OBI_0100026 
-intersection_of: obi:OBI_0000298 pato:PATO_0001422 
+union_of: obi:Class_39 
+union_of: obi:Class_40 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description29
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description118
 is_anonymous: true
-intersection_of: span:Process 
-intersection_of: ro:has_part __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description31 
+intersection_of: obi:OBI_0400140 
+intersection_of: obi:OBI_0400142 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description36
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description129
 is_anonymous: true
-intersection_of: obi:OBI_0100051 
-intersection_of: obi:OBI_0000298 obi:OBI_0302872 
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302858 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description4
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description132
 is_anonymous: true
-intersection_of: obi:OBI_0000305 
-intersection_of: obi:OBI_0000314 obi:OBI_0000019 
-
-[Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description42
-is_anonymous: true
-intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23091 
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23367 
 intersection_of: obi:OBI_0000316 obi:OBI_0302732 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description45
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description137
 is_anonymous: true
-intersection_of: obi:OBI_0000141 
-intersection_of: obi:OBI_0000298 obi:OBI_0302873 
+union_of: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description138 
+union_of: obi:OBI_1000049 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description48
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description138
 is_anonymous: true
-intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23091 
-intersection_of: obi:OBI_0000316 obi:OBI_0000140 
+intersection_of: obi:OBI_0100051 
+intersection_of: obi:OBI_0000298 obi:OBI_0302851 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description51
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description14
 is_anonymous: true
+intersection_of: obi:OBI_0100026 
+intersection_of: obi:OBI_0000298 obi:OBI_0302859 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description55
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description144
 is_anonymous: true
 intersection_of: obi:OBI_0000141 
 intersection_of: obi:OBI_0000298 obi:OBI_0302845 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description62
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description149
+is_anonymous: true
+intersection_of: obi:OBI_0000305 
+intersection_of: obi:OBI_0000314 pato:PATO_0001741 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description154
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:OBI_0000067 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description164
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:Class_41  ! administered material role
+intersection_of: ro:located_in __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description167 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description167
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:Class_42  ! target role
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description17
+is_anonymous: true
+union_of: obi:OBI_0400103 
+union_of: obi:OBI_0400148 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description173
+is_anonymous: true
+intersection_of: obi:OBI_0302729 
+intersection_of: obi:OBI_0000316 obi:OBI_0000079 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description177
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:OBI_0000034 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description181
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:OBI_0000029 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description186
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302863 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description189
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:OBI_0000409 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description19
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_4705 
+intersection_of: ro:located_in obi:OBI_0100051 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description192
+is_anonymous: true
+intersection_of: obi:OBI_0000181 
+intersection_of: obi:OBI_0000298 obi:OBI_0302846 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description195
+is_anonymous: true
+intersection_of: cell:CL_0000000 
+intersection_of: obi:OBI_0000298 obi:OBI_0302883 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description202
+is_anonymous: true
+intersection_of: span:Process 
+intersection_of: ro:has_part __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description204 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description208
+is_anonymous: true
+intersection_of: obi:Class_42  ! target role
+intersection_of: obi:inverse_of_OBI_0000316 obi:OBI_0100060 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description212
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/PRO#PRO_000000001 
+intersection_of: ro:located_in obi:OBI_0000141 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description215
+is_anonymous: true
+union_of: obi:OBI_0000256 
+union_of: obi:OBI_0100051 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description219
+is_anonymous: true
+intersection_of: obi:OBI_0100051 
+intersection_of: obi:OBI_0000298 obi:OBI_0302872 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description223
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302853 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description226
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302848 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description233
+is_anonymous: true
+union_of: obi:OBI_0000048 
+union_of: obi:OBI_0000059 
+union_of: obi:OBI_0000364 
+union_of: obi:OBI_0400008 
+union_of: obi:OBI_0400082 
+union_of: obi:OBI_0400104 
+union_of: obi:OBI_0400115 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description236
+is_anonymous: true
+intersection_of: obi:OBI_0100026 
+intersection_of: obi:OBI_0000316 obi:OBI_0000093 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description239
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:OBI_0000411 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description242
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:OBI_0000416 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description253
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_16991 
+intersection_of: obi:OBI_0000298 obi:OBI_0302863 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description258
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/PRO#PRO_000000001 
+intersection_of: ro:located_in obi:Class_23 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description261
+is_anonymous: true
+intersection_of: obi:Class_42  ! target role
+intersection_of: obi:inverse_of_OBI_0000316 obi:OBI_0100066 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description263
 is_anonymous: true
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description65
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description268
 is_anonymous: true
-union_of: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description66 
-union_of: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description68 
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_33697 
+intersection_of: obi:OBI_0000298 obi:OBI_0302871 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description66
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description272
+is_anonymous: true
+intersection_of: obi:OBI_0000293 cell:CL_0000000 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description276
+is_anonymous: true
+intersection_of: cell:CL_0000000 
+intersection_of: ro:located_in obi:OBI_0100051 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description278
+is_anonymous: true
+union_of: http://purl.org/obo/owl/CHEBI#CHEBI_23367 
+union_of: obi:OBI_0302729 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description280
+is_anonymous: true
+union_of: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description281 
+union_of: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description283 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description281
 is_anonymous: true
 intersection_of: obi:OBI_0100052 
 intersection_of: obi:OBI_0000298 obi:OBI_0302851 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description68
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description283
 is_anonymous: true
 intersection_of: obi:OBI_0100066 
 intersection_of: obi:OBI_0000298 obi:OBI_0302851 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description73
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description295
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000316 obi:Class_5  ! eluant_role
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description32
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302871 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description37
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_33697 
+intersection_of: obi:OBI_0000298 obi:OBI_0302863 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description4
+is_anonymous: true
+intersection_of: obi:Class_42  ! target role
+intersection_of: obi:inverse_of_OBI_0000316 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description6 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description40
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_33697 
+intersection_of: ro:located_in obi:OBI_0000141 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description44
+is_anonymous: true
+intersection_of: obi:OBI_0000299 obi:OBI_0000181 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description48
+is_anonymous: true
+intersection_of: obi:OBI_0100026 
+intersection_of: obi:OBI_0000298 pato:PATO_0001422 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description51
+is_anonymous: true
+intersection_of: obi:OBI_0100026 
+intersection_of: obi:OBI_0000298 pato:PATO_0001421 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description55
+is_anonymous: true
+intersection_of: obi:OBI_0000038 
+intersection_of: obi:OBI_0000048 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description6
+is_anonymous: true
+union_of: obi:OBI_0100015 
+union_of: obi:OBI_0100026 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description63
+is_anonymous: true
+intersection_of: obi:Class_42  ! target role
+intersection_of: obi:inverse_of_OBI_0000316 obi:Class_46 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description67
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23367 
+intersection_of: obi:OBI_0000316 snap:Role 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description70
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23367 
+intersection_of: obi:OBI_0000298 obi:OBI_0100069 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description73
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302878 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description77
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_33697 
+intersection_of: obi:OBI_0000298 obi:OBI_0302873 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description80
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302836 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description83
+is_anonymous: true
+intersection_of: obi:OBI_0000141 
+intersection_of: obi:OBI_0000298 obi:OBI_0302873 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description87
 is_anonymous: true
 intersection_of: obi:OBI_0000141 
 intersection_of: obi:OBI_0000298 obi:OBI_0302865 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description76
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description90
 is_anonymous: true
-intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23091 
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23367 
 intersection_of: obi:OBI_0000316 obi:OBI_0000250 
 
 [Term]
-id: __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description8
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description93
+is_anonymous: true
+union_of: cell:CL_0000000 
+union_of: obi:OBI_0100060 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description96
 is_anonymous: true
 intersection_of: obi:OBI_0000141 
-intersection_of: obi:OBI_0000298 obi:OBI_0000019 
-intersection_of: obi:OBI_0000298 obi:OBI_0302848 
+intersection_of: obi:OBI_0000298 obi:OBI_0302873 
+
+[Term]
+id: __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description98
+is_anonymous: true
+intersection_of: http://purl.org/obo/owl/CHEBI#CHEBI_23367 
+intersection_of: obi:OBI_0000316 obi:OBI_0000140 
+
+[Term]
+id: obi:Class_1
+name: assay objective
+def: "is the specification of an objective to determine a specified type of information about an evaluated entity (independent continuant bearing evaluant role)" []
+is_a: obi:OBI_0000217  ! objective specification
+
+[Term]
+id: obi:Class_10
+name: measuring glucose concentration in blood serum
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description101
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description104
+
+[Term]
+id: obi:Class_2
+name: analyte measurement objective
+def: "is an assay objective to determine the presence or concentration of an analyte in the evaluant" []
+is_a: obi:Class_1  ! assay objective
+
+[Term]
+id: obi:Class_22
+name: injection
+def: "injection is process which aims at introducing a compound or a mixture into a material entity (either biological entity or instrument) by relying on devices such as synringe or injector connected,attached or forced into a vascular system (veins of an organism or tubes of a machine) or in a tissue." []
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000308 obi:Class_41  ! administered material role
+intersection_of: obi:OBI_0000313 obi:Class_24 
+
+[Term]
+id: obi:Class_27
+name: transcription profiling
+def: "trancription profiling is a process which aims to provide information about gene expression and transcription activity using ribonucleic acids collected froma entity of organismal origin using a range of techniques and instrument such as DNA sequencers, DNA microarrays, Northern Blot" []
+synonym: "gene expression profiling"  []
+relationship: obi:OBI_0000293 http://purl.org/obo/owl/CHEBI#CHEBI_33697
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description17
+
+[Term]
+id: obi:Class_29
+name: genotyping
+def: "genotyping is a process which generates a genotype from genomic DNA isolated from an entity of organismal origin. A variety of techniques and instruments can be used to produce information about sequence variation at particular genomic positions" []
+synonym: "genotype profiling"  []
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description19
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000299 obi:OBI_0100006
+relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description17
+
+[Term]
+id: obi:Class_3
+name: weight measurement assay
+def: "a process to determine the weight of an evaluant" []
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description154
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000308 obi:Class_5 ! eluant_role
+relationship: obi:OBI_0000313 obi:OBI_0400003
+
+[Term]
+id: obi:Class_31
+name: metabolite profiling
+def: "metabolite profiling is a process which aims at detecting and identifying chemical entities resulting from biochemical and cellular metabolism" []
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description215
+relationship: obi:OBI_0000299 obi:OBI_0000305
+
+[Term]
+id: obi:Class_33
+name: DNA sequence feature detection
+synonym: "__file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description58"  []
+relationship: obi:OBI_0000293 http://purl.org/obo/owl/CHEBI#CHEBI_4705
+
+[Term]
+id: obi:Class_34
+name: transcription factor binding site  identification
+def: "transcription binding site identification is a process which aims at finding DNA region specifically recognized by proteins whose function is\n transcription factors" []
+
+[Term]
+id: obi:Class_35
+name: DNA sequence variation detection
+def: "DNA sequence variation detection is a process which aims at finding changes (expansion, amplification, deletion, mutation) in sequence of DNA molecule." []
+relationship: obi:OBI_0000293 http://purl.org/obo/owl/CHEBI#CHEBI_33697
+relationship: obi:OBI_0000299 obi:OBI_0000305
+
+[Term]
+id: obi:Class_36
+name: protein-protein interaction detection
+def: "__file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description58" []
+synonym: "__file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description58"  []
+
+[Term]
+id: obi:Class_38
+name: identification
+def: "a process by which the identity (what a thing is) of a material entity is established within a certain confidence interval" []
+
+[Term]
+id: obi:Class_41
+name: administered material role
+
+[Term]
+id: obi:Class_42
+name: target role
+
+[Term]
+id: obi:Class_43
+name: administrating substance objective
+def: "is the specification of an objective to place an administered substance (role) in a target (role) location" []
+is_a: obi:OBI_0000217  ! objective specification
+
+[Term]
+id: obi:Class_44
+name: administering substance
+def: "is a process to place an administered material into a target location" []
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description164
+relationship: obi:OBI_0000308 obi:Class_41 ! administered material role
+relationship: obi:OBI_0000308 obi:Class_42 ! target role
+
+[Term]
+id: obi:Class_45
+name: intraperitoneal administration
+is_a: obi:OBI_0600065  ! _defined protocol application
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description63 
+intersection_of: obi:OBI_0000308 obi:Class_41  ! administered material role
+
+[Term]
+id: obi:Class_47
+name: intraperitoneal injection
+is_a: obi:OBI_0600065  ! _defined protocol application
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description63 
+intersection_of: obi:OBI_0000308 obi:Class_41  ! administered material role
+intersection_of: obi:OBI_0000313 obi:Class_24 
+
+[Term]
+id: obi:Class_48
+name: injection into organ section
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description261
+relationship: obi:OBI_0000308 obi:Class_41 ! administered material role
+relationship: obi:OBI_0000313 obi:Class_24
+
+[Term]
+id: obi:Class_5
+name: eluant_role
+
+[Term]
+id: obi:Class_7
+name: analyte measuring assay
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000308 obi:Class_9 ! analyte_role
+
+[Term]
+id: obi:Class_9
+name: analyte_role
 
 [Term]
 id: obi:OBI_0000011
 name: objective driven process
 def: "is a process which is initiataed by one or more human participants with an overall objective they wish to achieve. The participantes do not necessarily have to have a plan how to achieve it." []
-relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description60
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000299 snap:Continuant
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description122 
+
+[Term]
+id: obi:OBI_0000015
+name: biological feature identification objective
+def: "Biological_feature_identification_objective is an objective role carried out by the proposition defining the aim of a study designed to examine or characterize a particular biological feature." []
+is_a: obi:OBI_0000217  ! objective specification
 
 [Term]
 id: obi:OBI_0000035
 name: _cloning placeholder
 def: "Place holder class, see editor note" []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0000043
@@ -170,42 +635,51 @@ def: "not actively doing anything to a material for a duration of time." []
 is_a: obi:OBI_0600009  ! exposure of material to environment
 
 [Term]
+id: obi:OBI_0000055
+name: software optimization
+def: "Software_optimization is a software_testing_objective role describing a study designed to identify the best software or parameters of the software." []
+is_a: obi:OBI_0000242  ! software testing objective
+
+[Term]
 id: obi:OBI_0000057
 name: allotransplantation
-def: "is the transplantation of organs between members of \\nthe same species." []
+def: "is the transplantation of organs between members of the same species." []
 is_a: obi:OBI_0000105  ! transplantation
 
 [Term]
 id: obi:OBI_0000066
 name: investigation
 def: "An investigation is a planned process with the objective to generate an \n'information entity of scientific value' by planning protocol applications, carrying them out and documenting  the results. In addition, an investigation can include a sub process of interpreting the data to draw conclusions." []
-is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
 id: obi:OBI_0000069
 name: protocol application
 def: "A protocol application is a process carried out to bring about the  objective defined in the protocol applied. Every protocol_application has one or more inputs and outputs definition_source: OBI. a protocol_application is a planned process realizes a process in which the   objective of the protocol is achieved. The manipulation of materials and information on materials as part of an investigation" []
-is_a: obi:OBI_0600062  ! planned process
-relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description58
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: ro:has_participant snap:Continuant
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description111 
 
 [Term]
 id: obi:OBI_0000070
 name: assay
 def: "An assay is a protocol application which includes evaluant (evaluant term  definition to be added by Richard, currently under role) as an input  and  which objective is to generate output data about qualities or other   features on the input material [Action Item for Barry to refine   definition] definition_source: OBI." []
-is_a: obi:OBI_0000069  ! protocol application
-relationship: obi:OBI_0000313 obi:OBI_0400002
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description295
+relationship: obi:OBI_0000299 obi:OBI_0000080
+relationship: obi:OBI_0000308 obi:Class_5 ! eluant_role
 
 [Term]
 id: obi:OBI_0000073
 name: sample preparation for assay
 def: "A sample_preparation_for_assay is a protocol_application including material_enrollments and biomaterial_transformations. definition_source: OBI." []
 synonym: "study"  []
-is_a: obi:OBI_0600065  ! _defined protocol application
 
 [Term]
 id: obi:OBI_0000076
-name: _unplanned process part
+name: spontaneous process
 def: "An extraneous process is a process which is external in origin to the investigation that has an impact on the outcome." []
+relationship: ro:has_participant snap:Continuant
 
 [Term]
 id: obi:OBI_0000080
@@ -221,38 +695,64 @@ is_a: obi:OBI_0000260  ! concretized information entity
 id: obi:OBI_0000094
 name: material transformation
 def: "A material transformation is a protocol_application carried out to generate output material from the input material" []
-is_a: obi:OBI_0000069  ! protocol application
+is_a: obi:OBI_0600065  ! _defined protocol application
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000293 obi:OBI_0000141 
+intersection_of: obi:OBI_0000299 obi:OBI_0000141 
+
+[Term]
+id: obi:OBI_0000096
+name: protocol testing objective
+def: "Protocol_testing_objective is a methodology_testing_objective role describing a study designed to examine the effects of using different protocols." []
+is_a: obi:OBI_0000208  ! methodology testing objective
 
 [Term]
 id: obi:OBI_0000105
 name: transplantation
 def: "a protocol application to replace an organ or tissue of an organism" []
-is_a: obi:OBI_0000094  ! material transformation
+
+[Term]
+id: obi:OBI_0000113
+name: sequence feature identification objective
+def: "Sequence_feature_identification_objective is a biological_feature_identification_objective role describing a study designed to examine or characterize molecular features exhibited at the level of a macromolecular sequence, e.g. nucleic acid, protein, polysaccharide." []
+is_a: obi:OBI_0000015  ! biological feature identification objective
 
 [Term]
 id: obi:OBI_0000115
 name: intervention design
 def: "an intervention design is a study design in which treatments (perturbations or intervention) defined as a combination of values taken by independant variable manipulated by the experimentalists are applied to the recruited subjects assigned (possibly by applying specific methods) to treatment groups. The specificity of intervention design is the fact that independent variables are being manipulated and a response of the biological system is evaluated via response variables as monitored by possibly a series of assays." []
 is_a: obi:OBI_0500000  ! study design
-relationship: obi:OBI_0000297 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description28
+relationship: obi:OBI_0000297 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description201
 
 [Term]
 id: obi:OBI_0000117
 name: Bernoulli trial
 def: "is an assay where the output data is a datum with one of two values denoted success and failure." []
-is_a: obi:OBI_0600065  ! _defined protocol application
 
 [Term]
 id: obi:OBI_0000126
 name: _induction of natural processes
 def: "Place holder class, see editor note" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000299 obi:OBI_0000141
+
+[Term]
+id: obi:OBI_0000131
+name: molecular feature identification objective
+def: "Molecular_feature_identification_objective is a biological_feature_identification_objective role describing a study designed to examine or characterize molecular features of a biological system, e.g. expression profiling, copy number of molecular components, epigenetic modifications." []
+is_a: obi:OBI_0000015  ! biological feature identification objective
+
+[Term]
+id: obi:OBI_0000134
+name: hardware testing objective
+def: "Hardware_testing_objective is a methodology_testing_objective role describing a study designed to examine the effects of using different hardware, e.g. scanner." []
+is_a: obi:OBI_0000208  ! methodology testing objective
 
 [Term]
 id: obi:OBI_0000153
 name: cell co-culturing
 def: "A material combination in which cell cultures of two or more different types are are combined and allowed to culture as one." []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000299 obi:OBI_0100060
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description173
 
 [Term]
 id: obi:OBI_0000171
@@ -264,19 +764,27 @@ is_a: obi:OBI_0000105  ! transplantation
 id: obi:OBI_0000182
 name: nuclear magnetic resonance assay
 def: "A nuclear magnetic resonance assay is an assay used to identify the chemical structure of a compound or biological macromolecule. definition_source: www.nature.com/nrd/journal/v2/n5/glossary/nrd1086_glossary.html" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 obi:OBI_0000305
 
 [Term]
 id: obi:OBI_0000183
 name: mass spectrometry assay
 def: "A mass spectrometry assay is an assay to measure and analyze the molecules of a sample based on it's mass and charge. definition_source: OBI." []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description258
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000313 obi:OBI_0000049
 
 [Term]
 id: obi:OBI_0000185
 name: imaging assay
 def: "An imaging assay is an assay to produce a picture of an entity. definition_source: OBI." []
-is_a: obi:OBI_0000070  ! assay
+
+[Term]
+id: obi:OBI_0000186
+name: protocol optimization
+def: "Protocol_optimization is a protocol_testing_objective role describing a study designed to identify the best protocol.  This may be carried out by comparing different protocols or by modifying the parameters used within a single protocol." []
+is_a: obi:OBI_0000096  ! protocol testing objective
 
 [Term]
 id: obi:OBI_0000187
@@ -288,7 +796,26 @@ is_a: obi:OBI_0000337  ! realizable information entity
 id: obi:OBI_0000201
 name: radioactivity detection
 def: "An assay in which a material's radioactivity is measured." []
-is_a: obi:OBI_0000070  ! assay
+intersection_of: obi:OBI_0000293 obi:OBI_0000141 
+intersection_of: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description149 
+
+[Term]
+id: obi:OBI_0000208
+name: methodology testing objective
+def: "Methodology_testing_objective is an objective role carried out by a proposition defining the aim of the study is to examine the effect of using different methodologies." []
+is_a: obi:OBI_0000217  ! objective specification
+
+[Term]
+id: obi:OBI_0000217
+name: objective specification
+def: "objective is an non realizable information entity which can serve as that  proper part of a plan  towards which the realization of the plan is directed. (note: achievement" []
+is_a: obi:OBI_0000337  ! realizable information entity
+
+[Term]
+id: obi:OBI_0000219
+name: cellular feature identification objective
+def: "Cellular_feature_identification_objective is a biological_feature_identification_objective role describing a study designed to examine or characterize a biological feature monitored at the cellular level, e.g. stage of cell cycle, stage of differentiation." []
+is_a: obi:OBI_0000015  ! biological feature identification objective
 
 [Term]
 id: obi:OBI_0000227
@@ -299,12 +826,26 @@ is_a: obi:OBI_0000340  ! documenting
 [Term]
 id: obi:OBI_0000231
 name: enzymatic cleavage
-def: "a protocol application to digest the fraction of input material that is susceptible to that enzyme" []
-is_a: obi:OBI_0000094  ! material transformation
+def: "enzymatic cleavage is a protocol application to digest the fraction of input material that is susceptible to that enzyme" []
+relationship: obi:OBI_0000293 obi:OBI_0100051
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description32
+relationship: obi:OBI_0000309 obi:enzyme
+
+[Term]
+id: obi:OBI_0000232
+name: hardware optimization
+def: "Hardware_optimization is a hardware_testing_objective describing a study designed to identify the best hardware." []
+is_a: obi:OBI_0000134  ! hardware testing objective
+
+[Term]
+id: obi:OBI_0000242
+name: software testing objective
+def: "Software_testing_objective is a hardware_optimization role describing a study designed to examine the effects of using different software or software parameters, e.g. data processing software." []
+is_a: obi:OBI_0000208  ! methodology testing objective
 
 [Term]
 id: obi:OBI_0000253
-name: nucleic acid hybridization
+name: artifically induced nucleic acid hybridization
 def: "Is a material transformation in which strands of nucleic acids that are (somewhat) complementary form a double-stranded molecule. Has input at least two single stranded molecules of nucleic acid molecules." []
 is_a: obi:OBI_0000126  ! _induction of natural processes
 
@@ -318,6 +859,12 @@ is_a: obi:OBI_0666667  ! nucleic acid extraction
 id: obi:OBI_0000260
 name: concretized information entity
 def: "BFO to do" []
+
+[Term]
+id: obi:OBI_0000268
+name: organism feature identification objective
+def: "Organism_feature_identification_objective is a biological_feature_identification_objective role describing a study designed to examine or characterize a biological feature monitored at the level of the organism, e.g. height, weight, stage of development, stage of life cycle." []
+is_a: obi:OBI_0000015  ! biological feature identification objective
 
 [Term]
 id: obi:OBI_0000270
@@ -335,12 +882,14 @@ is_a: obi:OBI_0000344
 id: obi:OBI_0000278
 name: _disease stage
 def: "is a fiat_process_part which is part_of a disease_process which is associated with position in the normal progression of the disease" []
+is_a: obi:OBI_0000076  ! spontaneous process
 
 [Term]
 id: obi:OBI_0000296
 name: enrollment
-def: "process of identifying a set of objects for further use in an investigation" []
-is_a: obi:OBI_0600062  ! planned process
+def: "enrollment is a process of identifying a set of objects for further use in an investigation based on a set of criteria or rules" []
+relationship: obi:OBI_0000293 obi:OBI_0000181
+relationship: obi:OBI_0000299 obi:OBI_0000181
 
 [Term]
 id: obi:OBI_0000310
@@ -374,25 +923,24 @@ is_a: obi:OBI_0000080
 id: obi:OBI_0000338
 name: interpreting data
 def: "is the process of evaluating the data gathered in an investigation with the objective to generate more general conclusions or to identify what additional data is necessary to draw conclusions" []
-is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
 id: obi:OBI_0000339
 name: planning
 def: "planning is the process of creating or modifying a plan." []
-is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
 id: obi:OBI_0000340
 name: documenting
 def: "the process of capturing information in a digital or physical representation with the capacity and intend to communicate" []
-is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
 id: obi:OBI_0000341
 name: histological sample preparation
-def: "is the preparation of an input tissue via slicing and labeling to make tissue microstructure of interest visible in a future histology assay" []
-is_a: obi:OBI_0000094  ! material transformation
+def: "histological sample preparation is the preparation of an input tissue via slicing and labeling to make tissue microstructure of interest visible in a future histology assay" []
+relationship: obi:OBI_0000293 obi:OBI_0100066
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description137
+relationship: obi:OBI_0000313 obi:OBI_0400168
 
 [Term]
 id: obi:OBI_0000342
@@ -408,6 +956,7 @@ is_a: obi:OBI_0000338  ! interpreting data
 
 [Term]
 id: obi:OBI_0000344
+relationship: ro:has_part obi:OBI_0000217 ! objective specification
 
 [Term]
 id: obi:OBI_0000349
@@ -419,6 +968,7 @@ is_a: obi:OBI_0000337  ! realizable information entity
 id: obi:OBI_0000354
 name: _disease course
 def: "is a process through which a disease manifests itself" []
+is_a: obi:OBI_0000076  ! spontaneous process
 
 [Term]
 id: obi:OBI_0000355
@@ -431,6 +981,117 @@ id: obi:OBI_0000356
 name: hypothesis generating investigation
 def: "is an investigation in which data is generated and analyzed with the purpose of generating new hypothesis" []
 is_a: obi:OBI_0000066  ! investigation
+
+[Term]
+id: obi:OBI_0000373
+name: ionize process
+relationship: obi:OBI_0000308 obi:OBI_0000385
+relationship: obi:OBI_0000313 obi:OBI_0400002
+relationship: ro:has_participant snap:Continuant
+
+[Term]
+id: obi:OBI_0000396
+name: measuring
+is_a: obi:OBI_0600065  ! _defined protocol application
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000308 obi:OBI_0000382 
+intersection_of: obi:OBI_0000313 obi:OBI_0400003 
+
+[Term]
+id: obi:OBI_0000402
+name: canonical realisation of device function
+is_a: obi:OBI_0600065  ! _defined protocol application
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000308 snap:Function 
+intersection_of: obi:OBI_0000313 obi:OBI_0400002 
+
+[Term]
+id: obi:OBI_0000407
+name: viral RNA extraction
+is_a: obi:OBI_0666666  ! RNA extraction
+relationship: obi:OBI_0000293 obi:OBI_0100027
+
+[Term]
+id: obi:OBI_0000412
+name: recombinant plasmid construction
+def: "A recombinant plasmid construction is a process with the objective to create a plasmid that contains an artificial combination of DNA" []
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description242
+relationship: obi:OBI_0000299 obi:OBI_0000410
+
+[Term]
+id: obi:OBI_0000413
+name: cell cycle synchronization
+def: "cell cycle synchronization is a process with the objective to obtain a cell culture in which all cells are in the same stage of the cell cycle" []
+relationship: obi:OBI_0000293 obi:OBI_0100060
+relationship: obi:OBI_0000299 obi:OBI_0100060
+
+[Term]
+id: obi:OBI_0000415
+name: polymerase chain reaction
+def: "PCR is the process in which a DNA polymerase is used to amplify a piece of DNA by in vitro enzymatic replication. As PCR progresses, the DNA thus generated is itself used as a template for replication. This sets in motion a chain reaction in which the DNA template is exponentially amplified." []
+relationship: obi:OBI_0000293 obi:OBI_0000141
+
+[Term]
+id: obi:OBI_0200166
+name: data transformation objective
+def: "A data transformation objective is an objective specification that a data transformation may have towards which the realization of that transformation is directed." []
+is_a: obi:OBI_0000217  ! objective specification
+
+[Term]
+id: obi:OBI_0200167
+name: normalization objective
+def: "A normalization objective is a data transformation objective where the aim is to remove\nsystematic sources of variation to put the data on equal footing in order\nto create a common base for comparisons." []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200168
+name: averaging objective
+def: "An averaging objective is a data transformation objective where the aim is to perform mean calculations on the input of the data transformation." []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200172
+name: partitioning objective
+def: "A partitioning objective is a data transformation objective where the aim is to generate a collection of disjoint non-empty subsets whose union equals a non-empty input set." []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200173
+name: background correction objective
+def: "A background correction objective is a data transformation objective where the aim is to remove irrelevant contributions from the measured signal, e.g. those due to instrument noise or sample preparation." []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200174
+name: curve fitting objective
+def: "A curve fitting objective is a data transformation objective in which the aim is to find a curve which matches a series of data points and possibly other constraints." []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200177
+name: center calculation objective
+def: "A center calculation objective is a data transformation objective where the aim is to calculate the center of an input data set." []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200178
+name: class discovery objective
+def: "A class discovery objective (sometimes called unsupervised classification) is a data transformation objective where the aim is to organize input objects (typically vectors of attributes) into classes, where the number of classes and their specifications are not known a priori. Depending on usage, the class assignment can be definite or probabilistic." []
+synonym: "unsupervised classification objective"  []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200179
+name: class prediction objective
+def: "A class prediction objective (sometimes called supervised classification) is a data transformation objective where the aim is to create a predictor from training data through a machine learning techique. The training data consist of pairs of objects (typically vectors of attributes) and\nclass labels for these objects. The resulting predictor can be used to attach class labels to any valid novel input object. Depending on usage, the prediction can be definite or probabilistic. A classification is learned from the training data and can then be tested on test data." []
+synonym: "supervised classification objective"  []
+is_a: obi:OBI_0200166  ! data transformation objective
+
+[Term]
+id: obi:OBI_0200180
+name: spread calculation objective
+comment: Awaiting English definition from Monnie McGee
+is_a: obi:OBI_0200166  ! data transformation objective
 
 [Term]
 id: obi:OBI_0300310
@@ -450,18 +1111,22 @@ name: comet assay
 def: "a comet assay is an assay which utilizes gel electropheris on cell exposed to a challenge with the objective to assess DNA damage (DNA breakage) by determining the size and shape of DNA migration in cell placed in an electric field in specific conditions." []
 synonym: "SCGE assay"  []
 synonym: "single cell gel electrophoresis  assay"  []
-is_a: obi:OBI_0000070  ! assay
 relationship: obi:OBI_0000293 cell:CL_0000000
 relationship: obi:OBI_0000299 obi:OBI_0000030
-relationship: obi:OBI_0000313 obi:OBI_0400140
+relationship: obi:OBI_0000309 obi:Class_39
+relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description118
 
 [Term]
 id: obi:OBI_0302737
 name: PCR-SSCP assay
 def: "a PCR-SSCP assay is an assay which aims at the  identification  of DNA sequence variation (mutation,deletion, insertions) using gel electrophoresis technique and denaturating conditions on target DNA sequences amplified using polymerase chain reaction procedure." []
 synonym: "polymerase chain reaction-single strand conformation polymorphism assay"  []
-is_a: obi:OBI_0000070  ! assay
-relationship: ro:has_participant obi:OBI_0000030
+relationship: obi:OBI_0000309 obi:Class_40
+relationship: obi:OBI_0000313 obi:OBI_0400142
+intersection_of: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description253 
+intersection_of: obi:OBI_0000299 obi:OBI_0000030 
+intersection_of: ro:has_part obi:OBI_0000415  ! polymerase chain reaction
+intersection_of: ro:has_part obi:OBI_0600014  ! material separation
 
 [Term]
 id: obi:OBI_0302884
@@ -480,61 +1145,68 @@ id: obi:OBI_0302886
 name: centrifugation
 def: "centrifugation is a process separating molecules by size or density using centrifugal forces generated by a spinning rotor. G-forces of several hundred thousand times gravity are generated in ultracentrifugation" []
 is_a: obi:OBI_0600014  ! material separation
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description177
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description181
 relationship: obi:OBI_0000313 obi:OBI_0400106
 
 [Term]
 id: obi:OBI_0302887
 name: staining
 def: "Staining is a process which results in the addition a class-specific (DNA, proteins, lipids, carbohydrates) dye to a substrate to qualify or quantify the presence of a specific compound." []
-is_a: obi:OBI_0000094  ! material transformation
-relationship: obi:OBI_0000293 obi:OBI_0000141
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description73
-relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description76
+intersection_of: obi:OBI_0000293 obi:OBI_0000141 
+intersection_of: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description87 
+intersection_of: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description90 
 
 [Term]
 id: obi:OBI_0302888
 name: washing
 def: "washing is a process by which a material entity acting as  contaminant (e.g. excess staining reagent) is removed by application of one or more cycles of solution in flow." []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 obi:OBI_0000141
 
 [Term]
 id: obi:OBI_0302889
 name: irradiation
 def: "irradiation is a process by which a material entity is exposed to radiative energy, which could be ionizing radiation (such as gamma rays or X-rays)  or not such as UV light or microwaves" []
-is_a: obi:OBI_0000094  ! material transformation
 relationship: obi:OBI_0000293 obi:OBI_0000141
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description8
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description226
+relationship: obi:OBI_0000313 obi:OBI_0400065
 
 [Term]
 id: obi:OBI_0302890
 name: polymerization
 def: "polymerization is process by which molecular entity of small mass are aggregated in motifs over the course of a chemical reaction catalyzed by enzymes or other molecular entities acting as catalyst. ploymerization results in molecular entity of high molecular weight" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 http://purl.org/obo/owl/CHEBI#CHEBI_23367
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description70
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description67
 
 [Term]
 id: obi:OBI_0302891
 name: trypsination
+def: "trypsination is a protease cleavage which uses enzyme trypsin to act on proteins present in an input material entity" []
 is_a: obi:OBI_0600056  ! protease cleavage
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description223
 
 [Term]
 id: obi:OBI_0302892
 name: enzymatic ligation
-def: "ligation is a process which fragments of molecule  can be united or or open molecules can be circularized  by covalent bond through the action of enzyme or other agent with ligase activity" []
-is_a: obi:OBI_0000094  ! material transformation
+def: "enzymatic ligation is a process which fragments of molecule  can be united or or open molecules can be circularized  by covalent bond through the action of enzyme or other agent with ligase activity" []
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description129
+relationship: obi:OBI_0000309 obi:enzyme
 
 [Term]
 id: obi:OBI_0302893
 name: storage
 def: "storage is a process by which material entities are placed in well identified location and possibly under controlled environment in ad-hoc devices/structures in order to preserve and protect them from decay/alteration and maintain availability" []
-is_a: obi:OBI_0000094  ! material transformation
 relationship: obi:OBI_0000293 obi:OBI_0000141
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description55
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description144
 
 [Term]
 id: obi:OBI_0302894
 name: cell lysis
 def: "cell lysis is a process by which cell membrane integrity of live cells  is compromised and leads to cell death. Cell lysis may be achieved by means of viral action or osmotic shock." []
 is_a: obi:OBI_0600006  ! killing
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description93
 
 [Term]
 id: obi:OBI_0302895
@@ -557,14 +1229,16 @@ is_a: obi:OBI_0600006  ! killing
 
 [Term]
 id: obi:OBI_0302898
-name: lethal injection
+name: intentional overdosing
+def: "intentional overdosing is a process by which an excess dose of a chemical compound is given with the intent of causing death" []
+synonym: "lethal injection"  []
 is_a: obi:OBI_0600006  ! killing
-relationship: obi:OBI_0000309 http://purl.org/obo/owl/CHEBI#CHEBI_23091
+relationship: obi:OBI_0000309 http://purl.org/obo/owl/CHEBI#CHEBI_23367
 
 [Term]
 id: obi:OBI_0302899
 name: decapitation
-def: "decapitation is a process by which the head of a living organism is physically removed from the body, usually resulting in rapid death (in Rhodnius prolixus, it might take a bit longer..)" []
+def: "decapitation is a process by which the head of a living organism is physically removed from the body, usually resulting in rapid death (in the case of Rhodnius prolixus, it might take a bit longer..)" []
 is_a: obi:OBI_0600006  ! killing
 
 [Term]
@@ -572,31 +1246,33 @@ id: obi:OBI_0302900
 name: randomization
 def: "randomization is a group assignemnt which relies on chance to assign materials to a group of materials in order to avoid biais in experimental set up." []
 is_a: obi:OBI_0600015  ! group assignment
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description192
 
 [Term]
 id: obi:OBI_0302901
 name: activation
 def: "activation is a process by which a material entity status is modified and confered a capability of reacting\n(this sounds like a circular definition , hugh\!)" []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0302902
 name: immobilization
 def: "immbolization is a process by which material entity become (possibly covalently but not necessarily) attached to the surface of another material entity used a substratum." []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0302903
 name: nucleic acid hybridization
 def: "hybridization of nucleic acid is process by which totally or partially  complementary, single-stranded nucleic acids  can be combined into a single molecule called heteroduplex or homoduplex depending on the quality of the complementation." []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description77
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description73
+relationship: obi:OBI_0000313 obi:OBI_0400110
 
 [Term]
 id: obi:OBI_0302905
 name: elution
 def: "the process of extracting one material from another by washing with a solvent to remove adsorbed material from an adsorbent (as in washing of loaded ion-exchange resins to remove captured ions)" []
 is_a: obi:OBI_0600014  ! material separation
-relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description42
+relationship: obi:OBI_0000299 obi:Class_26
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description132
 relationship: obi:OBI_0000313 obi:OBI_0000038
 
 [Term]
@@ -615,21 +1291,22 @@ is_a: obi:OBI_0000340  ! documenting
 [Term]
 id: obi:OBI_0302910
 name: prediction
-is_a: obi:OBI_0600062  ! planned process
+def: "a process by which an  event or an entity is described before it actually happens or is being discovered and identified." []
+relationship: obi:OBI_0000293 obi:OBI_0000305
+relationship: obi:OBI_0000299 obi:OBI_0000305
 
 [Term]
 id: obi:OBI_0302911
 name: validation
-def: "validation is a process by which the accuracy or the quality of a claim  satisfies criteria and  is assessed by comparing with independent results" []
-is_a: obi:OBI_0600062  ! planned process
+def: "validation is a process by which the accuracy or the quality of a claim or prediction  satisfies criteria and  is assessed by comparing with independent results" []
 
 [Term]
 id: obi:OBI_0302912
 name: electroporation
 def: "Electroporation, or electropermeabilization, is a significant increase in the electrical conductivity and permeability of the cell plasma membrane caused by an externally applied electrical field. It is usually used in molecular biology as a way of introducing some substance into a cell, such as loading it with a molecular probe, a drug that can change the cell's function, or a piece of coding DNA" []
-is_a: obi:OBI_0600033  ! cell permeabalization
-relationship: obi:OBI_0000293 obi:OBI_0100060
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description19
+is_a: obi:OBI_0600033  ! cell permeabilization
+relationship: obi:OBI_0000293 cell:CL_0000000
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description195
 relationship: obi:OBI_0000313 obi:OBI_0400142
 
 [Term]
@@ -818,20 +1495,26 @@ is_a: obi:OBI_0500026  ! eligibility rule
 id: obi:OBI_0600000
 name: administering substance to cell culture
 def: "material combination where one of the input materials is a cell culture and another material is not a cell culture" []
-is_a: obi:OBI_0000094  ! material transformation
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000293 obi:OBI_0100060
+relationship: obi:OBI_0000299 obi:OBI_0100060
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description208 
+intersection_of: obi:OBI_0000308 obi:Class_41  ! administered material role
 
 [Term]
 id: obi:OBI_0600002
 name: tumor grading
 def: "Determination of the grade (severity/stage)  of a tumor sample, used in cancer biology to describe abnormalities/qualities of tumor cells or tissues.Values can be described by terms from NCI Thesaurus." []
 synonym: "grading of tumor"  []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 obi:OBI_0100051
+relationship: obi:OBI_0000299 obi:OBI_0000305
 
 [Term]
 id: obi:OBI_0600003
 name: clinical diagnosis
 def: "a protocol application during which a series of tests are made of a patient  leading to determination of disease state, or condition." []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description236
+relationship: obi:OBI_0000299 obi:OBI_0000075
 
 [Term]
 id: obi:OBI_0600004
@@ -853,27 +1536,28 @@ synonym: "death status type"  []
 synonym: "euthanisia"  []
 synonym: "life termination"  []
 synonym: "sacrifice"  []
-is_a: obi:OBI_0000094  ! material transformation
-relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description22
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description25
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description51
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description48
 
 [Term]
 id: obi:OBI_0600007
 name: administering substance in vivo
 def: "a substance is intentionally given to an organism through a specified route of administration" []
-is_a: obi:OBI_0000094  ! material transformation
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000293 obi:OBI_0100026
+relationship: obi:OBI_0000299 obi:OBI_0100026
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description4 
+intersection_of: obi:OBI_0000308 obi:Class_41  ! administered material role
 
 [Term]
 id: obi:OBI_0600008
 name: acquisition
 def: "the process of obtaining a continuant from a source." []
-is_a: obi:OBI_0000011  ! objective driven process
 
 [Term]
 id: obi:OBI_0600009
 name: exposure of material to environment
 def: "an input material is exposed to a defined set of conditions in a controlled environment. The environment is an input of the protocol." []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0600010
@@ -886,17 +1570,19 @@ id: obi:OBI_0600011
 name: acclimatization
 def: "A protocol application in which an object is left in an environment for some period of time, until some qualities of interest are in equilibrium with that environment." []
 is_a: obi:OBI_0600009  ! exposure of material to environment
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description80
 
 [Term]
 id: obi:OBI_0600012
 name: environmental material collection
 def: "environmental_material_collection is an acquisition where an object is taken from an environment and put into a storage container. Roles include, environment, thing collected, container, acquirer." []
-is_a: obi:OBI_0600008  ! acquisition
+relationship: obi:OBI_0000293 obi:OBI_0000181
+relationship: obi:OBI_0000293 obi:OBI_0000256
 
 [Term]
 id: obi:OBI_0600013
 name: data collection
-def: "is an aquisition of information from an organization that provides information." []
+def: "Is an aquisition of information from an organization that provides information. This is not an assay. It consists of specifiying a query what information is desired, putting this query to an organization, and retrieveing the requested information from the organization." []
 is_a: obi:OBI_0600008  ! acquisition
 
 [Term]
@@ -904,28 +1590,28 @@ id: obi:OBI_0600014
 name: material separation
 def: "a protocol application in which one input material is separated (in space) into two or more output materials" []
 synonym: "purification"  []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0600015
 name: group assignment
-def: "assigning objects to groups" []
-is_a: obi:OBI_0600062  ! planned process
+def: "group assignment is a process which results in the creation of at least 2 sub population from the starting population, also understood as assigning objects/subject to groups" []
+relationship: obi:OBI_0000293 obi:OBI_0000181
 
 [Term]
 id: obi:OBI_0600016
 name: material pooling
 def: "physical combination of several instances of like material" []
 synonym: "sample pooling"  []
-is_a: obi:OBI_0000094  ! material transformation
 relationship: obi:OBI_0000293 obi:OBI_0100051
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description36
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description219
+relationship: obi:OBI_0000299 obi:OBI_0302716
 
 [Term]
 id: obi:OBI_0600017
 name: detection of label
 def: "the detection of the amount of a label which is a proxy for the detection of the labeled biomaterial" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description83
+relationship: obi:OBI_0000299 obi:OBI_0000305
 
 [Term]
 id: obi:OBI_0600018
@@ -945,14 +1631,14 @@ is_a: obi:OBI_0600038  ! labeling
 id: obi:OBI_0600020
 name: histology
 def: "the visual examination of cells or tissue (or images of them) with an assessment regarding a quality of the cells or tissue. Parts are: staining, imaging, judgement" []
-is_a: obi:OBI_0000070  ! assay
 
 [Term]
 id: obi:OBI_0600021
 name: cell fixation
 def: "a protocol application to preserve defined  qualities of cells or tissues (sample) which may otherwise change over time" []
-is_a: obi:OBI_0000094  ! material transformation
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description65
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description276
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description280
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description278
 
 [Term]
 id: obi:OBI_0600022
@@ -970,31 +1656,38 @@ is_a: obi:OBI_0000231  ! enzymatic cleavage
 id: obi:OBI_0600024
 name: maintaining cell culture
 def: "a protocol application in which cells are kept alive in a defined environment outside of an organism.  part of cell_culturing" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 obi:OBI_0100060
+relationship: obi:OBI_0000299 obi:OBI_0100060
 
 [Term]
 id: obi:OBI_0600025
 name: substance detection
 def: "any protocol which results in the detection of a specified substance" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description233
 
 [Term]
 id: obi:OBI_0600026
 name: weight assessment
 def: "an assay in which the weight of an organism is measured over time" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 obi:OBI_0100026
+relationship: obi:OBI_0000299 obi:OBI_0000305
 
 [Term]
 id: obi:OBI_0600027
-name: cell membrane lysis
+name: artifically induced cell membrane lysis
 def: "a material transformation to break the membranes of cells, releasing the cells contents; input=>cells; output=>cell_lysate" []
 is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
 id: obi:OBI_0600028
-name: reverse transcription
-def: "a protocol to transcribe single-stranded RNA into complementary DNA (cDNA)" []
+name: artificially induced reverse transcription
+def: "a protocol with the objective to transcribe single-stranded RNA into complementary DNA (cDNA)" []
 is_a: obi:OBI_0000126  ! _induction of natural processes
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 obi:OBI_0000141
+relationship: obi:OBI_0000309 obi:OBI_0000141
 
 [Term]
 id: obi:OBI_0600029
@@ -1006,37 +1699,39 @@ is_a: obi:OBI_0600014  ! material separation
 id: obi:OBI_0600030
 name: experimental disease induction
 def: "a protocol application to induce a specific disease in an organism" []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0600031
 name: ELISPOT assay
 def: "an assay in which the number of cells producing a biomaterial in a larger cell population are stained and counted" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 cell:CL_0000000
+relationship: obi:OBI_0000299 obi:OBI_0000080
 
 [Term]
 id: obi:OBI_0600032
-name: DNA repair
+name: artifically induced DNA repair
 def: "a protocol application to repair damaged DNA molecules" []
 is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
 id: obi:OBI_0600033
-name: cell permeabalization
+name: cell permeabilization
 def: "A protocol application to permeabilize cell membranes, allowing molecules to more easily pass through the membrane than was possible prior to the protocol application" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 cell:CL_0000000
+relationship: obi:OBI_0000299 cell:CL_0000000
 
 [Term]
 id: obi:OBI_0600034
 name: precipitation
 def: "a protocol application to cause a material to precipitate (becoming a solid) out of solution. Input is a solution, ouput is a solution plus a solid component (the precipitate)" []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0600036
 name: establishing cell culture
-def: "creating an in vitro environment in which cells are sustained from input material containing cells. input: cell-containing material, output cell culture, part of cell culturing. Cells are originally plated at a certain concentration referred to as seeding density." []
-is_a: obi:OBI_0000094  ! material transformation
+def: "establishing a cell culture is a process which results in creating an in vitro environment in which cells are sustained from input material containing cells. input: cell-containing material, output cell culture, part of cell culturing. Cells are originally plated at a certain concentration referred to as seeding density." []
+relationship: obi:OBI_0000293 cell:CL_0000000
+relationship: obi:OBI_0000299 obi:OBI_0100060
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description173
 
 [Term]
 id: obi:OBI_0600037
@@ -1048,22 +1743,22 @@ is_a: obi:OBI_0600014  ! material separation
 id: obi:OBI_0600038
 name: labeling
 def: "the addition of a labeling reagent to an input biomaterial in order to detect the labeled material in the future" []
-is_a: obi:OBI_0000094  ! material transformation
 relationship: obi:OBI_0000293 obi:OBI_0000141
-relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description45
-relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description48
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description96
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description98
 
 [Term]
 id: obi:OBI_0600039
-name: methylation
+name: artifically induced methylation
 def: "a protocol application to add methyl groups to molecules" []
 is_a: obi:OBI_0000126  ! _induction of natural processes
 
 [Term]
 id: obi:OBI_0600040
-name: synthesize
+name: synthesis
 def: "the construction of a biomaterial from simpler biomaterials" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 http://purl.org/obo/owl/CHEBI#CHEBI_23367
+relationship: obi:OBI_0000299 http://purl.org/obo/owl/CHEBI#CHEBI_23367
 
 [Term]
 id: obi:OBI_0600041
@@ -1074,14 +1769,17 @@ is_a: obi:OBI_0600014  ! material separation
 [Term]
 id: obi:OBI_0600042
 name: recombinant plasmid cloning
-def: "the insertion of a particular gene into a plasmid in order to make copies of a biomaterial" []
+def: "the insertion of a particular DNA fragment into a plasmid in order to make copies of a biomaterial" []
 is_a: obi:OBI_0000035  ! _cloning placeholder
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description239
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description242
+relationship: obi:OBI_0000299 obi:OBI_0000410
 
 [Term]
 id: obi:OBI_0600043
 name: genetic transformation
 def: "the introduction and integration of genetic material into a cell or organism in order to alter its genetic make-up" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description14
 
 [Term]
 id: obi:OBI_0600044
@@ -1093,19 +1791,24 @@ is_a: obi:OBI_0600005  ! taking sample from organism
 id: obi:OBI_0600045
 name: structure assay
 def: "any protocol resulting in information on the 3-dimensional qualities of a biomaterial" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 obi:OBI_0000141
+relationship: obi:OBI_0000299 obi:OBI_0000305
 
 [Term]
 id: obi:OBI_0600046
 name: chromatography
 def: "the use of a biomaterial's preferential affinity for either the mobile phase or the stationary phase to separate it from other materials of differing affinity" []
 is_a: obi:OBI_0600014  ! material separation
+relationship: obi:OBI_0000299 obi:Class_26
+relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description55
 
 [Term]
 id: obi:OBI_0600047
 name: sequencing
 def: "the use of a chemical or biochemical means to infer the sequence of a biomaterial" []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description11
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000313 obi:OBI_0400103
 
 [Term]
 id: obi:OBI_0600048
@@ -1116,8 +1819,11 @@ is_a: obi:OBI_0600063  ! cell growth mediated amplification
 [Term]
 id: obi:OBI_0600049
 name: DNA polymerase amplification
-def: "the use of a DNA polymerase to make copies of a biomaterial" []
+def: "DNA polymerase amplification is an enzymatic amplification which uses DNA polymerase enzyme to make copies of a DNA conainted in biomaterial used as input" []
 is_a: obi:OBI_0600058  ! enzymatic amplification
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description40
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description37
+relationship: obi:OBI_0000309 http://purl.org/obo/owl/GO#GO_0042575
 
 [Term]
 id: obi:OBI_0600050
@@ -1142,24 +1848,30 @@ id: obi:OBI_0600053
 name: electrophoresis
 def: "a protocol application that uses an electrical potential to move material through a defined matrix in order to separate it by its resistance to movement and its charge" []
 is_a: obi:OBI_0600014  ! material separation
+relationship: obi:OBI_0000309 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description116
+relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description118
 
 [Term]
 id: obi:OBI_0600054
 name: selection by survival
 def: "the use of environmental conditions to select for the organism or cells that have a certain trait" []
-is_a: obi:OBI_0000094  ! material transformation
 
 [Term]
 id: obi:OBI_0600055
 name: DNA cleavage, restriction analysis
 def: "the use of enzymes to cut DNA molecules, the study of DNA through cleavage, mapping, and analysis of the fragments" []
+synonym: "restriction enzyme assay"  []
 is_a: obi:OBI_0000231  ! enzymatic cleavage
+relationship: obi:OBI_0000293 http://purl.org/obo/owl/CHEBI#CHEBI_33697
+relationship: obi:OBI_0000299 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description268
 
 [Term]
 id: obi:OBI_0600056
 name: protease cleavage
-def: "the use of enzymes to cut proteins" []
+def: "protease cleavage is an enzymatic cleavage which relies on enzyme with protease activity to act on proteins and produce polypeptides (protein fragments)." []
 is_a: obi:OBI_0000231  ! enzymatic cleavage
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description212
+relationship: obi:OBI_0000299 http://purl.org/obo/owl/CHEBI#CHEBI_15841
 
 [Term]
 id: obi:OBI_0600057
@@ -1171,27 +1883,33 @@ is_a: obi:OBI_0600058  ! enzymatic amplification
 id: obi:OBI_0600058
 name: enzymatic amplification
 def: "the use of enzymes to increase the number of molecules of a biomaterial" []
-is_a: obi:OBI_0000094  ! material transformation
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description186
+relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description189
+relationship: obi:OBI_0000309 obi:enzyme
 
 [Term]
 id: obi:OBI_0600059
 name: DNA transduction
-def: "the use of lysogenic infection to transfer DNA sequences into an organism" []
+def: "DNA transduction is a genetic transformation which relies on the use of lysogenic infection to transfer DNA sequences into an organism" []
 is_a: obi:OBI_0600043  ! genetic transformation
+relationship: obi:OBI_0000309 http://purl.org/obo/owl/NCBITaxon#NCBITaxon_10239
 
 [Term]
 id: obi:OBI_0600060
 name: DNA transfection
-def: "the use of physical, electrical and chemical phenomena to introduce DNA into a cell" []
+def: "DNA transfection is a genetic transformation which relies on the use of physical, electrical and chemical phenomena to introduce DNA into a cell" []
 is_a: obi:OBI_0600043  ! genetic transformation
+relationship: ro:has_part obi:OBI_0600033 ! cell permeabilization
 
 [Term]
 id: obi:OBI_0600062
 name: planned process
 def: "is a process that is the realization of some plan" []
-is_a: obi:OBI_0000011  ! objective driven process
-relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/6788d8c51e5e6cf76b2e2ca39740297a.url#__Description71
-relationship: ro:has_part obi:OBI_0000011 ! objective driven process
+is_a: obi:OBI_0600065  ! _defined protocol application
+relationship: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description122
+relationship: ro:has_participant snap:Continuant
+intersection_of: span:Process 
+intersection_of: obi:OBI_0000308 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description125 
 
 [Term]
 id: obi:OBI_0600063
@@ -1233,5 +1951,7 @@ relationship: obi:OBI_0000293 obi:OBI_0000141
 id: obi:OBI_9999994
 name: chromium release assay
 def: "An assay in which radioactive chromium is absorbed by cells and released into supernatant when the cells die. The amount of radioactivity measured in the supernatant is a proxy for the number of cells that have died." []
-is_a: obi:OBI_0000070  ! assay
+relationship: obi:OBI_0000293 obi:OBI_0100060
+relationship: obi:OBI_0000299 obi:OBI_0000305
+relationship: obi:OBI_0000309 http://purl.org/obo/owl/CHEBI#CHEBI_50076
 
