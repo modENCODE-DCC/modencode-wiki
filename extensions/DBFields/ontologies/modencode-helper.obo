@@ -845,6 +845,11 @@ def: "The Short Read Archive (SRA) sample identification number supplied after a
 is_a: ME:0000045 ! sequence_file
 
 
+[Term]
+id: ME:0000122
+name: prediction_status
+def: "A flag used by WormBase to classify their transcript and other gene features.  The possible values are Confirmed, Partially_confirmed, Predicted." [BBOP:nlw]
+
 [Typedef]
 id: has_input
 name: has_input
