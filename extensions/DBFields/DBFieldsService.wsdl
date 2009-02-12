@@ -39,6 +39,9 @@
           <all>
             <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
             <element name="version" minOccurs="1" maxOccurs="1" type="xsd:int"/>
+            <element name="revision" minOccurs="0" maxOccurs="1" type="xsd:int"/>
+            <element name="latest_revision" minOccurs="0" maxOccurs="1" type="xsd:int"/>
+            <element name="is_complete" minOccurs="1" maxOccurs="1" type="xsd:int"/>
             <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
             <element name="string_values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
           </all>
