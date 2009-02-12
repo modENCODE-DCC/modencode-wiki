@@ -25,7 +25,8 @@
       )
     )
   );
-  if ($_GET["debug"]) {
+  $debug = isset($_GET["debug"]) ? $_GET["debug"] : false;
+  if ($debug) {
     header("Content-type: text/plain");
     $dbfs = new DBFieldsService();
     if (isset($_GET["version"])) { $version = $_GET["version"]; } else { $version = null; }
@@ -34,15 +35,15 @@
     global $wgUser;
     $wgUser = new StubUser();
     unset($_SESSION);
-    #$url = "http://wiki.modencode.org/project/index.php?title=Sequencing&oldid=5358";
-#    $submission = new FormDataQuery();
-#    $submission->name = $form;
+#    $url = "http://wiki.modencode.org/project/index.php?title=DAPI_staining_v3&oldid=10113";
+    $submission = new FormDataQuery();
+    $submission->name = $form;
 #    $submission->name = "COMMENT ME TO DEBUG";
 #    $submission->version = $version;
-#    $submission->auth = $auth;
+    $submission->auth = $auth;
 #    $submission->url = $url;
-#    print_r($dbfs->getFormData($submission));
-    print_r($dbfs->getCategoryMembers("Antibody"));
+    print_r($dbfs->getFormData($submission));
+    print "done\n";
   } else {
     $server->setClass("DBFieldsService");
     $server->handle();
@@ -58,12 +59,19 @@
   class FormData {
     public $name;
     public $version;
+    public $revision;
+    public $latest_revision;
+    public $is_complete;
     public $values = array();
     public $string_values = array();
-    public function __construct($name, $version) {
+    public function __construct($name, $version, $revision = null, $latest_revision = null) {
       $this->name = $name;
       $this->version = $version;
+      $this->revision = $revision;
+      $this->latest_revision = $latest_revision;
+      $this->is_complete = false;
     }
+
     public function addValue($key, $value, $types=array()) {
       $found = false;
       foreach ($this->values as $existing_value) {
@@ -98,6 +106,7 @@
 	array_push($this->string_values, $newvalues);
       }
     }
+
   }
   class FormValues {
     public $name;
@@ -106,6 +115,7 @@
     public function __construct($name) {
       $this->name = $name;
     }
+
     public function addType($type) {
       array_push($this->types, $type);
     }
@@ -116,6 +126,7 @@
       $this->values = array($value);
     }
   }
+
   class LoginResult {
     public $result = '';
     public $lguserid = '';
@@ -216,20 +227,29 @@
       }
       if (!strlen($form) && strlen($wiki_url)) {
 	preg_match('/^\s*http:\/\/[^\/]+\/project\/.*title=([^&]+)&.*oldid=(\d+)/', $wiki_url, $matches);
-	$form = str_replace("_", " ", $matches[1]);
-	$revisionId = $matches[2];
+        if (isset($matches[1])) {
+          $form = str_replace("_", " ", $matches[1]);
+        }
+        if (isset($matches[2])) {
+          $revisionId = $matches[2];
+        }
       }
       $form = urldecode($form);
 
       # Handle possible redirection...
-      $is_redir_title = Title::newFromText($form);
-      $is_redir_article = new Article($is_redir_title);
-      $is_redir = $is_redir_article->isRedirect();
-      if ($is_redir) {
-        $form = $is_redir_article->followRedirect();
-      }
-        
+      $is_redir = 1;
+      while ($is_redir) {
+        $is_redir_title = Title::newFromText($form);
+        $is_redir_article = new Article($is_redir_title);
 
+        $is_redir = $is_redir_article->isRedirect();
+
+        if ($is_redir) {
+          $form = $is_redir_article->followRedirect()->getText();
+        } else {
+          break;
+        }
+      }
 
       ###########
 
@@ -269,7 +289,7 @@
 	  $revisionId = $row["revisionId"];
 	}
       }
-      if (!$revisionId) { $revisionId = '(SELECT MAX(wiki_revid) FROM data)'; }
+      if (!isset($revisionId) || !$revisionId) { $revisionId = '(SELECT MAX(wiki_revid) FROM data)'; }
       $res = modENCODE_db_query($db, "
 	SELECT
 	  CASE WHEN (SELECT COUNT(*) FROM data WHERE wiki_revid >= $revisionId AND name = '$entry_name') > 1 THEN
@@ -286,13 +306,13 @@
 	}
       }
       $db_values = array();
-      $res = modENCODE_db_query($db, "SELECT name, version, key, value, wiki_revid FROM data WHERE name = '$entry_name' AND version = $version", $modENCODE_DBFields_conf["form_data"]["type"]);
+      $res = modENCODE_db_query($db, "SELECT name, version, key, value, wiki_revid FROM data WHERE name = '$entry_name' AND version = $version ORDER BY wiki_revid", $modENCODE_DBFields_conf["form_data"]["type"]);
       $formdata = null;
       $revId = 0;
       while ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
 	$revId = $row["wiki_revid"];
 	if (is_null($formdata)) {
-	  $formdata = new FormData($row["name"], $row["version"]);
+	  $formdata = new FormData($row["name"], $row["version"], $revId);
 	}
 	$values = preg_split('/,\s*/', $row["value"], -1, PREG_SPLIT_NO_EMPTY);
 	foreach ($values as $value) {
@@ -307,14 +327,34 @@
       $wiki_parser = new Parser();
       $newRev = Revision::newFromId($revId);
       if ($newRev) {
+        if (@!$newRev->isCurrent) {
+          $formdata->latest_revision = Revision::newFromTitle($newRev->getTitle())->getId();
+        } else {
+          $formdata->latest_revision = $revId;
+        }
 	$wikitext = $wiki_parser->preprocess($newRev->revText(), $newRev->getTitle(), new ParserOptions(), $revId);
 
 	preg_match('/<dbfields.*<\/dbfields>/ism', $wikitext, $matches);
 	$dbfieldsText = $matches[0];
+
+	#get all the fields that are required
+	preg_match_all('/<(input|select|textarea)[^>]*required="true"[^>]*>/ism', $dbfieldsText, $required_fields);
+	$reqInputs = $required_fields[0];
+	$count = count($reqInputs);
+	$formdata->is_complete = false;
+
+	#get all the fields that are cvterms
 	preg_match_all('/<(input|select|textarea)[^>]*type="cvterm"[^>]*>/ism', $dbfieldsText, $matches);
 	$cvtermInputs = $matches[0];
+
 	foreach ($formdata->values as $formvalues) {
-	  $key = $formvalues->name;
+	  $key = $formvalues->name;	
+	  foreach ($reqInputs as $reqInput) {
+	    if (preg_match('/name="' . $key . '"/ism', $reqInput)) {
+	      $count = $count - 1;
+            }
+          }
+
 	  foreach ($cvtermInputs as $cvtermInput) {
 	    if (preg_match('/name="' . $key . '"/ism', $cvtermInput)) {
 	      preg_match('/cv="([^"]*)"/ism', $cvtermInput, $matches);
@@ -327,10 +367,11 @@
 	    }
 	  }
 	}
+	$formdata->is_complete = $count == 0;
       }
 
-
       return $formdata;
+
     }
   }
 
