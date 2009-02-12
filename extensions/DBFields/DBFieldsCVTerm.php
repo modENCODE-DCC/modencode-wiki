@@ -218,6 +218,7 @@
       } elseif (!isset($row["url"])) {
         $row["url"] = "";
       }
+      $row["cv"] = isset($row["cv"]) ? $row["cv"] : null;
         
       array_push($resultTerms, array(
         "fullname" => $multipleCvs ? $row["cv"] . ":" . $row["name"] : $row["name"],
