@@ -56,7 +56,7 @@
     // If there are values in the DB, read them out
     // (this overwrites any default values)
     $orig_attribs = $attribs;
-    if (!is_array($modENCODE_dbfields_data["stack"])) {
+    if (!isset($modENCODE_dbfields_data["stack"]) || !is_array($modENCODE_dbfields_data["stack"])) {
       $modENCODE_dbfields_data["stack"] = array();
     }
     array_push($modENCODE_dbfields_data["stack"], array("name" => $name, "attribs" => $attribs));
@@ -103,7 +103,7 @@
 	}
       }
     }
-    if (!is_array($modENCODE_dbfields_data["stack_of_parsed_elements"])) {
+    if (!isset($modENCODE_dbfields_data["stack_of_parsed_elements"]) || !is_array($modENCODE_dbfields_data["stack_of_parsed_elements"])) {
       $modENCODE_dbfields_data["stack_of_parsed_elements"] = array();
     }
     array_push($modENCODE_dbfields_data["stack_of_parsed_elements"], array("name" => $name, "attribs" => $attribs));
@@ -121,7 +121,7 @@
     }
     
     // Write out the filtered tag
-    $modENCODE_dbfields_data["xml"] .= $extra_content_before;
+    @$modENCODE_dbfields_data["xml"] .= $extra_content_before;
     $modENCODE_dbfields_data["xml"] .= $modENCODE_dbfields_data["chrdata"];
     $modENCODE_dbfields_data["xml"] .= "<$name $attrib_string";
     $modENCODE_dbfields_data["xml"] .= ">";
@@ -144,7 +144,7 @@
       $tempstack = $modENCODE_dbfields_data["stack"];
       while ($parent = array_pop($tempstack)) {
 	if ($parent["name"] == "textarea") {
-	  if (strlen($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) {
+	  if (@strlen($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) {
 	    $modENCODE_dbfields_data["chrdata"] = ($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]]);
 	  }
 	}
@@ -152,11 +152,10 @@
     }
     if ($name == "input") {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
-
       if ($input["attribs"]["type"] == "cvterm" || $input["attribs"]["type"] == "text") {
-	if ($modENCODE_dbfields_data["balloon_args"]) {
-	  $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) . 
-	    "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
+	if (isset($modENCODE_dbfields_data["balloon_args"]) && $modENCODE_dbfields_data["balloon_args"]) {
+        $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
+          "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
 	  $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
 	  $modENCODE_dbfields_data["balloon_args"] = false;
 	}
@@ -167,8 +166,8 @@
 	$extra_content_after .= '<div class="cvterm_url" id="' . $attribs["id"] . '_url">';
 	if (isset($modENCODE_dbfields_data["values"][$attribs["name"]]) && strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
 	  // Get URLs
-	  $delim = ($attribs["multiple"] ? ',' : null);
-	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
+	  $delim = (@$attribs["multiple"] ? ',' : null);
+	  @$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
 	  foreach ($terms as $term) {
 	    if (strlen($term["url"]) > 0) {
 	      $linkname = strlen($term["fullname"]) > 25 ? substr($term["fullname"], 0, 25) . "..." : $term["fullname"];
@@ -185,7 +184,7 @@
     }
     if ($name == "input" || $name == "select") {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
-      if ($name == "select" && $modENCODE_dbfields_data["balloon_args"]) {
+      if ($name == "select" && isset($modENCODE_dbfields_data["balloon_args"]) && $modENCODE_dbfields_data["balloon_args"]) {
         $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
 	  "/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
         $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
@@ -209,9 +208,11 @@
 	isset($item["attribs"]["name"]) && isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) &&
 	strlen($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) > 0
       ) {
+        if (!isset($attribs["brackets"])) { $attribs["brackets"] = null; }
+        $delim = (@$attribs["multiple"] ? ',' : null);
 	$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
 	$terms = array_map(create_function('$term', 'return $term["fullname"];'), $terms);
-	$existingTerms = getTermsArray($modENCODE_dbfields_data["values"][$item["attribs"]["name"]], $delim);
+	@$existingTerms = getTermsArray($modENCODE_dbfields_data["values"][$item["attribs"]["name"]], $delim);
 	$diffterms = array_diff($existingTerms, $terms);
 	if (count($diffterms) > 0) {
 	  $diffterms = implode(", ", $diffterms);
@@ -220,7 +221,7 @@
 	}
       }
     }
-    if ($name == "textarea" && $modENCODE_dbfields_data["balloon_args"]) {
+    if ($name == "textarea" && isset($modENCODE_dbfields_data["balloon_args"]) && $modENCODE_dbfields_data["balloon_args"]) {
       $input = $modENCODE_dbfields_data["stack"][count($modENCODE_dbfields_data["stack"])-1];
       $image = "<img alt=\"?\" src=\"" . dirname($_SERVER["SCRIPT_NAME"]) .
 	"/extensions/DBFields/question.jpg\" border=\"0\" style=\"padding:2px\"/>";
@@ -246,7 +247,7 @@
   function modENCODE_dbfields_characterData($parser, $data) {
     global $modENCODE_dbfields_data;
     $inTextarea = false;
-    $tempstack = $modENCODE_dbfields_data["stack"];
+    $tempstack = isset($modENCODE_dbfields_data["stack"]) ? $modENCODE_dbfields_data["stack"] : false;
     if (is_array($tempstack)) {
       while ($parent = array_pop($tempstack)) {
 	if ($parent["name"] == "textarea") {
@@ -256,9 +257,9 @@
       }
     }
     if ($inTextarea) {
-      $modENCODE_dbfields_data["chrdata"] .= $data;
+      @$modENCODE_dbfields_data["chrdata"] .= $data;
     } else {
-      $modENCODE_dbfields_data["chrdata"] .= rtrim($data, "\r\n");
+      @$modENCODE_dbfields_data["chrdata"] .= rtrim($data, "\r\n");
     }
   }
   function modENCODE_db_connect($host, $dbname, $user, $password, $dbtype) {
@@ -321,15 +322,14 @@
     }
   }
     
-
   function modENCODE_dbfields_render($input, $args, $parser) {
     $art = new Article($parser->mTitle);
     $art->loadContent();
     $content = $art->mContent;
     $templates = array_keys($parser->mTemplatePath);
-    $current_template = $templates[count($templates)-1];
-    preg_match('/{{' . $currentTemplate . '[^}]*}}/', $content, $match);
-    preg_match_all('/\|([^=]*)=([^|}]*)/', $match[0], $arg_matches);
+    @$current_template = $templates[count($templates)-1];
+    @preg_match('/{{' . $currentTemplate . '[^}]*}}/', $content, $match);
+    @preg_match_all('/\|([^=]*)=([^|}]*)/', $match[0], $arg_matches);
     $realargs = array();
     for ($i = 0; $i < count($arg_matches[1]); $i++) {
       $key = $arg_matches[1][$i];
@@ -359,11 +359,11 @@
       $modENCODE_DBFields_conf["form_data"]["type"]
     );
 
-    if (!strlen($args["name"])) {
+    if (@!strlen($args["name"])) {
       $args["name"] = $parser->mTitle->getText();
     }
-    $prefix = $args["prefix"];
-    $nameprefix = $args["nameprefix"];
+    @$prefix = $args["prefix"];
+    @$nameprefix = $args["nameprefix"];
 
     $use_name = $args["name"];
     if (isset($_POST["modENCODE_dbfields"]) && count($_POST["modENCODE_dbfields"])) {
@@ -490,12 +490,15 @@
     $parsed_xml .= "</form>";
     // Permalink marker
     //$modENCODE_markers_to_data[] = "<pre>" . htmlentities($parsed_xml) . "</pre>";
-    if ($modENCODE_dbfields_data["invalidversion"]) {
+    if (isset($modENCODE_dbfields_data["invalidversion"]) && $modENCODE_dbfields_data["invalidversion"]) {
       $parsed_xml = "<div class=\"invalid\">This form is incomplete...</div>\n" . $parsed_xml;
     }
     $version = ($version == 0) ? "0: no information" : $version;
     if (!strlen($prefix)) { $prefix = "Protocol"; }
 
+    if (!isset($modENCODE_dbfields_data["values"]["protocol type"])) {
+      $modENCODE_dbfields_data["values"]["protocol type"] = '';
+    }	
     if (strlen($modENCODE_dbfields_data["values"]["protocol type"]) && $prefix == "Protocol") {
       // Generate sample SDRF headers
       $input_types = preg_split('/,\s*/', $modENCODE_dbfields_data["values"]["input type"]);
@@ -514,7 +517,7 @@
       $input_headings = array();
       $input_values = array();
       foreach ($input_types as $input_type) {
-        if ($input_type[2]) {
+        if (@$input_type[2]) {
           array_push($input_headings, "Parameter Value " . $input_type[2]);
         } else {
           array_push($input_headings, "[Source|Sample|Extract|Labeled Extract|Hybridization] Name");
@@ -525,7 +528,7 @@
       $output_headings = array();
       $output_values = array();
       foreach ($output_types as $output_type) {
-        if ($output_type[2]) {
+        if (@$output_type[2]) {
           array_push($output_headings, "Result Value " . $output_type[2]);
         } else {
           array_push($output_headings, "[Source|Sample|Extract|Labeled Extract|Hybridization] Name | Array Data File | Data File | Result Value");
