@@ -850,6 +850,13 @@ id: ME:0000122
 name: prediction_status
 def: "A flag used by WormBase to classify their transcript and other gene features.  The possible values are Confirmed, Partially_confirmed, Predicted." [BBOP:nlw]
 
+[Term]
+id: ME:0000123
+name: GFF3 (parse only)
+def: "(This should be selected for GFF3 files that won't be loaded into Chado) A GFF format that has been revised to 1) adds a mechanism for representing more than one level of hierarchical grouping of features and subfeatures  2) separates the ideas of group membership and feature name/id 3) constrains the feature type field to be taken from a controlled vocabulary 4) allows a single feature, such as an exon, to belong to more than one group at a time 5) provides an explicit convention for pairwise alignments and 6) provides an explicit convention for features that occupy disjunct regions.  See http://www.sequenceontology.org/gff3.shtml." [BBOP:nlw, CHSL:ls]
+comment: " A validator can be found at http://dev.wormbase.org/db/validate_gff3/validate_gff3_online."
+is_a: ME:0000031 ! GFF3
+
 [Typedef]
 id: has_input
 name: has_input
