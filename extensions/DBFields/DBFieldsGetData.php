@@ -110,6 +110,7 @@
   }
   class FormValues {
     public $name;
+    public $brackets;
     public $types = array();
     public $values = array();
     public function __construct($name) {
@@ -118,6 +119,9 @@
 
     public function addType($type) {
       array_push($this->types, $type);
+    }
+    public function setBrackets($value) {
+      $this->brackets = $value;
     }
     public function addValue($value) {
       array_push($this->values, $value);
@@ -364,6 +368,10 @@
 		  $formvalues->addType($type);
 		}
 	      }
+	      preg_match('/brackets="([^"]*)"/ism', $cvtermInput, $matches);
+              if (strlen($matches[1])) {
+                $formvalues->setBrackets($matches[1]);
+              }
 	    }
 	  }
 	}

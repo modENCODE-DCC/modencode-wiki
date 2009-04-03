@@ -24,6 +24,7 @@
         <complexType name="FormValues">
           <all>
             <element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+            <element name="brackets" minOccurs="0" maxOccurs="1" type="xsd:string"/>
             <element name="types" minOccurs="0" maxOccurs="1" type="tnstypes:ArrayOfStrings"/>
             <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfStrings"/>
           </all>
