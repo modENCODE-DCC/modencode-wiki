@@ -235,7 +235,7 @@ name: multiple_alignment_format (MAF)
 def: "The multiple alignment format stores a series of multiple alignments in a format that is easy to parse and relatively easy to read. This format stores multiple alignments at the DNA level between entire genomes." [BBOP:nlw]
 comment: "See: http://genome.ucsc.edu/FAQ/FAQformat.html#format5"
 exact_synonym: "MAF" [] ! belonged to category ABBREVIATION
-is_a: ME:0000046 ! processed_data_file
+is_a: ME:0000128 ! sequence_alignment_file_format
 
 [Term]
 id: ME:0000036
@@ -856,6 +856,41 @@ name: GFF3 (parse only)
 def: "(This should be selected for GFF3 files that won't be loaded into Chado) A GFF format that has been revised to 1) adds a mechanism for representing more than one level of hierarchical grouping of features and subfeatures  2) separates the ideas of group membership and feature name/id 3) constrains the feature type field to be taken from a controlled vocabulary 4) allows a single feature, such as an exon, to belong to more than one group at a time 5) provides an explicit convention for pairwise alignments and 6) provides an explicit convention for features that occupy disjunct regions.  See http://www.sequenceontology.org/gff3.shtml." [BBOP:nlw, CHSL:ls]
 comment: " A validator can be found at http://dev.wormbase.org/db/validate_gff3/validate_gff3_online."
 is_a: ME:0000031 ! GFF3
+
+[Term]
+id: ME:0000124
+name: BOWTIE_alignment_format
+def: "A file format output by the Bowtie short-read alignment software." [HTTP:bowtie-bio.sourceforge.net/]
+comment: "see http://bowtie-bio.sourceforge.net/manual.shtml"
+is_a: ME:0000128 ! sequence_alignment_file_format
+
+[Term]
+id: ME:0000125
+name: MAQ_alignment_format (MAQ)
+def: "A file format output by the Mapping and Assembly with Qualities (Maq) short-read alignment software." [HTTP:maq.sourceforge.net/maq-man.shtml]
+comment: "see http://maq.sourceforge.net/maq-man.shtml"
+is_a: ME:0000128 ! sequence_alignment_file_format
+
+[Term]
+id: ME:0000126
+name: Sequence_Alignment/Map (SAM)
+def: "A tab delimited file format for alignments of short read sequences to a reference genome" [HTTP:samtools.sourceforge.net/]
+comment: "http://samtools.sourceforge.net/SAM1.pdf"
+is_a: ME:0000128 ! sequence_alignment_file_format
+
+[Term]
+id: ME:0000127
+name: Short_Oligonuceotide_Analysis_Package_format (SOAP)
+def: "A file format for alignments of short read sequences to a reference genomeoutput from the SOAP aligner tool" [HTTP:soap.genomics.org.cn/index.html]
+comment: "htp://soap.genomics.org.cn/index.html"
+is_a: ME:0000128 ! sequence_alignment_file_format
+
+[Term]
+id: ME:0000128
+name: sequence_alignment_file_format
+def: "A file format for alignments of short read sequences to a reference genomeoutput from the SOAP aligner tool" [HTTP:soap.genomics.org.cn/index.html]
+comment: "htp://soap.genomics.org.cn/index.html"
+is_a: ME:0000046 ! processed_data
 
 [Typedef]
 id: has_input
