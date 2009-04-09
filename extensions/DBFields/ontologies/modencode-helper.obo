@@ -626,7 +626,7 @@ exact_synonym: "anchored PCR" []
 is_a:  ME:0000088 ! RT-PCR
 
 [Term]
-id: ME:0000090
+vvid: ME:0000090
 name: 3'-rapid_amplification_of_cdna_ends (3' RACE)
 def: "3' RACE-PCR uses the natural polyA tail that exists at the 3' end of all mRNAs for priming during reverse transcription, so this method does not require the addition of nucleotides by TdT. First strand cDNAs are generated using an Oligo-dT-adaptor primer that complements the polyA stretch and adds a special adaptor sequence to the 3' end of each cDNA. PCR is then used to amplify 3' cDNA from a known region in the specific cDNA using a sense GSP, and an anti-sense primer complementary to the added adaptor sequence."  [BBOP:nlw, HTTP:en.wikipedia.org]
 exact_synonym: "one-sided PCR" []
@@ -891,6 +891,12 @@ name: sequence_alignment_file_format
 def: "A file format for alignments of short read sequences to a reference genomeoutput from the SOAP aligner tool" [HTTP:soap.genomics.org.cn/index.html]
 comment: "htp://soap.genomics.org.cn/index.html"
 is_a: ME:0000046 ! processed_data
+
+[Term]
+id: ME:0000129
+name: number_of_sequencing_lanes
+def: "A number indicating the number of sequencing lanes (replicates) that were run on a single biological sample in short-read sequencing."
+is_a: ME:0000001 ! parameter
 
 [Typedef]
 id: has_input
