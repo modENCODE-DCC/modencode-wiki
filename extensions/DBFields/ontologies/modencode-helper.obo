@@ -898,6 +898,11 @@ name: number_of_sequencing_lanes
 def: "A number indicating the number of sequencing lanes (replicates) that were run on a single biological sample in short-read sequencing." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 
+[Term]
+id: ME:0000130
+name: reference
+def: "A reference to an older modENCODE submission"
+
 [Typedef]
 id: has_input
 name: has_input
