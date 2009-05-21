@@ -18,7 +18,7 @@
     "invalidversion" => false
   );
   $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label", "img");
-  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign", "title", "src", "alt");
+  $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign", "title", "src", "alt", "disabled");
   $modENCODE_markers_to_data = array();
 
   function modENCODE_DBFields_setup() {
@@ -326,9 +326,9 @@
     $art = new Article($parser->mTitle);
     $art->loadContent();
     $content = $art->mContent;
-    $templates = array_keys($parser->mTemplatePath);
+    $templates = array_map(create_function('$template', 'return $template->mTextform;'), $art->getUsedTemplates());
     @$current_template = $templates[count($templates)-1];
-    @preg_match('/{{' . $currentTemplate . '[^}]*}}/', $content, $match);
+    @preg_match('/{{Template:' . $currentTemplate . '[^}]*}}/', $content, $match);
     @preg_match_all('/\|([^=]*)=([^|}]*)/', $match[0], $arg_matches);
     $realargs = array();
     for ($i = 0; $i < count($arg_matches[1]); $i++) {
