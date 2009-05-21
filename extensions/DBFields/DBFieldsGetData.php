@@ -237,8 +237,9 @@
         if (isset($matches[2])) {
           $revisionId = $matches[2];
         }
+      } else {
+        $form = urldecode($form);
       }
-      $form = urldecode($form);
 
       # Handle possible redirection...
       $is_redir = 1;
