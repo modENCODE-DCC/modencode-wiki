@@ -153,6 +153,7 @@
 	"accession" => "",
 	"definition" => "",
 	"def" => "",
+        "is_obsolete" => "",
 	"url" => ""
       );
       $row["cv"] = $searchCv;
@@ -169,14 +170,16 @@
         }
       }
 
-      array_push($resultTerms, array(
-        "fullname" => $multipleCvs ? $row["cv"] . ":" . $row["name"] : $row["name"],
-	"cv" => $row["cv"], 
-	"name" => $row["name"], 
-	"accession" => $row["id"], 
-	"definition" => $row["def"], 
-	"url" => $row["url"]
-      ));
+      if ($row["is_obsolete"] != "true") {
+        array_push($resultTerms, array(
+          "fullname" => $multipleCvs ? $row["cv"] . ":" . $row["name"] : $row["name"],
+          "cv" => $row["cv"], 
+          "name" => $row["name"], 
+          "accession" => $row["id"], 
+          "definition" => $row["def"], 
+          "url" => $row["url"]
+        ));
+      }
     }
     usort($resultTerms, 'lengthSort');
     return array_slice($resultTerms, 0, 50);
