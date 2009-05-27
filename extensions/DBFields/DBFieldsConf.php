@@ -49,10 +49,10 @@
 
   $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url"] = " http://obo.cvs.sourceforge.net/*checkout*/obo/obo/ontology/genomic-proteomic/so.obo";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["canonical_url_type"] = "OBO";
-  $modENCODE_DBFields_conf["cvterms"]["SO"]["host"] = "localhost";
-  $modENCODE_DBFields_conf["cvterms"]["SO"]["dbname"] = "wormbase_175";
+  $modENCODE_DBFields_conf["cvterms"]["SO"]["host"] = "bop.lbl.ogv";
+  $modENCODE_DBFields_conf["cvterms"]["SO"]["dbname"] = "wormbase_180";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["SO"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["SO"]["password"] = "limecat";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["query"] = $cvquery;
 
@@ -102,10 +102,10 @@
       ORDER BY LENGTH(name)
       LIMIT ?";
 
-  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["host"] = "localhost";
-  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["dbname"] = "wormbase_175";
+  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["host"] = "bop.lbl.gov";
+  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["dbname"] = "wormbase_180";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["password"] = "limecat";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["query"] = 
     "SELECT 
@@ -163,8 +163,9 @@ $modENCODE_DBFields_conf["cvterms"]["go_cc"]["canonical_url"] = "http://www.berk
   $modENCODE_DBFields_conf["cvterms"]["worm_development"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/worm_development.obo";
   $modENCODE_DBFields_conf["cvterms"]["worm_development"]["canonical_url_type"] = "OBO";
 
-  $modENCODE_DBFields_conf["cvterms"]["worm_genes"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/worm_genes.obo";
-  $modENCODE_DBFields_conf["cvterms"]["worm_genes"]["canonical_url_type"] = "OBO";
+  //$modENCODE_DBFields_conf["cvterms"]["worm_genes"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/worm_genes.obo";
+  $modENCODE_DBFields_conf["cvterms"]["worm_genes"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/DBFieldsCVTerm.php?cv=worm_genes&validating=validating&term=";
+  $modENCODE_DBFields_conf["cvterms"]["worm_genes"]["canonical_url_type"] = "URL_DBFields";
 
   $modENCODE_DBFields_conf["cvterms"]["worm_anatomy"]["canonical_url"] = "http://wiki.modencode.org/project/extensions/DBFields/ontologies/worm_anatomy.obo";
   $modENCODE_DBFields_conf["cvterms"]["worm_anatomy"]["canonical_url_type"] = "OBO";
