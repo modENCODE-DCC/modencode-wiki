@@ -44,15 +44,6 @@
     // Keep only allowed tags
     if (!in_array($name, $modENCODE_dbfields_allowed_tags)) { return; }
     $string_attributes = array();
-    /*
-    <input type="cvterm" cv="cell type" name="cell type" id="cell type"/>
-
-    <div id="myAutoComplete">
-      <div id="myUrl"></div>
-      <input type="text" id="myInput">
-      <div id="myContainer"></div>
-    </div>
-    */
     // If there are values in the DB, read them out
     // (this overwrites any default values)
     $orig_attribs = $attribs;
@@ -78,6 +69,8 @@
       if ($attribs["type"] == "text" || $attribs["type"] == "password") {
         if (isset($modENCODE_dbfields_data["values"][$attribs["name"]])) {
           $attribs["value"] = $modENCODE_dbfields_data["values"][$attribs["name"]];
+        } elseif (isset($attribs["value"]) && strlen($attribs["value"]) > 0) {
+          # Do nothing; keep default value
         } else {
           $attribs["value"] = "";
         }
@@ -272,6 +265,7 @@
       if (strlen($dbname) > 0)   { $connstring .= "dbname=$dbname "; }
       if (strlen($user) > 0)     { $connstring .= "user=$user "; }
       if (strlen($password) > 0) { $connstring .= "password=$password "; }
+      $connstring .= "connect_timeout=3 ";
       $db = pg_connect($connstring);
     } elseif ($dbtype == "mysql") {
       if (!function_exists("mysql_connect")) {
