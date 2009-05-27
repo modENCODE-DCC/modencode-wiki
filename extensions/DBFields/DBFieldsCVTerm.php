@@ -201,6 +201,10 @@
       $modENCODE_DBFields_conf["cvterms"][$searchCv]["password"], 
       $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]
     );
+    if (!$db) {
+      print "<div style=\"margin-left: 150px\"><br/>Couldn't connect to database " . $modENCODE_DBFields_conf["cvterms"][$searchCv]["dbname"] . " to find $searchCv terms.<br/>Controlled vocabulary terms may show as incorrect...<br/></div>";
+      return array();
+    }
 
     $searchCv = modENCODE_db_escape($searchCv, $db, $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]);
     $searchTerm = modENCODE_db_escape($searchTerm, $db, $modENCODE_DBFields_conf["cvterms"][$searchCv]["type"]);
