@@ -443,7 +443,8 @@
 
     $nochanges = false;
     $curRev = Revision::newFromId($revisionId);
-    if (!$curRev || !$curRev->isCurrent()) {
+    global $wgUser;
+    if ((!$curRev || !$curRev->isCurrent()) || (strcasecmp($wgUser->getName(), "anonymous")) == 0) {
       $nochanges = true;
     }
 
