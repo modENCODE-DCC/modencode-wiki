@@ -1635,3 +1635,12 @@ name: BioAssayData
 def: BioAssayData refers to the data files including images generated from one or more BioAssays.
 is_a: mged:BioAssayDataPackage
 property_value: mged:unique_identifier "MO_40" xsd:string
+
+[Term]
+id: mged:ConcentrationUnit
+name: ConcentrationUnit
+def: Units used for concentration measurements.
+is_a: mged:Unit
+property_value: mged:unique_identifier "MO_61" xsd:string
+property_value: mged:class_role "concrete" xsd:string
+property_value: mged:class_source "ontology" xsd:string
