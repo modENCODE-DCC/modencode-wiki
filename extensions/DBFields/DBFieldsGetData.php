@@ -34,6 +34,7 @@
     $auth = ($dbfs->getLoginCookie('Validator_Robot', 'vdate_358'));
     global $wgUser;
     $wgUser = new StubUser();
+    $wgUser->mId = 150;
     unset($_SESSION);
 #    $url = "http://wiki.modencode.org/project/index.php?title=DAPI_staining_v3&oldid=10113";
     $submission = new FormDataQuery();
