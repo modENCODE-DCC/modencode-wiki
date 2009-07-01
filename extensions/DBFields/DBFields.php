@@ -87,12 +87,21 @@
       $tempstack = $modENCODE_dbfields_data["stack"];
       while ($parent = array_pop($tempstack)) {
 	if ($parent["name"] == "select") {
-	  $value = (isset($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) ? $modENCODE_dbfields_data["values"][$parent["attribs"]["name"]] : "";
-	  if ($attribs["value"] == $value) {
-	    $attribs["selected"] = "selected";
-	  } elseif ($value) {
-	    unset($attribs["selected"]);
-	  }
+          $values = array();
+          if (isset($parent["attribs"]["multiple"]) && $parent["attribs"]["multiple"] == "multiple") {
+            $parent_name = $parent["attribs"]["name"];
+            $parent_name = preg_replace('/([\[\]]*)$/', '', $parent_name);
+            $value = (isset($modENCODE_dbfields_data["values"][$parent_name])) ? $modENCODE_dbfields_data["values"][$parent_name] : "";
+            $values = explode(", ", $value);
+          } else {
+            $value = (isset($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) ? $modENCODE_dbfields_data["values"][$parent["attribs"]["name"]] : "";
+            array_push($values, $value);
+          }
+          if (in_array($attribs["value"], $values)) {
+            $attribs["selected"] = "selected";
+          } elseif ($value) {
+            unset($attribs["selected"]);
+          }
 	}
       }
     }
@@ -104,7 +113,13 @@
     // Make sure to only keep allowed attributes
     foreach ($attribs as $key => $value) {
       if (!in_array($key, $modENCODE_dbfields_allowed_attributes)) { continue; }
-      if ($key == "name") { $value = "modENCODE_dbfields[$value]"; }
+        if ($key == "name") { 
+          // Move any brackets to the end:
+          preg_match('/([\[\]]*)$/', $value, $matches);
+          $value = preg_replace('/([\[\]]*)$/', '', $value);
+          $array_brackets = $matches[1];
+          $value = "modENCODE_dbfields[$value]$array_brackets"; 
+        }
       array_push($string_attributes, "$key=\"$value\"");
     }
     $attrib_string = join(" ", $string_attributes);
@@ -186,9 +201,10 @@
       $attribs = $input["attribs"];
       $item = $modENCODE_dbfields_data["stack_of_parsed_elements"][count($modENCODE_dbfields_data["stack_of_parsed_elements"])-1];
       if (isset($item) && $item && isset($item["attribs"]) && isset($item["attribs"]["required"]) && $item["attribs"]["required"] == "true") {
-	$value = isset($modENCODE_dbfields_data["values"][$item["attribs"]["name"]]) ? $modENCODE_dbfields_data["values"][$item["attribs"]["name"]] : "";
+        $item_name = preg_replace('/([\[\]]*)$/', '', $item["attribs"]["name"]);
+        $value = isset($modENCODE_dbfields_data["values"][$item_name]) ? $modENCODE_dbfields_data["values"][$item_name] : "";
         $missingClass = "required";
-	if (!strlen($value)) { 
+        if (!strlen($value)) { 
 	  $missingClass .= " missing";
 	  $extra_content_after .= "  <div class=\"$missingClass\" id=\"" . $attribs["id"] . "_missing\">required field missing</div>";
 	  $modENCODE_dbfields_data["invalidversion"] = true;
@@ -429,6 +445,7 @@
 
         foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
           $key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+          if (is_array($value)) { $value = implode(", ", $value); }
           $value = modENCODE_db_escape(htmlentities(utf8_decode($value)), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
           modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
         }
