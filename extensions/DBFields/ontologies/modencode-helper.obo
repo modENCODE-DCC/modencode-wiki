@@ -903,6 +903,13 @@ id: ME:0000130
 name: reference
 def: "A reference to an older modENCODE submission"
 
+[Term]
+id: ME:0000131
+name: read_length
+def: "A number of nucleotides in a sequencing read." [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+
+
 [Typedef]
 id: has_input
 name: has_input
