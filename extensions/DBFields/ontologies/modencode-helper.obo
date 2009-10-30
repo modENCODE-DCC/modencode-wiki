@@ -909,6 +909,11 @@ name: read_length
 def: "A number of nucleotides in a sequencing read." [BBOP:nlw]
 is_a: ME:0000001 ! parameter
 
+[Term]
+id: ME:0000132
+name: ArrayExpress_record
+def: "The Array Express record identification number supplied after a successful submission. These should take the format like E-XXXX-###."  []
+is_a: ME:0000045 ! sequence_file
 
 [Typedef]
 id: has_input
