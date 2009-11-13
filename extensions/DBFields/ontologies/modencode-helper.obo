@@ -901,7 +901,7 @@ is_a: ME:0000001 ! parameter
 [Term]
 id: ME:0000130
 name: reference
-def: "A reference to an older modENCODE submission"
+def: "A reference to an older modENCODE submission" []
 
 [Term]
 id: ME:0000131
@@ -912,25 +912,25 @@ is_a: ME:0000001 ! parameter
 [Term]
 id: ME:0000132
 name: ArrayExpress_record
-def: "The Array Express record identification number supplied after a successful submission. These should take the format like E-XXXX-###."  []
+def: "The Array Express record identification number supplied after a successful submission. These should take the format like E-XXXX-###."  [BBOP:nlw]
 is_a: ME:0000045 ! sequence_file
 
 [Term]
 id: ME:0000133
 name: RNA_size_small
-def: "The quality of a population of RNA molecules whose size is smaller than 40 nt."  []
+def: "The quality of a population of RNA molecules whose size is smaller than 40 nt."  [BBOP:nlw]
 !is_a: PATO:0000117 ! size 
 
 [Term]
 id: ME:0000134
 name: RNA_size_medium
-def: "The quality of a population of RNA molecules whose size is larger than 40 nt and smaller than 200 nt."  []
+def: "The quality of a population of RNA molecules whose size is larger than 40 nt and smaller than 200 nt."  [BBOP:nlw]
 !is_a: PATO:0000117 ! size 
 
 [Term]
 id: ME:0000135
 name: RNA_size_large
-def: "The quality of a population of RNA molecules whose size is larger than 200 nt."  []
+def: "The quality of a population of RNA molecules whose size is larger than 200 nt."  [BBOP:nlw]
 !is_a: PATO:0000117 ! size 
 
 [Typedef]
