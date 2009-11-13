@@ -915,6 +915,24 @@ name: ArrayExpress_record
 def: "The Array Express record identification number supplied after a successful submission. These should take the format like E-XXXX-###."  []
 is_a: ME:0000045 ! sequence_file
 
+[Term]
+id: ME:0000133
+name: RNA_size_small
+def: "The quality of a population of RNA molecules whose size is smaller than 40 nt."  []
+!is_a: PATO:0000117 ! size 
+
+[Term]
+id: ME:0000134
+name: RNA_size_medium
+def: "The quality of a population of RNA molecules whose size is larger than 40 nt and smaller than 200 nt."  []
+!is_a: PATO:0000117 ! size 
+
+[Term]
+id: ME:0000135
+name: RNA_size_large
+def: "The quality of a population of RNA molecules whose size is larger than 200 nt."  []
+!is_a: PATO:0000117 ! size 
+
 [Typedef]
 id: has_input
 name: has_input
