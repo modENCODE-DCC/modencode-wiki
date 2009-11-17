@@ -524,3 +524,11 @@ is_a: obi:OBI_0000233  ! _defined_material
 intersection_of: obi:enzyme  ! enzyme
 intersection_of: obi:OBI_0000306 http://purl.org/obo/owl/GO#GO_0003964 
 
+[Term]
+id: snap:Disposition
+name: disposition
+comment: Definition: A realizable entity [snap:RealizableEntity] that essentially causes a specific process or transformation in the object [snap:Object] in which it inheres, under specific circumstances and in conjunction with the laws of nature. A general formula for dispositions is: X (object [snap:Object] has the disposition D to (transform, initiate a process) R under conditions C.
+comment: Examples: the disposition of vegetables to decay when not refrigerated, the disposition of a vase to brake if dropped, the disposition of blood to coagulate, the disposition of a patient with a weakened immune system to contract disease, the disposition of metal to conduct electricity.
+is_a: snap:RealizableEntity  ! realizable_entity
+disjoint_from: snap:Function  ! function
+disjoint_from: snap:Role  ! role
