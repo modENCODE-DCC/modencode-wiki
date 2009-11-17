@@ -911,27 +911,39 @@ is_a: ME:0000001 ! parameter
 
 [Term]
 id: ME:0000132
+name: ShortReadArchive_project_ID_list (SRA)
+def: "The Short Read Archive (SRA) project identification number supplied after a successful submission. These should take the format like SRA280082. See http://www.ncbi.nlm.nih.gov/Traces/sra for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
+[Term]
+id: ME:0000133
 name: ArrayExpress_record
 def: "The Array Express record identification number supplied after a successful submission. These should take the format like E-XXXX-###."  [BBOP:nlw]
 is_a: ME:0000045 ! sequence_file
 
 [Term]
-id: ME:0000133
+id: ME:0000134
 name: RNA_size_small
 def: "The quality of a population of RNA molecules whose size is smaller than 40 nt."  [BBOP:nlw]
 !is_a: PATO:0000117 ! size 
 
 [Term]
-id: ME:0000134
+id: ME:0000135
 name: RNA_size_medium
 def: "The quality of a population of RNA molecules whose size is larger than 40 nt and smaller than 200 nt."  [BBOP:nlw]
 !is_a: PATO:0000117 ! size 
 
 [Term]
-id: ME:0000135
+id: ME:0000136
 name: RNA_size_large
 def: "The quality of a population of RNA molecules whose size is larger than 200 nt."  [BBOP:nlw]
 !is_a: PATO:0000117 ! size 
+
+[Term]
+id: PATO:0000001
+name: quality
+def: "The quality of a population of RNA molecules whose size is larger than 200 nt."  [BBOP:nlw]
+
 
 [Typedef]
 id: has_input
