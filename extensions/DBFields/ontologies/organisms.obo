@@ -21,6 +21,15 @@ synonym: "D.melanogaster" EXACT abbreviation []
 synonym: "fruitfly" BROAD common_name []
 
 [Term]
+id: Organisms:Drosophila_pseudoobscura
+name: Drosophila pseudoobscura 
+namespace: organisms
+synonym: "D.pseudoobscura" EXACT abbreviation []
+synonym: "D.pseudo-obscura" EXACT abbreviation []
+synonym: "Dpse" EXACT abbreviation []
+synonym: "fruitfly" BROAD common_name []
+
+[Term]
 id: Organisms:Mus_musculus
 name: Mus musculus
 namespace: organisms
