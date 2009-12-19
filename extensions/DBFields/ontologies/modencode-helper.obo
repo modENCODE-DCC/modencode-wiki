@@ -944,6 +944,12 @@ id: PATO:0000001
 name: quality
 def: "The quality of a population of RNA molecules whose size is larger than 200 nt."  [BBOP:nlw]
 
+[Term]
+id: ME:0000137
+name: genbank_record
+def: "A data record located at genbank, accessible by ID.  See http://www.ncbi.nlm.nih.gov/sites/entrez?db=nucest for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
 
 [Typedef]
 id: has_input
