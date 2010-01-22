@@ -123,7 +123,7 @@
 
     $pattern = '/^name:\s*(.*' . preg_quote($searchTerm, '/') . '.*)$/im';
     $matches = array();
-    $MAX_MATCHES = 500;
+    $MAX_MATCHES = 5000;
     $section = "[Term]\n";
     while ($line = fgets($obo)) {
       if (preg_match('/^\s*\[([^\]]*)\]/', $line)) {
