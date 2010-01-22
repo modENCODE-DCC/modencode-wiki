@@ -231,12 +231,12 @@
 	throw new SoapFault("Bad Request", "Both a form name and wiki URL were provided; please only provide one of the two.");
       }
       if (!strlen($form) && strlen($wiki_url)) {
-	preg_match('/^\s*http:\/\/[^\/]+\/project\/.*title=([^&]+)&.*oldid=(\d+)/', $wiki_url, $matches);
+	preg_match('/^\s*http:\/\/[^\/]+\/project\/.*title=(.+)&(amp;)?oldid=(\d+)/', $wiki_url, $matches);
         if (isset($matches[1])) {
           $form = str_replace("_", " ", $matches[1]);
         }
-        if (isset($matches[2])) {
-          $revisionId = $matches[2];
+        if (isset($matches[3])) {
+          $revisionId = $matches[3];
         }
       } else {
         $form = urldecode($form);
