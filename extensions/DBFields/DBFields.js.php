@@ -369,10 +369,12 @@ var DBFields_checkRequired = function(sType, aArgs) {
         break;
       }
     }
-    if (isMissing) {
-      missingField.style.display = "inline";
-    } else {
-      missingField.style.display = "none";
+    if (missingField) {
+      if (isMissing) {
+        missingField.style.display = "inline";
+      } else {
+        missingField.style.display = "none";
+      }
     }
   }
 }
