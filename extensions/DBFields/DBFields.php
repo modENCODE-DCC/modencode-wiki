@@ -385,7 +385,7 @@
 
     $entry_name = modENCODE_db_escape($entry_name, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
 
-    if (isset($_GET["version"]) && $_GET["version"]) {
+    if (isset($_GET["version"]) && $_GET["version"] && $_GET["action"] != "create") {
       $version = modENCODE_db_escape($_GET["version"], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
       $res = modENCODE_db_query($db,
         "SELECT MAX(wiki_revid) AS revisionid FROM data WHERE name = '$entry_name' AND version = $version",
