@@ -950,6 +950,12 @@ name: genbank_record
 def: "A data record located at genbank, accessible by ID.  See http://www.ncbi.nlm.nih.gov/sites/entrez?db=nucest for more information."  [BBOP:nlw]
 is_a: ME:0000045 ! sequence_file
 
+[Term]
+id: ME:0000138
+name: Peptidome_record
+def: "A data record located at NCBI's Peptide Data Repository, accessible by ID.  IDs take the form of PSE101 or PSM1001.  See http://www.ncbi.nlm.nih.gov/peptidome/repository/ for more information."  [BBOP:nlw]
+is_a: ME:0000045 ! sequence_file
+
 
 [Typedef]
 id: has_input
