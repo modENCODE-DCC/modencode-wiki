@@ -962,6 +962,12 @@ name: SFF
 def: "A file format from 454/Roche sequencers that contains sequence and quality information" [BBOP:nlw]
 is_a: ME:0000045 ! sequence_file
 
+[Term]
+id: ME:0000140
+name: concentration_value
+def: "A numeric value measuring the quantity of entities (molecules, elements, etc) within another measured volume of liquid. A unit should be specified."  [BBOP:nlw]
+is_a: ME:0000001 ! parameter
+
 [Typedef]
 id: has_input
 name: has_input
