@@ -481,8 +481,8 @@ is_a: ME:0000075 ! PCR
 id: ME:0000068
 name: pairwise_sequence_alignment
 exact_synonym: "psa" []
-def: "A protocol type for aligning two sequences" [BBOP:eos]
-is_a:  ME:0000076 ! data analysis protocol
+def: "A sequence analysis type for aligning two sequences" [BBOP:eos,BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_analysis
 
 [Term]
 id: ME:0000069
@@ -967,6 +967,138 @@ id: ME:0000140
 name: concentration_value
 def: "A numeric value measuring the quantity of entities (molecules, elements, etc) within another measured volume of liquid. A unit should be specified."  [BBOP:nlw]
 is_a: ME:0000001 ! parameter
+
+[Term]
+id: ME:0000141
+name: sequence_alignment_protocol
+def: "An analysis method where two or more sequences are aligned with one another." [BBOP:nlw]
+is_a:  ME:0000076 ! data analysis protocol
+
+[Term]
+id: ME:0000143
+name: Bowtie_sequence_alignment
+def: "Bowtie is an ultrafast, memory-efficient short read aligner that indexes the genome with a Burrows-Wheeler index to keep its memory footprint small.  http://bowtie-bio.sourceforge.net/index.shtml" [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000144
+name: BWA_sequence_alignment
+def: "Burrows-Wheeler Aligner (BWA) is an efficient program that aligns relatively short nucleotide sequences against a long reference sequence such as the human genome. http://bio-bwa.sourceforge.net/" [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000145
+name: TopHat_sequence_alignment
+def: "TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq reads to mammalian-sized genomes using the ultra high-throughput short read aligner Bowtie, and then analyzes the mapping results to identify splice junctions between exons. http://tophat.cbcb.umd.edu/ " [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000146
+name: NexAlign_sequence_alignment
+def: "Nexalign is a program to align millions of short reads from next-generation sequencing data sets to reference genomes, developed by T. Lassmann. http://genome.gsc.riken.jp/osc/english/software/src/nexalign-1.3.5.tgz" [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000147
+name: BLAT_sequence_alignment
+def: "The BLAST-Like Alignment Tool (BLAT) for aligning two or more sequences to a reference. http://genome.cshlp.org/content/12/4/656" [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000148
+name: BLAST_sequence_alignment
+def: "The Basic Local Alignment Search Tool compares a query sequence with a library or database of sequences, and identify library sequences that resemble the query sequence above a certain threshold." [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+#[Term]
+#id: ME:0000149
+#name: SeqHit_sequence_alignment
+#def:
+#is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000150
+name: Eland_sequence_alignment
+def: "Implemented by Illumina. Includes ungapped alignment with a finite read length. ELAND is designed to search a set of large DNA files for a large number of short DNA reads allowing up to 2 errors per match. " [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000151
+name: MAQ_sequence_alignment
+def: "Ungapped alignment that takes into account quality scores for each base." [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000152
+name: cross_match_sequence_alignment
+def: "Cross_match allows the comparison of a pair of sequences to be constrained to bands of the Smith-Waterman matrix that surround one or more matching words in the sequences. http://www.phrap.org/phredphrap/general.html" [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000153
+name: SOAP_sequence_alignment
+def: "Robust with a small (1-3) number of gaps and mismatches. Speed improvement over BLAT, uses a 12 letter hash table." [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000154
+name: Statmap_sequence_alignment
+def: "Statmap is a statistical framework for mapping short reads back to a (potentially uncertain) reference genome." [BBOP:nlw]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
+[Term]
+id: ME:0000155
+name: PeakSeq_analysis
+def: "A methodology for identifying punctate binding sites in ChIP-Seq experiments based on their characteristics.  http://www.gersteinlab.org/proj/PeakSeq/" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000156
+name: Model-based_Analysis_of_ChIP-Seq_(MACS)_analysis
+def: "MACS empirically models the length of the sequenced ChIP fragments, which tends to be shorter than sonication or library construction size estimates, and uses it to improve the spatial resolution of predicted binding sites. http://liulab.dfci.harvard.edu/MACS/" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000157
+name: HMMSeg_analysis
+def: "HMMSeg is a program for the scale-specific segmention of continuous genomic data using hidden Markov models (HMMs). http://noble.gs.washington.edu/proj/hmmseg/" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000158
+name: MA2C_analysis
+def: "A novel normalization method and peak detection algorithm based on the GC content of probes for two-color tiling-arrays.  http://liulab.dfci.harvard.edu/MA2C/MA2C.htm" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000159
+name: ChIPOTle_analysis
+def: "a Microsoft Excel macro written in Visual Basic, ChIPOTle uses a sliding window approach that yields improvements in the identification of bona fide sites of protein-DNA interaction. http://lieblab.bio.unc.edu/ChIPOTle/Unlocked_ChIPOTle_v1.015.xla, https://sourceforge.net/projects/chipotle-perl/" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000160
+name: Model-based_Analysis_of_Tiling-arrays_(MAT)_analysis
+def: "A method to detect regions enriched by transcription factor chromatin immunoprecipitation (ChIP) on Affymetrix tiling arrays (ChIP-chip). http://liulab.dfci.harvard.edu/MAT/" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000161
+name: Regions_of_Significant_Enrichment_in_ChIP-Seq_analysis
+def: "A genome-wide signature of sequencing tag occurances is obtained to reflect protein-DNA binding sites, with strand cross-correlation of tag density providing a quick assessment of data set quality and binding characteristics. A simple classification of tag alignment quality is used, based on the number of nucleotide mismatches. http://compbio.med.harvard.edu/Supplements/ChIP-seq/" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000162
+name: Threshold-based_ChIP_peak_analysis
+def: "An analysis of tiling array data where a specific P value is selected as a threshold to facilitate discussion of a subset of the data at a high confidence level.  This partitions the data into "bound" or "not-bound" regions.  Based on the methods in http://www.sciencemag.org/cgi/content/full/298/5594/799" [BBOP:nlw]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000163
+name: megaBLAST_sequence_alignment
+def: "Mega BLAST uses a greedy algorith for the nucleotide sequence alignment search. This program is optimized for aligning sequences that differ slightly as a result of sequencing or other similar errors. When larger word size is used (see explanation below), it is up to 10 times faster than more common sequence similarity programs. Mega BLAST is also able to efficiently handle much longer DNA sequences than the blastn program of traditional BLAST algorithm." [BBOP:nlw]
+is_a: ME:0000148  ! BLAST_sequence_alignment
 
 [Typedef]
 id: has_input
