@@ -1100,6 +1100,13 @@ name: megaBLAST_sequence_alignment
 def: "Mega BLAST uses a greedy algorith for the nucleotide sequence alignment search. This program is optimized for aligning sequences that differ slightly as a result of sequencing or other similar errors. When larger word size is used (see explanation below), it is up to 10 times faster than more common sequence similarity programs. Mega BLAST is also able to efficiently handle much longer DNA sequences than the blastn program of traditional BLAST algorithm." [BBOP:nlw]
 is_a: ME:0000148  ! BLAST_sequence_alignment
 
+[Term]
+id: ME:0000164
+name: read_count
+def: "A count of the number of sequencing reads resulting from a sequencing or data processing protocol" [BBOP:nlw]
+is_a: ME:0000001  ! parameter
+
+
 [Typedef]
 id: has_input
 name: has_input
