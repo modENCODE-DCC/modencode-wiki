@@ -1010,11 +1010,11 @@ name: BLAST_sequence_alignment
 def: "The Basic Local Alignment Search Tool compares a query sequence with a library or database of sequences, and identify library sequences that resemble the query sequence above a certain threshold." [BBOP:nlw]
 is_a: ME:0000141  ! sequence_alignment_protocol
 
-#[Term]
-#id: ME:0000149
-#name: SeqHit_sequence_alignment
-#def:
-#is_a: ME:0000141  ! sequence_alignment_protocol
+![Term]
+!id: ME:0000149
+!name: SeqHit_sequence_alignment
+!def:
+!is_a: ME:0000141  ! sequence_alignment_protocol
 
 [Term]
 id: ME:0000150
