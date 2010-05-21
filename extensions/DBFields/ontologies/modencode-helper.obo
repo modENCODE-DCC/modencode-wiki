@@ -744,7 +744,8 @@ name: ma2C_normalization_protocol
 def: "A normalization method based on the GC content of probes for two-color tiling-arrays, developed by Song et al. See http://liulab.dfci.harvard.edu/MA2C/MA2C.htm" [BBOP:nlw]
 exact_synonym: "Model-based Analysis of 2-Color Arrays" []
 exact_synonym: "MA2C" []
-is_a:  ME:0000010 ! protocol
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
 
 [Term]
 id: ME:0000107
@@ -1062,12 +1063,6 @@ is_a: ME:0000085 ! peak_finding_data_analysis_protocol
 id: ME:0000157
 name: HMMSeg_analysis
 def: "HMMSeg is a program for the scale-specific segmention of continuous genomic data using hidden Markov models (HMMs). http://noble.gs.washington.edu/proj/hmmseg/" [BBOP:nlw]
-is_a: ME:0000085 ! peak_finding_data_analysis_protocol
-
-[Term]
-id: ME:0000158
-name: MA2C_analysis
-def: "A novel normalization method and peak detection algorithm based on the GC content of probes for two-color tiling-arrays.  http://liulab.dfci.harvard.edu/MA2C/MA2C.htm" [BBOP:nlw]
 is_a: ME:0000085 ! peak_finding_data_analysis_protocol
 
 [Term]
