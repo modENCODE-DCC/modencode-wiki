@@ -17,7 +17,7 @@
     "values" => array(),
     "invalidversion" => false
   );
-  $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label", "img");
+  $modENCODE_dbfields_allowed_tags = array("input", "select", "textarea", "option", "br", "div", "table", "tr", "td", "th", "label", "img", "sup", "sub");
   $modENCODE_dbfields_allowed_attributes = array("name", "type", "value", "border", "style", "width", "size", "rows", "cols", "checked", "selected", "id", "for", "class", "cv", "brackets", "multiple", "required", "align", "valign", "title", "src", "alt", "disabled");
   $modENCODE_markers_to_data = array();
 
@@ -175,7 +175,10 @@
 	if (isset($modENCODE_dbfields_data["values"][$attribs["name"]]) && strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
 	  // Get URLs
 	  $delim = (@$attribs["multiple"] ? ',' : null);
-	  @$terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
+          if (!isset($attribs["brackets"])) { 
+            $attribs["brackets"] = "on";
+          }
+	  $terms = getExactTermsFor($attribs["cv"], html_entity_decode($modENCODE_dbfields_data["values"][$attribs["name"]]), $delim, $attribs["brackets"]);
 	  foreach ($terms as $term) {
 	    if (strlen($term["url"]) > 0) {
 	      $linkname = strlen($term["fullname"]) > 25 ? substr($term["fullname"], 0, 25) . "..." : $term["fullname"];
@@ -238,6 +241,8 @@
         $extra_content_after .= renderBalloonSpan($image, $modENCODE_dbfields_data["balloon_args"]);
         $modENCODE_dbfields_data["balloon_args"] = false;
       }
+    }
+    if ($name == "textarea") {
       $extra_content_after .= "</div>";
     }
 
@@ -600,6 +605,7 @@
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/logger/logger.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/yui/build/autocomplete/autocomplete.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/behaviour.js"></script>' .
+	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/prototype.js"></script>' .
 	'<script type="text/javascript" src="' . $wgScriptPath . '/extensions/DBFields/DBFields.js.php?diff=' . rand() . '"></script>'
       );
     }
