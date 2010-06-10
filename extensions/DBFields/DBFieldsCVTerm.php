@@ -100,6 +100,7 @@
     return $allResultTerms;
   }
   function getFileTermsFor($searchCv, $searchTerm, $multipleCvs=false, $limit=20) {
+    set_time_limit(90);
     $resultTerms = array();
     $path = dirname(__FILE__) . '/ontologies';
 
@@ -182,6 +183,7 @@
       }
     }
     usort($resultTerms, 'lengthSort');
+    set_time_limit(30);
     return array_slice($resultTerms, 0, 50);
   }
   function lengthSort($a, $b) {
