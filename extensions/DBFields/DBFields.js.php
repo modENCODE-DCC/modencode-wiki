@@ -580,3 +580,32 @@ function DBFields_runOnLoad() {
 
 onloadFuncts[onloadFuncts.length] = DBFields_runOnLoad;
 
+var display_panels = new Hash();
+function DBFields_showPanels(controller) {
+  var panels = display_panels.get(controller.id);
+  var selected = controller.getValue();
+  panels.each(function(p) {
+    if (p.id == controller.id + "_details[" + selected + "]") { p.show(); } else { p.hide(); }
+  });
+}
+
+
+function DBFields_initPanels() {
+  var panel_controllers = $$('SELECT.panel_display');
+  panel_controllers.each(function(c) {
+    var panel_id = c.id;
+    var options = c.select("OPTION").map(function(o) { return o.value; });
+    var sibs = c.siblings();
+    var panels = options.map(function(o) { 
+      var sib = sibs.detect(function(s) { return (s.id == panel_id + "_details[" + o + "]"); }); 
+      return sib;
+    }).compact();
+    display_panels.set(panel_id, panels);
+    c.observe('change', function(evt) { DBFields_showPanels(evt.findElement("SELECT")); });
+  });
+  display_panels.keys().each(function(k) {
+    DBFields_showPanels($(k));
+  });
+}
+onloadFuncts[onloadFuncts.length] = DBFields_initPanels;
+
