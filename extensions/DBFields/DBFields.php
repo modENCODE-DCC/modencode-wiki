@@ -62,7 +62,9 @@
     if ($name == "input") {
       if (!isset($attribs["class"])) { $attribs["class"] = ""; }
       if ($attribs["type"] == "cvterm") {
-	$extra_content_before = '<div id="' . $attribs["id"] . '_complete">';
+        $extra_content_before = '<div id="' . $attribs["id"] . '_complete"';
+        if (isset($attribs["style"])) { $extra_content_before .= 'style="' . $attribs["style"] . '"'; }
+        $extra_content_before .= '>';
 	$attribs["class"] .= "cvterm";
 	$attribs["type"] = "text";
       }
