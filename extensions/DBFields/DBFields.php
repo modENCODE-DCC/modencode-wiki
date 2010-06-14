@@ -31,6 +31,21 @@
   function before() {
     print "Before";
   }
+  function is_assoc($array) {
+        return (is_array($array) && (0 !== count(array_diff_key($array, array_keys(array_keys($array)))) || count($array)==0));
+  } 
+  function assoc_accum($array, $prefix, &$accumulator = array()) {
+    foreach ($array as $key => $value) {
+      if (!is_array($value)) {
+        array_push($accumulator, array("${prefix}[$key]", $value));
+      } elseif (is_assoc($value)) {
+        assoc_accum($value, "${prefix}[$key]", $accumulator);
+      } else {
+        array_push($accumulator, array("${prefix}[$key]", implode(", ", $value)));
+      }
+    }
+    return $accumulator;
+  }
   function modENCODE_dbfields_startElement($parser, $name, $attribs) {
     global $modENCODE_dbfields_data;
     global $modENCODE_dbfields_allowed_tags;
@@ -117,9 +132,13 @@
       if (!in_array($key, $modENCODE_dbfields_allowed_attributes)) { continue; }
         if ($key == "name") { 
           // Move any brackets to the end:
-          preg_match('/([\[\]]*)$/', $value, $matches);
-          $value = preg_replace('/([\[\]]*)$/', '', $value);
-          $array_brackets = $matches[1];
+          preg_match('/(\[.*\])$/', $value, $matches);
+          $value = preg_replace('/(\[.*\])$/', '', $value);
+          if (isset($matches[1])) {
+            $array_brackets = $matches[1];
+          } else {
+            $array_brackets = "";
+          }
           $value = "modENCODE_dbfields[$value]$array_brackets"; 
         }
       array_push($string_attributes, "$key=\"$value\"");
@@ -452,9 +471,18 @@
 
         foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
           $key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-          if (is_array($value)) { $value = implode(", ", $value); }
-          $value = modENCODE_db_escape(htmlentities(utf8_decode($value)), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-          modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
+          if (is_assoc($value)) {
+            $values = assoc_accum($value, $key);
+            foreach ($values as $value) {
+              $key = modENCODE_db_escape($value[0], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+              $value = modENCODE_db_escape(htmlentities(utf8_decode($value[1])), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+              modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
+            }
+          } else {
+            if (is_array($value)) { $value = implode(", ", $value); }
+            $value = modENCODE_db_escape(htmlentities(utf8_decode($value)), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+            modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
+          }
         }
       }
 
