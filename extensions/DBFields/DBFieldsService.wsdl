@@ -45,6 +45,7 @@
             <element name="is_complete" minOccurs="1" maxOccurs="1" type="xsd:int"/>
             <element name="values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
             <element name="string_values" minOccurs="1" maxOccurs="1" type="tnstypes:ArrayOfFormValues"/>
+            <element name="requested_name" minOccurs="0" maxOccurs="1" type="xsd:string"/>
           </all>
         </complexType>
         <complexType name="LoginResult">

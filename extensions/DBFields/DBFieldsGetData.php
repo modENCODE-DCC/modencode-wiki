@@ -36,13 +36,13 @@
     $wgUser = new StubUser();
     $wgUser->mId = 150;
     unset($_SESSION);
-#    $url = "http://wiki.modencode.org/project/index.php?title=DAPI_staining_v3&oldid=10113";
+    $url = "http://wiki.modencode.org/project/index.php?title=Yostinso&oldid=30639";
     $submission = new FormDataQuery();
-    $submission->name = $form;
+#    $submission->name = $form;
 #    $submission->name = "COMMENT ME TO DEBUG";
 #    $submission->version = $version;
     $submission->auth = $auth;
-#    $submission->url = $url;
+    $submission->url = $url;
     print_r($dbfs->getFormData($submission));
     print "done\n";
   } else {
@@ -65,11 +65,13 @@
     public $is_complete;
     public $values = array();
     public $string_values = array();
-    public function __construct($name, $version, $revision = null, $latest_revision = null) {
+    public $requested_name;
+    public function __construct($name, $version, $revision = null, $latest_revision = null, $requested_name = null) {
       $this->name = $name;
       $this->version = $version;
       $this->revision = $revision;
       $this->latest_revision = $latest_revision;
+      $this->requested_name = $requested_name;
       $this->is_complete = false;
     }
 
@@ -295,7 +297,19 @@
 	  $revisionId = $row["revisionId"];
 	}
       }
-      if (!isset($revisionId) || !$revisionId) { $revisionId = '(SELECT MAX(wiki_revid) FROM data)'; }
+      $wiki_parser = new Parser();
+
+      $changed_entry_name = false;
+      if (!isset($revisionId) || !$revisionId) {
+        $revisionId = '(SELECT MAX(wiki_revid) FROM data)';
+      } else {
+        if (Revision::newFromId($revisionId) && Revision::newFromId($revisionId)->getTitle()->mTextform != $entry_name) {
+          # Provided an oldid that doesn't match the actual form provided
+          $changed_entry_name = $entry_name;
+          $entry_name = Revision::newFromId($revisionId)->getTitle()->mTextform;
+        }
+      }
+
       $res = modENCODE_db_query($db, "
 	SELECT
 	  CASE WHEN (SELECT COUNT(*) FROM data WHERE wiki_revid >= $revisionId AND name = '$entry_name') > 1 THEN
@@ -305,6 +319,8 @@
 	  END AS version",
 	$modENCODE_DBFields_conf["form_data"]["type"]
       );
+
+
       $version = 0;
       if ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
 	if ($row["version"] > 0) {
@@ -326,11 +342,13 @@
 	}
 	$formdata->setStringValue($row["key"], $row["value"]);
       }
+      if ($changed_entry_name) {
+        $formdata->requested_name = $changed_entry_name;
+      }
 
       modENCODE_db_close($db, $modENCODE_DBFields_conf["form_data"]["type"]);
 
       // Grab any metadata from the dbfields form
-      $wiki_parser = new Parser();
       $newRev = Revision::newFromId($revId);
       if ($newRev) {
         if (@!$newRev->isCurrent) {
@@ -371,7 +389,7 @@
 		}
 	      }
 	      preg_match('/brackets="([^"]*)"/ism', $cvtermInput, $matches);
-              if (strlen($matches[1])) {
+              if (isset($matches[1]) && strlen($matches[1])) {
                 $formvalues->setBrackets($matches[1]);
               }
 	    }
