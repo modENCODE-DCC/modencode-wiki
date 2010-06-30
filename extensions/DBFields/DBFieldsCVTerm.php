@@ -48,6 +48,23 @@
     $searchTerms = getTermsArray($searchTerm, $delimiter);
     $okayTerms = array();
     $multipleCvs = ((!is_null($delimiter) && strpos($searchCv, $delimiter) !== false) || ((is_null($delimiter) || $delimiter == "null") && strpos($searchCv, ",") !== false)) ? true : false;
+    
+    // termsToSearch : lists the terms to run db or file searches on
+    // format: elements alternate between params for a search, and the cvterms
+    // the results of that search should be matching.
+    // The params & results are stored as hashes as follows :
+    // [
+    //  [ 
+    //    "sst" => short search term, "scv" => search CV
+    //  ]
+    //  [ 
+    //    "sts"   => [searchterm1, searchterm2, searchterm3... searchtermN] , 
+    //    "names" => [name1, name2, name3... nameN]
+    //    (names[x] corresponds to sts[x]; if the searchterm has no name, the name field will be NULL)
+    //  ]
+    // ]
+    $termsToSearch = array();
+    
     foreach ($searchTerms as $searchTerm) {
       if ($brackets != "off") {
 	preg_match('/([^\[]*)(?:\[([^\]]*)\])?/', $searchTerm, $searchTermAndName);
@@ -66,16 +83,59 @@
       } else {
         $shortSearchTerm = $searchTerm;
       }
-      $resultTerms = getTermsFor($searchCv, $shortSearchTerm, $multipleCvs);
-      if (count($resultTerms) < 1) { continue; }
-      foreach ($resultTerms as $resultTerm) {
-	if ($resultTerm["fullname"] != $searchTerm) { continue; }
-        if (isset($name)) {
-          $resultTerm["fullname"] .= " [$name]";
+
+      // Attach searchTerm to the corresponding shortSearchTerm and searchCV
+      $paramsForGetTerms = array("sst" => $shortSearchTerm, "scv" => $searchCv);
+      $nameToPush = NULL;
+      if (isset($name)) { $nameToPush = $name; }
+      // If the params already exist, add searchTerm to it; else, add the params
+      if (in_array($paramsForGetTerms, $termsToSearch)) {
+        $currentKey = array_search($paramsForGetTerms, $termsToSearch);
+        // key is the params' location; the array for searchTerms is one location past
+        array_push($termsToSearch[$currentKey + 1]["sts"], $searchTerm);
+        array_push($termsToSearch[$currentKey + 1]["names"], $nameToPush);
+      } else {
+        // If the params don't already exist, push them, then push the searchterm + name
+        $newTermAndName = array("sts" => array($searchTerm), "names" => array($nameToPush));
+        array_push($termsToSearch, $paramsForGetTerms, $newTermAndName);
+      }
+      // Old & slow version of search
+      if (isset($_GET["useoldsearch"])) {
+        $resultTerms = getTermsFor($searchCv, $shortSearchTerm, $multipleCvs);
+        if (count($resultTerms) < 1) { continue; }
+        foreach ($resultTerms as $resultTerm) {
+          if ($resultTerm["fullname"] != $searchTerm) { continue; }
+          if (isset($name)) {
+            $resultTerm["fullname"] .= " [$name]";
+          }
+          array_push($okayTerms, $resultTerm);
         }
-	array_push($okayTerms, $resultTerm);
+      } 
+    }
+
+    // Then, perform the DB/ file search once for each unique set of shortSearchTerm + CV
+    if (! isset($_GET["useoldsearch"])) {
+    // Because of termsToSearch's format of alternating shortTerms&CVs with searchTerms,
+    // shift the elements off two at a time
+      while (! empty($termsToSearch) ) {
+        $curParams = array_shift($termsToSearch); // curParams is sst and scv
+        $curSearchTerms = array_shift($termsToSearch); // contains two arrays, sts and names
+        $resultTerms = getTermsFor($curParams["scv"], $curParams["sst"], $multipleCvs);
+        if (count($resultTerms) < 1) { continue; }
+        // go through the results; if they match a relevant searchTerm, copy them over
+        foreach ($resultTerms as $nresultTerm) {
+          $isResultOk = array_search($nresultTerm["fullname"], $curSearchTerms["sts"]);
+          if ( $isResultOk === false ) { continue; } // "=== false" is used here instead of ! to prevent a key of 0 being treated as false
+          // it matched -- add "name" back to result if necessary
+          if (isset ($curSearchTerms["names"][$isResultOk])) {
+            $nameToAdd = $curSearchTerms["names"][$isResultOk];
+            $nresultTerm["fullname"] .= " [$nameToAdd]";
+          }
+          array_push($okayTerms, $nresultTerm);
+        }
       }
     }
+    
     return $okayTerms;
   }
   function getTermsFor($searchCv, $searchTerm, $multipleCvs=false) {
