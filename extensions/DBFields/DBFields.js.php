@@ -609,3 +609,77 @@ function DBFields_initPanels() {
 }
 onloadFuncts[onloadFuncts.length] = DBFields_initPanels;
 
+function DBFields_collectFormSections(antibody_forms) {
+  var form_sections = new Hash();
+  // Collect all of the form template info so we can initalize a
+  // form builder
+  antibody_forms.each(function(antibody_form) {
+    var key = antibody_form.identify();
+    var title = antibody_form.readAttribute("title");
+    if (key && title) {
+      var form_subsections = new Hash();
+      form_sections.set(key, $H({ 'title': title, 'parts': form_subsections }));
+      var form_parts = antibody_form.childElements();
+      form_parts.each(function(form_part) {
+        var key = form_part.identify();
+        var title = form_part.readAttribute("title");
+        if (key && title) {
+          form_subsections.set(key, title);
+        }
+      });
+    }
+  });
+  return form_sections;
+}
+
+
+var created_form_indices = new Hash();
+function DBFields_addAntibodyForm(selector, section, known_index) {
+  var form_template_id = selector.getValue();
+  var form_template = $(form_template_id);
+  var template_html = form_template.innerHTML;
+  var new_index = (known_index == undefined ? created_form_indices.get(form_template_id) : known_index);
+  if (new_index == undefined) { new_index = 0; } else { new_index++; }
+  created_form_indices.set(form_template_id, new_index);
+  template_html = template_html.gsub(/\[#\]/, '[' + new_index + ']');
+
+  var section_div = new Element("div", { "title": form_template_id + " " + new_index }).update(template_html);
+  var del_section = new Element("input", { "type": "button", "value": "del" });
+  del_section.observe("click", function (evt) { section_div.remove(); });
+  del_section.observe("mouseover", function (evt) { section_div.setStyle("border: 2px dashed blue; margin: -2px"); });
+  del_section.observe("mouseout", function (evt) { section_div.setStyle("border: none; margin: 0px"); });
+  section_div.insert({ bottom: del_section });
+  section.insert({ bottom: section_div });
+
+}
+
+function DBFields_initAntibodies() {
+  var antibody_forms = $$('DIV.antibody_form');
+  var form_sections = DBFields_collectFormSections(antibody_forms);
+  antibody_forms.each(function(f) {
+    // Title
+    var title = new Element("h3");
+    title.update(form_sections.get(f.identify()).get('title'));
+    f.insert({ top: title });
+
+    // Select box
+    f.insert({ bottom: new Element("div", { "style": "float: left" }).update("Add new validation: ")});
+    var selector = new Element("select", { "style": "float: left; margin-left: 0.5em" });
+    var form_subsections = form_sections.get(f.identify()).get('parts');
+    form_subsections.keys().each(function(subsection) {
+      $(subsection).hide();
+      // TODO: Populate and add selector
+      var subsection_title = form_subsections.get(subsection);
+      selector.insert(new Element("option", { "value": subsection }).update(subsection_title));
+    });
+    f.insert({ bottom: selector });
+
+    // Add button
+    var add_button = new Element("input", { "type": "button", "value": "Add", "style": "margin-left: 0.5em"});
+    add_button.observe("click", function(evt) { DBFields_addAntibodyForm(selector, f); });
+    f.insert({ bottom: add_button });
+    f.show();
+  });
+}
+onloadFuncts[onloadFuncts.length] = DBFields_initAntibodies;
+
