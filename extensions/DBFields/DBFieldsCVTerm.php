@@ -123,15 +123,21 @@
         $resultTerms = getTermsFor($curParams["scv"], $curParams["sst"], $multipleCvs);
         if (count($resultTerms) < 1) { continue; }
         // go through the results; if they match a relevant searchTerm, copy them over
-        foreach ($resultTerms as $nresultTerm) {
-          $isResultOk = array_search($nresultTerm["fullname"], $curSearchTerms["sts"]);
-          if ( $isResultOk === false ) { continue; } // "=== false" is used here instead of ! to prevent a key of 0 being treated as false
-          // it matched -- add "name" back to result if necessary
-          if (isset ($curSearchTerms["names"][$isResultOk])) {
-            $nameToAdd = $curSearchTerms["names"][$isResultOk];
-            $nresultTerm["fullname"] .= " [$nameToAdd]";
+        for ($i = 0; $i < count($curSearchTerms["sts"]); $i++) {
+          $foundTerm = null;
+          foreach ($resultTerms as $resultTerm) {
+            if ($resultTerm["fullname"] == $curSearchTerms["sts"][$i]) {
+              $foundTerm = $resultTerm;
+              break;
+            }
           }
-          array_push($okayTerms, $nresultTerm);
+          if ($foundTerm) {
+            if (isset ($curSearchTerms["names"][$i])) {
+              $nameToAdd = $curSearchTerms["names"][$i];
+              $foundTerm["fullname"] .= " [$nameToAdd]";
+            }
+            array_push($okayTerms, $foundTerm);
+          }
         }
       }
     }
