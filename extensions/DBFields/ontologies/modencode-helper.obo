@@ -1107,6 +1107,11 @@ name: sim4_alignment
 def: "Sim4 is a nucleotide sequence alignment program akin to BLAST but specifically tailored to DNA to cDNA/EST (Expressed Sequence Tag) alignment (as opposed to DNA-DNA or protein-protein alignment). It was written by Florea et al." [wikipedia:sim4]
 is_a: ME:0000148  ! BLAST_sequence_alignment
 
+[Term]
+id: ME:0000166
+name: biological_validation_design
+def: "An experimental design type in which the results of the experiment are designed to biologically validate another set of experimental results." [BBOP:nlw]
+
 
 [Typedef]
 id: has_input
