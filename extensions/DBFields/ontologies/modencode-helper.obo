@@ -1105,7 +1105,24 @@ is_a: ME:0000001  ! parameter
 id: ME:0000165
 name: sim4_alignment
 def: "Sim4 is a nucleotide sequence alignment program akin to BLAST but specifically tailored to DNA to cDNA/EST (Expressed Sequence Tag) alignment (as opposed to DNA-DNA or protein-protein alignment). It was written by Florea et al." [wikipedia:sim4]
+
+[Term]
+id: ME:0000166
+name: uniquely_mapped_read_count
+def: "A count of the number of sequencing reads resulting from a sequencing or data processing protocol that map to single sites" [BBOP:nlw]
+is_a: ME:0000001  ! parameter
 is_a: ME:0000148  ! BLAST_sequence_alignment
+
+[Term]
+id: ME:0000167
+name: multiply_mapped_read_count
+def: "A count of the number of sequencing reads resulting from a sequencing or data processing protocol that map to multiple sites" [BBOP:nlw]
+is_a: ME:0000001  ! parameter
+
+[Term]
+id: ME:0000168
+name: biological_validation_design
+def: "An experimental design type in which the results of the experiment are designed to biologically validate another set of experimental results." [BBOP:nlw]
 
 
 [Typedef]
