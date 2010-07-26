@@ -570,7 +570,7 @@ function DBFields_runOnLoad() {
         var input_id = element.id.replace(/_missing$/, '');
         var input_elem = document.getElementById(input_id);
         if (input_elem) {
-          // Pass the ID here rather than the object so we can avoid DOM-tied 
+          // Pass the ID here rather than the object so we can avoid 
           // function closures which lead to memory leaks in IE.
           input_elem.onchange = new Function("DBFields_freetextRequired('" + input_id + "');");
         }
@@ -635,11 +635,17 @@ function DBFields_collectFormSections(antibody_forms) {
 
 var created_form_indices = new Hash();
 function DBFields_addAntibodyForm(selector, section, known_index) {
-  var form_template_id = selector.getValue();
+  var form_template_id = selector;
+  if (selector.getValue) {
+    form_template_id = selector.getValue();
+  }
   var form_template = $(form_template_id);
   var template_html = form_template.innerHTML;
-  var new_index = (known_index == undefined ? created_form_indices.get(form_template_id) : known_index);
-  if (new_index == undefined) { new_index = 0; } else { new_index++; }
+  var new_index = known_index;
+  if (new_index == undefined) {
+    new_index = created_form_indices.get(form_template_id);
+    if (new_index == undefined) { new_index = 0; } else { new_index++; }
+  }
   created_form_indices.set(form_template_id, new_index);
   template_html = template_html.gsub(/\[#\]/, '[' + new_index + ']');
 
@@ -650,7 +656,12 @@ function DBFields_addAntibodyForm(selector, section, known_index) {
   del_section.observe("mouseout", function (evt) { section_div.setStyle("border: none; margin: 0px"); });
   section_div.insert({ bottom: del_section });
   section.insert({ bottom: section_div });
-
+}
+function DBFields_antibodySetValue(antibody_form, input_name, value) {
+  var input = $(antibody_form).down("[name=\"" + input_name + "\"]");
+  if (input) {
+    input.value = value;
+  }
 }
 
 function DBFields_initAntibodies() {
@@ -682,4 +693,6 @@ function DBFields_initAntibodies() {
   });
 }
 onloadFuncts[onloadFuncts.length] = DBFields_initAntibodies;
+onloadFuncts[onloadFuncts.length] = function() { if (window.DBFields_populateAntibodies) { DBFields_populateAntibodies() } };
+
 

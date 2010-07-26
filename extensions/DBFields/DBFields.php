@@ -458,8 +458,24 @@
         $old_values[$row['key']] = $row['value'];
       }
 
-      $left_diff = array_diff_assoc($old_values, $_POST["modENCODE_dbfields"]);
-      $right_diff = array_diff_assoc($_POST["modENCODE_dbfields"], $old_values);
+      $accum_values = array();
+      foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
+        if (is_assoc($value)) {
+          $values = assoc_accum($value, $key);
+          foreach ($values as $value) {
+            if (strpos($value[0], "[#]")) { continue; }
+            $accum_values[$value[0]] = htmlentities(utf8_decode($value[1]));
+          }
+        } else {
+          if (strpos($key, "[#]")) { continue; }
+          if (is_array($value)) { $value = implode(", ", $value); }
+          $accum_values[$key] = htmlentities(utf8_decode($value));
+        }
+      }
+
+
+      $left_diff = array_diff_assoc($old_values, $accum_values);
+      $right_diff = array_diff_assoc($accum_values, $old_values);
       $anyChange = (count($left_diff) > 0 || count($right_diff) > 0) ? true : false;
 
       if ($anyChange) {
@@ -469,20 +485,10 @@
         $a = new Article($parser->mTitle);
         $a->updateIfNewerOn($dbw, $newRev);
 
-        foreach ($_POST["modENCODE_dbfields"] as $key => $value) {
+        foreach ($accum_values as $key => $value) {
           $key = modENCODE_db_escape($key, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-          if (is_assoc($value)) {
-            $values = assoc_accum($value, $key);
-            foreach ($values as $value) {
-              $key = modENCODE_db_escape($value[0], $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-              $value = modENCODE_db_escape(htmlentities(utf8_decode($value[1])), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-              modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
-            }
-          } else {
-            if (is_array($value)) { $value = implode(", ", $value); }
-            $value = modENCODE_db_escape(htmlentities(utf8_decode($value)), $db, $modENCODE_DBFields_conf["form_data"]["type"]);
-            modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
-          }
+          $value = modENCODE_db_escape($value, $db, $modENCODE_DBFields_conf["form_data"]["type"]);
+          modENCODE_db_query($db, "INSERT INTO data (name, key, value, version, wiki_revid) VALUES('$entry_name', '$key', '$value', $version, $newRevId)", $modENCODE_DBFields_conf["form_data"]["type"]);
         }
       }
 
@@ -516,6 +522,7 @@
     xml_parser_free($xml_parser);
 
     $thispage = $parser->mTitle->getFullURL("action=purge");
+    // Attach javascript to populate antibody forms
 
     $parsed_xml = "";
     if ($nochanges) {
@@ -536,8 +543,6 @@
     }
 
     $parsed_xml .= "</form>";
-    // Permalink marker
-    //$modENCODE_markers_to_data[] = "<pre>" . htmlentities($parsed_xml) . "</pre>";
     if (isset($modENCODE_dbfields_data["invalidversion"]) && $modENCODE_dbfields_data["invalidversion"]) {
       $parsed_xml = "<div class=\"invalid\">This form is incomplete...</div>\n" . $parsed_xml;
     }
@@ -595,10 +600,62 @@
     }
 
 
+    // Permalink
     $server_url = "http://" . $_SERVER["SERVER_NAME"];
     $parsed_xml .= "<br/>Please use this page's permanent link when referencing it in data submission (e.g. in the IDF):<br/>";
     $parsed_xml .= "<a href=\"$permalink\">${server_url}$permalink</a><br/>";
     $parsed_xml .= "IE Users: Right-click and choose 'Copy Shortcut' to copy the permalink URL to the clipboard.";
+
+    $value_keys = array();
+    foreach (array_keys($modENCODE_dbfields_data["values"]) as $value_key) {
+      preg_match("/([^\\[]*)\[(\d+)\]/", $value_key, $matches);
+      if ($matches) {
+        if (!isset($value_keys[$matches[1]])) { $value_keys[$matches[1]] = array(); }
+        if (!isset($value_keys[$matches[1]]["sections"])) { $value_keys[$matches[1]]["sections"] = array(); }
+        $value_keys[$matches[1]]["example"] = $value_key;
+        array_push($value_keys[$matches[1]]["sections"], $matches[2]);
+        $value_keys[$matches[1]]["sections"] = array_unique($value_keys[$matches[1]]["sections"]);
+      }
+    }
+    $parsed_xml .= "\n<script type=\"text/javascript\">\n";
+    $parsed_xml .= "  function DBFields_populateAntibodies() {\n";
+    foreach ($value_keys as $value_key => $value_values) {
+      $section_nums = $value_values["sections"];
+      $section_example = $value_values["example"];
+      if (strpos($modENCODE_dbfields_data["xml"], $value_key . "[#]")) {
+        // Move any brackets to the end:
+        preg_match('/(\[.*\])$/', $section_example, $matches);
+        $section_example = preg_replace('/(\[.*\])$/', '', $section_example);
+        if (isset($matches[1])) {
+          $array_brackets = $matches[1];
+        } else {
+          $array_brackets = "";
+        }
+        $section_example = "modENCODE_dbfields[$section_example]$array_brackets"; 
+        $section_example = preg_replace('/\[\d+\]/', '[#]', $section_example);
+        // Get the .antibody_form DIV
+        $parsed_xml .= "    var antibody_form = $$('[name=\"" . $section_example . "\"]').first();\n";
+        $parsed_xml .= "    if (antibody_form) {\n";
+        $parsed_xml .= "      section = antibody_form.up('DIV[title]');\n";
+        $parsed_xml .= "      antibody_form = antibody_form.up('DIV.antibody_form');\n";
+        foreach ($section_nums as $section_num) {
+          // Create the forms
+          $parsed_xml .= "      DBFields_addAntibodyForm(section, antibody_form, " . $section_num . ");\n";
+          // Populate the forms with the data
+          foreach (array_keys($modENCODE_dbfields_data["values"]) as $value_name) {
+            if (strpos($value_name, $value_key . "[" . $section_num . "]") === 0) {
+              $value = $modENCODE_dbfields_data["values"][$value_name];
+              $value = str_replace("'", "\\'", str_replace("\\", "\\\\", $value));
+              preg_match('/(\[.*\])$/', $value_name, $matches); $value_name = preg_replace('/(\[.*\])$/', '', $value_name); if (isset($matches[1])) { $array_brackets = $matches[1]; } else { $array_brackets = ""; } $value_name = "modENCODE_dbfields[$value_name]$array_brackets"; 
+              $parsed_xml .= "      DBFields_antibodySetValue(antibody_form, '" . $value_name . "', '" . $value . "');\n";
+            }
+          }
+        }
+        $parsed_xml .= "    }\n";
+      }
+    }
+    $parsed_xml .= "}\n";
+    $parsed_xml .= "</script>\n";
 
     $modENCODE_markers_to_data[] = $parsed_xml;
 
@@ -606,6 +663,8 @@
     $result .= htmlspecialchars("modENCODE-marker#" . (count($modENCODE_markers_to_data)-1) . "#");
 
     $modENCODE_dbfields_data = array();
+
+
 
     return $result;
   }
