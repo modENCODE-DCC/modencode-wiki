@@ -29,6 +29,7 @@
   if ($debug) {
     header("Content-type: text/plain");
     $dbfs = new DBFieldsService();
+    if (isset($_GET["revision"])) { $revision = $_GET["revision"]; } else { $revision = null; }
     if (isset($_GET["version"])) { $version = $_GET["version"]; } else { $version = null; }
     if (isset($_GET["form"])) { $form = $_GET["form"]; } else { $form = null; }
     $auth = ($dbfs->getLoginCookie('Validator_Robot', 'vdate_358'));
@@ -39,9 +40,9 @@
     $url = "http://wiki.modencode.org/project/index.php?title=Yostinso&oldid=30639";
     $submission = new FormDataQuery();
 #    $submission->name = $form;
-#    $submission->name = "COMMENT ME TO DEBUG";
 #    $submission->version = $version;
-    $submission->auth = $auth;
+#    $submission->revision = $revision;
+#    $submission->auth = $auth;
     $submission->url = $url;
     print_r($dbfs->getFormData($submission));
     print "done\n";
@@ -294,7 +295,7 @@
 	  $modENCODE_DBFields_conf["form_data"]["type"]
 	);
 	if ($row = modENCODE_db_fetch_assoc($res, $modENCODE_DBFields_conf["form_data"]["type"])) {
-	  $revisionId = $row["revisionId"];
+	  $revisionId = isset($row["revisionId"]) ? $row["revisionId"] : false;
 	}
       }
       $wiki_parser = new Parser();
@@ -303,7 +304,7 @@
       if (!isset($revisionId) || !$revisionId) {
         $revisionId = '(SELECT MAX(wiki_revid) FROM data)';
       } else {
-        if (Revision::newFromId($revisionId) && Revision::newFromId($revisionId)->getTitle()->mTextform != $entry_name) {
+        if (Revision::newFromId($revisionId) && Revision::newFromId($revisionId)->getTitle()->mTextform != $entry_name && "QC".Revision::newFromId($revisionId)->getTitle()->mTextform != $entry_name) {
           # Provided an oldid that doesn't match the actual form provided
           $changed_entry_name = $entry_name;
           $entry_name = Revision::newFromId($revisionId)->getTitle()->mTextform;
