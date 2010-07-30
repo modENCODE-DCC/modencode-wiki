@@ -643,10 +643,10 @@ function DBFields_addAntibodyForm(selector, section, known_index) {
   var template_html = form_template.innerHTML;
   var new_index = known_index;
   if (new_index == undefined) {
-    new_index = created_form_indices.get(form_template_id);
+    new_index = created_form_indices.get(form_template.identify());
     if (new_index == undefined) { new_index = 0; } else { new_index++; }
   }
-  created_form_indices.set(form_template_id, new_index);
+  created_form_indices.set(form_template.identify(), new_index);
   template_html = template_html.gsub(/\[#\]/, '[' + new_index + ']');
 
   var section_div = new Element("div", { "title": form_template_id + " " + new_index }).update(template_html);
