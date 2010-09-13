@@ -489,74 +489,10 @@ var DBFields_hideSpinner = function(sType, aArgs) {
 var autocompleters = [];
 function DBFields_runOnLoad() {
     //var myLogReader = new YAHOO.widget.LogReader(); 
-    var cvtermInputs = document.getElementsBySelector("input.cvterm");
+    var cvtermInputs = document.getElementsBySelector(":not(.template) input.cvterm");
     if (cvtermInputs) {
         for (i = 0; element = cvtermInputs[i]; i++) {
-            var cv = element.getAttribute('cv');
-            var multiple = element.getAttribute('multiple');
-            var brackets = element.getAttribute('brackets');
-            if (!cv) { continue; }
-            var url = "<?=dirname($_SERVER["PHP_SELF"]);?>/DBFieldsCVTerm.php"
-	    var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'fullname', 'name', 'cv', 'accession', 'definition', 'url' ]);
-            dataSource.responseType = YAHOO.widget.DS_XHR.TYPE_XML;
-            dataSource.scriptQueryAppend = "cv=" + cv;
-            dataSource.scriptQueryParam = "term";
-            dataSource.queryMatchCase = true;
-            dataSource.queryMatchContains = true;
-            dataSource.maxCacheEntries = 60;
-            dataSource.queryMatchSubset = false; 
-
-            var input_id = element.id;
-            var container_id = input_id + "_container";
-
-            var autoComp = new YAHOO.widget.AutoComplete(input_id, container_id, dataSource);
-            autoComp.minQueryLength = 1;
-            if (multiple == "true") { 
-                autoComp.delimChar = ','; 
-                autoComp.extraSelectionKeycodes = 188;
-                autoComp.forceSelectionDelayed = true; 
-            } else { 
-                autoComp.delimChar = ''; 
-                autoComp.forceSelectionDelayed = true; 
-            }
-	    if (brackets == "off") {
-	      autoComp.brackets = false;
-	    } else {
-	      autoComp.brackets = true;
-	    }
-            autoComp.formatResult = function(aResultItem, sQuery) {
-                var termName = aResultItem[0];
-                var cvName = aResultItem[2];
-                var accession = aResultItem[3];
-		termName = (termName.length > 30) ? termName.substr(0, 30) + "..." : termName;
-                termName = termName.replace(sQuery, "<span class=\"queryText\">" + sQuery + "</span>");
-		if (termName.length = 0) { termName = "&nbsp;"; }
-                var formattedResult =
-                    "<div class=\"formattedResult\">" +
-                    "<div class=\"accession\">" + accession + "</div>" +
-                    "<div class=\"termName\">" + termName + "</div>" +
-                    "</div>";
-                return formattedResult;
-            };
-
-	    autoComp.itemArrowToEvent.subscribe(DBFields_showDefinition);
-	    autoComp.itemMouseOverEvent.subscribe(DBFields_showDefinition);
-	    autoComp.textboxBlurEvent.subscribe(DBFields_hideDefinition);
-	    autoComp.itemSelectEvent.subscribe(DBFields_hideDefinition);
-	    autoComp.dataRequestEvent.subscribe(DBFields_hideDefinition);
-	    autoComp.dataRequestEvent.subscribe(DBFields_showSpinner);
-	    autoComp.dataReturnEvent.subscribe(DBFields_hideSpinner);
-	    autoComp.dataErrorEvent.subscribe(DBFields_hideSpinner);
-	    autoComp.finishedValidatingEvent.subscribe(DBFields_hideSpinner);
-	    autoComp.textboxFocusEvent.subscribe(DBFields_hideURL);
-	    autoComp.finishedValidatingEvent.subscribe(DBFields_showURL);
-	    autoComp.finishedValidatingEvent.subscribe(DBFields_checkRequired);
-
-            autoComp.allowBrowserAutocomplete = false;
-	    autoComp.urlField = input_id + "_url";
-	    autoComp.missingField = input_id + "_missing";
-
-            autocompleters[autocompleters.length] = autoComp;
+            DBFields_makeCvField(element);
         }
     }
 
@@ -576,6 +512,82 @@ function DBFields_runOnLoad() {
         }
       }
     }
+}
+
+function DBFields_makeCvField(element) {
+  var cv = element.getAttribute('cv');
+  var multiple = element.getAttribute('multiple');
+  var brackets = element.getAttribute('brackets');
+  if (!cv) { return; }
+  var url = "<?=dirname($_SERVER["PHP_SELF"]);?>/DBFieldsCVTerm.php"
+  var dataSource = new YAHOO.widget.DS_XHR(url, [ 'term', 'fullname', 'name', 'cv', 'accession', 'definition', 'url' ]);
+  dataSource.responseType = YAHOO.widget.DS_XHR.TYPE_XML;
+  dataSource.scriptQueryAppend = "cv=" + cv;
+  dataSource.scriptQueryParam = "term";
+  dataSource.queryMatchCase = true;
+  dataSource.queryMatchContains = true;
+  dataSource.maxCacheEntries = 60;
+  dataSource.queryMatchSubset = false; 
+
+  var input_id = element.identify();
+  var complete_complete = element.up("DIV.complete_complete");
+  var container = complete_complete.down("DIV.complete_container");
+  var container_id = container.identify();
+
+  var autoComp = new YAHOO.widget.AutoComplete(input_id, container_id, dataSource);
+  autoComp.minQueryLength = 1;
+  if (multiple == "true") { 
+      autoComp.delimChar = ','; 
+      autoComp.extraSelectionKeycodes = 188;
+      autoComp.forceSelectionDelayed = true; 
+  } else { 
+      autoComp.delimChar = ''; 
+      autoComp.forceSelectionDelayed = true; 
+  }
+  if (brackets == "off") {
+    autoComp.brackets = false;
+  } else {
+    autoComp.brackets = true;
+  }
+  autoComp.formatResult = function(aResultItem, sQuery) {
+      var termName = aResultItem[0];
+      var cvName = aResultItem[2];
+      var accession = aResultItem[3];
+      termName = (termName.length > 30) ? termName.substr(0, 30) + "..." : termName;
+      termName = termName.replace(sQuery, "<span class=\"queryText\">" + sQuery + "</span>");
+      if (termName.length = 0) { termName = "&nbsp;"; }
+      var formattedResult =
+          "<div class=\"formattedResult\">" +
+          "<div class=\"accession\">" + accession + "</div>" +
+          "<div class=\"termName\">" + termName + "</div>" +
+          "</div>";
+      return formattedResult;
+  };
+
+  autoComp.itemArrowToEvent.subscribe(DBFields_showDefinition);
+  autoComp.itemMouseOverEvent.subscribe(DBFields_showDefinition);
+  autoComp.textboxBlurEvent.subscribe(DBFields_hideDefinition);
+  autoComp.itemSelectEvent.subscribe(DBFields_hideDefinition);
+  autoComp.dataRequestEvent.subscribe(DBFields_hideDefinition);
+  autoComp.dataRequestEvent.subscribe(DBFields_showSpinner);
+  autoComp.dataReturnEvent.subscribe(DBFields_hideSpinner);
+  autoComp.dataErrorEvent.subscribe(DBFields_hideSpinner);
+  autoComp.finishedValidatingEvent.subscribe(DBFields_hideSpinner);
+  autoComp.textboxFocusEvent.subscribe(DBFields_hideURL);
+  autoComp.finishedValidatingEvent.subscribe(DBFields_showURL);
+  autoComp.finishedValidatingEvent.subscribe(DBFields_checkRequired);
+
+  autoComp.allowBrowserAutocomplete = false;
+
+  var urlField = complete_complete.down("DIV.complete_url");
+  var missingField = complete_complete.down("DIV.complete_missing");
+  
+  if (urlField)
+    autoComp.urlField = urlField.identify();
+  if (missingField)
+    autoComp.missingField = missingField.identify();
+
+  autocompleters[autocompleters.length] = autoComp;
 }
 
 onloadFuncts[onloadFuncts.length] = DBFields_runOnLoad;
@@ -656,6 +668,9 @@ function DBFields_addAntibodyForm(selector, section, known_index) {
   del_section.observe("mouseout", function (evt) { section_div.setStyle("border: none; margin: 0px"); });
   section_div.insert({ bottom: del_section });
   section.insert({ bottom: section_div });
+  section_div.select("INPUT.cvterm.dbfields_input").each(function(e) {
+    DBFields_makeCvField(e);
+  });
 }
 function DBFields_antibodySetValue(antibody_form, input_name, value) {
   var input = $(antibody_form).down("[name=\"" + input_name + "\"]");
@@ -679,6 +694,7 @@ function DBFields_initAntibodies() {
     var form_subsections = form_sections.get(f.identify()).get('parts');
     form_subsections.keys().each(function(subsection) {
       $(subsection).hide();
+      $(subsection).addClassName('template');
       // TODO: Populate and add selector
       var subsection_title = form_subsections.get(subsection);
       selector.insert(new Element("option", { "value": subsection }).update(subsection_title));

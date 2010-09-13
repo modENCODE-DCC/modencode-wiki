@@ -77,7 +77,7 @@
     if ($name == "input") {
       if (!isset($attribs["class"])) { $attribs["class"] = ""; }
       if ($attribs["type"] == "cvterm") {
-        $extra_content_before = '<div id="' . $attribs["id"] . '_complete"';
+        $extra_content_before = '<div class="complete_complete" ';
         if (isset($attribs["style"])) { $extra_content_before .= 'style="' . $attribs["style"] . '"'; }
         $extra_content_before .= '>';
 	$attribs["class"] .= "cvterm";
@@ -192,7 +192,7 @@
 
       if ($input["attribs"]["type"] == "cvterm") {
 	$attribs = $input["attribs"];
-	$extra_content_after .= '<div class="cvterm_url" id="' . $attribs["id"] . '_url">';
+	$extra_content_after .= '<div class="cvterm_url complete_url">';
 	if (isset($modENCODE_dbfields_data["values"][$attribs["name"]]) && strlen($modENCODE_dbfields_data["values"][$attribs["name"]]) > 0) {
 	  // Get URLs
 	  $delim = (@$attribs["multiple"] ? ',' : null);
@@ -211,7 +211,7 @@
 	  }
 	}
 	$extra_content_after .= '</div>';
-	$extra_content_after .= '<div id="' . $input["attribs"]["id"] . '_container"></div></div>';
+	$extra_content_after .= '<div class="complete_container"></div></div>';
       }
     }
     if ($name == "input" || $name == "select") {
@@ -230,7 +230,7 @@
         $missingClass = "required";
         if (!strlen($value)) { 
 	  $missingClass .= " missing";
-	  $extra_content_after .= "  <div class=\"$missingClass\" id=\"" . $attribs["id"] . "_missing\">required field missing</div>";
+	  $extra_content_after .= "  <div class=\"$missingClass complete_missing\">required field missing</div>";
 	  $modENCODE_dbfields_data["invalidversion"] = true;
 	}
       }
