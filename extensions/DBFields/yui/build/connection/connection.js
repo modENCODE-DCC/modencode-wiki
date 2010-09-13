@@ -237,7 +237,7 @@ YAHOO.util.Connect =
 					try
 					{
 						var obj = YAHOO.util.Event.getTarget(e);
-						if(obj.type.toLowerCase() == 'submit'){
+						if(obj.type && obj.type.toLowerCase() == 'submit'){
 							YAHOO.util.Connect._submitElementValue = encodeURIComponent(obj.name) + "=" + encodeURIComponent(obj.value);
 						}
 					}
