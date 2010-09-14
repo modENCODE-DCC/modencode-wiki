@@ -489,7 +489,8 @@ var DBFields_hideSpinner = function(sType, aArgs) {
 var autocompleters = [];
 function DBFields_runOnLoad() {
     //var myLogReader = new YAHOO.widget.LogReader(); 
-    var cvtermInputs = document.getElementsBySelector(":not(.template) input.cvterm");
+    var cvtermInputs = $$("input.cvterm");
+    cvtermInputs = cvtermInputs.reject(function(e) { return e.up(".antibody_form"); }); // These get done later
     if (cvtermInputs) {
         for (i = 0; element = cvtermInputs[i]; i++) {
             DBFields_makeCvField(element);
@@ -661,7 +662,7 @@ function DBFields_addAntibodyForm(selector, section, known_index) {
   created_form_indices.set(form_template.identify(), new_index);
   template_html = template_html.gsub(/\[#\]/, '[' + new_index + ']');
 
-  var section_div = new Element("div", { "title": form_template_id + " " + new_index }).update(template_html);
+  var section_div = new Element("div", { "title": form_template.identify() + " " + new_index }).update(template_html);
   var del_section = new Element("input", { "type": "button", "value": "del" });
   del_section.observe("click", function (evt) { section_div.remove(); });
   del_section.observe("mouseover", function (evt) { section_div.setStyle("border: 2px dashed blue; margin: -2px"); });
