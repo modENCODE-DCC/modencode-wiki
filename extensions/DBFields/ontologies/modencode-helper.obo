@@ -1129,6 +1129,12 @@ name: software_version
 def: "A parameter value that indicates the numeric version of a software pacakage used to analyze data." [BBOP:nlw]
 is_a: ME:0000001  ! parameter
 
+[Term]
+id: ME:0000170
+name: Binary Sequence_Alignment/Map (BAM)
+def: "A tab delimited file format for alignments of short read sequences to a reference genome, converted to binary format" [HTTP:samtools.sourceforge.net/]
+comment: "http://samtools.sourceforge.net/SAM1.pdf"
+is_a: ME:0000128 ! sequence_alignment_file_format
 
 [Typedef]
 id: has_input
