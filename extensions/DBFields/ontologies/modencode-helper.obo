@@ -1130,7 +1130,18 @@ def: "A parameter value that indicates the numeric version of a software pacakag
 is_a: ME:0000001  ! parameter
 
 [Term]
-id: ME:0000170
+id: ME:000000170
+name: attribute
+def: "An attribute of a protocol or datum." [BBOP:yostinso]
+ 
+[Term]
+id: ME:0000171
+name: antibody_qc
+def: "A attribute of an antibody reflecting quality control information about that antibody." [BBOP:yostinso]
+is_a: ME:0000170  ! attribute
+
+[Term]
+id: ME:0000172
 name: Binary Sequence_Alignment/Map (BAM)
 def: "A tab delimited file format for alignments of short read sequences to a reference genome, converted to binary format" [HTTP:samtools.sourceforge.net/]
 comment: "http://samtools.sourceforge.net/SAM1.pdf"
