@@ -1110,13 +1110,13 @@ def: "Sim4 is a nucleotide sequence alignment program akin to BLAST but specific
 id: ME:0000166
 name: uniquely_mapped_read_count
 def: "A count of the number of sequencing reads resulting from a sequencing or data processing protocol that map to single sites" [BBOP:nlw]
-is_a: ME:0000001  ! parameter
+is_a: ME:0000173  ! mapped_read_count
 
 [Term]
 id: ME:0000167
 name: multiply_mapped_read_count
 def: "A count of the number of sequencing reads resulting from a sequencing or data processing protocol that map to multiple sites" [BBOP:nlw]
-is_a: ME:0000001  ! parameter
+is_a: ME:0000173  ! mapped_read_count
 
 [Term]
 id: ME:0000168
@@ -1146,6 +1146,13 @@ name: Binary Sequence_Alignment/Map (BAM)
 def: "A tab delimited file format for alignments of short read sequences to a reference genome, converted to binary format" [HTTP:samtools.sourceforge.net/]
 comment: "http://samtools.sourceforge.net/SAM1.pdf"
 is_a: ME:0000128 ! sequence_alignment_file_format
+
+[Term]
+id: ME:0000173
+name: mapped_read_count
+def: "A count of the number of sequencing reads resulting from a sequencing or data processing protocol that map to one or more sites" [BBOP:nlw]
+is_a: ME:0000164  ! read_count
+
 
 [Typedef]
 id: has_input
