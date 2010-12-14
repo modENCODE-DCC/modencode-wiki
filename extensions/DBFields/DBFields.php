@@ -114,7 +114,7 @@
             $value = (isset($modENCODE_dbfields_data["values"][$parent["attribs"]["name"]])) ? $modENCODE_dbfields_data["values"][$parent["attribs"]["name"]] : "";
             array_push($values, $value);
           }
-          if (in_array($attribs["value"], $values)) {
+          if (in_array($attribs["value"], $values) || in_array($attribs["value"], array_map(create_function('$v', 'return html_entity_decode($v);'), $values))) {
             $attribs["selected"] = "selected";
           } elseif ($value) {
             unset($attribs["selected"]);
