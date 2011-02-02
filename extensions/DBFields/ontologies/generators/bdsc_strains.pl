@@ -52,7 +52,6 @@ my $ua = new LWP::UserAgent();
 $ua->timeout(20);
 
 my $cont;
-if (0) { # XXX
 print STDERR "Downloading $url...\n";
 my $response = $ua->get($url);
 print STDERR "Parsing...\n";
@@ -61,9 +60,6 @@ $content = $response->content . "\n";
 
 
 open $cont, '<', \$content or die "WFT";
-} else { # XXX
-  open $cont, "<", "bloomington.csv" or die "oops";
-} # XXX
 
 my @allvalues = parse($cont);
 close $cont;
