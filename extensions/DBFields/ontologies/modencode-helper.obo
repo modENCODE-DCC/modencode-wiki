@@ -1159,6 +1159,12 @@ name: STAR_sequence_alignment
 def: "The Spliced Transcripts Alignments and Reconstruction (STAR) novel alignment strategy for de novo detection of the splice junctions does not require any previous knowledge of splice junction loci and does not use a priori properties of the junctions. This unbiased splice junction mapping is imperative for discovery of novel (un-annotated, non-canonical) splice junctions and isoforms, as well as other increasingly important RNA species such as inter-chromosomal chimeric RNAs.  The key algorithm of the STAR alignment strategy is the search for the maximum mappable length of a read, implemented as a speed-efficient suffix array search. See http://gingeraslab.cshl.edu/STAR/STARintro.htm for more information " [BBOP:nlw]
 is_a: ME:0000141  ! sequence_alignment_protocol
 
+[Term]
+id: ME:0000175
+name: SRA
+def: "The Sequence Read Archive format used as the native format for the INSCD database, containing sequence and quality information" [BBOP:yostinso]
+is_a: ME:0000045 ! sequence_file
+
 [Typedef]
 id: has_input
 name: has_input
