@@ -338,7 +338,22 @@ name: Mesorhabditis longespiculosa
 namespace: organisms
 
 [Term]
-id: Organisms:Escherichia_coli     Genotype: E. coli.  Description: Bacterial strain.
-name: Escherichia coli     Genotype: E. coli.  Description: Bacterial strain.
+id: Caenorhabditis_briggsae
+name: Caenorhabditis briggsae
+namespace: organisms
+
+[Term]
+id: Caenorhabditis_remanei
+name: Caenorhabditis remanei
+namespace: organisms
+
+[Term]
+id: Caenorhabditis_brenneri
+name: Caenorhabditis brenneri
+namespace: organisms
+
+[Term]
+id: Caenorhabditis_japonica
+name: Caenorhabditis japonica
 namespace: organisms
 

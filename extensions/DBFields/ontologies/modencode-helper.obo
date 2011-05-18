@@ -1165,6 +1165,18 @@ name: SRA
 def: "The Sequence Read Archive format used as the native format for the INSCD database, containing sequence and quality information" [BBOP:yostinso]
 is_a: ME:0000045 ! sequence_file
 
+[Term]
+id: ME:0000176
+name: Regions_of_Significant_Enrichment_in_ChIP-chip_analysis
+def: "Enrichment P-values are calculated using a sliding window (1-kbp window size; step size 30 bp). The P-value enrichment score is calculated at each step using a one-sided t-test on the M-values of probes that fall within the window. To capture both significant enrichment and significant depletion, P-values for enrichment test (ePv) and depletion test (dPv) are calculated, and the score is given as -log10(min(ePv,dPv)). The score is then multiplied by À1 if dPv was smaller than ePv. (From: Riddle et al., Genome Research 21: 147-163, 2011. PMID: 21177972" [BBOP:mdp]
+is_a: ME:0000085 ! peak_finding_data_analysis_protocol
+
+[Term]
+id: ME:0000177
+name: Novalign_sequence_alignment
+def: "Novoalign is a short read aligner that combines fast K-mer index searching with dynamic programming. " [BBOP:pl]
+is_a: ME:0000141  ! sequence_alignment_protocol
+
 [Typedef]
 id: has_input
 name: has_input

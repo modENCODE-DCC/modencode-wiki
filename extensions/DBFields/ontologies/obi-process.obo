@@ -1804,7 +1804,7 @@ relationship: obi:OBI_0000313 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd
 
 [Term]
 id: obi:OBI_0600047
-name: sequencing
+name: sequencing assay
 def: "the use of a chemical or biochemical means to infer the sequence of a biomaterial" []
 relationship: obi:OBI_0000293 __file:///srv/www/htdocs/obo-conv-cache/c33d0e0afd19b6f2058d919d40f39087.url#__Description11
 relationship: obi:OBI_0000299 obi:OBI_0000305

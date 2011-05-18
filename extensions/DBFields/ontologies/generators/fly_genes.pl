@@ -9,10 +9,10 @@ use IO::Handle;
 use Term::ProgressBar;
 
 my %conf = (
-  "dbname" => "fb2008_02",
-  "host" => "bop.lbl.gov",
+  "dbname" => "FB2009_07",
+  "host" => "awol.lbl.gov",
   "username" => "db_public",
-  "password" => "limecat"
+  "password" => "limecat",
 );
 
 autoflush STDERR 1;
@@ -47,9 +47,11 @@ my $get_genes = $db->prepare("SELECT f.feature_id FROM feature f
   WHERE 
     f.organism_id = ? AND 
     f.is_obsolete = false AND
-    f.dbxref_id IS NOT NULL AND
+    -- f.dbxref_id IS NOT NULL AND
     cvt.name = 'gene' AND 
-    (cv.name = 'sequence' OR cv.name = 'SO')");
+    (cv.name = 'sequence' OR cv.name = 'SO')
+  ORDER BY LENGTH(f.name)
+  ");
 
 
 my $get_synonyms = $db->prepare("SELECT name FROM cvterm WHERE cvterm_id IN (SELECT DISTINCT type_id FROM synonym)");

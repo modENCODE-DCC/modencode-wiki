@@ -34181,7 +34181,7 @@ is_obsolete: true
 [Term]
 id: WBbt:0007804
 name: command interneuron
-def: "a type of interneurons whose synaptic output represent a “final common pathway” to motor neurons. The synaptic activities of command interneurons lead directly to the control of locomotion." [WA:dh ""]
+def: "a type of interneurons whose synaptic output represent a final common pathway to motor neurons. The synaptic activities of command interneurons lead directly to the control of locomotion." [WA:dh ""]
 synonym: "command neuron" []
 is_a: WBbt:0005113
 
