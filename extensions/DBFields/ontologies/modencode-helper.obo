@@ -1177,6 +1177,27 @@ name: Novalign_sequence_alignment
 def: "Novoalign is a short read aligner that combines fast K-mer index searching with dynamic programming. " [BBOP:pl]
 is_a: ME:0000141  ! sequence_alignment_protocol
 
+[Term]
+id: ME:0000178
+name: female organism lacking reproductive system
+intersection_of: FBbt:00007011 ! female organism
+intersection_of: lacks_part FBbt:00004864 ! female reproductive system
+
+[Term]
+id: ME:0000179
+name: male organism lacking reproductive system
+intersection_of: FBbt:00007004 ! male organism
+intersection_of: lacks_part FBbt:00004927 ! male reproductive system
+
+[Term]
+id: ME:0000180
+name: Browser_Extensible_Data_Format 6 (BED6+3)
+def: "The BED format was defined for the efficient storage and retrieval of genomic annotations. It provides a flexible way to define the data lines that are displayed in an annotation track.   This format was developed specifically for display of ENCODE RNA elements, and includes columns for expression level and significance.  Column 9 can be used for attributes.  See http://genome-preview.ucsc.edu/FAQ/FAQformat.html#format11" [BBOP:nlw]
+exact_synonym: "BED6+3" [] ! belonged to category ABBREVIATION
+is_a: ME:0000093 ! annotation_data_file
+relationship: part_of ME:0000032 ! WIG file
+
+
 [Typedef]
 id: has_input
 name: has_input
@@ -1202,4 +1223,10 @@ name: result_of
 [Typedef]
 id: valid_file_format
 name: valid_file_format
+
+[Typedef]
+id: lacks_part
+name: lacks_part
+namespace: RO
+expand_expression_to: "http://purl.obolibrary.org/obo/BFO_0000051 exactly 0 ?Y" []
 
