@@ -1197,6 +1197,13 @@ exact_synonym: "BED6+3" [] ! belonged to category ABBREVIATION
 is_a: ME:0000093 ! annotation_data_file
 relationship: part_of ME:0000032 ! WIG file
 
+[Term]
+id: ME:0000181
+name: CSFASTA
+def: "CSFASTA format is a text-based format for representing either nucleic acid sequences or peptide sequences in colorspace, which is the output format from SOLiD sequencing" [BBOP:nlw]
+comment: "See: http://solid.community.appliedbiosystems.com/groups/bioinformatics/blog/tags/csfasta"
+is_a: ME:0000045 ! sequence_file
+
 
 [Typedef]
 id: has_input
