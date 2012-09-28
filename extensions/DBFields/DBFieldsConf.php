@@ -21,7 +21,7 @@
   $modENCODE_DBFields_conf["form_data"]["host"] = "localhost";
   $modENCODE_DBFields_conf["form_data"]["dbname"] = "wiki_forms";
   $modENCODE_DBFields_conf["form_data"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["form_data"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["form_data"]["password"] = "pw";
   $modENCODE_DBFields_conf["form_data"]["type"] = "postgres";
 
   $modENCODE_DBFields_conf["cvterms"]["cell"]["canonical_url"] = "http://obo.cvs.sourceforge.net/*checkout*/obo/obo/ontology/anatomy/cell_type/cell.obo";
@@ -29,21 +29,21 @@
   $modENCODE_DBFields_conf["cvterms"]["cell"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["cell"]["dbname"] = "fb2007_02";
   $modENCODE_DBFields_conf["cvterms"]["cell"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["cell"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["cell"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["cell"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["cell"]["query"] = $cvquery;
 
   $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["dbname"] = "fb2007_02";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase anatomy CV"]["query"] = $cvquery;
 
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["dbname"] = "fb2007_02";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["FlyBase development CV"]["query"] = $cvquery;
 
@@ -52,14 +52,14 @@
   $modENCODE_DBFields_conf["cvterms"]["SO"]["host"] = "bop.lbl.ogv";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["dbname"] = "wormbase_180";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["SO"]["password"] = "limecat";
+  $modENCODE_DBFields_conf["cvterms"]["SO"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["SO"]["query"] = $cvquery;
 
   $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["dbname"] = "fb2007_02";
   $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["fly_gene"]["query"] = 
     "SELECT 
@@ -80,7 +80,7 @@
   $modENCODE_DBFields_conf["cvterms"]["organism"]["host"] = "localhost";
   $modENCODE_DBFields_conf["cvterms"]["organism"]["dbname"] = "wormbase_175";
   $modENCODE_DBFields_conf["cvterms"]["organism"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["organism"]["password"] = "ir84#4nm";
+  $modENCODE_DBFields_conf["cvterms"]["organism"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["organism"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["organism"]["query"] = 
     "SELECT name, id, def, urlprefix FROM 
@@ -105,7 +105,7 @@
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["host"] = "bop.lbl.gov";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["dbname"] = "wormbase_180";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["user"] = "db_public";
-  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["password"] = "limecat";
+  $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["password"] = "pw";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["type"] = "postgres";
   $modENCODE_DBFields_conf["cvterms"]["worm_gene"]["query"] = 
     "SELECT 

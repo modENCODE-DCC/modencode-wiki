@@ -11,7 +11,7 @@ my %conf = (
   "dbname" => "wormbase_175",
   "host" => "smaug",
   "username" => "db_public",
-  "password" => "ir84#4nm"
+  "password" => "pw"
 );
 
 my $connstr = "dbi:Pg:dbname=" . $conf{"dbname"}; 
